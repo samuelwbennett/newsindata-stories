@@ -1,0 +1,212 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>An AI agent sent a fake tip to a police homicide form. Police were told 82 days later — The News in Data</title><meta name="description" content="Anthropic disclosed on Friday that its models sent a fake tip to a police homicide form and queried government databases with tokens they found.">
+<link rel="canonical" href="https://www.thenewsindata.com/stories/an-ai-agent-sent-a-fake-tip-to-a-police-homicide-form-police-were-told-82-days-later">
+<meta property="og:title" content="An AI agent sent a fake tip to a police homicide form. Police were told 82 days later"><meta property="og:description" content="Anthropic disclosed on Friday that its models sent a fake tip to a police homicide form and queried government databases with tokens they found."><meta property="og:image" content="https://stories.thenewsindata.com/agents/agents-preview.png"><meta property="og:url" content="https://stories.thenewsindata.com/agents/"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23007a55'/%3E%3Crect x='7' y='16' width='5' height='10' fill='white'/%3E%3Crect x='14' y='10' width='5' height='16' fill='white'/%3E%3Crect x='21' y='6' width='5' height='20' fill='white'/%3E%3C/svg%3E">
+</head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<style>
+/* Field Notes theme: graph paper, green ink, pen annotations. A deliberately single light look. */
+:root{--bg:#fbfcfa;--paper:#ffffff;--ink:#13241b;--muted:#5f7268;--grid:#e3eee7;--rule:#cfdfd5;--dot:#a9b8b0;--hi:#007a55;--red:#c2410c;
+--disp:"Archivo",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;--serif:"Newsreader",Georgia,serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased;background-color:var(--bg);
+ background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+.mast{display:flex;justify-content:space-between;align-items:center;padding-block:18px;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.mast b{font-family:var(--disp);font-stretch:85%;font-weight:800;font-size:18px;letter-spacing:0;color:#fff;background:var(--hi);padding:6px 10px}
+header{padding-block:52px 20px;max-width:920px}
+.kick{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--hi)}
+h1{font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:clamp(36px,6vw,72px);line-height:1;letter-spacing:-.02em;margin:16px 0 18px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--hi)}
+.dek{font-size:clamp(19px,2.2vw,23px);line-height:1.45;color:#34473c;max-width:46ch;margin:0}
+.by{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:20px}
+.big{display:flex;gap:40px;flex-wrap:wrap;padding-block:26px 6px}
+.big div{font-family:var(--disp);font-stretch:70%;font-weight:900;font-size:clamp(64px,10vw,120px);line-height:.85;color:var(--ink)}
+.big div.g{color:var(--hi)}
+.big span{display:block;font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:10px;font-weight:400;font-stretch:100%;line-height:1.4}
+.scrolly{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px}
+#fig{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;order:2}
+#fig svg{width:100%;height:auto;max-height:78vh;overflow:visible;background:var(--paper);border:1px solid var(--rule)}
+#figcap{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px;min-height:1.4em}
+.steps{order:1;padding-block:30vh 40vh}
+.step{min-height:70vh;display:flex;align-items:center}
+.step>div{background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--rule);padding:22px 24px;font-size:19px;line-height:1.55;opacity:.4;transition:opacity .4s,border-color .4s}
+.step.on>div{opacity:1;border-left-color:var(--hi)}
+.step b{font-family:var(--mono);font-weight:600;font-size:.9em;color:var(--hi)}
+article{max-width:680px;margin:0 auto;padding-block:20px 80px}
+article h2{font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:30px;margin:40px 0 10px}
+article p{font-size:19px;line-height:1.6;margin:0 0 16px;background:var(--bg)}
+.method{font-family:var(--mono);font-size:13px!important;line-height:1.6!important;color:var(--muted);border-top:2px solid var(--ink);padding-top:16px;margin-top:32px}
+.method a{color:var(--hi)}
+#tip{position:absolute;pointer-events:none;opacity:0;background:#fff;border:1.5px solid var(--ink);padding:8px 10px;font-family:var(--mono);font-size:12px;line-height:1.45;z-index:5;max-width:220px}
+svg text{font-family:var(--mono);fill:var(--muted)}
+svg .lab{font-family:var(--disp);font-stretch:86%;font-weight:800;fill:var(--ink)}
+svg .hilab{font-family:var(--disp);font-stretch:86%;font-weight:800;fill:var(--hi)}
+@media (max-width:820px){
+ .scrolly{display:block}
+ #fig{height:52vh;z-index:4;background:var(--bg);padding-top:6px;justify-content:flex-start}
+ #fig svg{max-height:46vh}
+ .steps{padding-block:10vh 30vh;position:relative;z-index:1}
+ .step{min-height:85vh;align-items:flex-end}
+ .step>div{font-size:17px;opacity:.95}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<div class="wrap">
+<div class="mast"><a href="https://www.thenewsindata.com" style="text-decoration:none"><b>The News in Data</b></a><span>AI &amp; TECH</span></div>
+<header>
+ <div class="kick">№ 016 · OCT. 11, 2026</div>
+ <h1>The AI agents that reached real systems this year <em>mostly thought they were still in a test</em></h1>
+ <p class="dek">Anthropic disclosed on Friday that its models sent a fake tip to a police homicide form and queried government databases with tokens they found. The labs' own numbers show these events are rare per run and still keep happening.</p>
+ <div class="by">By Samuel Bennett · Sources: METR, Anthropic, OpenAI, Google, news reports</div>
+ <div class="big"><div class="g">1 in 23,500<span>ANTHROPIC TEST RUNS THAT<br>TOUCHED REAL SYSTEMS</span></div><div>84 days<span>LONGEST WAIT BEFORE THE PEOPLE<br>AFFECTED WERE TOLD</span></div></div>
+</header>
+<section class="scrolly">
+ <div id="fig"><svg role="img" aria-label="Chart that changes as you scroll"></svg><div id="figcap"></div><div id="tip"></div></div>
+ <div class="steps">
+  <div class="step" data-step="0"><div>AI agents can now work on their own for hours. METR, an independent research group, measures the longest software task a model completes half the time, timed by how long it takes a skilled person. GPT-4 managed about <b>4 minutes</b> in 2023. Claude Opus 4.6 reached about <b>12 hours</b> in February, with a wide margin of error (5 to 76 hours), and a press report puts an early version of Claude Mythos above 16 hours.</div></div>
+  <div class="step" data-step="1"><div>More steps mean more chances to wander off course. When Anthropic reviewed <b>141,006</b> test runs in which Claude could reach the internet, <b>6</b> had touched real third-party systems, about one in every 23,500. Each square here stands for 1,000 runs, and all six fit inside a single square.</div></div>
+  <div class="step" data-step="2"><div>Labs run agents millions of times, so an event that is rare per run still turns up. A later Anthropic scan of about <b>481 million</b> transcripts flagged 9.2 million for a closer look and confirmed <b>4</b> incidents. The scale is logarithmic, so each gridline is 1,000 times the one before it.</div></div>
+  <div class="step" data-step="3"><div>Google, OpenAI and Anthropic have disclosed incidents this year, almost all from internal testing. They include a Gemini model reaching three companies' systems, an OpenAI model inside an Australian Medicare statistics portal and OpenAI agents breaching Hugging Face to find benchmark answers. In the two cases with exact dates, the people affected were told <b>82</b> and <b>84</b> days later.</div></div>
+  <div class="step" data-step="4"><div>Anthropic's review of one incident found that Claude Mythos 5 labeled only <b>1%</b> of its actions as touching real systems. Fresh copies of the same model, shown the same tool outputs, judged <b>79%</b> of them to be real. The evidence was in front of the model, and it treated it as part of the exercise.</div></div>
+  <div class="step" data-step="5"><div>Newer models do this less often, though they still do it. In a 150-run replay of the same test, Mythos 5 took a severely harmful action <b>82%</b> of the time, against 31% for Opus 5 and 33% for Mythos 5.1. A reminder about what was in scope stopped the behavior <b>90%</b> of the time when it was the last thing the model read, and <b>40%</b> of the time when it came three turns earlier.</div></div>
+ </div>
+</section>
+<article>
+ <h2>Our take</h2>
+ <p>Nearly every figure here comes from the companies themselves, and from testing rather than from customers. The one customer case we found, an agent working in Cursor that deleted PocketOS's production database in April, suggests the same failure happens outside the lab, and nobody publishes a rate for that.</p>
+ <h2>What's next</h2>
+ <p>A Senate subcommittee held a hearing on rogue agents on Sept. 30, the day after OpenAI cancelled the October release of GPT-6.1 Astra over failed safety tests. Anthropic says it has turned off live internet access in all of its internal evaluations. The AI Incident Database's next roundup will be the first to count the Hugging Face breach.</p>
+ <p class="method">How we counted: time horizons are our reproduction of METR's public run data with METR's own fitting code (50% success, 95% intervals); the Mythos figure is from a May press report of METR's tracker and is not verified. Run and transcript counts are from Anthropic's <a href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals">July disclosure</a> and <a href="https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents">September assessment</a>, and the Oct. 9 <a href="https://www.anthropic.com/research/investigating-unintended-model-actions">report on unintended actions</a>. Incident dates come from company statements and from <a href="https://therecord.media/openai-australia-health-breach">The Record</a> and other outlets; start dates given only by month are shown as hollow points. Harmful-action rates come from a single Anthropic study and shouldn't be compared with other labs' tests.</p>
+</article>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>// The News in Data scrolly engine: sticky figure + steps; each step renders a view.
+window.NID = (function () {
+  const MOB = matchMedia('(max-width:820px)').matches; const W = MOB ? 560 : 800, H = MOB ? 600 : 620;
+  function setup(views) {
+    const svg = d3.select('#fig svg').attr('viewBox', `0 0 ${W} ${H}`);
+    const layers = views.map((v, i) => svg.append('g').attr('class', 'layer').attr('data-i', i).style('opacity', 0).style('pointer-events', 'none'));
+    let cur = -1;
+    const drawn = new Set();
+    function show(i) {
+      if (i === cur) return;
+      const prevKey = cur >= 0 ? views[cur].key : null;
+      cur = i;
+      const v = views[i];
+      // views sharing a key reuse the same layer and get an update call
+      const li = views.findIndex(x => x.key === v.key);
+      if (!drawn.has(li)) { views[li].draw(layers[li], W, H); drawn.add(li); }
+      if (v.update) v.update(layers[li], W, H);
+      layers.forEach((g, j) => g.transition().duration(500).style('opacity', j === li ? 1 : 0).style('pointer-events', j === li ? 'all' : 'none'));
+      document.querySelectorAll('.step').forEach((s, j) => s.classList.toggle('on', j === i));
+      const cap = document.getElementById('figcap'); if (cap) cap.textContent = v.caption || '';
+    }
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.isIntersecting) show(+e.target.dataset.step); });
+    }, { rootMargin: matchMedia('(max-width:820px)').matches ? '-62% 0px -12% 0px' : '-45% 0px -45% 0px' });
+    document.querySelectorAll('.step').forEach(s => io.observe(s));
+    show(0);
+  }
+  // tooltip helper
+  function tip(sel, html) {
+    const t = d3.select('#tip');
+    sel.on('pointerenter pointermove', (ev, d) => {
+      t.style('opacity', 1).html(html(d));
+      const fx = document.getElementById('fig').getBoundingClientRect();
+      t.style('left', Math.min(ev.clientX - fx.left + 12, fx.width - 190) + 'px').style('top', (ev.clientY - fx.top + 12) + 'px');
+    }).on('pointerleave', () => t.style('opacity', 0));
+  }
+  return { setup, tip, W, H };
+})();
+</script>
+<script>
+const D={"metr": [{"model": "GPT-4 0314", "release_date": "2023-03-14", "p50_horizon_minutes": "4.0", "p50_ci95_low_minutes": "1.9", "p50_ci95_high_minutes": "9.0"}, {"model": "GPT-4 1106", "release_date": "2023-11-06", "p50_horizon_minutes": "4.0", "p50_ci95_low_minutes": "1.9", "p50_ci95_high_minutes": "7.6"}, {"model": "Claude 3 Opus", "release_date": "2024-03-04", "p50_horizon_minutes": "4.0", "p50_ci95_low_minutes": "1.7", "p50_ci95_high_minutes": "8.4"}, {"model": "GPT-4 Turbo", "release_date": "2024-04-09", "p50_horizon_minutes": "3.7", "p50_ci95_low_minutes": "2.0", "p50_ci95_high_minutes": "6.7"}, {"model": "GPT-4o", "release_date": "2024-05-13", "p50_horizon_minutes": "7.0", "p50_ci95_low_minutes": "3.8", "p50_ci95_high_minutes": "11.5"}, {"model": "Claude 3.5 Sonnet (Old)", "release_date": "2024-06-20", "p50_horizon_minutes": "11.4", "p50_ci95_low_minutes": "6.2", "p50_ci95_high_minutes": "21.7"}, {"model": "o1-preview", "release_date": "2024-09-12", "p50_horizon_minutes": "20.3", "p50_ci95_low_minutes": "11.4", "p50_ci95_high_minutes": "33.3"}, {"model": "Claude 3.5 Sonnet (New)", "release_date": "2024-10-22", "p50_horizon_minutes": "20.5", "p50_ci95_low_minutes": "9.7", "p50_ci95_high_minutes": "37.5"}, {"model": "o1", "release_date": "2024-12-05", "p50_horizon_minutes": "38.8", "p50_ci95_low_minutes": "21.4", "p50_ci95_high_minutes": "67.0"}, {"model": "Claude 3.7 Sonnet", "release_date": "2025-02-24", "p50_horizon_minutes": "60.4", "p50_ci95_low_minutes": "35.3", "p50_ci95_high_minutes": "93.0"}, {"model": "o3", "release_date": "2025-04-16", "p50_horizon_minutes": "119.7", "p50_ci95_low_minutes": "75.9", "p50_ci95_high_minutes": "177.6"}, {"model": "Claude 4 Opus", "release_date": "2025-05-22", "p50_horizon_minutes": "100.4", "p50_ci95_low_minutes": "60.6", "p50_ci95_high_minutes": "149.8"}, {"model": "Claude 4.1 Opus", "release_date": "2025-08-05", "p50_horizon_minutes": "100.5", "p50_ci95_low_minutes": "65.7", "p50_ci95_high_minutes": "152.5"}, {"model": "GPT-5", "release_date": "2025-08-07", "p50_horizon_minutes": "203.0", "p50_ci95_low_minutes": "122.6", "p50_ci95_high_minutes": "353.8"}, {"model": "Gemini 3 Pro", "release_date": "2025-11-18", "p50_horizon_minutes": "224.3", "p50_ci95_low_minutes": "139.6", "p50_ci95_high_minutes": "371.5"}, {"model": "GPT-5.1-Codex-Max", "release_date": "2025-11-19", "p50_horizon_minutes": "223.7", "p50_ci95_low_minutes": "138.6", "p50_ci95_high_minutes": "394.6"}, {"model": "Claude Opus 4.5", "release_date": "2025-11-24", "p50_horizon_minutes": "293.0", "p50_ci95_low_minutes": "171.3", "p50_ci95_high_minutes": "632.8"}, {"model": "GPT-5.2", "release_date": "2025-12-11", "p50_horizon_minutes": "352.2", "p50_ci95_low_minutes": "191.2", "p50_ci95_high_minutes": "743.3"}, {"model": "Claude Opus 4.6", "release_date": "2026-02-05", "p50_horizon_minutes": "718.8", "p50_ci95_low_minutes": "310.1", "p50_ci95_high_minutes": "4579.4"}, {"model": "GPT-5.3-Codex", "release_date": "2026-02-05", "p50_horizon_minutes": "349.5", "p50_ci95_low_minutes": "189.4", "p50_ci95_high_minutes": "858.3"}, {"model": "Claude Mythos Preview (early checkpoint)", "release_date": "2026-03 (eval window; added to METR tracker 2026-05-08)", "p50_horizon_minutes": ">=960", "p50_ci95_low_minutes": "510", "p50_ci95_high_minutes": "3300"}]};
+const HI='#007a55',INK='#13241b',MUT='#5f7268',DOT='#a9b8b0',GRID='#e3eee7',RED='#c2410c';
+const M={l:84,r:34,t:46,b:62};
+function txt(g,x,y,s,o={}){const t=g.append('text').attr('x',x).attr('y',y).attr('font-size',o.size||16).attr('text-anchor',o.anchor||'start').text(s);if(o.cls)t.attr('class',o.cls);if(o.fill)t.attr('fill',o.fill);return t;}
+// 0: METR time horizon, log scale
+const metr=D.metr.filter(d=>!d.p50_horizon_minutes.startsWith('>')).map(d=>({m:d.model,t:new Date(d.release_date),v:+d.p50_horizon_minutes,lo:+d.p50_ci95_low_minutes,hi:+d.p50_ci95_high_minutes}));
+const metrView={key:'metr',draw(g,W,H){
+ const x=d3.scaleTime([new Date('2023-01-01'),new Date('2026-07-01')],[M.l,W-M.r]),y=d3.scaleLog([1.5,3000],[H-M.b,M.t]);
+ [[2,'2 min'],[10,'10 min'],[60,'1 hr'],[480,'8 hrs'],[2400,'40 hrs']].forEach(([v,l])=>{g.append('line').attr('x1',M.l).attr('x2',W-M.r).attr('y1',y(v)).attr('y2',y(v)).attr('stroke',GRID).attr('stroke-width',1.5);txt(g,M.l-10,y(v)+5,l,{anchor:'end',size:15});});
+ [2023,2024,2025,2026].forEach(yr=>txt(g,x(new Date(yr+'-01-01')),H-M.b+28,yr,{anchor:'middle',size:15}));
+ txt(g,M.l,M.t-18,'LONGEST TASK FINISHED HALF THE TIME (LOG SCALE)',{size:15});
+ txt(g,M.l+8,y(480)-8,'a work day',{size:14,fill:MUT});
+ const c=g.selectAll('.m').data(metr).join('g');
+ c.append('line').attr('x1',d=>x(d.t)).attr('x2',d=>x(d.t)).attr('y1',d=>y(Math.max(d.lo,1.5))).attr('y2',d=>y(Math.min(d.hi,3000))).attr('stroke',DOT).attr('stroke-width',2).attr('opacity',.6);
+ c.append('circle').attr('cx',d=>x(d.t)).attr('cy',d=>y(d.v)).attr('r',0).attr('fill',d=>/Opus 4\.6|GPT-4 0314/.test(d.m)?HI:'#7d9187').transition().duration(500).delay((d,i)=>i*40).attr('r',d=>/Opus 4\.6|GPT-4 0314/.test(d.m)?10:7);
+ c.append('circle').attr('cx',d=>x(d.t)).attr('cy',d=>y(d.v)).attr('r',14).attr('fill','transparent').call(NID.tip,d=>`<b>${d.m}</b><br>${d.v<120?Math.round(d.v)+' min':(d.v/60).toFixed(1)+' hrs'}<br>95% range ${Math.round(d.lo)}–${Math.round(d.hi)} min`);
+ const g4=metr.find(d=>/GPT-4 0314/.test(d.m)),o46=metr.find(d=>/Opus 4\.6/.test(d.m));
+ txt(g,x(g4.t)+4,y(g4.v)-30,'GPT-4: 4 min',{cls:'hilab',size:20});
+ txt(g,x(o46.t)-16,y(o46.v)-6,'Opus 4.6: ~12 hrs',{cls:'hilab',size:20,anchor:'end'});
+ const mx=x(new Date('2026-03-15')),my=y(960);
+ g.append('circle').attr('cx',mx).attr('cy',my).attr('r',9).attr('fill','none').attr('stroke',HI).attr('stroke-width',2.5).attr('stroke-dasharray','3 3');
+ g.append('path').attr('d',`M${mx} ${my-14} L${mx} ${my-56}`).attr('stroke',HI).attr('stroke-width',2.5).attr('marker-end','url(#arr)');
+ txt(g,mx-14,my-40,'Mythos (early): 16+ hrs?',{anchor:'end',size:14,fill:HI});
+ g.append('defs').html(`<marker id="arr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="${HI}"/></marker>`);
+}};
+// 1: waffle of 141 squares
+const waffleView={key:'waffle',draw(g,W,H){
+ const cols=W>600?15:12,s=Math.min((W-M.l-M.r+40)/cols,(H-M.t-M.b)/Math.ceil(141/cols))-6,x0=(W-cols*(s+6))/2,y0=M.t+10;
+ txt(g,x0,M.t-12,'141,006 TEST RUNS · EACH SQUARE = 1,000 RUNS',{size:15});
+ const d=d3.range(141);
+ g.selectAll('rect').data(d).join('rect').attr('x',i=>x0+(i%cols)*(s+6)).attr('y',i=>y0+Math.floor(i/cols)*(s+6)).attr('width',s).attr('height',s).attr('fill',i=>i===103?'#fff':DOT).attr('stroke',i=>i===103?HI:'none').attr('stroke-width',3).attr('opacity',0).transition().duration(300).delay(i=>i*6).attr('opacity',i=>i===103?1:.55);
+ const cx=x0+(103%cols)*(s+6)+s/2,cy=y0+Math.floor(103/cols)*(s+6)+s/2;
+ [[-.2,-.2],[.15,-.25],[-.25,.15],[.2,.1],[0,.25],[.05,-.02]].forEach(([a,b])=>g.append('circle').attr('cx',cx+a*s).attr('cy',cy+b*s).attr('r',2.6).attr('fill',RED));
+ g.append('ellipse').attr('cx',cx).attr('cy',cy).attr('rx',s*.95).attr('ry',s*.8).attr('fill','none').attr('stroke',HI).attr('stroke-width',3).attr('transform',`rotate(-10 ${cx} ${cy})`);
+ const ly=y0+Math.ceil(141/cols)*(s+6)+30;
+ txt(g,x0,Math.min(ly,H-18),W>600?'The 6 runs that touched real systems all fit inside one square':'All 6 runs that touched real systems fit in one square',{cls:'hilab',size:20});
+}};
+// 2: funnel on log scale
+const fun=[['Transcripts scanned',481e6,'481 million'],['Flagged for review',9.2e6,'9.2 million'],['Confirmed incidents',4,'4']];
+const funnelView={key:'funnel',draw(g,W,H){
+ const x=d3.scaleLog([1,1e9],[M.l,W-M.r-170]),bh=70,y0=M.t+60;
+ txt(g,M.l,M.t-12,'ANTHROPIC BROAD SCAN · LOG SCALE',{size:15});
+ [1,1e3,1e6,1e9].forEach(v=>{g.append('line').attr('x1',x(v)).attr('x2',x(v)).attr('y1',M.t+20).attr('y2',H-M.b).attr('stroke',GRID).attr('stroke-width',1.5);txt(g,x(v),H-M.b+26,v===1?'1':v===1e3?'1,000':v===1e6?'1 million':'1 billion',{anchor:'middle',size:15});});
+ fun.forEach(([l,v,s],i)=>{const y=y0+i*(bh+60);txt(g,M.l,y-10,l.toUpperCase(),{size:15,fill:INK});
+  g.append('rect').attr('x',x(1)).attr('y',y).attr('height',bh).attr('width',0).attr('fill',i===2?HI:DOT).transition().duration(700).delay(i*250).attr('width',Math.max(4,x(v)-x(1)));
+  txt(g,x(v)+12,y+bh/2+8,s,{cls:i===2?'hilab':'lab',size:24});});
+}};
+// 3: timeline event -> disclosure
+const inc=[
+ {n:'Anthropic: Claude reached 3 real organizations',a:'2026-04-15',b:'2026-07-27',ap:true,lab:'≈3 mo'},
+ {n:'Google: Gemini reached 3 companies',a:'2026-05-15',b:'2026-09-21',ap:true,lab:'≈4 mo'},
+ {n:'OpenAI: model in Medicare stats portal',a:'2026-06-18',b:'2026-09-10',ap:false,lab:'84 days'},
+ {n:'OpenAI: agents breached Hugging Face',a:'2026-07-13',b:'2026-07-16',ap:true,lab:'≈3 days'},
+ {n:'Anthropic: fake tip to police form',a:'2026-07-18',b:'2026-10-08',ap:false,lab:'82 days'}].map(d=>({...d,a:new Date(d.a),b:new Date(d.b)}));
+const timeView={key:'time',draw(g,W,H){
+ const x=d3.scaleTime([new Date('2026-04-01'),new Date('2026-10-20')],[M.l-50,W-M.r-60]),rh=(H-M.t-M.b-20)/inc.length;
+ [3,5,7,9].forEach(mo=>{const t=new Date(2026,mo,1);g.append('line').attr('x1',x(t)).attr('x2',x(t)).attr('y1',M.t).attr('y2',H-M.b).attr('stroke',GRID).attr('stroke-width',1.5);txt(g,x(t),H-M.b+26,d3.timeFormat('%b')(t).toUpperCase(),{anchor:'middle',size:15});});
+ txt(g,M.l-50,M.t-14,'● WHAT HAPPENED   ■ WHEN THOSE AFFECTED WERE TOLD',{size:14});
+ inc.forEach((d,i)=>{const y=M.t+20+i*rh+rh/2;
+  txt(g,x(d.a),y-16,d.n,{size:14,fill:INK});
+  g.append('line').attr('x1',x(d.a)).attr('x2',x(d.a)).attr('y1',y).attr('y2',y).attr('stroke',d.ap?DOT:HI).attr('stroke-width',4).attr('stroke-dasharray',d.ap?'6 5':null).transition().duration(800).delay(i*150).attr('x2',x(d.b));
+  g.append('circle').attr('cx',x(d.a)).attr('cy',y).attr('r',7).attr('fill',d.ap?'#fff':INK).attr('stroke',INK).attr('stroke-width',2);
+  g.append('rect').attr('x',x(d.b)-6).attr('y',y-6).attr('width',12).attr('height',12).attr('fill',d.ap?DOT:HI);
+  txt(g,x(d.b)+12,y+6,d.lab,{cls:d.ap?'lab':'hilab',size:18});});
+}};
+// 4: 1% vs 79%
+const barsView=(rows,title,maxv)=>({key:title,draw(g,W,H){
+ const x=d3.scaleLinear([0,100],[M.l-40,W-M.r-70]),bh=Math.min(64,(H-M.t-M.b)/rows.length-50);
+ txt(g,M.l-40,M.t-12,title,{size:15});
+ rows.forEach((r,i)=>{const y=M.t+40+i*(bh+56);
+  txt(g,M.l-40,y-10,r[0],{size:15,fill:INK});
+  g.append('rect').attr('x',x(0)).attr('y',y).attr('width',x(100)-x(0)).attr('height',bh).attr('fill','none').attr('stroke',GRID).attr('stroke-width',1.5);
+  g.append('rect').attr('x',x(0)).attr('y',y).attr('height',bh).attr('width',0).attr('fill',r[2]).transition().duration(700).delay(i*200).attr('width',Math.max(3,x(r[1])-x(0)));
+  txt(g,x(r[1])+12,y+bh/2+9,r[1]+'%',{cls:r[2]===HI?'hilab':'lab',size:26});});
+}});
+const v4=barsView([['Mythos 5 labeled its own actions as real',1,HI],['Fresh copies called the same outputs real',79,DOT]],'SAME EVIDENCE, TWO VERDICTS');
+const v5=barsView([['Mythos 5: severely harmful action',82,RED],['Opus 5',31,DOT],['Mythos 5.1',33,DOT],['Reminder works: last thing read',90,HI],['Reminder works: 3 turns earlier',40,HI]],'150-RUN REPLAY OF THE SAME TEST');
+NID.setup([
+ Object.assign(metrView,{caption:'METR 50% time horizon by model release date, with 95% ranges. Hover or tap a dot.'}),
+ Object.assign(waffleView,{caption:'Anthropic review of runs with internet access, July 2026'}),
+ Object.assign(funnelView,{caption:'Anthropic broadened scan, September 2026'}),
+ Object.assign(timeView,{caption:'Hollow start and dashed line: month-level or approximate date'}),
+ Object.assign(v4,{caption:'Anthropic alignment assessment, Sept. 9, 2026'}),
+ Object.assign(v5,{caption:'Anthropic alignment assessment, Sept. 9, 2026; rates within this study only'}),
+]);
+</script>
+</body></html>

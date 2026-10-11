@@ -1,0 +1,199 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dak Prescott ranks fifth among NFL quarterbacks, and the Cowboys' defense ranks 31st — The News in Data</title><meta name="description" content="A man in the stadium tunnel called Thursday's loss embarrassing. Five weeks of play-by-play data point at the other side of the ball.">
+<link rel="canonical" href="https://www.thenewsindata.com/stories/dak-prescott-ranks-fifth-among-nfl-quarterbacks-and-the-cowboys-defense-ranks-31st">
+<meta property="og:title" content="Dak Prescott ranks fifth among NFL quarterbacks, and the Cowboys' defense ranks 31st"><meta property="og:description" content="A man in the stadium tunnel called Thursday's loss embarrassing. Five weeks of play-by-play data point at the other side of the ball."><meta property="og:image" content="https://stories.thenewsindata.com/dak/dak-preview.png"><meta property="og:url" content="https://stories.thenewsindata.com/dak/"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23007a55'/%3E%3Crect x='7' y='16' width='5' height='10' fill='white'/%3E%3Crect x='14' y='10' width='5' height='16' fill='white'/%3E%3Crect x='21' y='6' width='5' height='20' fill='white'/%3E%3C/svg%3E">
+</head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<style>
+/* Scoreboard theme: a deliberately single dark look for sports stories */
+:root{--bg:#0c2219;--panel:#10291f;--ink:#e8f1ec;--muted:#8fa99d;--grid:#1f3c30;--dot:#40604f;--hi:#3ddc97;--warn:#f2b84b;
+--disp:"Archivo",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;--serif:"Newsreader",Georgia,serif;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+.mast{display:flex;justify-content:space-between;align-items:center;padding-block:18px;border-bottom:1px solid var(--grid);font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--muted)}
+.mast b{font-family:var(--disp);font-stretch:85%;font-weight:800;font-size:18px;letter-spacing:0;color:var(--ink);background:#007a55;padding:6px 10px}
+header{padding-block:56px 24px;max-width:900px}
+.kick{font-family:var(--mono);font-size:13px;letter-spacing:.12em;color:var(--hi)}
+h1{font-family:var(--disp);font-stretch:78%;font-weight:850;font-size:clamp(40px,7vw,84px);line-height:.95;letter-spacing:-.01em;text-transform:uppercase;margin:16px 0 18px;text-wrap:balance}
+.dek{font-size:clamp(19px,2.2vw,23px);line-height:1.45;color:#c4d6cd;max-width:44ch;margin:0}
+.by{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:20px}
+.big{display:flex;gap:28px;align-items:flex-end;flex-wrap:wrap;padding-block:24px 8px}
+.big div{font-family:var(--disp);font-stretch:62%;font-weight:900;font-size:clamp(84px,14vw,170px);line-height:.8;color:var(--hi)}
+.big span{display:block;font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--muted);margin-top:10px;font-stretch:100%;font-weight:400;line-height:1.4}
+.big .alt{color:var(--warn)}
+.scrolly{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px;position:relative}
+#fig{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;order:2}
+#fig svg{width:100%;height:auto;max-height:78vh;overflow:visible}
+#figcap{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px;min-height:1.4em}
+.steps{order:1;padding-block:30vh 40vh}
+.step{min-height:70vh;display:flex;align-items:center}
+.step>div{background:var(--panel);border:1px solid var(--grid);padding:22px 24px;font-size:19px;line-height:1.55;opacity:.35;transition:opacity .4s}
+.step.on>div{opacity:1;border-color:#2c5444}
+.step b{font-family:var(--mono);font-weight:600;font-size:.9em;color:var(--hi)}
+article{max-width:680px;margin:0 auto;padding-block:20px 80px}
+article h2{font-family:var(--disp);font-stretch:85%;font-weight:800;font-size:28px;text-transform:uppercase;margin:40px 0 10px}
+article p{font-size:19px;line-height:1.6;margin:0 0 16px}
+.method{font-family:var(--mono);font-size:13px;line-height:1.6;color:var(--muted);border-top:1px solid var(--grid);padding-top:16px;margin-top:32px}
+.method a{color:var(--hi)}
+#tip{position:absolute;pointer-events:none;opacity:0;background:#05140e;border:1px solid var(--hi);padding:8px 10px;font-family:var(--mono);font-size:12px;line-height:1.45;z-index:5;max-width:200px}
+svg text{font-family:var(--mono);fill:var(--muted)}
+svg .lab{font-family:var(--disp);font-stretch:85%;font-weight:800;fill:var(--ink)}
+svg .hilab{font-family:var(--disp);font-stretch:85%;font-weight:800;fill:var(--hi)}
+@media (max-width:820px){
+ .scrolly{display:block}
+ #fig{height:52vh;top:0;z-index:4;background:var(--bg);padding-top:6px;border-bottom:1px solid var(--grid);justify-content:flex-start}
+ #fig svg{max-height:46vh}
+ .steps{padding-block:10vh 30vh;position:relative;z-index:1}
+ .step{min-height:85vh;align-items:flex-end}
+ .step>div{font-size:17px;opacity:.9}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<div class="wrap">
+<div class="mast"><a href="https://www.thenewsindata.com" style="text-decoration:none"><b>The News in Data</b></a><span>SPORTS / NFL</span></div>
+<header>
+ <div class="kick">OCT. 11, 2026 · DALLAS COWBOYS</div>
+ <h1>Dak Prescott ranks fifth among NFL quarterbacks, and the Cowboys' defense ranks 31st</h1>
+ <p class="dek">A man in the stadium tunnel called Thursday's loss embarrassing. Five weeks of play-by-play data point at the other side of the ball.</p>
+ <div class="by">By Samuel Bennett · Data through Week 5</div>
+ <div class="big"><div>5th<span>DAK PRESCOTT, EPA PER PLAY<br>OF 26 QUARTERBACKS</span></div><div class="alt">31st<span>COWBOYS DEFENSE, EPA ALLOWED<br>OF 32 TEAMS</span></div></div>
+</header>
+<section class="scrolly">
+ <div id="fig"><svg role="img" aria-label="Chart that changes as you scroll"></svg><div id="figcap"></div><div id="tip"></div></div>
+ <div class="steps">
+  <div class="step" data-step="0"><div>Dallas lost 24-16 at home on Thursday to a Tampa Bay team that had not won a game. As Prescott walked off, a man in the tunnel said "embarrassing," and Prescott had him removed. Reports describe the man as a driver for a car-service contractor, and claims that he was fired come from Skip Bayless and a TikTok video, which no employer has confirmed.</div></div>
+  <div class="step" data-step="1"><div>The chart shows Prescott's expected points added in each game, a measure of how much his plays raised or lowered Dallas's expected score. Thursday was his only negative game, at <b>−3.2</b>. In the first four weeks he added between <b>13.7</b> and <b>17.5</b> points a game, and Dallas still lost two of those games, 28-20 to the Giants and 34-31 to the Ravens.</div></div>
+  <div class="step" data-step="2"><div>Across five weeks Prescott has added <b>0.267</b> expected points per play, fifth among 26 quarterbacks with at least 100 dropbacks. ESPN's QBR, which also counts runs and sacks, ranks him second at <b>79.2</b>. Hover or tap a bar to see any quarterback.</div></div>
+  <div class="step" data-step="3"><div>Each dot is a team, with offense across and defense up the side. Dallas's offense ranks <b>4th</b> in EPA per play, while its defense allows <b>0.182</b> points per play, 31st of 32, ahead of only Detroit. The Cowboys score 27.6 points a game and allow 27.2.</div></div>
+  <div class="step" data-step="4"><div>Prescott's contract pays <b>$60 million</b> a year, second to Patrick Mahomes's $63.1 million. Among the 13 quarterbacks paid at least $50 million a year, he ranks fifth in EPA per play, ahead of Mahomes. His cap hit is $43.5 million this season and rises to <b>$76 million</b> in 2027 and <b>$86 million</b> in 2028, which leaves less room to rebuild the defense.</div></div>
+  <div class="step" data-step="5"><div>This is the fifth time in ten ranked seasons that Prescott has finished in the top six in EPA per play. He was 2nd in 2023 and 6th in 2025, and his low point, 22nd in 2024, came in a season cut short by injury after eight games.</div></div>
+ </div>
+</section>
+<article>
+ <h2>What's next</h2>
+ <p>Five games is a small sample, and one strong month from the defense or one bad month from Prescott could move these ranks a long way. We'll update the charts after Week 8, when each team will be about halfway through its season.</p>
+ <p class="method">How we counted: expected points added (EPA) and completion percentage over expected come from nflverse play-by-play data through Week 5 of the 2026 season, for quarterbacks with at least 100 dropbacks. QBR and passer rating are from Pro-Football-Reference (updated Oct. 10). Contract figures are from Spotrac, OverTheCap and Sports Illustrated. Sources on the tunnel exchange: <a href="https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/dak-prescott-did-not-appreciate-stadium-worker-calling-cowboys-loss-embarrassing">PFT</a>, <a href="https://www.mediaite.com/media/sports/dallas-cowboys-qb-demands-worker-be-removed-for-calling-him-out-on-embarrassing-loss/">Mediaite</a>, <a href="https://www.totalprosports.com/nfl/dallas-cowboys/man-on-tiktok-claims-to-be-dak-prescott-heckler-embarrassing/">TotalProSports</a>.</p>
+</article>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>// The News in Data scrolly engine: sticky figure + steps; each step renders a view.
+window.NID = (function () {
+  const MOB = matchMedia('(max-width:820px)').matches; const W = MOB ? 560 : 800, H = MOB ? 600 : 620;
+  function setup(views) {
+    const svg = d3.select('#fig svg').attr('viewBox', `0 0 ${W} ${H}`);
+    const layers = views.map((v, i) => svg.append('g').attr('class', 'layer').attr('data-i', i).style('opacity', 0).style('pointer-events', 'none'));
+    let cur = -1;
+    const drawn = new Set();
+    function show(i) {
+      if (i === cur) return;
+      const prevKey = cur >= 0 ? views[cur].key : null;
+      cur = i;
+      const v = views[i];
+      // views sharing a key reuse the same layer and get an update call
+      const li = views.findIndex(x => x.key === v.key);
+      if (!drawn.has(li)) { views[li].draw(layers[li], W, H); drawn.add(li); }
+      if (v.update) v.update(layers[li], W, H);
+      layers.forEach((g, j) => g.transition().duration(500).style('opacity', j === li ? 1 : 0).style('pointer-events', j === li ? 'all' : 'none'));
+      document.querySelectorAll('.step').forEach((s, j) => s.classList.toggle('on', j === i));
+      const cap = document.getElementById('figcap'); if (cap) cap.textContent = v.caption || '';
+    }
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.isIntersecting) show(+e.target.dataset.step); });
+    }, { rootMargin: matchMedia('(max-width:820px)').matches ? '-62% 0px -12% 0px' : '-45% 0px -45% 0px' });
+    document.querySelectorAll('.step').forEach(s => io.observe(s));
+    show(0);
+  }
+  // tooltip helper
+  function tip(sel, html) {
+    const t = d3.select('#tip');
+    sel.on('pointerenter pointermove', (ev, d) => {
+      t.style('opacity', 1).html(html(d));
+      const fx = document.getElementById('fig').getBoundingClientRect();
+      t.style('left', Math.min(ev.clientX - fx.left + 12, fx.width - 190) + 'px').style('top', (ev.clientY - fx.top + 12) + 'px');
+    }).on('pointerleave', () => t.style('opacity', 0));
+  }
+  return { setup, tip, W, H };
+})();
+</script>
+<script>
+const D={"qbs": [{"qb": "Brock Purdy", "team": "SF", "epa_per_play": "0.504", "epa_rank": "1", "contract_apy_musd": "53.0", "espn_qbr": "89.2"}, {"qb": "Lamar Jackson", "team": "BAL", "epa_per_play": "0.355", "epa_rank": "2", "contract_apy_musd": "52.0", "espn_qbr": ""}, {"qb": "Josh Allen", "team": "BUF", "epa_per_play": "0.294", "epa_rank": "3", "contract_apy_musd": "55.0", "espn_qbr": "69.5"}, {"qb": "Jared Goff", "team": "DET", "epa_per_play": "0.282", "epa_rank": "4", "contract_apy_musd": "53.0", "espn_qbr": "66.3"}, {"qb": "Dak Prescott", "team": "DAL", "epa_per_play": "0.267", "epa_rank": "5", "contract_apy_musd": "60.0", "espn_qbr": "79.2"}, {"qb": "Bryce Young", "team": "CAR", "epa_per_play": "0.235", "epa_rank": "6", "contract_apy_musd": "9.49", "espn_qbr": "74.7"}, {"qb": "Trevor Lawrence", "team": "JAX", "epa_per_play": "0.234", "epa_rank": "7", "contract_apy_musd": "55.0", "espn_qbr": "73.3"}, {"qb": "Kirk Cousins", "team": "LV", "epa_per_play": "0.205", "epa_rank": "8", "contract_apy_musd": "11.3", "espn_qbr": "65.7"}, {"qb": "Patrick Mahomes", "team": "KC", "epa_per_play": "0.198", "epa_rank": "9", "contract_apy_musd": "63.1", "espn_qbr": "69.7"}, {"qb": "Deshaun Watson", "team": "CLE", "epa_per_play": "0.133", "epa_rank": "10", "contract_apy_musd": "46.0", "espn_qbr": "58.6"}, {"qb": "Joe Burrow", "team": "CIN", "epa_per_play": "0.124", "epa_rank": "11", "contract_apy_musd": "55.0", "espn_qbr": "69.4"}, {"qb": "Geno Smith", "team": "NYJ", "epa_per_play": "0.124", "epa_rank": "12", "contract_apy_musd": "", "espn_qbr": "60.5"}, {"qb": "C.J. Stroud", "team": "HOU", "epa_per_play": "0.08", "epa_rank": "13", "contract_apy_musd": "9.07", "espn_qbr": "54.5"}, {"qb": "Tyler Shough", "team": "NO", "epa_per_play": "0.07", "epa_rank": "14", "contract_apy_musd": "", "espn_qbr": "62.4"}, {"qb": "Matthew Stafford", "team": "LA", "epa_per_play": "0.064", "epa_rank": "15", "contract_apy_musd": "55.0", "espn_qbr": "60.5"}, {"qb": "Drake Maye", "team": "NE", "epa_per_play": "0.055", "epa_rank": "16", "contract_apy_musd": "9.16", "espn_qbr": "66.2"}, {"qb": "Jordan Love", "team": "GB", "epa_per_play": "0.043", "epa_rank": "17", "contract_apy_musd": "55.0", "espn_qbr": "53.2"}, {"qb": "Jacoby Brissett", "team": "ARI", "epa_per_play": "0.032", "epa_rank": "18", "contract_apy_musd": "15.5", "espn_qbr": "63.3"}, {"qb": "Bo Nix", "team": "DEN", "epa_per_play": "0.026", "epa_rank": "19", "contract_apy_musd": "", "espn_qbr": "46.7"}, {"qb": "Jalen Hurts", "team": "PHI", "epa_per_play": "-0.016", "epa_rank": "20", "contract_apy_musd": "51.0", "espn_qbr": "58.6"}, {"qb": "Cam Ward", "team": "TEN", "epa_per_play": "-0.032", "epa_rank": "21", "contract_apy_musd": "12.21", "espn_qbr": "47.6"}, {"qb": "Aaron Rodgers", "team": "PIT", "epa_per_play": "-0.048", "epa_rank": "22", "contract_apy_musd": "22.5", "espn_qbr": "44.8"}, {"qb": "Malik Willis", "team": "MIA", "epa_per_play": "-0.091", "epa_rank": "23", "contract_apy_musd": "22.5", "espn_qbr": "38.8"}, {"qb": "Daniel Jones", "team": "IND", "epa_per_play": "-0.092", "epa_rank": "24", "contract_apy_musd": "44.0", "espn_qbr": "37.9"}, {"qb": "Justin Herbert", "team": "LAC", "epa_per_play": "-0.108", "epa_rank": "25", "contract_apy_musd": "52.5", "espn_qbr": "28.5"}, {"qb": "Baker Mayfield", "team": "TB", "epa_per_play": "-0.236", "epa_rank": "26", "contract_apy_musd": "55.0", "espn_qbr": ""}], "games": [{"week": "1", "opponent": "NYG", "dal_score": "20", "opp_score": "28", "plays": "41", "qb_epa_total": "17.4", "epa_per_play": "0.425", "cpoe": "7.73", "att": "34", "cmp": "22", "pass_yds": "175", "pass_td": "2", "int_": "1", "sacks": "0"}, {"week": "2", "opponent": "WAS", "dal_score": "37", "opp_score": "20", "plays": "38", "qb_epa_total": "17.5", "epa_per_play": "0.459", "cpoe": "18.02", "att": "31", "cmp": "26", "pass_yds": "279", "pass_td": "4", "int_": "0", "sacks": "2"}, {"week": "3", "opponent": "BAL", "dal_score": "31", "opp_score": "34", "plays": "48", "qb_epa_total": "13.7", "epa_per_play": "0.286", "cpoe": "-3.84", "att": "41", "cmp": "25", "pass_yds": "276", "pass_td": "1", "int_": "0", "sacks": "1"}, {"week": "4", "opponent": "HOU", "dal_score": "34", "opp_score": "30", "plays": "53", "qb_epa_total": "14.6", "epa_per_play": "0.275", "cpoe": "3.28", "att": "45", "cmp": "32", "pass_yds": "335", "pass_td": "1", "int_": "0", "sacks": "3"}, {"week": "5", "opponent": "TB", "dal_score": "16", "opp_score": "24", "plays": "45", "qb_epa_total": "-3.2", "epa_per_play": "-0.071", "cpoe": "-9.99", "att": "43", "cmp": "24", "pass_yds": "316", "pass_td": "1", "int_": "2", "sacks": "0"}], "teams": [{"team": "SF", "off_epa_per_play": "0.274", "def_epa_per_play_allowed": "0.007", "off_rank": "1", "def_rank": "14"}, {"team": "BUF", "off_epa_per_play": "0.195", "def_epa_per_play_allowed": "0.117", "off_rank": "2", "def_rank": "29"}, {"team": "BAL", "off_epa_per_play": "0.16", "def_epa_per_play_allowed": "0.008", "off_rank": "3", "def_rank": "15"}, {"team": "KC", "off_epa_per_play": "0.157", "def_epa_per_play_allowed": "-0.031", "off_rank": "5", "def_rank": "9"}, {"team": "DAL", "off_epa_per_play": "0.157", "def_epa_per_play_allowed": "0.182", "off_rank": "4", "def_rank": "31"}, {"team": "DET", "off_epa_per_play": "0.144", "def_epa_per_play_allowed": "0.203", "off_rank": "6", "def_rank": "32"}, {"team": "JAX", "off_epa_per_play": "0.137", "def_epa_per_play_allowed": "-0.063", "off_rank": "7", "def_rank": "6"}, {"team": "CHI", "off_epa_per_play": "0.116", "def_epa_per_play_allowed": "-0.066", "off_rank": "8", "def_rank": "5"}, {"team": "CAR", "off_epa_per_play": "0.086", "def_epa_per_play_allowed": "0.016", "off_rank": "9", "def_rank": "16"}, {"team": "CIN", "off_epa_per_play": "0.046", "def_epa_per_play_allowed": "-0.023", "off_rank": "10", "def_rank": "10"}, {"team": "LV", "off_epa_per_play": "0.03", "def_epa_per_play_allowed": "-0.122", "off_rank": "11", "def_rank": "2"}, {"team": "SEA", "off_epa_per_play": "0.019", "def_epa_per_play_allowed": "-0.103", "off_rank": "12", "def_rank": "3"}, {"team": "NYJ", "off_epa_per_play": "0.018", "def_epa_per_play_allowed": "0.024", "off_rank": "13", "def_rank": "18"}, {"team": "NO", "off_epa_per_play": "0.01", "def_epa_per_play_allowed": "0.153", "off_rank": "14", "def_rank": "30"}, {"team": "LA", "off_epa_per_play": "0.006", "def_epa_per_play_allowed": "-0.098", "off_rank": "15", "def_rank": "4"}, {"team": "CLE", "off_epa_per_play": "-0.006", "def_epa_per_play_allowed": "0.016", "off_rank": "16", "def_rank": "17"}, {"team": "ARI", "off_epa_per_play": "-0.019", "def_epa_per_play_allowed": "0.085", "off_rank": "17", "def_rank": "27"}, {"team": "DEN", "off_epa_per_play": "-0.021", "def_epa_per_play_allowed": "0.046", "off_rank": "18", "def_rank": "23"}, {"team": "ATL", "off_epa_per_play": "-0.025", "def_epa_per_play_allowed": "-0.055", "off_rank": "19", "def_rank": "8"}, {"team": "HOU", "off_epa_per_play": "-0.03", "def_epa_per_play_allowed": "0.064", "off_rank": "20", "def_rank": "25"}, {"team": "WAS", "off_epa_per_play": "-0.036", "def_epa_per_play_allowed": "0.029", "off_rank": "21", "def_rank": "19"}, {"team": "NE", "off_epa_per_play": "-0.039", "def_epa_per_play_allowed": "-0.011", "off_rank": "22", "def_rank": "12"}, {"team": "NYG", "off_epa_per_play": "-0.047", "def_epa_per_play_allowed": "0.031", "off_rank": "23", "def_rank": "20"}, {"team": "IND", "off_epa_per_play": "-0.048", "def_epa_per_play_allowed": "0.039", "off_rank": "24", "def_rank": "22"}, {"team": "PIT", "off_epa_per_play": "-0.072", "def_epa_per_play_allowed": "-0.003", "off_rank": "25", "def_rank": "13"}, {"team": "GB", "off_epa_per_play": "-0.074", "def_epa_per_play_allowed": "0.07", "off_rank": "26", "def_rank": "26"}, {"team": "TEN", "off_epa_per_play": "-0.074", "def_epa_per_play_allowed": "0.038", "off_rank": "27", "def_rank": "21"}, {"team": "MIN", "off_epa_per_play": "-0.084", "def_epa_per_play_allowed": "-0.209", "off_rank": "28", "def_rank": "1"}, {"team": "TB", "off_epa_per_play": "-0.092", "def_epa_per_play_allowed": "-0.059", "off_rank": "29", "def_rank": "7"}, {"team": "PHI", "off_epa_per_play": "-0.11", "def_epa_per_play_allowed": "0.062", "off_rank": "30", "def_rank": "24"}, {"team": "MIA", "off_epa_per_play": "-0.144", "def_epa_per_play_allowed": "0.092", "off_rank": "31", "def_rank": "28"}, {"team": "LAC", "off_epa_per_play": "-0.146", "def_epa_per_play_allowed": "-0.021", "off_rank": "32", "def_rank": "11"}], "career": [{"season": "2016", "epa_per_play": "0.272", "epa_rank": "3", "qbs_ranked": "30", "games": "16"}, {"season": "2017", "epa_per_play": "0.026", "epa_rank": "20", "qbs_ranked": "29", "games": "16"}, {"season": "2018", "epa_per_play": "0.073", "epa_rank": "18", "qbs_ranked": "31", "games": "16"}, {"season": "2019", "epa_per_play": "0.209", "epa_rank": "5", "qbs_ranked": "29", "games": "16"}, {"season": "2020", "epa_per_play": "0.16", "epa_rank": "", "qbs_ranked": "", "games": "5"}, {"season": "2021", "epa_per_play": "0.136", "epa_rank": "10", "qbs_ranked": "31", "games": "16"}, {"season": "2022", "epa_per_play": "0.154", "epa_rank": "8", "qbs_ranked": "31", "games": "12"}, {"season": "2023", "epa_per_play": "0.246", "epa_rank": "2", "qbs_ranked": "29", "games": "17"}, {"season": "2024", "epa_per_play": "0.012", "epa_rank": "22", "qbs_ranked": "31", "games": "8"}, {"season": "2025", "epa_per_play": "0.191", "epa_rank": "6", "qbs_ranked": "27", "games": "17"}, {"season": "2026", "epa_per_play": "0.267", "epa_rank": "5", "qbs_ranked": "26", "games": "5"}]};
+const HI='#3ddc97',DOT='#40604f',GRID='#1f3c30',INK='#e8f1ec',MUT='#8fa99d',WARN='#f2b84b';
+const M={l:70,r:30,t:40,b:60};
+function axisY(g,y,ticks,fmt,W){ticks.forEach(t=>{g.append('line').attr('x1',M.l).attr('x2',W-M.r).attr('y1',y(t)).attr('y2',y(t)).attr('stroke',GRID).attr('stroke-width',t===0?2:1);g.append('text').attr('x',M.l-10).attr('y',y(t)+5).attr('text-anchor','end').attr('font-size',17).text(fmt(t));});}
+const games=D.games.map(d=>({wk:+d.week,opp:d.opponent,ds:+d.dal_score,os:+d.opp_score,epa:+d.qb_epa_total}));
+const gameView=(hiFn)=>({key:'games',draw(g,W,H){
+  const x=d3.scaleBand(games.map(d=>d.wk),[M.l,W-M.r]).padding(.28),y=d3.scaleLinear([-6,20],[H-M.b,M.t]);
+  axisY(g,y,[-5,0,5,10,15,20],d=>d>0?'+'+d:d,W);
+  g.append('text').attr('x',M.l).attr('y',M.t-14).attr('font-size',16).text('PRESCOTT EPA PER GAME, 2026');
+  const b=g.selectAll('.b').data(games).join('g').attr('class','b');
+  b.append('rect').attr('x',d=>x(d.wk)).attr('width',x.bandwidth()).attr('y',y(0)).attr('height',0).attr('fill',DOT)
+   .transition().duration(700).attr('y',d=>y(Math.max(0,d.epa))).attr('height',d=>Math.abs(y(d.epa)-y(0)));
+  b.append('text').attr('class','lab').attr('x',d=>x(d.wk)+x.bandwidth()/2).attr('y',d=>d.epa>0?y(d.epa)-10:y(d.epa)+26).attr('text-anchor','middle').attr('font-size',22).text(d=>(d.epa>0?'+':'')+d.epa);
+  b.append('text').attr('x',d=>x(d.wk)+x.bandwidth()/2).attr('y',H-M.b+26).attr('text-anchor','middle').attr('font-size',16).text(d=>'WK'+d.wk+' '+d.opp);
+  b.append('text').attr('class','res').attr('x',d=>x(d.wk)+x.bandwidth()/2).attr('y',H-M.b+48).attr('text-anchor','middle').attr('font-size',15).text(d=>(d.ds>d.os?'W ':'L ')+d.ds+'-'+d.os);
+ },update(g){g.selectAll('.b rect').transition('fill').duration(400).attr('fill',d=>hiFn(d)?HI:DOT);g.selectAll('.b .res').attr('fill',d=>hiFn(d)?HI:MUT);}});
+const qbs=D.qbs.map(d=>({qb:d.qb,team:d.team,epa:+d.epa_per_play,rank:+d.epa_rank,apy:d.contract_apy_musd?+d.contract_apy_musd:null,qbr:d.espn_qbr}));
+const rankView={key:'rank',draw(g,W,H){
+  const s=qbs.slice().sort((a,b)=>b.epa-a.epa);const y=d3.scaleBand(s.map(d=>d.qb),[M.t,H-20]).padding(.2),x=d3.scaleLinear([-.25,.55],[200,W-60]);
+  g.append('line').attr('x1',x(0)).attr('x2',x(0)).attr('y1',M.t-10).attr('y2',H-20).attr('stroke',GRID).attr('stroke-width',2);
+  g.append('text').attr('x',200).attr('y',M.t-16).attr('font-size',16).text('EPA PER PLAY, WEEKS 1–5');
+  const r=g.selectAll('.q').data(s).join('g').attr('class','q');
+  r.append('text').attr('x',190).attr('y',d=>y(d.qb)+y.bandwidth()/2+5).attr('text-anchor','end').attr('font-size',14).attr('fill',d=>d.qb==='Dak Prescott'?HI:MUT).attr('font-weight',d=>d.qb==='Dak Prescott'?600:400).text(d=>d.qb);
+  r.append('rect').attr('x',x(0)).attr('y',d=>y(d.qb)).attr('height',y.bandwidth()).attr('width',0).attr('fill',d=>d.qb==='Dak Prescott'?HI:DOT)
+   .transition().duration(700).delay((d,i)=>i*15).attr('x',d=>Math.min(x(0),x(d.epa))).attr('width',d=>Math.abs(x(d.epa)-x(0)));
+  r.append('rect').attr('x',0).attr('width',W).attr('y',d=>y(d.qb)).attr('height',y.bandwidth()).attr('fill','transparent').call(NID.tip,d=>`<b>${d.qb}</b> (${d.team})<br>EPA/play ${d.epa.toFixed(3)} · rank ${d.rank}<br>QBR ${d.qbr||'n/a'}`);
+  const dk=s.find(d=>d.qb==='Dak Prescott');g.append('text').attr('class','hilab').attr('x',x(dk.epa)+10).attr('y',y(dk.qb)+y.bandwidth()/2+7).attr('font-size',20).text('5th · 0.267');
+}};
+const teams=D.teams.map(d=>({t:d.team,o:+d.off_epa_per_play,d:+d.def_epa_per_play_allowed}));
+const teamView={key:'teams',draw(g,W,H){
+  const x=d3.scaleLinear([-.18,.3],[M.l,W-M.r]),y=d3.scaleLinear([.23,-.23],[H-M.b,M.t]);
+  [-0.1,0,0.1,0.2].forEach(t=>{g.append('line').attr('x1',x(t)).attr('x2',x(t)).attr('y1',M.t).attr('y2',H-M.b).attr('stroke',GRID).attr('stroke-width',t===0?2:1);g.append('text').attr('x',x(t)).attr('y',H-M.b+24).attr('text-anchor','middle').attr('font-size',15).text(t>0?'+'+t:t);});
+  [-0.2,-0.1,0,0.1,0.2].forEach(t=>{g.append('line').attr('x1',M.l).attr('x2',W-M.r).attr('y1',y(t)).attr('y2',y(t)).attr('stroke',GRID).attr('stroke-width',t===0?2:1);g.append('text').attr('x',M.l-10).attr('y',y(t)+5).attr('text-anchor','end').attr('font-size',15).text(t>0?'+'+t:t);});
+  g.append('text').attr('x',W-M.r).attr('y',H-M.b+50).attr('text-anchor','end').attr('font-size',15).text('BETTER OFFENSE →');
+  g.append('text').attr('x',M.l).attr('y',M.t-14).attr('font-size',15).text('↑ BETTER DEFENSE (EPA ALLOWED, INVERTED)');
+  g.append('text').attr('x',W-M.r-8).attr('y',H-M.b-12).attr('text-anchor','end').attr('font-size',16).attr('fill',WARN).text('Good offense, bad defense ↘');
+  const c=g.selectAll('.t').data(teams).join('g').attr('class','t');
+  c.append('circle').attr('cx',d=>x(d.o)).attr('cy',d=>y(d.d)).attr('r',0).attr('fill',d=>d.t==='DAL'?HI:DOT).transition().duration(600).delay((d,i)=>i*12).attr('r',d=>d.t==='DAL'?13:9);
+  c.append('text').attr('x',d=>x(d.o)+12).attr('y',d=>y(d.d)+5).attr('font-size',13).attr('fill',d=>d.t==='DAL'?HI:MUT).text(d=>['DAL','DET','SF','MIN','BUF','MIA','LAC','NO'].includes(d.t)?d.t:'');
+  c.append('circle').attr('cx',d=>x(d.o)).attr('cy',d=>y(d.d)).attr('r',16).attr('fill','transparent').call(NID.tip,d=>`<b>${d.t}</b><br>Offense EPA/play ${d.o>0?'+':''}${d.o}<br>Defense EPA allowed ${d.d>0?'+':''}${d.d}`);
+  const dl=teams.find(d=>d.t==='DAL');g.append('text').attr('class','hilab').attr('x',x(dl.o)-18).attr('y',y(dl.d)-22).attr('text-anchor','end').attr('font-size',20).text('Dallas: 4th offense, 31st defense');
+}};
+const payView={key:'pay',draw(g,W,H){
+  const s=qbs.filter(d=>d.apy&&d.apy>=50);const x=d3.scaleLinear([49,66],[M.l,W-M.r]),y=d3.scaleLinear([-.3,.55],[H-M.b,M.t]);
+  axisY(g,y,[-.2,-.1,0,.1,.2,.3,.4,.5],d=>d,W);
+  [50,55,60,65].forEach(t=>g.append('text').attr('x',x(t)).attr('y',H-M.b+26).attr('text-anchor','middle').attr('font-size',15).text('$'+t+'M'));
+  g.append('text').attr('x',W-M.r).attr('y',H-M.b+50).attr('text-anchor','end').attr('font-size',15).text('AVERAGE SALARY PER YEAR →');
+  g.append('text').attr('x',M.l).attr('y',M.t-14).attr('font-size',15).text('EPA PER PLAY · QBS PAID $50M+ A YEAR');
+  const c=g.selectAll('.p').data(s).join('g').attr('class','p');
+  c.append('circle').attr('cx',d=>x(d.apy)).attr('cy',d=>y(d.epa)).attr('r',0).attr('fill',d=>d.qb==='Dak Prescott'?HI:DOT).transition().duration(600).attr('r',d=>d.qb==='Dak Prescott'?14:10);
+  c.append('text').attr('x',d=>x(d.apy)+(d.qb==='Dak Prescott'?18:13)).attr('y',d=>y(d.epa)+5).attr('font-size',d=>d.qb==='Dak Prescott'?19:14).attr('class',d=>d.qb==='Dak Prescott'?'hilab':'').text(d=>d.qb.split(' ').slice(-1)[0]);
+  c.append('circle').attr('cx',d=>x(d.apy)).attr('cy',d=>y(d.epa)).attr('r',16).attr('fill','transparent').call(NID.tip,d=>`<b>${d.qb}</b><br>$${d.apy}M a year<br>EPA/play ${d.epa.toFixed(3)} (rank ${d.rank})`);
+}};
+const car=D.career.filter(d=>d.epa_rank).map(d=>({s:+d.season,r:+d.epa_rank,n:+d.qbs_ranked}));
+const careerView={key:'career',draw(g,W,H){
+  const x=d3.scaleLinear([2015.5,2026.5],[M.l,W-M.r]),y=d3.scaleLinear([1,24],[M.t+10,H-M.b]);
+  [1,6,12,18,24].forEach(t=>{g.append('line').attr('x1',M.l).attr('x2',W-M.r).attr('y1',y(t)).attr('y2',y(t)).attr('stroke',GRID);g.append('text').attr('x',M.l-10).attr('y',y(t)+5).attr('text-anchor','end').attr('font-size',15).text(t===1?'1st':t+'th');});
+  g.append('rect').attr('x',M.l).attr('width',W-M.l-M.r).attr('y',y(1)-8).attr('height',y(6)-y(1)+8).attr('fill',HI).attr('opacity',.08);
+  g.append('text').attr('x',x(2020.5)).attr('y',y(6)-10).attr('text-anchor','middle').attr('font-size',15).attr('fill',HI).text('TOP SIX');
+  g.append('text').attr('x',M.l).attr('y',M.t-14).attr('font-size',15).text('PRESCOTT EPA-PER-PLAY RANK BY SEASON');
+  [2016,2018,2020,2022,2024,2026].forEach(t=>g.append('text').attr('x',x(t)).attr('y',H-M.b+26).attr('text-anchor','middle').attr('font-size',15).text(t));
+  const p=g.append('path').datum(car).attr('fill','none').attr('stroke',DOT).attr('stroke-width',3).attr('d',d3.line(d=>x(d.s),d=>y(d.r)));
+  const L=p.node().getTotalLength();p.attr('stroke-dasharray',L).attr('stroke-dashoffset',L).transition().duration(900).attr('stroke-dashoffset',0);
+  const c=g.selectAll('.c').data(car).join('g');
+  c.append('circle').attr('cx',d=>x(d.s)).attr('cy',d=>y(d.r)).attr('r',d=>d.s===2026?13:9).attr('fill',d=>d.r<=6?HI:DOT);
+  c.append('text').attr('x',d=>x(d.s)).attr('y',d=>y(d.r)-16).attr('text-anchor','middle').attr('font-size',15).attr('fill',d=>d.r<=6?HI:MUT).text(d=>d.r);
+  g.append('text').attr('x',x(2024)).attr('y',y(22)+34).attr('text-anchor','middle').attr('font-size',14).text('8 games (injury)');
+}};
+NID.setup([
+ Object.assign(gameView(d=>d.wk===5),{caption:'Week 5, Oct. 8: Prescott’s only negative game of the season'}),
+ Object.assign(gameView(d=>d.ds<d.os&&d.epa>0),{caption:'Highlighted: losses in which Prescott added 13+ expected points'}),
+ Object.assign(rankView,{caption:'Quarterbacks with 100+ dropbacks. Source: nflverse, through Week 5'}),
+ Object.assign(teamView,{caption:'Each team’s EPA per play on offense and allowed on defense, Weeks 1–5'}),
+ Object.assign(payView,{caption:'Average annual contract value (Spotrac/OverTheCap) vs. 2026 EPA per play'}),
+ Object.assign(careerView,{caption:'Rank among QBs with 300+ dropbacks (100+ in 2026); 2020 omitted, 5 games'}),
+]);
+</script>
+</body></html>
