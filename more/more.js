@@ -25,7 +25,7 @@ var CSS=[
 ".nid-more .t{padding:10px 12px 14px}",
 ".nid-more .k{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#007a55}",
 ".nid-more .h{font-size:18px;font-weight:700;line-height:1.22;margin-top:4px}",
-"@media(max-width:760px){.nid-more .g{grid-template-columns:1fr;gap:16px}.nid-more .h{font-size:18px}}",
+"@media(max-width:760px){.nid-more .g{grid-template-columns:1fr;gap:12px}.nid-more a{display:grid;grid-template-columns:44% 1fr;align-items:center}.nid-more .im{border-bottom:0;border-right:1px solid #eee;height:100%;display:flex;align-items:center}.nid-more .t{padding:8px 10px}.nid-more .k{font-size:11px}.nid-more .h{font-size:16px}}",
 ".nid-share{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:40px 0 0;font-family:'Times New Roman',Times,serif}",
 ".nid-share .lb{font-size:15px;font-weight:700;margin-right:4px}",
 ".nid-share a,.nid-share button{font:inherit;font-size:14px;font-weight:700;color:#13241b!important;text-decoration:none!important;background:#fff;border:1px solid #cfcac2;border-radius:999px;padding:6px 14px;cursor:pointer;line-height:1.2}",
