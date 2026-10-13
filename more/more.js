@@ -76,6 +76,11 @@ function cards(el,feed){
 }
 
 if(!document.getElementById('nid-more-css')){var st=document.createElement('style');st.id='nid-more-css';st.textContent=CSS;document.head.appendChild(st);}
+var all=[].slice.call(document.querySelectorAll('.nid-more[data-auto]'));
+/* Site-wide injection (data-inject) yields to a block placed in the article itself. */
+if(all.some(function(e){return !e.hasAttribute('data-inject');})){
+  all.filter(function(e){return e.hasAttribute('data-inject');}).forEach(function(e){e.parentNode.removeChild(e);});
+} else if(all.length>1){ all.slice(1).forEach(function(e){e.parentNode.removeChild(e);}); }
 var els=[].slice.call(document.querySelectorAll('.nid-more[data-auto]')).filter(function(e){return !e.getAttribute('data-done');});
 if(!els.length)return;
 els.forEach(function(e){e.setAttribute('data-done','1');
