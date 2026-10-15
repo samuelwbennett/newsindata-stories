@@ -1,4 +1,4 @@
-/* The News in Data: share bar + Keep Reading.
+/* The News in Data: "Use This Chart" box (share, download, embed, credit) + Keep Reading.
    Cards use each story's real featured chart, pulled live from the blog feed.
    PICKS sets the order and the card headline; any other published story fills in after them. */
 (function(){
@@ -26,34 +26,98 @@ var CSS=[
 ".nid-more .k{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#007a55}",
 ".nid-more .h{font-size:18px;font-weight:700;line-height:1.22;margin-top:4px}",
 "@media(max-width:760px){.nid-more .g{grid-template-columns:1fr;gap:12px}.nid-more a{display:grid;grid-template-columns:44% 1fr;align-items:center}.nid-more .im{border-bottom:0;border-right:1px solid #eee;height:100%;display:flex;align-items:center}.nid-more .t{padding:8px 10px}.nid-more .k{font-size:11px}.nid-more .h{font-size:16px}}",
-".nid-share{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:40px 0 0;font-family:'Times New Roman',Times,serif}",
-".nid-share .lb{font-size:15px;font-weight:700;margin-right:4px}",
-".nid-share a,.nid-share button{font:inherit;font-size:14px;font-weight:700;color:#13241b!important;text-decoration:none!important;background:#fff;border:1px solid #cfcac2;border-radius:999px;padding:6px 14px;cursor:pointer;line-height:1.2}",
-".nid-share a:hover,.nid-share button:hover{border-color:#13241b}",
-".nid-share .nat{display:none;background:#13241b;color:#fff!important;border-color:#13241b}",
-".nid-share.can .nat{display:inline-block}"
+".nid-use{margin:44px 0 0;padding:22px;border:1px solid #d9e6df;border-radius:10px;background:#f6faf8;font-family:'Times New Roman',Times,serif;color:#13241b}",
+".nid-use .top{display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:center}",
+".nid-use .th{display:block;width:100%;border:1px solid #e3ece7;border-radius:6px;background:#fff;margin:0}",
+".nid-use .ti{font-size:24px;font-weight:700;margin:0 0 4px;line-height:1.15}",
+".nid-use .sb{font-size:16px;line-height:1.4;margin:0;color:#34473c}",
+".nid-use .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}",
+".nid-use .lbl{width:100%;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#007a55;margin-top:6px}",
+".nid-use a,.nid-use button{font:inherit;font-size:15px;font-weight:700;color:#13241b!important;text-decoration:none!important;background:#fff;border:1px solid #c9d6cf;border-radius:999px;padding:8px 16px;cursor:pointer;line-height:1.2}",
+".nid-use a:hover,.nid-use button:hover{border-color:#13241b}",
+".nid-use .pr{background:#007a55;border-color:#007a55;color:#fff!important}",
+".nid-use .pr:hover{background:#00653f;border-color:#00653f}",
+".nid-use .nat{display:none}",
+".nid-use.can .nat{display:inline-block}",
+".nid-use .cr{margin-top:14px;font-size:14px;color:#34473c;background:#fff;border:1px dashed #c9d6cf;border-radius:6px;padding:8px 12px;word-break:break-word}",
+"@media(max-width:640px){.nid-use{padding:16px}.nid-use .top{grid-template-columns:1fr;gap:12px}.nid-use .ti{font-size:21px}.nid-use a,.nid-use button{font-size:14px;padding:8px 13px}}"
 ].join('\n');
 
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
 function plain(s){return s.replace(/&#8209;/g,'-').replace(/&nbsp;/g,' ').replace(/&amp;/g,'&');}
 
-function shareBar(){
-  var url=SITE+location.pathname, t=document.title.split(' — ')[0];
+/* The story's chart: its featured image (og:image), else the first image in the article. */
+function chartUrl(){
+  var m=document.querySelector('meta[property="og:image"]'), s=m&&m.content;
+  if(!s){var i=document.querySelector('article img[data-src],article img');s=i&&(i.getAttribute('data-src')||i.src);}
+  if(!s)return '';
+  return s.replace(/^http:/,'https:').replace(/^\/\//,'https://').split('?')[0];
+}
+
+function copy(btn,text,done){
+  var reset=btn.textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).then(function(){btn.textContent=done;},function(){prompt('Copy this',text);});
+  setTimeout(function(){btn.textContent=reset;},2200);
+}
+
+function useBox(){
+  var url=SITE+location.pathname.replace(/\/$/,''), t=document.title.split(' — ')[0];
+  var slug=location.pathname.replace(/\/$/,'').split('/').pop();
+  var img=chartUrl(), big=img?img+'?format=2500w':'', thumb=img?img+'?format=500w':'';
   var u=encodeURIComponent(url), tt=encodeURIComponent(t);
-  var d=document.createElement('div'); d.className='nid-share';
-  d.innerHTML='<span class="lb">Share this chart</span>'+
-   '<button class="nat" type="button">Share</button>'+
-   '<a target="_blank" rel="noopener" href="https://www.reddit.com/submit?url='+u+'&title='+tt+'">Reddit</a>'+
-   '<a target="_blank" rel="noopener" href="https://x.com/intent/post?url='+u+'&text='+tt+'">X</a>'+
-   '<a target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u='+u+'">Facebook</a>'+
-   '<a target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url='+u+'">LinkedIn</a>'+
-   '<a href="mailto:?subject='+tt+'&body='+u+'">Email</a>'+
-   '<button class="cp" type="button">Copy link</button>';
+  var credit='Chart: Samuel W. Bennett, The News in Data ('+url.replace('https://www.','')+')';
+  var embed='<figure style="margin:0"><a href="'+url+'"><img src="'+(img?img+'?format=1500w':'')+'" alt="'+esc(t)+'" style="max-width:100%;height:auto"></a>'+
+            '<figcaption>Chart: <a href="'+url+'">The News in Data</a></figcaption></figure>';
+  var d=document.createElement('div'); d.className='nid-use';
+  d.innerHTML=
+   '<div class="top">'+(img?'<img class="th" src="'+thumb+'" alt="" loading="lazy">':'<span></span>')+
+   '<div><p class="ti">Use This Chart</p><p class="sb">Free to share, post or republish. Just credit The News in Data and link back to this story.</p></div></div>'+
+   '<div class="row"><span class="lbl">Share it</span>'+
+    '<button class="nat pr" type="button">Share chart</button>'+
+    '<a target="_blank" rel="noopener" href="https://www.reddit.com/submit?url='+u+'&title='+tt+'">Reddit</a>'+
+    '<a target="_blank" rel="noopener" href="https://x.com/intent/post?url='+u+'&text='+tt+'">X</a>'+
+    '<a target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u='+u+'">Facebook</a>'+
+    '<a target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url='+u+'">LinkedIn</a>'+
+    '<a href="mailto:?subject='+tt+'&body='+encodeURIComponent(t+'\n\n'+url)+'">Email</a>'+
+    '<button class="cl" type="button">Copy link</button></div>'+
+   '<div class="row"><span class="lbl">Use it</span>'+
+    (img?'<button class="dl" type="button">Download chart</button>':'')+
+    '<a class="csv" style="display:none" href="'+BASE.replace('/more/','/data/')+slug+'.csv" download>Download data (CSV)</a>'+
+    (img?'<button class="em" type="button">Copy embed code</button>':'')+
+    '<button class="cc" type="button">Copy credit line</button></div>'+
+   '<div class="cr">'+esc(credit)+'</div>';
+
+  d.querySelector('.cl').onclick=function(){copy(this,url,'Link copied');};
+  d.querySelector('.cc').onclick=function(){copy(this,credit,'Credit copied');};
+  var em=d.querySelector('.em'); if(em)em.onclick=function(){copy(this,embed,'Embed copied');};
+
+  var blob=null;
+  /* The CDN may answer with WebP; convert anything that isn't PNG/JPEG to PNG so it opens and posts everywhere. */
+  function toPng(b){
+    if(/png|jpe?g/.test(b.type)||!window.createImageBitmap)return Promise.resolve(b);
+    return createImageBitmap(b).then(function(bm){var c=document.createElement('canvas');c.width=bm.width;c.height=bm.height;
+      c.getContext('2d').drawImage(bm,0,0);return new Promise(function(res){c.toBlob(function(p){res(p||b);},'image/png');});});
+  }
+  function getBlob(){return blob?Promise.resolve(blob):fetch(big).then(function(r){if(!r.ok)throw 0;return r.blob();}).then(toPng).then(function(b){blob=b;return b;});}
+  function ext(b){return /jpe?g/.test(b.type)?'.jpg':'.png';}
+  var dl=d.querySelector('.dl');
+  if(dl)dl.onclick=function(){var b0=this;b0.textContent='Preparing…';
+    getBlob().then(function(b){var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='the-news-in-data-'+slug+ext(b);
+      document.body.appendChild(a);a.click();a.remove();b0.textContent='Downloaded';},function(){window.open(big,'_blank');b0.textContent='Download chart';})
+    .then(function(){setTimeout(function(){b0.textContent='Download chart';},2200);});};
+
+  /* Phones: share the chart image itself (Instagram, Messages, WhatsApp), with the link. */
   if(navigator.share){d.classList.add('can');
-    d.querySelector('.nat').onclick=function(){navigator.share({title:t,url:url}).catch(function(){});};}
-  d.querySelector('.cp').onclick=function(){var b=this;
-    (navigator.clipboard?navigator.clipboard.writeText(url):Promise.reject()).then(function(){b.textContent='Copied';},function(){prompt('Copy this link',url);});
-    setTimeout(function(){b.textContent='Copy link';},2000);};
+    d.querySelector('.nat').onclick=function(){
+      getBlob().then(function(b){var f=new File([b],'the-news-in-data-'+slug+ext(b),{type:b.type});
+        var data={title:t,text:t+' '+url,files:[f]};
+        if(navigator.canShare&&navigator.canShare(data))return navigator.share(data);
+        return navigator.share({title:t,url:url});
+      },function(){return navigator.share({title:t,url:url});}).catch(function(){});};}
+
+  /* Show the data button only when a CSV has been published for this story. */
+  var csv=d.querySelector('.csv');
+  fetch(csv.href,{method:'HEAD'}).then(function(r){if(r.ok)csv.style.display='';}).catch(function(){});
   return d;
 }
 
@@ -84,7 +148,7 @@ if(all.some(function(e){return !e.hasAttribute('data-inject');})){
 var els=[].slice.call(document.querySelectorAll('.nid-more[data-auto]')).filter(function(e){return !e.getAttribute('data-done');});
 if(!els.length)return;
 els.forEach(function(e){e.setAttribute('data-done','1');
-  if(e.getAttribute('data-share')!=='0')e.parentNode.insertBefore(shareBar(),e);});
+  if(e.getAttribute('data-share')!=='0')e.parentNode.insertBefore(useBox(),e);});
 fetch('/stories?format=json',{credentials:'same-origin'}).then(function(r){return r.json();})
  .then(function(j){els.forEach(function(e){cards(e,j.items||[]);});})
  .catch(function(){els.forEach(function(e){cards(e,null);});});
