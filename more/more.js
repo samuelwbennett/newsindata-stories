@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+ ['agents','Trending','A Fleet Of AI Agents Spent 11 Days Looking For The Zoo’s Front Door','a-fleet-of-ai-agents-spent-11-days-looking-for-the-zoos-front-door'],
  ['candy','Trending','Candy Prices Are Up 49% Since 2020','candy-prices-are-up-49-since-2020-while-overall-prices-rose-29-and-wages-28'],
  ['snow','Science','When Does Your State Usually Get Its First Snow?','winter-is-coming-when-the-first-snow-usually-falls-in-your-state'],
  ['bowling','Trending','Bowling Leagues Have Lost Nearly 9 In 10 Members Since 1980','league-bowling-has-about-one-member-today-for-every-nine-it-had-in-1980'],
