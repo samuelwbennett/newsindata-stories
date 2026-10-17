@@ -53,6 +53,21 @@ svg .hilab{font-family:'Times New Roman',Times,serif;font-weight:700;fill:var(--
  .step>div{font-size:17px;opacity:.95}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.sat{max-width:920px;margin:20px auto 10px;padding:0 0 4px}
+.sat .t{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:clamp(22px,3vw,30px);line-height:1.15;margin:0 0 6px;color:var(--ink)}
+.sat .s{font-family:'Times New Roman',Times,serif;font-size:18px;color:var(--muted);margin:0 0 14px}
+.cmp{position:relative;aspect-ratio:2252/1524;border:1px solid var(--rule);background:#3a4a2a;overflow:hidden;touch-action:pan-y;user-select:none}
+.cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.cmp .after{clip-path:inset(0 0 0 var(--x,50%))}
+.cmp .bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+.cmp .knob{position:absolute;top:50%;left:var(--x,50%);width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:#fff;border:2px solid var(--hi);display:flex;align-items:center;justify-content:center;font-family:'Times New Roman',Times,serif;font-weight:700;color:var(--hi);font-size:18px}
+.cmp .tag{position:absolute;top:12px;font-family:'Times New Roman',Times,serif;font-weight:700;font-size:17px;color:#fff;background:rgba(19,36,27,.78);padding:5px 10px}
+.cmp .tag.l{left:12px}.cmp .tag.r{right:12px}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.key{display:flex;gap:18px;flex-wrap:wrap;font-family:'Times New Roman',Times,serif;font-size:16px;color:var(--ink);margin-top:10px}
+.key i{display:inline-block;width:14px;height:14px;vertical-align:-2px;margin-right:6px;border:1px solid rgba(0,0,0,.15)}
+.sat .cap{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px;line-height:1.5}
 </style>
 
 <div class="wrap">
@@ -74,6 +89,19 @@ svg .hilab{font-family:'Times New Roman',Times,serif;font-weight:700;fill:var(--
   <div class="step" data-step="4"><div>Five of the six states with the most alerts saw declines. Pará still led with <b>381 square miles</b>, followed by Mato Grosso. Roraima moved the other way, with alerts up <b>32.5 percent</b>, a reminder that the improvement is uneven.</div></div>
  </div>
 </section>
+<figure class="sat" id="satellite">
+ <div class="t">The Same Patch Of Rondônia, Six Years Apart</div>
+ <div class="s">Drag the slider to compare 2000 with 2006, two years after Amazon clearing peaked in 2004</div>
+ <div class="cmp" id="cmp">
+  <img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/imagerecords/7000/7548/rondonia_ast_2000222_lrg.jpg" alt="Satellite image of southern Rondônia, Brazil, on Sept. 9, 2000, mostly green forest with scattered cleared patches" loading="lazy">
+  <img class="after" src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/imagerecords/7000/7548/rondonia_ast_2006238_lrg.jpg" alt="The same area on Sept. 26, 2006, with most of the forest cleared to tan land" loading="lazy">
+  <span class="tag l">Sept. 2000</span><span class="tag r">Sept. 2006</span>
+  <div class="bar"></div><div class="knob" aria-hidden="true">⇆</div>
+  <input type="range" min="0" max="100" value="50" aria-label="Compare 2000 and 2006 images">
+ </div>
+ <div class="key"><span><i style="background:#3f5a2b"></i>Forest</span><span><i style="background:#c9b48f"></i>Cleared land</span></div>
+ <figcaption class="cap">Southern Rondônia, southwest of Pacaás Novos National Park. NASA Earth Observatory images by Robert Simmon, using ASTER data from NASA’s Terra satellite. Some of the paler forest in 2006 may reflect drought, logging, fire or a different viewing angle, according to NASA.</figcaption>
+</figure>
 <article>
  <h2>Why the alerts matter</h2>
  <p>DETER is built for speed rather than precision, so its totals run lower than the official PRODES rate, which INPE calculates from sharper images after the dry season ends. The two systems usually move in the same direction, though. In 2025, DETER alerts fell and the PRODES rate followed with an 11 percent drop. If that pattern holds, the official figure for 2026 has a real chance of beating the 2012 record low of 1,765 square miles.</p>
@@ -180,4 +208,5 @@ const stateView={key:'states',caption:'DETER alerts by state, Aug. 2025–July 2
 }};
 NID.setup([prodes(0),prodes(1),prodes(2),deterView,stateView]);
 </script>
+<script>(function(){var c=document.getElementById('cmp'),r=c.querySelector('input');function u(){c.style.setProperty('--x',r.value+'%');}r.addEventListener('input',u);u();})();</script>
 </body></html>
