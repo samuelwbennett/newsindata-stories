@@ -1,0 +1,48 @@
+system,period,area_km2,area_sq_mi,note
+PRODES,1987-08 to 1988-07,21050,8127,INPE average for 1977-1988
+PRODES,1988-08 to 1989-07,17770,6861,consolidated
+PRODES,1989-08 to 1990-07,13730,5301,consolidated
+PRODES,1990-08 to 1991-07,11030,4259,consolidated
+PRODES,1991-08 to 1992-07,13786,5323,consolidated
+PRODES,1992-08 to 1993-07,14896,5751,consolidated
+PRODES,1993-08 to 1994-07,14896,5751,consolidated
+PRODES,1994-08 to 1995-07,29059,11220,consolidated
+PRODES,1995-08 to 1996-07,18161,7012,consolidated
+PRODES,1996-08 to 1997-07,13227,5107,consolidated
+PRODES,1997-08 to 1998-07,17383,6712,consolidated
+PRODES,1998-08 to 1999-07,17259,6664,consolidated
+PRODES,1999-08 to 2000-07,18226,7037,consolidated
+PRODES,2000-08 to 2001-07,18165,7014,consolidated
+PRODES,2001-08 to 2002-07,21651,8359,consolidated
+PRODES,2002-08 to 2003-07,25396,9805,consolidated
+PRODES,2003-08 to 2004-07,27772,10723,consolidated
+PRODES,2004-08 to 2005-07,19014,7341,consolidated
+PRODES,2005-08 to 2006-07,14285,5515,consolidated
+PRODES,2006-08 to 2007-07,11651,4498,consolidated
+PRODES,2007-08 to 2008-07,12911,4985,consolidated
+PRODES,2008-08 to 2009-07,7464,2882,consolidated
+PRODES,2009-08 to 2010-07,7000,2703,consolidated
+PRODES,2010-08 to 2011-07,6418,2478,consolidated
+PRODES,2011-08 to 2012-07,4571,1765,consolidated
+PRODES,2012-08 to 2013-07,5891,2275,consolidated
+PRODES,2013-08 to 2014-07,5012,1935,consolidated
+PRODES,2014-08 to 2015-07,6207,2397,consolidated
+PRODES,2015-08 to 2016-07,7893,3048,consolidated
+PRODES,2016-08 to 2017-07,6947,2682,consolidated
+PRODES,2017-08 to 2018-07,7536,2910,consolidated
+PRODES,2018-08 to 2019-07,10129,3911,consolidated
+PRODES,2019-08 to 2020-07,10851,4190,consolidated
+PRODES,2020-08 to 2021-07,13038,5034,consolidated
+PRODES,2021-08 to 2022-07,11594,4476,consolidated
+PRODES,2022-08 to 2023-07,9064,3500,consolidated
+PRODES,2023-08 to 2024-07,6518,2517,consolidated
+PRODES,2024-08 to 2025-07,5796,2238,official estimate
+DETER,2015/16-2024/25 average,6474,2500,implied by INPE's 55.6% comparison
+DETER,2024-08 to 2025-07,4495,1736,
+DETER,2025-08 to 2026-07,2874.38,1110,lowest since current system began
+DETER Pará,2025-08 to 2026-07,987.27,381,down from prior year
+DETER Mato Grosso,2025-08 to 2026-07,834.41,322,down from prior year
+DETER Amazonas,2025-08 to 2026-07,433.9,168,down from prior year
+DETER Roraima,2025-08 to 2026-07,272.6,105,up 32.5% from prior year
+DETER Acre,2025-08 to 2026-07,153.8,59,down from prior year
+DETER Rondônia,2025-08 to 2026-07,114.3,44,down from prior year

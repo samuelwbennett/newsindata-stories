@@ -1,0 +1,183 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Satellites Flagged The Least Amazon Clearing Since Brazil’s Alert System Began — The News in Data</title><meta name="description" content="Brazil’s space agency logged 1,110 square miles of deforestation alerts in the Amazon over the year through July, about a third less than the year before and less than half the decade average.">
+<link rel="canonical" href="https://www.thenewsindata.com/stories/amazon-deforestation-alerts-fell-to-the-lowest-level-since-brazils-alert-system-began">
+<meta property="og:title" content="Satellites Flagged The Least Amazon Clearing Since Brazil’s Alert System Began"><meta property="og:description" content="Brazil’s space agency logged 1,110 square miles of deforestation alerts in the Amazon over the year through July, about a third less than the year before and less than half the decade average."><meta property="og:image" content="https://stories.thenewsindata.com/amazon/amazon-preview.png"><meta property="og:url" content="https://stories.thenewsindata.com/amazon/"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23007a55'/%3E%3Crect x='7' y='16' width='5' height='10' fill='white'/%3E%3Crect x='14' y='10' width='5' height='16' fill='white'/%3E%3Crect x='21' y='6' width='5' height='20' fill='white'/%3E%3C/svg%3E">
+</head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<style>
+/* Field Notes theme (charts in Times New Roman): graph paper, green ink, pen annotations. A deliberately single light look. */
+:root{--bg:#fbfcfa;--paper:#ffffff;--ink:#13241b;--muted:#5f7268;--grid:#e3eee7;--rule:#cfdfd5;--dot:#a9b8b0;--hi:#007a55;--red:#c2410c;
+--disp:"Archivo",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;--serif:"Newsreader",Georgia,serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased;background-color:var(--bg);
+ background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+.mast{display:flex;justify-content:space-between;align-items:center;padding-block:18px;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.mast b{font-family:var(--disp);font-stretch:85%;font-weight:800;font-size:18px;letter-spacing:0;color:#fff;background:var(--hi);padding:6px 10px}
+header{padding-block:52px 20px;max-width:920px}
+.kick{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--hi)}
+h1{font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:clamp(36px,6vw,72px);line-height:1;letter-spacing:-.02em;margin:16px 0 18px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--hi)}
+.dek{font-size:clamp(19px,2.2vw,23px);line-height:1.45;color:#34473c;max-width:46ch;margin:0}
+.by{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:20px}
+.big{display:flex;gap:40px;flex-wrap:wrap;padding-block:26px 6px}
+.big div{font-family:var(--disp);font-stretch:70%;font-weight:900;font-size:clamp(64px,10vw,120px);line-height:.85;color:var(--ink)}
+.big div.g{color:var(--hi)}
+.big span{display:block;font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:10px;font-weight:400;font-stretch:100%;line-height:1.4}
+.scrolly{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px}
+#fig{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;order:2}
+#fig svg{width:100%;height:auto;max-height:78vh;overflow:visible;background:var(--paper);border:1px solid var(--rule)}
+#figcap{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px;min-height:1.4em}
+.steps{order:1;padding-block:30vh 40vh}
+.step{min-height:70vh;display:flex;align-items:center}
+.step>div{background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--rule);padding:22px 24px;font-size:19px;line-height:1.55;opacity:.4;transition:opacity .4s,border-color .4s}
+.step.on>div{opacity:1;border-left-color:var(--hi)}
+.step b{font-family:var(--mono);font-weight:600;font-size:.9em;color:var(--hi)}
+article{max-width:680px;margin:0 auto;padding-block:20px 80px}
+article h2{font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:30px;margin:40px 0 10px}
+article p{font-size:19px;line-height:1.6;margin:0 0 16px;background:var(--bg)}
+.method{font-family:var(--mono);font-size:13px!important;line-height:1.6!important;color:var(--muted);border-top:2px solid var(--ink);padding-top:16px;margin-top:32px}
+.method a{color:var(--hi)}
+#tip{position:absolute;pointer-events:none;opacity:0;background:#fff;border:1.5px solid var(--ink);padding:8px 10px;font-family:var(--mono);font-size:12px;line-height:1.45;z-index:5;max-width:220px}
+svg text{font-family:'Times New Roman',Times,serif;fill:var(--muted)}
+svg .lab{font-family:'Times New Roman',Times,serif;font-weight:700;fill:var(--ink)}
+svg .hilab{font-family:'Times New Roman',Times,serif;font-weight:700;fill:var(--hi)}
+@media (max-width:820px){
+ .scrolly{display:block}
+ #fig{height:52vh;z-index:4;background:var(--bg);padding-top:6px;justify-content:flex-start}
+ #fig svg{max-height:46vh}
+ .steps{padding-block:10vh 30vh;position:relative;z-index:1}
+ .step{min-height:85vh;align-items:flex-end}
+ .step>div{font-size:17px;opacity:.95}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<div class="mast"><a href="https://www.thenewsindata.com" style="text-decoration:none"><b>The News in Data</b></a><span>SCIENCE</span></div>
+<header>
+ <div class="kick">№ 018 · OCT. 17, 2026</div>
+ <h1>Satellites Flagged The Least Amazon Clearing <em>Since Brazil’s Alert System Began</em></h1>
+ <p class="dek">Brazil’s space agency logged 1,110 square miles of deforestation alerts in the Amazon over the year through July, about a third less than the year before and less than half the average of the past decade.</p>
+ <div class="by">By Samuel W. Bennett · Sources: INPE (PRODES and DETER), Agência Brasil</div>
+ <div class="big"><div class="g">1,110 sq mi<span>AMAZON CLEARING FLAGGED,<br>AUG. 2025–JULY 2026</span></div><div>−56%<span>COMPARED WITH THE<br>PREVIOUS DECADE’S AVERAGE</span></div></div>
+</header>
+<section class="scrolly">
+ <div id="fig"><svg role="img" aria-label="Chart that changes as you scroll"></svg><div id="figcap"></div><div id="tip"></div></div>
+ <div class="steps">
+  <div class="step" data-step="0"><div>Brazil’s National Institute for Space Research, known as INPE, has measured how much of the Amazon is cleared each year since 1988 with a satellite survey called PRODES. The worst year on record was <b>1995</b>, when about <b>11,200 square miles</b> were cleared, and 2004 came close behind at <b>10,700</b>, an area about the size of Massachusetts.</div></div>
+  <div class="step" data-step="1"><div>Brazil then expanded satellite monitoring, created new protected areas and stepped up fines for illegal clearing. By <b>2012</b> the yearly loss had fallen to <b>1,765 square miles</b>, 84 percent below the 2004 level and still the lowest year in the survey.</div></div>
+  <div class="step" data-step="2"><div>The gains did not hold. Clearing climbed for most of the next decade and reached <b>5,034 square miles</b> in 2021, nearly three times the 2012 low. Since then it has fallen four years in a row, to <b>2,238 square miles</b> in 2025, down 56 percent from 2021 and the third-lowest year since 1988.</div></div>
+  <div class="step" data-step="3"><div>INPE also runs a faster system called DETER, which flags new clearing every day so enforcement teams can respond. Its alerts for August 2025 through July 2026 covered <b>1,110 square miles</b>, more than a third below the year before and the lowest total since the current system started in 2015. That is a bit smaller than Rhode Island.</div></div>
+  <div class="step" data-step="4"><div>Five of the six states with the most alerts saw declines. Pará still led with <b>381 square miles</b>, followed by Mato Grosso. Roraima moved the other way, with alerts up <b>32.5 percent</b>, a reminder that the improvement is uneven.</div></div>
+ </div>
+</section>
+<article>
+ <h2>Why the alerts matter</h2>
+ <p>DETER is built for speed rather than precision, so its totals run lower than the official PRODES rate, which INPE calculates from sharper images after the dry season ends. The two systems usually move in the same direction, though. In 2025, DETER alerts fell and the PRODES rate followed with an 11 percent drop. If that pattern holds, the official figure for 2026 has a real chance of beating the 2012 record low of 1,765 square miles.</p>
+ <p>Brazil’s government and outside researchers point mainly to enforcement. Brazil’s Amazon action plan, first launched in 2004, lost its funding in 2019 and was restarted in 2023 along with higher penalties for environmental crimes. Clearing also fell this year in the Cerrado, the savanna south of the Amazon, where alerts dropped about 8 percent.</p>
+ <h2>What’s next</h2>
+ <p>INPE usually publishes its first PRODES estimate for the year in November. A strong El Niño is expected to bring drought to the region into early 2027, which raises the risk of fire, and fire damage is counted separately from clearing. Brazil also holds a presidential runoff on Oct. 25, and the two candidates disagree about how far to go in regulating land use.</p>
+ <p class="method">How we counted: annual figures are INPE’s PRODES rates for Brazil’s Legal Amazon, with consolidated values through 2024 and the official estimate for 2025 (5,796 km²); INPE’s 1988 figure is its average for 1977–1988. Alert totals are INPE’s DETER figures for Aug. 1, 2025, to July 31, 2026 (2,874 km²), the prior 12 months (4,495 km²) and the 2015/16–2025/26 average implied by INPE’s 55.6 percent comparison, as reported by <a href="https://agenciabrasil.ebc.com.br/en/meio-ambiente/noticia/2026-08/amazon-deforestation-falls-3687-over-past-year">Agência Brasil</a>. INPE describes the one-year drop as 36.87 percent; the rounded areas give 36.1 percent, a gap the agency has not explained. We converted square kilometers to square miles (1 sq mi = 2.59 km²). Sources: <a href="https://www.gov.br/inpe/pt-br/assuntos/ultimas-noticias/20251015Nota_tcnica_EstimativaPRODES_2025.pdf">INPE PRODES 2025 technical note</a>, <a href="https://www.gov.br/mma/pt-br/noticias/apresentacao-prodes-deter-amazonia_cerrado_pantana-08mai2025.pdf">INPE/MMA PRODES presentation</a>.</p>
+</article>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>// The News in Data scrolly engine: sticky figure + steps; each step renders a view.
+window.NID = (function () {
+  const MOB = matchMedia('(max-width:820px)').matches; const W = MOB ? 560 : 800, H = MOB ? 600 : 620;
+  function setup(views) {
+    const svg = d3.select('#fig svg').attr('viewBox', `0 0 ${W} ${H}`);
+    const layers = views.map((v, i) => svg.append('g').attr('class', 'layer').attr('data-i', i).style('opacity', 0).style('pointer-events', 'none'));
+    let cur = -1;
+    const drawn = new Set();
+    function show(i) {
+      if (i === cur) return;
+      const prevKey = cur >= 0 ? views[cur].key : null;
+      cur = i;
+      const v = views[i];
+      // views sharing a key reuse the same layer and get an update call
+      const li = views.findIndex(x => x.key === v.key);
+      if (!drawn.has(li)) { views[li].draw(layers[li], W, H); drawn.add(li); }
+      if (v.update) v.update(layers[li], W, H);
+      layers.forEach((g, j) => g.transition().duration(500).style('opacity', j === li ? 1 : 0).style('pointer-events', j === li ? 'all' : 'none'));
+      document.querySelectorAll('.step').forEach((s, j) => s.classList.toggle('on', j === i));
+      const cap = document.getElementById('figcap'); if (cap) cap.textContent = v.caption || '';
+    }
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.isIntersecting) show(+e.target.dataset.step); });
+    }, { rootMargin: matchMedia('(max-width:820px)').matches ? '-62% 0px -12% 0px' : '-45% 0px -45% 0px' });
+    document.querySelectorAll('.step').forEach(s => io.observe(s));
+    show(0);
+  }
+  // tooltip helper
+  function tip(sel, html) {
+    const t = d3.select('#tip');
+    sel.on('pointerenter pointermove', (ev, d) => {
+      t.style('opacity', 1).html(html(d));
+      const fx = document.getElementById('fig').getBoundingClientRect();
+      t.style('left', Math.min(ev.clientX - fx.left + 12, fx.width - 190) + 'px').style('top', (ev.clientY - fx.top + 12) + 'px');
+    }).on('pointerleave', () => t.style('opacity', 0));
+  }
+  return { setup, tip, W, H };
+})();
+</script>
+
+<script>
+const K=2.589988;
+const P=[[1988,21050],[1989,17770],[1990,13730],[1991,11030],[1992,13786],[1993,14896],[1994,14896],[1995,29059],[1996,18161],[1997,13227],[1998,17383],[1999,17259],[2000,18226],[2001,18165],[2002,21651],[2003,25396],[2004,27772],[2005,19014],[2006,14285],[2007,11651],[2008,12911],[2009,7464],[2010,7000],[2011,6418],[2012,4571],[2013,5891],[2014,5012],[2015,6207],[2016,7893],[2017,6947],[2018,7536],[2019,10129],[2020,10851],[2021,13038],[2022,11594],[2023,9064],[2024,6518],[2025,5796]].map(([y,k])=>({y,k,m:Math.round(k/K)}));
+const HI='#007a55',INK='#13241b',MUT='#5f7268',DOT='#a9b8b0',GRID='#e3eee7',RED='#c2410c';
+const M={l:70,r:28,t:56,b:56};
+const fmt=d3.format(',');
+function txt(g,x,y,s,o={}){const t=g.append('text').attr('x',x).attr('y',y).attr('font-size',o.size||16).attr('text-anchor',o.anchor||'start').text(s);if(o.cls)t.attr('class',o.cls);if(o.fill)t.style('fill',o.fill);return t;}
+// One shared PRODES chart; each step changes which bars are lit.
+const lit=[d=>d.y===1995||d.y===2004, d=>d.y>=2004&&d.y<=2012, d=>d.y>=2021];
+const labels=[[[1995,'1995: 11,220'],[2004,'2004: 10,723']],[[2004,'2004: 10,723'],[2012,'2012: 1,765']],[]];
+function prodes(step){return {key:'prodes',caption:'PRODES annual clearing, Legal Amazon, square miles. Year ends July 31. Hover or tap a bar.',
+ draw(g,W,H){
+  const x=d3.scaleBand(P.map(d=>d.y),[M.l,W-M.r]).padding(.18),y=d3.scaleLinear([0,12000],[H-M.b,M.t]);
+  txt(g,M.l,M.t-24,'Amazon Forest Cleared Each Year, Square Miles',{cls:'lab',size:22});
+  [0,3000,6000,9000,12000].forEach(v=>{g.append('line').attr('x1',M.l).attr('x2',W-M.r).attr('y1',y(v)).attr('y2',y(v)).attr('stroke',GRID).attr('stroke-width',1.5);txt(g,M.l-10,y(v)+5,fmt(v),{anchor:'end',size:15});});
+  [1990,2000,2010,2020,2025].forEach(yr=>txt(g,x(yr)+x.bandwidth()/2,H-M.b+26,yr,{anchor:'middle',size:15}));
+  g.selectAll('rect.b').data(P).join('rect').attr('class','b').attr('x',d=>x(d.y)).attr('width',x.bandwidth()).attr('y',H-M.b).attr('height',0).attr('fill',DOT)
+   .transition().duration(600).delay((d,i)=>i*18).attr('y',d=>y(d.m)).attr('height',d=>H-M.b-y(d.m));
+  g.selectAll('rect.hit').data(P).join('rect').attr('class','hit').attr('x',d=>x(d.y)).attr('width',x.bandwidth()).attr('y',M.t).attr('height',H-M.b-M.t).attr('fill','transparent')
+   .call(NID.tip,d=>`<b>${d.y}</b><br>${fmt(d.m)} sq mi<br>${fmt(d.k)} km²`);
+  g.append('g').attr('class','ann');
+  g.node().__xy={x,y};
+ },
+ update(g,W,H){
+  const {x,y}=g.node().__xy, f=lit[step];
+  g.selectAll('rect.b').transition('lit').duration(500).attr('fill',d=>f(d)?HI:DOT).attr('opacity',d=>f(d)?1:.55);
+  const a=g.select('g.ann'); a.selectAll('*').remove();
+  labels[step].forEach(([yr,s],i)=>{const d=P.find(p=>p.y===yr),cx=x(yr)+x.bandwidth()/2,right=cx>W*.7;
+   const ty=Math.min(y(d.m)-14-(step===0&&i===1?0:0),H-M.b-10);
+   txt(a,right?cx+4:cx-4,ty,s,{cls:'hilab',size:19,anchor:right?'end':'middle'}).attr('opacity',0).transition().duration(400).attr('opacity',1);});
+  if(step===1){const a1=P.find(p=>p.y===2004),a2=P.find(p=>p.y===2012);
+   txt(a,(x(2004)+x(2012))/2+x.bandwidth(),y(6200),'−84%',{cls:'hilab',size:34,anchor:'middle'});}
+  if(step===2){txt(a,W-M.r,y(7800),'−56% since 2021',{cls:'hilab',size:26,anchor:'end'});txt(a,W-M.r,y(7800)+26,'5,034 → 2,238 sq mi',{cls:'hilab',size:18,anchor:'end'});}
+ }};}
+// DETER comparison
+const deter=[['Average, 2015/16–2024/25',2500,DOT],['Aug. 2024–July 2025',1736,DOT],['Aug. 2025–July 2026',1110,HI]];
+const deterView={key:'deter',caption:'DETER deforestation alerts, Legal Amazon, square miles. Decade average implied by INPE’s comparison.',draw(g,W,H){
+ const x=d3.scaleLinear([0,2800],[M.l-40,W-M.r-90]),bh=72,y0=M.t+70;
+ txt(g,M.l-40,M.t-24,'Clearing Flagged By Satellite Alerts, Square Miles',{cls:'lab',size:22});
+ deter.forEach(([l,v,c],i)=>{const yy=y0+i*(bh+70);txt(g,M.l-40,yy-12,l,{size:17,fill:INK});
+  g.append('rect').attr('x',x(0)).attr('y',yy).attr('height',bh).attr('width',0).attr('fill',c).transition().duration(700).delay(i*220).attr('width',x(v)-x(0));
+  txt(g,x(v)+10,yy+bh/2+9,(i===0?'≈':'')+fmt(v),{cls:c===HI?'hilab':'lab',size:26});});
+ txt(g,M.l-40,H-M.b+14,'Lowest since the current alert system began in 2015',{cls:'hilab',size:19});
+}};
+// States
+const st=[['Pará',987.27,-1],['Mato Grosso',834.41,-1],['Amazonas',433.9,-1],['Roraima',272.6,1],['Acre',153.8,-1],['Rondônia',114.3,-1]];
+const stateView={key:'states',caption:'DETER alerts by state, Aug. 2025–July 2026, square miles. Direction is change from the year before.',draw(g,W,H){
+ const x=d3.scaleLinear([0,400],[M.l+90,W-M.r-120]),bh=46,y0=M.t+30;
+ txt(g,M.l-40,M.t-24,'Alerts By State, Square Miles',{cls:'lab',size:22});
+ st.forEach(([n,k,dir],i)=>{const v=Math.round(k/K),yy=y0+i*(bh+36),c=dir>0?RED:HI;
+  txt(g,M.l+80,yy+bh/2+6,n,{anchor:'end',size:17,fill:INK});
+  g.append('rect').attr('x',x(0)).attr('y',yy).attr('height',bh).attr('width',0).attr('fill',dir>0?RED:DOT).transition().duration(600).delay(i*120).attr('width',x(v)-x(0));
+  txt(g,x(v)+10,yy+bh/2+7,fmt(v)+(dir>0?'  ▲ up 32.5%':'  ▼'),{size:18,fill:c,cls:dir>0?'':'hilab'});});
+}};
+NID.setup([prodes(0),prodes(1),prodes(2),deterView,stateView]);
+</script>
+</body></html>
