@@ -1,0 +1,206 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Opioids Killed 44,564 Americans In 2025. Cannabis Alone Killed Almost No One. — The News in Data</title><meta name="description" content="Nine years after a chart comparing the two drugs went viral on Reddit, federal data show opioids were involved in 44,564 overdose deaths in 2025, while a new CDC review found nine deaths in four and a half years in which cannabis was the only drug present.">
+<link rel="canonical" href="https://www.thenewsindata.com/stories/opioids-killed-44564-americans-in-2025-cannabis-alone-killed-almost-no-one">
+<meta property="og:title" content="Opioids Killed 44,564 Americans In 2025. Cannabis Alone Killed Almost No One."><meta property="og:description" content="Nine years after a chart comparing the two drugs went viral on Reddit, federal data show opioids were involved in 44,564 overdose deaths in 2025, while a new CDC review found nine deaths in four and a half years in which cannabis was the only drug present."><meta property="og:image" content="https://stories.thenewsindata.com/overdose/overdose-preview.png"><meta property="og:url" content="https://stories.thenewsindata.com/overdose/"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23007a55'/%3E%3Crect x='7' y='16' width='5' height='10' fill='white'/%3E%3Crect x='14' y='10' width='5' height='16' fill='white'/%3E%3Crect x='21' y='6' width='5' height='20' fill='white'/%3E%3C/svg%3E">
+</head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<style>
+/* Field Notes theme (charts in Times New Roman): graph paper, green ink, pen annotations. A deliberately single light look. */
+:root{--bg:#fbfcfa;--paper:#ffffff;--ink:#13241b;--muted:#5f7268;--grid:#e3eee7;--rule:#cfdfd5;--dot:#a9b8b0;--hi:#007a55;--red:#c2410c;
+--disp:"Archivo",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;--serif:"Newsreader",Georgia,serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased;background-color:var(--bg);
+ background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+.mast{display:flex;justify-content:space-between;align-items:center;padding-block:18px;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.mast b{font-family:var(--disp);font-stretch:85%;font-weight:800;font-size:18px;letter-spacing:0;color:#fff;background:var(--hi);padding:6px 10px}
+header{padding-block:52px 20px;max-width:920px}
+.kick{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--hi)}
+h1{font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:clamp(36px,6vw,72px);line-height:1;letter-spacing:-.02em;margin:16px 0 18px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--hi)}
+.dek{font-size:clamp(19px,2.2vw,23px);line-height:1.45;color:#34473c;max-width:46ch;margin:0}
+.by{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:20px}
+.big{display:flex;gap:40px;flex-wrap:wrap;padding-block:26px 6px}
+.big div{font-family:var(--disp);font-stretch:70%;font-weight:900;font-size:clamp(64px,10vw,120px);line-height:.85;color:var(--ink)}
+.big div.g{color:var(--hi)}
+.big span{display:block;font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:10px;font-weight:400;font-stretch:100%;line-height:1.4}
+.scrolly{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px}
+#fig{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;order:2}
+#fig svg{width:100%;height:auto;max-height:78vh;overflow:visible;background:var(--paper);border:1px solid var(--rule)}
+#figcap{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px;min-height:1.4em}
+.steps{order:1;padding-block:30vh 40vh}
+.step{min-height:70vh;display:flex;align-items:center}
+.step>div{background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--rule);padding:22px 24px;font-size:19px;line-height:1.55;opacity:.4;transition:opacity .4s,border-color .4s}
+.step.on>div{opacity:1;border-left-color:var(--hi)}
+.step b{font-family:var(--mono);font-weight:600;font-size:.9em;color:var(--hi)}
+article{max-width:680px;margin:0 auto;padding-block:20px 80px}
+article h2{font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:30px;margin:40px 0 10px}
+article p{font-size:19px;line-height:1.6;margin:0 0 16px;background:var(--bg)}
+.method{font-family:var(--mono);font-size:13px!important;line-height:1.6!important;color:var(--muted);border-top:2px solid var(--ink);padding-top:16px;margin-top:32px}
+.method a{color:var(--hi)}
+#tip{position:absolute;pointer-events:none;opacity:0;background:#fff;border:1.5px solid var(--ink);padding:8px 10px;font-family:var(--mono);font-size:12px;line-height:1.45;z-index:5;max-width:220px}
+svg text{font-family:'Times New Roman',Times,serif;fill:var(--muted)}
+svg .lab{font-family:'Times New Roman',Times,serif;font-weight:700;fill:var(--ink)}
+svg .hilab{font-family:'Times New Roman',Times,serif;font-weight:700;fill:var(--hi)}
+@media (max-width:820px){
+ .scrolly{display:block}
+ #fig{height:52vh;z-index:4;background:var(--bg);padding-top:6px;justify-content:flex-start}
+ #fig svg{max-height:46vh}
+ .steps{padding-block:10vh 30vh;position:relative;z-index:1}
+ .step{min-height:85vh;align-items:flex-end}
+ .step>div{font-size:17px;opacity:.95}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+</style>
+
+<div class="wrap">
+<div class="mast"><a href="https://www.thenewsindata.com" style="text-decoration:none"><b>The News in Data</b></a><span>SCIENCE</span></div>
+<header>
+ <div class="kick">№ 019 · OCT. 17, 2026</div>
+ <h1>Opioids Killed 44,564 Americans In 2025. <em>Cannabis Alone Killed Almost No One.</em></h1>
+ <p class="dek">Nine years after a chart comparing the two drugs went viral on Reddit, federal data show opioids were involved in 44,564 overdose deaths last year, while a new CDC review found nine deaths in four and a half years in which cannabis was the only drug present.</p>
+ <div class="by">By Samuel W. Bennett · Sources: CDC National Center for Health Statistics, CDC MMWR</div>
+ <div class="big"><div style="color:var(--red)">44,564<span>OPIOID DEATHS,<br>2025</span></div><div class="g">9<span>CANNABIS-ONLY DEATHS,<br>31 STATES, 2021–MID-2025</span></div></div>
+</header>
+<section class="scrolly">
+ <div id="fig"><svg role="img" aria-label="Chart that changes as you scroll"></svg><div id="figcap"></div><div id="tip"></div></div>
+ <div class="steps">
+  <div class="step" data-step="0"><div>In 2017, I posted a chart to Reddit’s <a href="https://www.reddit.com/r/dataisbeautiful/s/LxfDTdh68T" style="color:var(--hi)">r/dataisbeautiful</a> titled “Marijuana responsible for 0 overdose deaths while opioids killed more than 20,000 Americans.” It drew more than 48,000 upvotes. The opioid figure in that title turned out to be far too low, because CDC’s full count of opioid-involved deaths was <b>42,249</b> in 2016, about twice what the title claimed.</div></div>
+  <div class="step" data-step="1"><div>The toll kept climbing after the post as illicit fentanyl spread through the drug supply. Deaths involving synthetic opioids rose from <b>19,413</b> in 2016 to <b>73,838</b> in 2022, and opioid-involved deaths peaked that year at <b>81,806</b>, nearly double the 2016 count. Total overdose deaths reached <b>107,941</b>, the most ever recorded.</div></div>
+  <div class="step" data-step="2"><div>Deaths have fallen in each of the three years since, the longest decline in decades. CDC’s provisional count for 2025 is <b>69,973</b> overdose deaths, about the same as in 2019, and <b>44,564</b> of them involved opioids, which is 46 percent below the 2022 peak but still higher than the 2016 figure that prompted the original chart.</div></div>
+  <div class="step" data-step="3"><div>Opioids were involved in nearly two of every three overdose deaths in 2025, and fentanyl and similar synthetic opioids accounted for about <b>38,000</b> of them. Methamphetamine and cocaine each contributed to tens of thousands of deaths, often in combination with fentanyl, which is why the categories overlap and add up to more than the total.</div></div>
+  <div class="step" data-step="4"><div>A CDC review published in September looked at <b>209,166</b> overdose deaths in 31 states and D.C. from 2021 to mid-2025. Cannabis was detected in about one in five of those deaths and was listed as a cause in <b>1,687</b>, almost always alongside other drugs. It was the only drug present in <b>9</b>, or 0.004 percent of the deaths reviewed.</div></div>
+ </div>
+</section>
+<article>
+ <h2>What the cannabis numbers mean</h2>
+ <p>The 2017 chart said zero, and the CDC’s new review shows the true figure is small but not zero. The review drew on the State Unintentional Drug Overdose Reporting System, which combines death certificates with medical examiner and toxicology reports, and it found that 73.5 percent of the deaths with cannabis detected also involved illicit fentanyl, while 60.4 percent involved stimulants. The authors conclude that finding cannabis in an overdose death mostly reflects the use of several drugs together rather than cannabis causing the death.</p>
+ <p>The review also raised a concern about young people. Cannabis was detected in 42.7 percent of overdose deaths among 12- to 17-year-olds, the highest share of any age group and more than twice the 16.7 percent among adults 50 and older. Because toxicology screens do not always test for cannabis, the authors say all of these shares are probably undercounts.</p>
+ <h2>Why overdose deaths are falling</h2>
+ <p>The 2025 total was about 14 percent below the 81,313 deaths CDC estimated for 2024, and deaths fell for opioids, cocaine and methamphetamine alike. Researchers point to wider access to naloxone, the overdose-reversal drug, along with expanded addiction treatment and changes in the illicit drug supply. The decline was uneven, though, as Arizona, Colorado and New Mexico each recorded increases of 10 percent or more compared with 2024.</p>
+ <p>The 2025 figures are provisional and will likely rise somewhat as medical examiners finish their investigations, which can take months. Even so, the gap between the two drugs in the original chart has held for nine years, and the opioid side of it is larger now than it was when the chart was posted.</p>
+ <p class="method">How we counted: yearly totals for 2015 through 2022 come from <a href="https://www.cdc.gov/nchs/data/databriefs/db491-tables.pdf">NCHS Data Brief 491</a>, 2023 and 2024 from <a href="https://www.cdc.gov/nchs/products/databriefs/db549.htm">NCHS Data Brief 549</a>, and 2025 from CDC’s <a href="https://cdc.gov/nchs/pressroom/releases/20260513.html">provisional counts released in May 2026</a>. The 2025 figures for synthetic opioids, stimulants and cocaine are rounded, as reported by the <a href="https://drugfree.org/print/page.php?id=186906">Partnership to End Addiction</a>. A death involving more than one drug is counted in each category. Cannabis figures come from CDC’s <a href="https://www.cdc.gov/mmwr/volumes/75/wr/mm7534a2.htm">Morbidity and Mortality Weekly Report, Sept. 3, 2026</a>, which covers Jan. 2021 to June 2025 in 31 states and D.C. and is not a national count. The original chart is <a href="https://www.reddit.com/r/dataisbeautiful/s/LxfDTdh68T">here on Reddit</a>. <a href="https://stories.thenewsindata.com/data/opioids-killed-44564-americans-in-2025-cannabis-alone-killed-almost-no-one.csv">Download the data</a>.</p>
+</article>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>// The News in Data scrolly engine: sticky figure + steps; each step renders a view.
+window.NID = (function () {
+  const MOB = matchMedia('(max-width:820px)').matches; const W = MOB ? 560 : 800, H = MOB ? 600 : 620;
+  function setup(views) {
+    const svg = d3.select('#fig svg').attr('viewBox', `0 0 ${W} ${H}`);
+    const layers = views.map((v, i) => svg.append('g').attr('class', 'layer').attr('data-i', i).style('opacity', 0).style('pointer-events', 'none'));
+    let cur = -1;
+    const drawn = new Set();
+    function show(i) {
+      if (i === cur) return;
+      const prevKey = cur >= 0 ? views[cur].key : null;
+      cur = i;
+      const v = views[i];
+      // views sharing a key reuse the same layer and get an update call
+      const li = views.findIndex(x => x.key === v.key);
+      if (!drawn.has(li)) { views[li].draw(layers[li], W, H); drawn.add(li); }
+      if (v.update) v.update(layers[li], W, H);
+      layers.forEach((g, j) => g.transition().duration(500).style('opacity', j === li ? 1 : 0).style('pointer-events', j === li ? 'all' : 'none'));
+      document.querySelectorAll('.step').forEach((s, j) => s.classList.toggle('on', j === i));
+      const cap = document.getElementById('figcap'); if (cap) cap.textContent = v.caption || '';
+    }
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.isIntersecting) show(+e.target.dataset.step); });
+    }, { rootMargin: matchMedia('(max-width:820px)').matches ? '-62% 0px -12% 0px' : '-45% 0px -45% 0px' });
+    document.querySelectorAll('.step').forEach(s => io.observe(s));
+    show(0);
+  }
+  // tooltip helper
+  function tip(sel, html) {
+    const t = d3.select('#tip');
+    sel.on('pointerenter pointermove', (ev, d) => {
+      t.style('opacity', 1).html(html(d));
+      const fx = document.getElementById('fig').getBoundingClientRect();
+      t.style('left', Math.min(ev.clientX - fx.left + 12, fx.width - 190) + 'px').style('top', (ev.clientY - fx.top + 12) + 'px');
+    }).on('pointerleave', () => t.style('opacity', 0));
+  }
+  return { setup, tip, W, H };
+})();
+</script>
+
+
+<script>
+const T=[[2015,52404,33091],[2016,63632,42249],[2017,70237,47600],[2018,67367,46802],[2019,70630,49860],[2020,91799,68630],[2021,106699,80411],[2022,107941,81806],[2023,105007,79358],[2024,79384,54045],[2025,69973,44564]].map(([y,all,op])=>({y,all,op,prov:y===2025}));
+const HI='#007a55',INK='#13241b',MUT='#5f7268',DOT='#a9b8b0',GRID='#e3eee7',RED='#c2410c';
+const M={l:70,r:34,t:64,b:56};
+const fmt=d3.format(',');
+function txt(g,x,y,s,o={}){const t=g.append('text').attr('x',x).attr('y',y).attr('font-size',o.size||16).attr('text-anchor',o.anchor||'start').text(s);if(o.cls)t.attr('class',o.cls);if(o.fill)t.style('fill',o.fill);if(o.weight)t.style('font-weight',o.weight);return t;}
+
+// Trend: one chart, revealed year by year as the reader scrolls.
+const reveal=[2017,2022,2025];
+function trend(step){return {key:'trend',caption:'U.S. overdose deaths per year. 2025 is provisional (dashed). Hover or tap a point.',
+ draw(g,W,H){
+  const x=d3.scaleLinear([2015,2025],[M.l,W-M.r-(W<700?60:110)]),y=d3.scaleLinear([0,120000],[H-M.b,M.t+20]);
+  txt(g,M.l-50,M.t-26,'U.S. Overdose Deaths Per Year',{cls:'lab',size:22});
+  [0,40000,80000,120000].forEach(v=>{g.append('line').attr('x1',M.l).attr('x2',W-M.r).attr('y1',y(v)).attr('y2',y(v)).attr('stroke',GRID).attr('stroke-width',1.5);txt(g,M.l-10,y(v)+5,v?fmt(v/1000)+'k':'0',{anchor:'end',size:15});});
+  (W<700?[2015,2017,2019,2021,2023,2025]:T.map(d=>d.y)).forEach(yr=>txt(g,x(yr),H-M.b+26,yr,{anchor:'middle',size:15}));
+  const id='clip'+Math.random().toString(36).slice(2,7);
+  g.append('clipPath').attr('id',id).append('rect').attr('x',0).attr('y',0).attr('height',H).attr('width',x(2017)+8);
+  const body=g.append('g').attr('clip-path',`url(#${id})`);
+  // reference: what the 2017 title said
+  const ref=g.append('g').attr('class','ref');
+  ref.append('line').attr('x1',M.l).attr('x2',x(2019)).attr('y1',y(20000)).attr('y2',y(20000)).attr('stroke',INK).attr('stroke-dasharray','5 4').attr('stroke-width',1.5);
+  txt(ref,x(2017)+10,y(20000)-8,'2017 title: “more than 20,000”',{size:16,fill:INK});
+  [['all',DOT],['op',RED]].forEach(([k,c])=>{
+   const firm=T.filter(d=>!d.prov),tail=T.slice(-2);
+   const line=d3.line().x(d=>x(d.y)).y(d=>y(d[k]));
+   body.append('path').attr('d',line(firm)).attr('fill','none').attr('stroke',c).attr('stroke-width',k==='op'?4:3);
+   body.append('path').attr('d',line(tail)).attr('fill','none').attr('stroke',c).attr('stroke-width',k==='op'?4:3).attr('stroke-dasharray','6 5');
+   body.selectAll('circle.'+k).data(T).join('circle').attr('class',k).attr('cx',d=>x(d.y)).attr('cy',d=>y(d[k])).attr('r',5).attr('fill',c)
+    .call(NID.tip,d=>`<b>${d.y}${d.prov?' (provisional)':''}</b><br>All overdoses: ${fmt(d.all)}<br>Involving opioids: ${fmt(d.op)}`);
+  });
+  const leg=body.append('g');
+  txt(leg,x(2025)+10,y(69973)+5,'All',{cls:'lab',size:17,fill:MUT});
+  txt(leg,x(2025)+10,y(44564)+5,'Opioids',{cls:'lab',size:17,fill:RED});
+  g.append('line').attr('x1',x(2017)).attr('x2',x(2017)).attr('y1',M.t+20).attr('y2',H-M.b).attr('stroke',MUT).attr('stroke-dasharray','3 3');
+  txt(g,x(2017)+6,M.t+34,'Original post',{size:15});
+  g.append('g').attr('class','ann');
+  g.node().__s={x,y,clip:g.select('clipPath rect')};
+ },
+ update(g,W,H){
+  const {x,y,clip}=g.node().__s,yr=reveal[step];
+  clip.transition().duration(900).attr('width',yr===2025?W:x(yr)+8);
+  g.select('g.ref').transition().duration(400).attr('opacity',step===0?1:0);
+  const a=g.select('g.ann');a.selectAll('*').remove();
+  const lab=(xx,yy,s,o)=>txt(a,xx,yy,s,o).attr('opacity',0).transition().delay(500).duration(400).attr('opacity',1);
+  if(step===0){lab(x(2016)+10,y(42249)+30,'42,249 in 2016',{cls:'lab',size:19,fill:RED,anchor:'start'});}
+  if(step===1){lab(x(2022),y(107941)-16,'107,941',{cls:'lab',size:19,anchor:'middle'});lab(x(2022),y(81806)-16,'81,806 opioid',{cls:'lab',size:19,fill:RED,anchor:'middle'});}
+  if(step===2){lab(x(2022.4),y(30000),'−46% since 2022',{cls:'lab',size:24,fill:RED,anchor:'middle'});lab(x(2025)-6,y(44564)+30,'44,564',{cls:'lab',size:19,fill:RED,anchor:'end'});}
+ }};}
+
+// 2025 by drug
+const D=[['Any opioid',44564,RED,''],['Synthetic opioids, mostly fentanyl',38000,RED,'≈'],['Methamphetamine and other stimulants',26000,DOT,'≈'],['Cocaine',19500,DOT,'≈']];
+const drugView={key:'drugs',caption:'U.S. overdose deaths by drug involved, 2025, provisional. Deaths involving several drugs count in each.',draw(g,W,H){
+ const x=d3.scaleLinear([0,50000],[M.l-40,W-M.r-110]),bh=50,gap=58,y0=M.t+40;
+ txt(g,M.l-40,M.t-26,'Overdose Deaths By Drug Involved, 2025',{cls:'lab',size:22});
+ D.forEach(([l,v,c,ap],i)=>{const yy=y0+i*(bh+gap);txt(g,M.l-40,yy-12,l,{size:17,fill:INK});
+  g.append('rect').attr('x',x(0)).attr('y',yy).attr('height',bh).attr('width',0).attr('fill',c).attr('opacity',i===1?.6:1).transition().duration(700).delay(i*180).attr('width',x(v)-x(0));
+  txt(g,x(v)+10,yy+bh/2+9,ap+fmt(v),{cls:'lab',size:24,fill:c===RED?RED:INK});});
+ const yy=y0+4*(bh+gap);
+ txt(g,M.l-40,yy-12,'Cannabis alone',{size:17,fill:INK});
+ g.append('line').attr('x1',x(0)).attr('x2',x(0)).attr('y1',yy).attr('y2',yy+bh).attr('stroke',HI).attr('stroke-width',3);
+ txt(g,x(0)+12,yy+bh/2-2,'9 deaths in 4½ years,',{cls:'hilab',size:20});
+ txt(g,x(0)+12,yy+bh/2+21,'31 states and D.C.',{cls:'hilab',size:20});
+}};
+
+// CDC cannabis review
+const C=[['Overdose deaths reviewed',209166,DOT],['Cannabis detected',43880,DOT],['Cannabis listed as a cause',1687,DOT],['Cannabis the only drug',9,HI]];
+const canView={key:'cannabis',caption:'Overdose deaths in 31 states and D.C., Jan. 2021–June 2025. CDC State Unintentional Drug Overdose Reporting System.',draw(g,W,H){
+ const x=d3.scaleLinear([0,215000],[M.l-40,W-M.r-120]),bh=56,gap=66,y0=M.t+40;
+ txt(g,M.l-40,M.t-26,'How Often Cannabis Appears In Overdose Deaths',{cls:'lab',size:22});
+ C.forEach(([l,v,c],i)=>{const yy=y0+i*(bh+gap);txt(g,M.l-40,yy-12,l,{size:17,fill:INK});
+  g.append('rect').attr('x',x(0)).attr('y',yy).attr('height',bh).attr('width',0).attr('fill',c).transition().duration(700).delay(i*200).attr('width',Math.max(3,x(v)-x(0)));
+  const pct=i===0?'':` (${v/209166<.01?(v/209166*100).toFixed(v<100?3:1):(v/209166*100).toFixed(1)}%)`;
+  txt(g,Math.max(x(0)+3,x(v))+10,yy+bh/2+9,fmt(v)+pct,{cls:i===3?'hilab':'lab',size:i===3?28:22});});
+}};
+NID.setup([trend(0),trend(1),trend(2),drugView,canView]);
+</script>
+</body></html>

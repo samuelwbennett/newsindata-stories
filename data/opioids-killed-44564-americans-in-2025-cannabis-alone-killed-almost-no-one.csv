@@ -1,0 +1,31 @@
+table,year_or_period,category,deaths,note
+annual,2015,all drug overdoses,52404,NCHS Data Brief 491
+annual,2015,opioid-involved,33091,NCHS Data Brief 491
+annual,2016,all drug overdoses,63632,NCHS Data Brief 491
+annual,2016,opioid-involved,42249,NCHS Data Brief 491
+annual,2017,all drug overdoses,70237,NCHS Data Brief 491
+annual,2017,opioid-involved,47600,NCHS Data Brief 491
+annual,2018,all drug overdoses,67367,NCHS Data Brief 491
+annual,2018,opioid-involved,46802,NCHS Data Brief 491
+annual,2019,all drug overdoses,70630,NCHS Data Brief 491
+annual,2019,opioid-involved,49860,NCHS Data Brief 491
+annual,2020,all drug overdoses,91799,NCHS Data Brief 491
+annual,2020,opioid-involved,68630,NCHS Data Brief 491
+annual,2021,all drug overdoses,106699,NCHS Data Brief 491
+annual,2021,opioid-involved,80411,NCHS Data Brief 491
+annual,2022,all drug overdoses,107941,NCHS Data Brief 491
+annual,2022,opioid-involved,81806,NCHS Data Brief 491
+annual,2023,all drug overdoses,105007,NCHS Data Brief 549
+annual,2023,opioid-involved,79358,NCHS Data Brief 549
+annual,2024,all drug overdoses,79384,NCHS Data Brief 549
+annual,2024,opioid-involved,54045,NCHS Data Brief 549
+annual,2025,all drug overdoses,69973,CDC NCHS provisional (May 2026)
+annual,2025,opioid-involved,44564,CDC NCHS provisional (May 2026)
+by_drug,2025,any opioid,44564,provisional
+by_drug,2025,synthetic opioids other than methadone,38000,provisional; rounded
+by_drug,2025,psychostimulants with abuse potential,26000,provisional; rounded
+by_drug,2025,cocaine,19500,provisional; rounded
+cannabis_review,2021-01 to 2025-06,overdose deaths reviewed,209166,CDC MMWR 75(34); 31 states and DC; SUDORS
+cannabis_review,2021-01 to 2025-06,cannabis detected,43880,CDC MMWR 75(34); 31 states and DC; SUDORS
+cannabis_review,2021-01 to 2025-06,cannabis listed as a cause,1687,CDC MMWR 75(34); 31 states and DC; SUDORS
+cannabis_review,2021-01 to 2025-06,cannabis the only drug,9,CDC MMWR 75(34); 31 states and DC; SUDORS
