@@ -1,0 +1,69 @@
+table,year,group,category,percent,source
+weekly cash use,2015,all adults,all or almost all purchases in cash,24,Pew Research Center
+weekly cash use,2015,all adults,some purchases in cash,51,Pew Research Center
+weekly cash use,2015,all adults,no purchases in cash,24,Pew Research Center
+weekly cash use,2018,all adults,all or almost all purchases in cash,18,Pew Research Center
+weekly cash use,2018,all adults,some purchases in cash,52,Pew Research Center
+weekly cash use,2018,all adults,no purchases in cash,29,Pew Research Center
+weekly cash use,2022,all adults,all or almost all purchases in cash,14,Pew Research Center
+weekly cash use,2022,all adults,some purchases in cash,44,Pew Research Center
+weekly cash use,2022,all adults,no purchases in cash,41,Pew Research Center
+weekly cash use,2026,all adults,all or almost all purchases in cash,12,Pew Research Center
+weekly cash use,2026,all adults,some purchases in cash,46,Pew Research Center
+weekly cash use,2026,all adults,no purchases in cash,42,Pew Research Center
+weekly cash use by income,2015,Under $30K,all or almost all purchases in cash,38,Pew Research Center
+weekly cash use by income,2015,Under $30K,no purchases in cash,15,Pew Research Center
+weekly cash use by income,2018,Under $30K,all or almost all purchases in cash,31,Pew Research Center
+weekly cash use by income,2018,Under $30K,no purchases in cash,18,Pew Research Center
+weekly cash use by income,2022,Under $30K,all or almost all purchases in cash,30,Pew Research Center
+weekly cash use by income,2022,Under $30K,no purchases in cash,24,Pew Research Center
+weekly cash use by income,2026,Under $30K,all or almost all purchases in cash,26,Pew Research Center
+weekly cash use by income,2026,Under $30K,no purchases in cash,24,Pew Research Center
+weekly cash use by income,2015,"$30K-$49,999",all or almost all purchases in cash,24,Pew Research Center
+weekly cash use by income,2015,"$30K-$49,999",no purchases in cash,24,Pew Research Center
+weekly cash use by income,2018,"$30K-$49,999",all or almost all purchases in cash,20,Pew Research Center
+weekly cash use by income,2018,"$30K-$49,999",no purchases in cash,27,Pew Research Center
+weekly cash use by income,2022,"$30K-$49,999",all or almost all purchases in cash,20,Pew Research Center
+weekly cash use by income,2022,"$30K-$49,999",no purchases in cash,35,Pew Research Center
+weekly cash use by income,2026,"$30K-$49,999",all or almost all purchases in cash,16,Pew Research Center
+weekly cash use by income,2026,"$30K-$49,999",no purchases in cash,33,Pew Research Center
+weekly cash use by income,2015,"$50K-$99,999",all or almost all purchases in cash,14,Pew Research Center
+weekly cash use by income,2015,"$50K-$99,999",no purchases in cash,30,Pew Research Center
+weekly cash use by income,2018,"$50K-$99,999",all or almost all purchases in cash,11,Pew Research Center
+weekly cash use by income,2018,"$50K-$99,999",no purchases in cash,35,Pew Research Center
+weekly cash use by income,2022,"$50K-$99,999",all or almost all purchases in cash,8,Pew Research Center
+weekly cash use by income,2022,"$50K-$99,999",no purchases in cash,45,Pew Research Center
+weekly cash use by income,2026,"$50K-$99,999",all or almost all purchases in cash,10,Pew Research Center
+weekly cash use by income,2026,"$50K-$99,999",no purchases in cash,43,Pew Research Center
+weekly cash use by income,2015,$100K+,all or almost all purchases in cash,8,Pew Research Center
+weekly cash use by income,2015,$100K+,no purchases in cash,36,Pew Research Center
+weekly cash use by income,2018,$100K+,all or almost all purchases in cash,6,Pew Research Center
+weekly cash use by income,2018,$100K+,no purchases in cash,43,Pew Research Center
+weekly cash use by income,2022,$100K+,all or almost all purchases in cash,4,Pew Research Center
+weekly cash use by income,2022,$100K+,no purchases in cash,59,Pew Research Center
+weekly cash use by income,2026,$100K+,all or almost all purchases in cash,4,Pew Research Center
+weekly cash use by income,2026,$100K+,no purchases in cash,58,Pew Research Center
+weekly cash use by age,2015,18-29,no purchases in cash,29,Pew Research Center
+weekly cash use by age,2018,18-29,no purchases in cash,34,Pew Research Center
+weekly cash use by age,2022,18-29,no purchases in cash,46,Pew Research Center
+weekly cash use by age,2026,18-29,no purchases in cash,51,Pew Research Center
+weekly cash use by age,2015,30-49,no purchases in cash,28,Pew Research Center
+weekly cash use by age,2018,30-49,no purchases in cash,35,Pew Research Center
+weekly cash use by age,2022,30-49,no purchases in cash,49,Pew Research Center
+weekly cash use by age,2026,30-49,no purchases in cash,46,Pew Research Center
+weekly cash use by age,2015,50-64,no purchases in cash,20,Pew Research Center
+weekly cash use by age,2018,50-64,no purchases in cash,22,Pew Research Center
+weekly cash use by age,2022,50-64,no purchases in cash,34,Pew Research Center
+weekly cash use by age,2026,50-64,no purchases in cash,37,Pew Research Center
+weekly cash use by age,2015,65+,no purchases in cash,19,Pew Research Center
+weekly cash use by age,2018,65+,no purchases in cash,25,Pew Research Center
+weekly cash use by age,2022,65+,no purchases in cash,33,Pew Research Center
+weekly cash use by age,2026,65+,no purchases in cash,33,Pew Research Center
+share of payments by method,2015,all payments,cash,33,Federal Reserve Bank of Atlanta via Pew
+share of payments by method,2025,all payments,cash,14,Federal Reserve Bank of Atlanta via Pew
+share of payments by method,2015,all payments,debit card,29,Federal Reserve Bank of Atlanta via Pew
+share of payments by method,2025,all payments,debit card,31,Federal Reserve Bank of Atlanta via Pew
+share of payments by method,2015,all payments,credit or charge card,18,Federal Reserve Bank of Atlanta via Pew
+share of payments by method,2025,all payments,credit or charge card,34,Federal Reserve Bank of Atlanta via Pew
+share of payments by method,2015,all payments,other,19,Federal Reserve Bank of Atlanta via Pew
+share of payments by method,2025,all payments,other,21,Federal Reserve Bank of Atlanta via Pew

@@ -1,7 +1,19 @@
 {
- "updated": "2026-10-17",
+ "updated": "2026-10-21",
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
+  {
+   "slug": "worry-about-gas-prices-jumped-from-43-to-74-this-year-as-the-price-rose-155-a-gallon",
+   "title": "Worry About Gas Prices Jumped From 43% To 74% This Year As The Price Rose $1.55 A Gallon",
+   "section": "Business",
+   "image": "https://stories.thenewsindata.com/more/icon-gas.png"
+  },
+  {
+   "slug": "42-of-americans-now-go-a-typical-week-without-paying-cash-up-from-24-in-2015",
+   "title": "42% Of Americans Now Go A Typical Week Without Paying Cash, Up From 24% In 2015",
+   "section": "Business",
+   "image": "https://stories.thenewsindata.com/more/icon-cash.png"
+  },
   {
    "slug": "amazon-deforestation-has-fallen-to-its-lowest-level-in-a-decade",
    "title": "Amazon Deforestation Has Fallen To Its Lowest Level In A Decade",

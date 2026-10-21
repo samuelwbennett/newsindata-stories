@@ -1,0 +1,89 @@
+table,date,group,value,unit,source
+very concerned about price of gasoline and energy,2022-10,total,69,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2022-10,Rep/lean Rep,80,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2022-10,Dem/lean Dem,58,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2023-01,total,60,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2023-01,Rep/lean Rep,72,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2023-01,Dem/lean Dem,48,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2024-01,total,51,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2024-01,Rep/lean Rep,64,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2024-01,Dem/lean Dem,40,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2025-04,total,46,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2025-04,Rep/lean Rep,40,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2025-04,Dem/lean Dem,51,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2025-09,total,45,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2025-09,Rep/lean Rep,36,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2025-09,Dem/lean Dem,53,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2026-01,total,43,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2026-01,Rep/lean Rep,40,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2026-01,Dem/lean Dem,47,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2026-07,total,60,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2026-07,Rep/lean Rep,49,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2026-07,Dem/lean Dem,68,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2026-10,total,74,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2026-10,Rep/lean Rep,65,percent of U.S. adults,Pew Research Center
+very concerned about price of gasoline and energy,2026-10,Dem/lean Dem,81,percent of U.S. adults,Pew Research Center
+"regular gasoline retail price, monthly",2022-01,U.S.,3.315,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2022-02,U.S.,3.517,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2022-03,U.S.,4.222,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2022-04,U.S.,4.109,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2022-05,U.S.,4.444,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2022-06,U.S.,4.929,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2022-07,U.S.,4.559,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2022-08,U.S.,3.975,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2022-09,U.S.,3.7,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2022-10,U.S.,3.815,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2022-11,U.S.,3.685,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2022-12,U.S.,3.21,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2023-01,U.S.,3.339,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2023-02,U.S.,3.389,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2023-03,U.S.,3.422,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2023-04,U.S.,3.603,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2023-05,U.S.,3.555,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2023-06,U.S.,3.571,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2023-07,U.S.,3.597,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2023-08,U.S.,3.84,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2023-09,U.S.,3.836,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2023-10,U.S.,3.613,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2023-11,U.S.,3.318,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2023-12,U.S.,3.134,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2024-01,U.S.,3.075,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2024-02,U.S.,3.212,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2024-03,U.S.,3.426,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2024-04,U.S.,3.611,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2024-05,U.S.,3.603,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2024-06,U.S.,3.455,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2024-07,U.S.,3.484,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2024-08,U.S.,3.389,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2024-09,U.S.,3.214,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2024-10,U.S.,3.137,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2024-11,U.S.,3.053,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2024-12,U.S.,3.018,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2025-01,U.S.,3.076,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2025-02,U.S.,3.121,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2025-03,U.S.,3.096,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2025-04,U.S.,3.171,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2025-05,U.S.,3.15,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2025-06,U.S.,3.15,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2025-07,U.S.,3.125,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2025-08,U.S.,3.133,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2025-09,U.S.,3.166,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2025-10,U.S.,3.06,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2025-11,U.S.,3.05,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2025-12,U.S.,2.894,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2026-01,U.S.,2.809,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2026-02,U.S.,2.908,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2026-03,U.S.,3.638,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2026-04,U.S.,4.103,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2026-05,U.S.,4.479,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2026-06,U.S.,4.05,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2026-07,U.S.,3.932,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2026-08,U.S.,4.058,dollars per gallon,EIA
+"regular gasoline retail price, monthly",2026-09,U.S.,4.355,dollars per gallon,EIA
+"regular gasoline retail price, weekly",2026-10-19,U.S.,4.284,dollars per gallon,EIA
+"regular gasoline retail price, weekly",2026-10-19,East Coast,4.064,dollars per gallon,EIA
+"regular gasoline retail price, weekly",2026-10-19,Midwest,4.145,dollars per gallon,EIA
+"regular gasoline retail price, weekly",2026-10-19,Gulf Coast,3.784,dollars per gallon,EIA
+"regular gasoline retail price, weekly",2026-10-19,Rocky Mountain,4.468,dollars per gallon,EIA
+"regular gasoline retail price, weekly",2026-10-19,West Coast,5.557,dollars per gallon,EIA
+"regular gasoline retail price, weekly",2026-10-19,California,6.031,dollars per gallon,EIA

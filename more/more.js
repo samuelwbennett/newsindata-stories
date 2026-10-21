@@ -5,6 +5,8 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+ ['cash','Business','42% Of Americans Now Go A Week Without Paying Cash','42-of-americans-now-go-a-typical-week-without-paying-cash-up-from-24-in-2015'],
+ ['gas','Business','Worry About Gas Prices Jumped From 43% To 74% This Year','worry-about-gas-prices-jumped-from-43-to-74-this-year-as-the-price-rose-155-a-gallon'],
  ['agents','Trending','A Fleet Of AI Agents Spent 11 Days Looking For The Zoo’s Front Door','a-fleet-of-ai-agents-spent-11-days-looking-for-the-zoos-front-door'],
  ['candy','Trending','Candy Prices Are Up 49% Since 2020','candy-prices-are-up-49-since-2020-while-overall-prices-rose-29-and-wages-28'],
  ['snow','Science','When Does Your State Usually Get Its First Snow?','winter-is-coming-when-the-first-snow-usually-falls-in-your-state'],
