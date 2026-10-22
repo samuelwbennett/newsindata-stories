@@ -1,7 +1,31 @@
 {
- "updated": "2026-10-21",
+ "updated": "2026-10-22",
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
+  {
+   "slug": "midterm-turnout-in-2022-ranged-from-31-in-tennessee-to-62-in-oregon",
+   "title": "Midterm Turnout In 2022 Ranged From 31% In Tennessee To 62% In Oregon",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792683146044-MJ8WV7AKVWQNA53UK4UJ/turnout-preview.png"
+  },
+  {
+   "slug": "the-presidents-party-has-lost-house-seats-in-18-of-the-20-midterms-since-world-war-ii",
+   "title": "The President's Party Has Lost House Seats In 18 Of The 20 Midterms Since World War II",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792683010426-MCNJRO2CB0MWA4TKI3E9/midterms-preview.png"
+  },
+  {
+   "slug": "nonprofits-that-dont-name-their-donors-supplied-28-of-the-money-behind-congresss-leadership-super-pacs",
+   "title": "Nonprofits That Don't Name Their Donors Supplied 28% Of The Money Behind Congress's Leadership Super PACs",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792682878927-ISW46XA3PX1GONSU98DQ/darkmoney-preview.png"
+  },
+  {
+   "slug": "elon-musk-has-given-369-million-this-cycle-more-than-the-next-three-donors-combined",
+   "title": "Elon Musk Has Given $369 Million This Cycle, More Than The Next Three Donors Combined",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792682726406-AXGIFLYM8IRZPRQPMJ7A/donors-preview.png"
+  },
   {
    "slug": "worry-about-gas-prices-jumped-from-43-to-74-this-year-as-the-price-rose-155-a-gallon",
    "title": "Worry About Gas Prices Jumped From 43% To 74% This Year As The Price Rose $1.55 A Gallon",

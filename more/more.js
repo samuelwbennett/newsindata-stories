@@ -5,6 +5,10 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+ ['turnout','Trending',"Midterm Turnout Ranged From 31% To 62% By State",'midterm-turnout-in-2022-ranged-from-31-in-tennessee-to-62-in-oregon'],
+ ['midterms','Trending',"The President's Party Lost House Seats In 18 Of 20 Midterms",'the-presidents-party-has-lost-house-seats-in-18-of-the-20-midterms-since-world-war-ii'],
+ ['darkmoney','Trending',"Undisclosed Donors Supplied 28% Of Leadership Super PAC Money",'nonprofits-that-dont-name-their-donors-supplied-28-of-the-money-behind-congresss-leadership-super-pacs'],
+ ['donors','Trending',"Musk Has Given $369M, More Than The Next Three Donors",'elon-musk-has-given-369-million-this-cycle-more-than-the-next-three-donors-combined'],
  ['cash','Business','42% Of Americans Now Go A Week Without Paying Cash','42-of-americans-now-go-a-typical-week-without-paying-cash-up-from-24-in-2015'],
  ['gas','Business','Worry About Gas Prices Jumped From 43% To 74% This Year','worry-about-gas-prices-jumped-from-43-to-74-this-year-as-the-price-rose-155-a-gallon'],
  ['agents','Trending','A Fleet Of AI Agents Spent 11 Days Looking For The Zoo’s Front Door','a-fleet-of-ai-agents-spent-11-days-looking-for-the-zoos-front-door'],
