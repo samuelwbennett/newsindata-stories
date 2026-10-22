@@ -1,0 +1,24 @@
+table,name,amount_millions_usd,lean,as_of,source
+top donors,Elon Musk,369,R,2026-10-15,"Washington Post analysis of FEC data (via Spectrum News, WION)"
+top donors,Richard & Elizabeth Uihlein,138,R,2026-10-15,"Washington Post analysis of FEC data (via Spectrum News, WION)"
+top donors,Jeff & Janine Yass,110,R,2026-10-15,"Washington Post analysis of FEC data (via Spectrum News, WION)"
+top donors,George Soros,102,D,2026-10-15,"Washington Post analysis of FEC data (via Spectrum News, WION)"
+top donors,Marc Andreessen & Ben Horowitz,92.2,R (CNBC label),2026-10-15,"Washington Post analysis of FEC data (via Spectrum News, WION)"
+top donors,Miriam Adelson,67.6,R,2026-10-15,"Washington Post analysis of FEC data (via Spectrum News, WION)"
+top donors,Cameron & Tyler Winklevoss,55.3,R (CNBC label),2026-10-15,"Washington Post analysis of FEC data (via Spectrum News, WION)"
+top donors,Paul Singer,53.5,R,2026-10-15,"Washington Post analysis of FEC data (via Spectrum News, WION)"
+top donors,Greg & Anna Brockman,50,R,2026-10-15,"Washington Post analysis of FEC data (via Spectrum News, WION)"
+Musk gifts since July 1,Senate Leadership Fund,158,R,2026-10-12,New York Times via Boston Globe
+Musk gifts since July 1,America PAC,>76,R,2026-10-12,New York Times via Boston Globe
+Musk gifts since July 1,Congressional Leadership Fund,20,R,2026-10-12,New York Times via Boston Globe
+Musk gifts since July 1,Lone Star Liberty PAC,10,R,2026-10-12,New York Times via Boston Globe
+Musk gifts since July 1,Republican Governors Association,10,R,2026-10-12,New York Times via Boston Globe
+Musk gifts since July 1,Republican Attorneys General Association,2,R,2026-10-12,New York Times via Boston Globe
+top 50 by lean,Republican-leaning,880,,2026-06-20,Washington Post
+top 50 by lean,Democratic-leaning,290,,2026-06-20,Washington Post
+top 50 by lean,Bipartisan/special-interest,200,,2026-06-20,Washington Post
+top 50 by lean,Republican-leaning,1540,,2026-10-15,Washington Post
+top 50 by lean,Democratic-leaning,590,,2026-10-15,Washington Post
+top 50 by lean,Bipartisan/special-interest,259,,2026-10-15,Washington Post
+top 10 share from Republican-aligned donors (cents per dollar),2022 comparable point,67,,2022,CNBC analysis of FEC data
+top 10 share from Republican-aligned donors (cents per dollar),2026,86,,2026-09-25,CNBC analysis of FEC data

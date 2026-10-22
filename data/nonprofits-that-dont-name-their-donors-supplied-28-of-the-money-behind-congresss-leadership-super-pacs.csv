@@ -1,0 +1,22 @@
+table,group,recipient,amount_millions_usd,share_of_recipient_receipts_pct,lean,period,source
+leadership transfers,One Nation,Senate Leadership Fund,70.74,28,R,2025-01 to 2026-06,Issue One
+leadership transfers,Majority Forward,Senate Majority PAC,61,35,D,2025-01 to 2026-06,Issue One
+leadership transfers,American Action Network,Congressional Leadership Fund,44.2,27,R,2025-01 to 2026-06,Issue One
+leadership transfers,House Majority Forward,House Majority PAC,21.7,18,D,2025-01 to 2026-06,Issue One
+leadership total,Four nonprofits,Four leadership super PACs,197.7,27.7,both,2025-01 to 2026-06,Issue One
+dark money total,All,,1000,,,2020,Brennan Center (approx.)
+dark money total,All,,1900,,,2024,Brennan Center (more than)
+dark money by beneficiary,Boosted Democrats,,1200,,D,2024,Brennan Center (approx.)
+dark money by beneficiary,Boosted Republicans,,664,,R,2024,Brennan Center (approx.)
+outside-group broadcast TV by disclosure,full disclosure,President,233.92,,,2023-24,Wesleyan Media Project
+outside-group broadcast TV by disclosure,partial disclosure,President,578.14,,,2023-24,Wesleyan Media Project
+outside-group broadcast TV by disclosure,no disclosure,President,87.86,,,2023-24,Wesleyan Media Project
+outside-group broadcast TV by disclosure,full disclosure,Senate,106.56,,,2023-24,Wesleyan Media Project
+outside-group broadcast TV by disclosure,partial disclosure,Senate,541.83,,,2023-24,Wesleyan Media Project
+outside-group broadcast TV by disclosure,no disclosure,Senate,126.33,,,2023-24,Wesleyan Media Project
+outside-group broadcast TV by disclosure,full disclosure,House,107.56,,,2023-24,Wesleyan Media Project
+outside-group broadcast TV by disclosure,partial disclosure,House,390.12,,,2023-24,Wesleyan Media Project
+outside-group broadcast TV by disclosure,no disclosure,House,62.54,,,2023-24,Wesleyan Media Project
+outside-group broadcast TV by disclosure,full disclosure,Total,448.05,,,2023-24,Wesleyan Media Project
+outside-group broadcast TV by disclosure,partial disclosure,Total,1510.09,,,2023-24,Wesleyan Media Project
+outside-group broadcast TV by disclosure,no disclosure,Total,276.73,,,2023-24,Wesleyan Media Project

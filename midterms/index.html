@@ -1,0 +1,169 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The President&#x27;s Party Has Lost House Seats In 18 Of The 20 Midterms Since World War II — The News in Data</title><meta name="description" content="The president&#x27;s party lost House seats in 18 of the 20 midterms from 1946 to 2022, an average of 25.7 seats, under presidents of both parties.">
+<link rel="canonical" href="https://www.thenewsindata.com/stories/the-presidents-party-has-lost-house-seats-in-18-of-the-20-midterms-since-world-war-ii">
+<meta property="og:title" content="The President&#x27;s Party Has Lost House Seats In 18 Of The 20 Midterms Since World War II"><meta property="og:description" content="The president&#x27;s party lost House seats in 18 of the 20 midterms from 1946 to 2022, an average of 25.7 seats, under presidents of both parties."><meta property="og:image" content="https://stories.thenewsindata.com/midterms/midterms-preview.png"><meta property="og:url" content="https://stories.thenewsindata.com/midterms/"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23007a55'/%3E%3Crect x='7' y='16' width='5' height='10' fill='white'/%3E%3Crect x='14' y='10' width='5' height='16' fill='white'/%3E%3Crect x='21' y='6' width='5' height='20' fill='white'/%3E%3C/svg%3E">
+</head><body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<style>
+/* Field Notes theme (charts in Times New Roman): graph paper, green ink, pen annotations. A deliberately single light look. */
+:root{--bg:#fbfcfa;--paper:#ffffff;--ink:#13241b;--muted:#5f7268;--grid:#e3eee7;--rule:#cfdfd5;--dot:#a9b8b0;--hi:#007a55;--red:#c2410c;
+--disp:"Archivo",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;--serif:"Newsreader",Georgia,serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased;background-color:var(--bg);
+ background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+.mast{display:flex;justify-content:space-between;align-items:center;padding-block:18px;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.mast b{font-family:var(--disp);font-stretch:85%;font-weight:800;font-size:18px;letter-spacing:0;color:#fff;background:var(--hi);padding:6px 10px}
+header{padding-block:52px 20px;max-width:920px}
+.kick{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--hi)}
+h1{font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:clamp(36px,6vw,72px);line-height:1;letter-spacing:-.02em;margin:16px 0 18px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--hi)}
+.dek{font-size:clamp(19px,2.2vw,23px);line-height:1.45;color:#34473c;max-width:46ch;margin:0}
+.by{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:20px}
+.big{display:flex;gap:40px;flex-wrap:wrap;padding-block:26px 6px}
+.big div{font-family:var(--disp);font-stretch:70%;font-weight:900;font-size:clamp(64px,10vw,120px);line-height:.85;color:var(--ink)}
+.big div.g{color:var(--hi)}
+.big span{display:block;font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:10px;font-weight:400;font-stretch:100%;line-height:1.4}
+.scrolly{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px}
+#fig{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;order:2}
+#fig svg{width:100%;height:auto;max-height:78vh;overflow:visible;background:var(--paper);border:1px solid var(--rule)}
+#figcap{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px;min-height:1.4em}
+.steps{order:1;padding-block:30vh 40vh}
+.step{min-height:70vh;display:flex;align-items:center}
+.step>div{background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--rule);padding:22px 24px;font-size:19px;line-height:1.55;opacity:.4;transition:opacity .4s,border-color .4s}
+.step.on>div{opacity:1;border-left-color:var(--hi)}
+.step b{font-family:var(--mono);font-weight:600;font-size:.9em;color:var(--hi)}
+article{max-width:680px;margin:0 auto;padding-block:20px 80px}
+article h2{font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:30px;margin:40px 0 10px}
+article p{font-size:19px;line-height:1.6;margin:0 0 16px;background:var(--bg)}
+.method{font-family:var(--mono);font-size:13px!important;line-height:1.6!important;color:var(--muted);border-top:2px solid var(--ink);padding-top:16px;margin-top:32px}
+.method a{color:var(--hi)}
+#tip{position:absolute;pointer-events:none;opacity:0;background:#fff;border:1.5px solid var(--ink);padding:8px 10px;font-family:var(--mono);font-size:12px;line-height:1.45;z-index:5;max-width:220px}
+svg text{font-family:'Times New Roman',Times,serif;fill:var(--muted)}
+svg .lab{font-family:'Times New Roman',Times,serif;font-weight:700;fill:var(--ink)}
+svg .hilab{font-family:'Times New Roman',Times,serif;font-weight:700;fill:var(--hi)}
+@media (max-width:820px){
+ .scrolly{display:block}
+ #fig{height:52vh;z-index:4;background:var(--bg);padding-top:6px;justify-content:flex-start}
+ #fig svg{max-height:46vh}
+ .steps{padding-block:10vh 30vh;position:relative;z-index:1}
+ .step{min-height:85vh;align-items:flex-end}
+ .step>div{font-size:17px;opacity:.95}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+
+.step .sh{display:block;font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:22px;line-height:1.15;margin-bottom:8px;color:var(--ink)}
+.findme{display:flex;gap:10px;align-items:center;font-family:var(--mono);font-size:13px;color:var(--muted);margin-bottom:8px}
+.findme select{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1.5px solid var(--ink);background:#fff;color:var(--ink)}
+.findme output{font-family:'Times New Roman',Times,serif;font-size:17px;color:var(--ink);font-weight:700}
+</style>
+
+
+<div class="wrap">
+<div class="mast"><a href="https://www.thenewsindata.com" style="text-decoration:none"><b>The News in Data</b></a><span>TRENDING</span></div>
+<header>
+ <div class="kick">№ 022 · OCT. 22, 2026</div>
+ <h1>The President's Party Has Lost House Seats In <em>18 Of The 20 Midterms Since World War II</em></h1>
+ <p class="dek">The average loss is about 26 seats, and the only gains came in 1998 and 2002.</p>
+ <div class="by">By Samuel W. Bennett · Midterms 2026</div>
+ <div class="big"><div class="g">18 of 20<span>POSTWAR MIDTERMS WITH A<br>HOUSE LOSS FOR THE PRESIDENT’S PARTY</span></div><div>−25.7<span>AVERAGE HOUSE SEAT<br>CHANGE, 1946–2022</span></div></div>
+</header>
+<section class="scrolly">
+ <div id="fig"><svg role="img" aria-label="In 18 of 20 midterms since 1946, the president&#x27;s party lost House seats, from 4 in 1962 to 63 in 2010; the only gains were 4 seats in 1998 and 8 in 2002."></svg><div id="figcap"></div><div id="tip"></div></div>
+ <div class="steps">
+  <div class="step" data-step="0"><div>The president's party lost House seats in 18 of the 20 midterm elections from 1946 to 2022, according to the American Presidency Project at UC Santa Barbara. The average change was a loss of 25.7 seats and the median a loss of 22.</div></div>
+  <div class="step" data-step="1"><div><span class="sh">The two exceptions</span>Democrats under Bill Clinton gained four House seats in 1998, and Republicans under George W. Bush gained eight in 2002. Before the war, Democrats under Franklin Roosevelt gained nine in 1934, so a gain has happened three times in 23 midterms since 1934.</div></div>
+  <div class="step" data-step="2"><div><span class="sh">The losses are large under both parties</span>The biggest loss was 63 seats for Democrats under Barack Obama in 2010, followed by 56 under Harry Truman in 1946 and 54 under Clinton in 1994. Democratic presidents' parties lost an average of 28.5 seats in their 10 postwar midterms, compared with 22.8 for Republican presidents' parties in their 10. The smallest losses were four seats in 1962 under John F. Kennedy and five in 1986 under Ronald Reagan.</div></div>
+  <div class="step" data-step="3"><div><span class="sh">The Senate pattern is weaker</span>In the Senate the president's party lost an average of 3.6 seats and gained seats in six of the 20 midterms, most recently in 2018 and 2022, and broke even in 1998. Only about a third of Senate seats are on the ballot in any year, so which states are voting shapes the result as much as the national mood.</div></div>
+ </div>
+</section>
+<article>
+ <h2>What&#x27;s next</h2>
+ <p>The chart shows how often the pattern has held, and it can't explain why or tell us what will happen on Nov. 3. The Nov. 3 results will add a 21st postwar midterm to the chart, and final seat counts can take weeks in close races.</p>
+ <p class="method">How we counted: seat changes are the American Presidency Project's table of seats gained or lost by the president's party in midterm elections; averages and medians are our calculations from that table for 1946–2022. Gerald Ford is counted as president in 1974. Source: <a href="https://www.presidency.ucsb.edu/node/332343/">American Presidency Project, UC Santa Barbara</a>. <a href="https://stories.thenewsindata.com/data/the-presidents-party-has-lost-house-seats-in-18-of-the-20-midterms-since-world-war-ii.csv">Download the data</a>.</p>
+</article>
+<section class="nid-kr"></section><script src="/more/keep-reading.js" defer></script>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>// The News in Data scrolly engine: sticky figure + steps; each step renders a view.
+window.NID = (function () {
+  const MOB = matchMedia('(max-width:820px)').matches; const W = MOB ? 560 : 800, H = MOB ? 600 : 620;
+  function setup(views) {
+    const svg = d3.select('#fig svg').attr('viewBox', `0 0 ${W} ${H}`);
+    const layers = views.map((v, i) => svg.append('g').attr('class', 'layer').attr('data-i', i).style('opacity', 0).style('pointer-events', 'none'));
+    let cur = -1;
+    const drawn = new Set();
+    function show(i) {
+      if (i === cur) return;
+      const prevKey = cur >= 0 ? views[cur].key : null;
+      cur = i;
+      const v = views[i];
+      // views sharing a key reuse the same layer and get an update call
+      const li = views.findIndex(x => x.key === v.key);
+      if (!drawn.has(li)) { views[li].draw(layers[li], W, H); drawn.add(li); }
+      if (v.update) v.update(layers[li], W, H);
+      layers.forEach((g, j) => g.transition().duration(500).style('opacity', j === li ? 1 : 0).style('pointer-events', j === li ? 'all' : 'none'));
+      document.querySelectorAll('.step').forEach((s, j) => s.classList.toggle('on', j === i));
+      const cap = document.getElementById('figcap'); if (cap) cap.textContent = v.caption || '';
+    }
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.isIntersecting) show(+e.target.dataset.step); });
+    }, { rootMargin: matchMedia('(max-width:820px)').matches ? '-62% 0px -12% 0px' : '-45% 0px -45% 0px' });
+    document.querySelectorAll('.step').forEach(s => io.observe(s));
+    show(0);
+  }
+  // tooltip helper
+  function tip(sel, html) {
+    const t = d3.select('#tip');
+    sel.on('pointerenter pointermove', (ev, d) => {
+      t.style('opacity', 1).html(html(d));
+      const fx = document.getElementById('fig').getBoundingClientRect();
+      t.style('left', Math.min(ev.clientX - fx.left + 12, fx.width - 190) + 'px').style('top', (ev.clientY - fx.top + 12) + 'px');
+    }).on('pointerleave', () => t.style('opacity', 0));
+  }
+  return { setup, tip, W, H };
+})();
+</script>
+<script>
+const HI='#007a55',INK='#13241b',MUT='#5f7268',DOT='#a9b8b0',GRID='#e3eee7',REP='#b8473e',DEM='#3a6ea5',OTH='#8f9a94';
+const M={l:70,r:34,t:64,b:56};
+const fmt=d3.format(','),usd=v=>'$'+(v>=1000?(v/1000).toFixed(v%1000?2:1)+'B':(+v.toFixed(1))+'M');
+function txt(g,x,y,s,o={}){const t=g.append('text').attr('x',x).attr('y',y).attr('font-size',o.size||16).attr('text-anchor',o.anchor||'start').text(s);if(o.cls)t.attr('class',o.cls);if(o.fill)t.style('fill',o.fill);if(o.weight)t.style('font-weight',o.weight);return t;}
+function title(g,s,W){const lines=Array.isArray(s)?s:[s];lines.forEach((l,i)=>txt(g,W/2,M.t-30+i*26,l,{cls:'lab',size:23,anchor:'middle'}));}
+function legend(g,items,x,y){let cx=x,cy=y;const maxX=NID.W-20;items.forEach(([c,l])=>{const r=g.append('rect').attr('x',cx).attr('y',cy-12).attr('width',14).attr('height',14).attr('fill',c);const t=txt(g,cx+20,cy,l,{cls:'lab',size:15});const w=t.node().getComputedTextLength();if(cx+20+w>maxX&&cx>x){cx=x;cy+=22;r.attr('x',cx).attr('y',cy-12);t.attr('x',cx+20).attr('y',cy);}cx+=w+46;});}
+
+const MD=[[1946,"Truman","D",-56,-12],[1950,"Truman","D",-28,-6],[1954,"Eisenhower","R",-18,-1],[1958,"Eisenhower","R",-48,-13],[1962,"Kennedy","D",-4,3],[1966,"Johnson","D",-47,-4],[1970,"Nixon","R",-12,2],[1974,"Ford","R",-48,-5],[1978,"Carter","D",-15,-3],[1982,"Reagan","R",-26,1],[1986,"Reagan","R",-5,-8],[1990,"G.H.W. Bush","R",-8,-1],[1994,"Clinton","D",-54,-8],[1998,"Clinton","D",4,0],[2002,"G.W. Bush","R",8,2],[2006,"G.W. Bush","R",-30,-6],[2010,"Obama","D",-63,-6],[2014,"Obama","D",-13,-9],[2018,"Trump","R",-41,2],[2022,"Biden","D",-9,1]];
+const sgn=v=>v>0?'+'+v:v<0?'−'+(-v):'0';
+function seats(mode){return {key:'seats',caption:'Net House seat change for the president’s party, American Presidency Project. Hover or tap a bar.',draw(g,W,H){
+ title(g,'House Seats Gained Or Lost By The President’s Party',W);legend(g,[[DEM,'Democratic president'],[REP,'Republican president']],M.l-20,M.t+8);
+ const x=d3.scaleBand(MD.map(d=>d[0]),[M.l,W-M.r]).padding(.18),y=d3.scaleLinear([-70,15],[H-M.b,M.t+40]);
+ [-60,-40,-20,0].forEach(v=>{g.append('line').attr('x1',M.l).attr('x2',W-M.r).attr('y1',y(v)).attr('y2',y(v)).attr('stroke',v?GRID:'#000').attr('stroke-width',v?1.2:2.2);txt(g,M.l-8,y(v)+5,sgn(v),{size:14,anchor:'end'});});
+ g.selectAll('rect.b').data(MD).join('rect').attr('class','b').attr('x',d=>x(d[0])).attr('width',x.bandwidth()).attr('y',y(0)).attr('height',0).attr('fill',d=>d[2]==='R'?REP:DEM)
+  .call(NID.tip,d=>`<b>${d[0]}, ${d[1]} (${d[2]})</b><br>House: ${sgn(d[3])} seats<br>Senate: ${sgn(d[4])} seats`)
+  .transition().duration(700).delay((d,i)=>i*30).attr('y',d=>y(Math.max(0,d[3]))).attr('height',d=>Math.abs(y(d[3])-y(0)));
+ MD.forEach((d,i)=>{if(W>=700||i%2===0)txt(g,x(d[0])+x.bandwidth()/2,H-M.b+22,"'"+String(d[0]).slice(2),{size:13,anchor:'middle'});});
+ g.append('g').attr('class','vals');g.append('g').attr('class','ann');g.node().__s={x,y};},
+ update(g,W,H){const {x,y}=g.node().__s,a=g.select('g.ann');a.selectAll('*').remove();const v=g.select('g.vals');v.selectAll('*').remove();
+  const hl=mode==='gain'?[1998,2002]:mode==='big'?[2010,1946,1994]:null;
+  g.selectAll('rect.b').transition('hl').duration(400).attr('opacity',d=>!hl||hl.includes(d[0])?1:.25);
+  MD.forEach(d=>{if(hl&&!hl.includes(d[0]))return;if(!hl&&W<700&&Math.abs(d[3])<20)return;txt(v,x(d[0])+x.bandwidth()/2,d[3]>0?y(d[3])-6:y(d[3])+16,sgn(d[3]),{cls:'lab',size:hl?16:12,anchor:'middle'});});
+  if(mode==='all'){a.append('line').attr('x1',M.l).attr('x2',W-M.r).attr('y1',y(-25.7)).attr('y2',y(-25.7)).attr('stroke',INK).attr('stroke-dasharray','6 4').attr('stroke-width',1.6);txt(a,W-M.r,y(-25.7)-8,'Average: −25.7',{cls:'lab',size:17,anchor:'end'});}
+  if(mode==='gain')txt(a,(x(1998)+x(2002)+x.bandwidth())/2,y(13),'The only gains',{cls:'hilab',size:18,anchor:'middle'});
+  if(mode==='big'){[[-28.5,DEM,'Democratic presidents: −28.5 average'],[-22.8,REP,'Republican presidents: −22.8 average']].forEach(([v,c,l],i)=>{a.append('line').attr('x1',M.l).attr('x2',W-M.r).attr('y1',y(v)).attr('y2',y(v)).attr('stroke',c).attr('stroke-dasharray','6 4').attr('stroke-width',2);txt(a,W-M.r,y(v)+(i?-8:18),l,{cls:'lab',size:15,fill:c,anchor:'end'});});}
+ }};}
+const senate={key:'senate',caption:'Net Senate seat change for the president’s party, American Presidency Project.',draw(g,W,H){
+ title(g,'Senate Seats Gained Or Lost By The President’s Party',W);
+ const x=d3.scaleBand(MD.map(d=>d[0]),[M.l,W-M.r]).padding(.18),y=d3.scaleLinear([-14,5],[H-M.b,M.t+40]);
+ [-12,-8,-4,0,4].forEach(v=>{g.append('line').attr('x1',M.l).attr('x2',W-M.r).attr('y1',y(v)).attr('y2',y(v)).attr('stroke',v?GRID:'#000').attr('stroke-width',v?1.2:2.2);txt(g,M.l-8,y(v)+5,sgn(v),{size:14,anchor:'end'});});
+ g.selectAll('rect').data(MD).join('rect').attr('x',d=>x(d[0])).attr('width',x.bandwidth()).attr('y',y(0)).attr('height',0).attr('fill',d=>d[2]==='R'?REP:DEM).call(NID.tip,d=>`<b>${d[0]}, ${d[1]}</b><br>Senate: ${sgn(d[4])} seats`)
+  .transition().duration(700).delay((d,i)=>i*30).attr('y',d=>y(Math.max(0,d[4]))).attr('height',d=>Math.max(d[4]===0?2:0,Math.abs(y(d[4])-y(0))));
+ MD.forEach((d,i)=>{if(W>=700||i%2===0)txt(g,x(d[0])+x.bandwidth()/2,H-M.b+22,"'"+String(d[0]).slice(2),{size:13,anchor:'middle'});if(d[4]>0)txt(g,x(d[0])+x.bandwidth()/2,y(d[4])-6,'+'+d[4],{cls:'hilab',size:14,anchor:'middle'});});
+ txt(g,W-M.r,y(-12),'Gains in 6 of 20 midterms; average −3.6',{cls:'lab',size:17,anchor:'end'});}};
+NID.setup([seats('all'),seats('gain'),seats('big'),senate]);
+
+</script>
+</body></html>

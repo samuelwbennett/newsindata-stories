@@ -1,0 +1,182 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Midterm Turnout In 2022 Ranged From 31% In Tennessee To 62% In Oregon — The News in Data</title><meta name="description" content="About 46% of eligible Americans voted in 2022, from 31% in Tennessee to 62% in Oregon, and turnout fell from 2018 in 42 of 50 states.">
+<link rel="canonical" href="https://www.thenewsindata.com/stories/midterm-turnout-in-2022-ranged-from-31-in-tennessee-to-62-in-oregon">
+<meta property="og:title" content="Midterm Turnout In 2022 Ranged From 31% In Tennessee To 62% In Oregon"><meta property="og:description" content="About 46% of eligible Americans voted in 2022, from 31% in Tennessee to 62% in Oregon, and turnout fell from 2018 in 42 of 50 states."><meta property="og:image" content="https://stories.thenewsindata.com/turnout/turnout-preview.png"><meta property="og:url" content="https://stories.thenewsindata.com/turnout/"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23007a55'/%3E%3Crect x='7' y='16' width='5' height='10' fill='white'/%3E%3Crect x='14' y='10' width='5' height='16' fill='white'/%3E%3Crect x='21' y='6' width='5' height='20' fill='white'/%3E%3C/svg%3E">
+</head><body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<style>
+/* Field Notes theme (charts in Times New Roman): graph paper, green ink, pen annotations. A deliberately single light look. */
+:root{--bg:#fbfcfa;--paper:#ffffff;--ink:#13241b;--muted:#5f7268;--grid:#e3eee7;--rule:#cfdfd5;--dot:#a9b8b0;--hi:#007a55;--red:#c2410c;
+--disp:"Archivo",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;--serif:"Newsreader",Georgia,serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased;background-color:var(--bg);
+ background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+.mast{display:flex;justify-content:space-between;align-items:center;padding-block:18px;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.mast b{font-family:var(--disp);font-stretch:85%;font-weight:800;font-size:18px;letter-spacing:0;color:#fff;background:var(--hi);padding:6px 10px}
+header{padding-block:52px 20px;max-width:920px}
+.kick{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--hi)}
+h1{font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:clamp(36px,6vw,72px);line-height:1;letter-spacing:-.02em;margin:16px 0 18px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--hi)}
+.dek{font-size:clamp(19px,2.2vw,23px);line-height:1.45;color:#34473c;max-width:46ch;margin:0}
+.by{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:20px}
+.big{display:flex;gap:40px;flex-wrap:wrap;padding-block:26px 6px}
+.big div{font-family:var(--disp);font-stretch:70%;font-weight:900;font-size:clamp(64px,10vw,120px);line-height:.85;color:var(--ink)}
+.big div.g{color:var(--hi)}
+.big span{display:block;font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:10px;font-weight:400;font-stretch:100%;line-height:1.4}
+.scrolly{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px}
+#fig{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;order:2}
+#fig svg{width:100%;height:auto;max-height:78vh;overflow:visible;background:var(--paper);border:1px solid var(--rule)}
+#figcap{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px;min-height:1.4em}
+.steps{order:1;padding-block:30vh 40vh}
+.step{min-height:70vh;display:flex;align-items:center}
+.step>div{background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--rule);padding:22px 24px;font-size:19px;line-height:1.55;opacity:.4;transition:opacity .4s,border-color .4s}
+.step.on>div{opacity:1;border-left-color:var(--hi)}
+.step b{font-family:var(--mono);font-weight:600;font-size:.9em;color:var(--hi)}
+article{max-width:680px;margin:0 auto;padding-block:20px 80px}
+article h2{font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:30px;margin:40px 0 10px}
+article p{font-size:19px;line-height:1.6;margin:0 0 16px;background:var(--bg)}
+.method{font-family:var(--mono);font-size:13px!important;line-height:1.6!important;color:var(--muted);border-top:2px solid var(--ink);padding-top:16px;margin-top:32px}
+.method a{color:var(--hi)}
+#tip{position:absolute;pointer-events:none;opacity:0;background:#fff;border:1.5px solid var(--ink);padding:8px 10px;font-family:var(--mono);font-size:12px;line-height:1.45;z-index:5;max-width:220px}
+svg text{font-family:'Times New Roman',Times,serif;fill:var(--muted)}
+svg .lab{font-family:'Times New Roman',Times,serif;font-weight:700;fill:var(--ink)}
+svg .hilab{font-family:'Times New Roman',Times,serif;font-weight:700;fill:var(--hi)}
+@media (max-width:820px){
+ .scrolly{display:block}
+ #fig{height:52vh;z-index:4;background:var(--bg);padding-top:6px;justify-content:flex-start}
+ #fig svg{max-height:46vh}
+ .steps{padding-block:10vh 30vh;position:relative;z-index:1}
+ .step{min-height:85vh;align-items:flex-end}
+ .step>div{font-size:17px;opacity:.95}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+
+.step .sh{display:block;font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:22px;line-height:1.15;margin-bottom:8px;color:var(--ink)}
+.findme{display:flex;gap:10px;align-items:center;font-family:var(--mono);font-size:13px;color:var(--muted);margin-bottom:8px}
+.findme select{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1.5px solid var(--ink);background:#fff;color:var(--ink)}
+.findme output{font-family:'Times New Roman',Times,serif;font-size:17px;color:var(--ink);font-weight:700}
+</style>
+
+
+<div class="wrap">
+<div class="mast"><a href="https://www.thenewsindata.com" style="text-decoration:none"><b>The News in Data</b></a><span>TRENDING</span></div>
+<header>
+ <div class="kick">№ 023 · OCT. 22, 2026</div>
+ <h1>Midterm Turnout In 2022 Ranged From <em>31% In Tennessee To 62% In Oregon</em></h1>
+ <p class="dek">Turnout fell in 42 of 50 states from 2018, when it reached its highest midterm level since 1914.</p>
+ <div class="by">By Samuel W. Bennett · Midterms 2026</div>
+ <div class="big"><div class="g">62%<span>OREGON, HIGHEST IN 2022</span></div><div>31%<span>TENNESSEE, LOWEST</span></div></div>
+</header>
+<section class="scrolly">
+ <div id="fig"><label class="findme">Find your state <select id="st"><option value="">Choose…</option></select> <output id="stout"></output></label><svg role="img" aria-label="2022 midterm turnout by state ranged from 31% in Tennessee and 32% in Mississippi to 61% in Maine and 62% in Oregon; nationally about 46% of eligible Americans voted."></svg><div id="figcap"></div><div id="tip"></div></div>
+ <div class="steps">
+  <div class="step" data-step="0"><div>About 46% of eligible Americans voted in the 2022 midterms, according to the University of Florida Election Lab, but the rate varied by more than 30 points between states. Oregon led at 62.3%, followed by Maine at 60.8% and Minnesota at 60.4%, while Tennessee was lowest at 31.0%, followed by Mississippi at 32.5% and West Virginia at 35.4%.</div></div>
+  <div class="step" data-step="1"><div><span class="sh">2018 was the high point</span>Midterm turnout reached 50.1% in 2018, the highest since 1914, and fell to 46.1% in 2022, according to the Election Lab's national series. The rate dropped in 42 of 50 states, by the most in North Dakota (58.7% to 41.7%), Tennessee (45.1% to 31.0%) and New Jersey (53.7% to 41.1%). It rose in eight states, by the most in Pennsylvania (51.8% to 53.9%), New Hampshire and Arizona.</div></div>
+  <div class="step" data-step="2"><div><span class="sh">Older voters are a bigger share than their population</span>Adults 65 and older made up 30.4% of 2022 midterm voters but 23.8% of voting-age citizens, according to the Census Bureau's survey of voters, while adults 18 to 29 made up 11.7% of voters and 19.6% of voting-age citizens. Half of 2022 voters (49.8%) cast ballots early or by mail, 10 points more than in 2018, according to the same survey.</div></div>
+  <div class="step" data-step="3"><div><span class="sh">The long view</span>Midterm turnout fell below 40% in most midterms from 1974 through 2014, and 2014's 36.7% was the lowest since 1942. The 2018 and 2022 rates were the two highest midterm figures in more than 50 years.</div></div>
+ </div>
+</section>
+<article>
+ <h2>What&#x27;s next</h2>
+ <p>States report final turnout in the weeks after Nov. 3, and the Election Lab usually publishes its state estimates by early the following year. The Census Bureau's survey of who voted in 2026 typically arrives about 18 months after the election.</p>
+ <p class="method">How we counted: turnout is total ballots counted divided by the voting-eligible population (citizens 18 and older, excluding ineligible felons where applicable), from the University of Florida Election Lab's 2018 and 2022 state files and its national series (Walter Dean Burnham before 1948, Michael McDonald after). The 2022 state file's national rate is 45.99% and the national series gives 46.12%. Age shares are from the Census Bureau's Current Population Survey Voting and Registration Supplement, released April 23, 2024. Sources: <a href="http://election.lab.ufl.edu/data-downloads/turnoutdata/Turnout_2022G_v0.1.csv">UF Election Lab 2022</a>; <a href="http://election.lab.ufl.edu/data-downloads/turnoutdata/Turnout_2018G_v1.1.csv">UF Election Lab 2018</a>; <a href="http://election.lab.ufl.edu/data-downloads/turnoutdata/US_VEP_Turnout_Rates_v1.4.csv">UF national series</a>; <a href="https://www.census.gov/newsroom/press-releases/2024/congressional-election-voting-report.html">Census Bureau</a>. <a href="https://stories.thenewsindata.com/data/midterm-turnout-in-2022-ranged-from-31-in-tennessee-to-62-in-oregon.csv">Download the data</a>.</p>
+</article>
+<section class="nid-kr"></section><script src="/more/keep-reading.js" defer></script>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>// The News in Data scrolly engine: sticky figure + steps; each step renders a view.
+window.NID = (function () {
+  const MOB = matchMedia('(max-width:820px)').matches; const W = MOB ? 560 : 800, H = MOB ? 600 : 620;
+  function setup(views) {
+    const svg = d3.select('#fig svg').attr('viewBox', `0 0 ${W} ${H}`);
+    const layers = views.map((v, i) => svg.append('g').attr('class', 'layer').attr('data-i', i).style('opacity', 0).style('pointer-events', 'none'));
+    let cur = -1;
+    const drawn = new Set();
+    function show(i) {
+      if (i === cur) return;
+      const prevKey = cur >= 0 ? views[cur].key : null;
+      cur = i;
+      const v = views[i];
+      // views sharing a key reuse the same layer and get an update call
+      const li = views.findIndex(x => x.key === v.key);
+      if (!drawn.has(li)) { views[li].draw(layers[li], W, H); drawn.add(li); }
+      if (v.update) v.update(layers[li], W, H);
+      layers.forEach((g, j) => g.transition().duration(500).style('opacity', j === li ? 1 : 0).style('pointer-events', j === li ? 'all' : 'none'));
+      document.querySelectorAll('.step').forEach((s, j) => s.classList.toggle('on', j === i));
+      const cap = document.getElementById('figcap'); if (cap) cap.textContent = v.caption || '';
+    }
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.isIntersecting) show(+e.target.dataset.step); });
+    }, { rootMargin: matchMedia('(max-width:820px)').matches ? '-62% 0px -12% 0px' : '-45% 0px -45% 0px' });
+    document.querySelectorAll('.step').forEach(s => io.observe(s));
+    show(0);
+  }
+  // tooltip helper
+  function tip(sel, html) {
+    const t = d3.select('#tip');
+    sel.on('pointerenter pointermove', (ev, d) => {
+      t.style('opacity', 1).html(html(d));
+      const fx = document.getElementById('fig').getBoundingClientRect();
+      t.style('left', Math.min(ev.clientX - fx.left + 12, fx.width - 190) + 'px').style('top', (ev.clientY - fx.top + 12) + 'px');
+    }).on('pointerleave', () => t.style('opacity', 0));
+  }
+  return { setup, tip, W, H };
+})();
+</script>
+<script>
+const HI='#007a55',INK='#13241b',MUT='#5f7268',DOT='#a9b8b0',GRID='#e3eee7',REP='#b8473e',DEM='#3a6ea5',OTH='#8f9a94';
+const M={l:70,r:34,t:64,b:56};
+const fmt=d3.format(','),usd=v=>'$'+(v>=1000?(v/1000).toFixed(v%1000?2:1)+'B':(+v.toFixed(1))+'M');
+function txt(g,x,y,s,o={}){const t=g.append('text').attr('x',x).attr('y',y).attr('font-size',o.size||16).attr('text-anchor',o.anchor||'start').text(s);if(o.cls)t.attr('class',o.cls);if(o.fill)t.style('fill',o.fill);if(o.weight)t.style('font-weight',o.weight);return t;}
+function title(g,s,W){const lines=Array.isArray(s)?s:[s];lines.forEach((l,i)=>txt(g,W/2,M.t-30+i*26,l,{cls:'lab',size:23,anchor:'middle'}));}
+function legend(g,items,x,y){let cx=x,cy=y;const maxX=NID.W-20;items.forEach(([c,l])=>{const r=g.append('rect').attr('x',cx).attr('y',cy-12).attr('width',14).attr('height',14).attr('fill',c);const t=txt(g,cx+20,cy,l,{cls:'lab',size:15});const w=t.node().getComputedTextLength();if(cx+20+w>maxX&&cx>x){cx=x;cy+=22;r.attr('x',cx).attr('y',cy-12);t.attr('x',cx+20).attr('y',cy);}cx+=w+46;});}
+const TL={"AK": [0, 0], "ME": [11, 0], "WI": [6, 1], "VT": [10, 1], "NH": [11, 1], "WA": [1, 2], "ID": [2, 2], "MT": [3, 2], "ND": [4, 2], "MN": [5, 2], "IL": [6, 2], "MI": [7, 2], "NY": [8, 2], "MA": [10, 2], "OR": [1, 3], "NV": [2, 3], "WY": [3, 3], "SD": [4, 3], "IA": [5, 3], "IN": [6, 3], "OH": [7, 3], "PA": [8, 3], "NJ": [9, 3], "CT": [10, 3], "RI": [11, 3], "CA": [1, 4], "UT": [2, 4], "CO": [3, 4], "NE": [4, 4], "MO": [5, 4], "KY": [6, 4], "WV": [7, 4], "VA": [8, 4], "MD": [9, 4], "DE": [10, 4], "AZ": [2, 5], "NM": [3, 5], "KS": [4, 5], "AR": [5, 5], "TN": [6, 5], "NC": [7, 5], "SC": [8, 5], "DC": [9, 5], "OK": [4, 6], "LA": [5, 6], "MS": [6, 6], "AL": [7, 6], "GA": [8, 6], "HI": [0, 7], "TX": [4, 7], "FL": [9, 7]},NM={"AL": "Alabama", "AK": "Alaska", "AZ": "Arizona", "AR": "Arkansas", "CA": "California", "CO": "Colorado", "CT": "Connecticut", "DE": "Delaware", "DC": "District of Columbia", "FL": "Florida", "GA": "Georgia", "HI": "Hawaii", "ID": "Idaho", "IL": "Illinois", "IN": "Indiana", "IA": "Iowa", "KS": "Kansas", "KY": "Kentucky", "LA": "Louisiana", "ME": "Maine", "MD": "Maryland", "MA": "Massachusetts", "MI": "Michigan", "MN": "Minnesota", "MS": "Mississippi", "MO": "Missouri", "MT": "Montana", "NE": "Nebraska", "NV": "Nevada", "NH": "New Hampshire", "NJ": "New Jersey", "NM": "New Mexico", "NY": "New York", "NC": "North Carolina", "ND": "North Dakota", "OH": "Ohio", "OK": "Oklahoma", "OR": "Oregon", "PA": "Pennsylvania", "RI": "Rhode Island", "SC": "South Carolina", "SD": "South Dakota", "TN": "Tennessee", "TX": "Texas", "UT": "Utah", "VT": "Vermont", "VA": "Virginia", "WA": "Washington", "WV": "West Virginia", "WI": "Wisconsin", "WY": "Wyoming"},T22={"AL": 37.17, "AK": 50.25, "AZ": 49.31, "AR": 41.51, "CA": 42.87, "CO": 58.31, "CT": 48.57, "DE": 42.76, "DC": 40.63, "FL": 48.12, "GA": 51.87, "HI": 40.06, "ID": 42.27, "IL": 45.8, "IN": 37.16, "IA": 51.86, "KS": 47.57, "KY": 44.78, "LA": 42.04, "ME": 60.82, "MD": 45.82, "MA": 48.78, "MI": 58.9, "MN": 60.4, "MS": 32.47, "MO": 44.57, "MT": 53.24, "NE": 48.43, "NV": 45.84, "NH": 56.3, "NJ": 41.05, "NM": 46.34, "NY": 42.51, "NC": 47.54, "ND": 41.7, "OH": 47.09, "OK": 39.59, "OR": 62.25, "PA": 53.92, "RI": 43.63, "SC": 42.77, "SD": 53.06, "TN": 31.04, "TX": 41.56, "UT": 46.8, "VT": 55.82, "VA": 47.6, "WA": 55.34, "WV": 35.44, "WI": 59.77, "WY": 45.58},T18={"AL": 47.18, "AK": 54.19, "AZ": 47.89, "AR": 41.55, "CA": 48.93, "CO": 62.07, "CT": 54.62, "DE": 51.4, "DC": 43.53, "FL": 54.43, "GA": 54.45, "HI": 39.06, "ID": 49.77, "IL": 51.27, "IN": 46.88, "IA": 57.66, "KS": 50.95, "KY": 48.8, "LA": 44.98, "ME": 60.37, "MD": 54.26, "MA": 54.78, "MI": 57.62, "MN": 64.21, "MS": 43.71, "MO": 53.45, "MT": 62.13, "NE": 51.63, "NV": 46.8, "NH": 54.39, "NJ": 53.68, "NM": 46.74, "NY": 45.26, "NC": 49.51, "ND": 58.67, "OH": 51.03, "OK": 42.26, "OR": 61.22, "PA": 51.75, "RI": 48.09, "SC": 45.15, "SD": 53.1, "TN": 45.11, "TX": 45.8, "UT": 51.51, "VT": 55.73, "VA": 54.47, "WA": 59.11, "WV": 42.36, "WI": 61.74, "WY": 48.18},NAT=[[1902, 55.6], [1906, 51.3], [1910, 52.0], [1914, 50.4], [1918, 39.9], [1922, 35.7], [1926, 32.9], [1930, 36.7], [1934, 44.5], [1938, 46.6], [1942, 33.9], [1946, 38.8], [1950, 43.6], [1954, 43.5], [1958, 45.0], [1962, 47.7], [1966, 48.7], [1970, 47.3], [1974, 39.1], [1978, 39.0], [1982, 42.0], [1986, 38.1], [1990, 38.4], [1994, 41.1], [1998, 38.1], [2002, 39.5], [2006, 40.4], [2010, 41.0], [2014, 36.7], [2018, 50.05], [2022, 46.12]];
+
+const seq=d3.scaleLinear([30,46,63],['#e6f2ec','#6db594','#00573d']),div=d3.scaleLinear([-17,0,3],['#b8473e','#f4f1ec','#3a6ea5']);
+let PICK=null;
+function tiles(mode){return {key:'map',caption:mode==='t22'?'Ballots counted ÷ voting-eligible population, 2022. UF Election Lab. Hover, tap or pick your state.':'Change in turnout, 2018 to 2022, percentage points. UF Election Lab.',draw(g,W,H){
+ const cols=12,s=Math.min((W-40)/cols,(H-M.t-90)/8),x0=(W-cols*s)/2,y0=M.t+40;g.append('text').attr('class','lab ttl').attr('x',W/2).attr('y',M.t-30).attr('font-size',23).attr('text-anchor','middle');
+ const cells=g.selectAll('g.c').data(Object.entries(TL)).join('g').attr('class','c').attr('transform',([k,[c,r]])=>`translate(${x0+c*s},${y0+r*s})`);
+ cells.append('rect').attr('width',s-4).attr('height',s-4).attr('rx',5).attr('stroke','#fff').attr('stroke-width',2);
+ cells.append('text').attr('class','ab').attr('x',(s-4)/2).attr('y',(s-4)*.42).attr('text-anchor','middle').attr('font-size',s*.25).style('font-weight',700).text(([k])=>k);
+ cells.append('text').attr('class','vl').attr('x',(s-4)/2).attr('y',(s-4)*.78).attr('text-anchor','middle').attr('font-size',s*.22);
+ cells.call(NID.tip,([k])=>`<b>${NM[k]}</b><br>2022: ${T22[k].toFixed(1)}%<br>2018: ${T18[k].toFixed(1)}%<br>Change: ${(T22[k]-T18[k]>=0?'+':'−')+Math.abs(T22[k]-T18[k]).toFixed(1)} pts`);
+ g.append('g').attr('class','key');g.node().__s={s};},
+ update(g,W,H){const t22=mode==='t22';g.select('text.ttl').text(t22?'Midterm Turnout By State, 2022':'Change In Turnout, 2018 To 2022');
+  g.selectAll('g.c').each(function([k]){const v=t22?T22[k]:T22[k]-T18[k],c=t22?seq(v):div(v),dark=t22?v>50:Math.abs(v)>9,sel=d3.select(this);
+   sel.select('rect').transition().duration(600).attr('fill',c).attr('stroke',PICK===k?INK:'#fff').attr('stroke-width',PICK===k?4:2);
+   sel.selectAll('text').style('fill',dark?'#fff':INK);sel.select('text.vl').text(t22?Math.round(v)+'%':(v>=0?'+':'−')+Math.abs(v).toFixed(0));});
+  const k=g.select('g.key');k.selectAll('*').remove();const ky=H-M.b+20;
+  if(t22)[[31,'31%'],[40,'40%'],[50,'50%'],[62,'62%']].forEach(([v,l],i)=>{k.append('rect').attr('x',W/2-150+i*80).attr('y',ky).attr('width',60).attr('height',16).attr('fill',seq(v));txt(k,W/2-120+i*80,ky+34,l,{cls:'lab',size:14,anchor:'middle'});});
+  else [[-15,'−15'],[-8,'−8'],[0,'0'],[2,'+2']].forEach(([v,l],i)=>{k.append('rect').attr('x',W/2-150+i*80).attr('y',ky).attr('width',60).attr('height',16).attr('fill',div(v)).attr('stroke','#ccc');txt(k,W/2-120+i*80,ky+34,l+' pts',{cls:'lab',size:14,anchor:'middle'});});
+ }};}
+const age={key:'age',caption:'Census Bureau, Current Population Survey, November 2022 (released April 23, 2024).',draw(g,W,H){
+ title(g,['Who Voted In 2022 Compared With','Who Could Vote, By Age'],W);legend(g,[[HI,'Share of voters'],[DOT,'Share of voting-age citizens']],M.l-20,M.t+40);
+ const x=d3.scaleLinear([0,35],[M.l+40,W-M.r-60]),bh=36;
+ [['Ages 18–29',11.7,19.6],['Ages 65+',30.4,23.8]].forEach(([l,a,b],i)=>{const yy=M.t+100+i*170;txt(g,M.l-20,yy-14,l,{cls:'lab',size:19});
+  [[a,HI],[b,DOT]].forEach(([v,c],j)=>{g.append('rect').attr('x',x(0)).attr('y',yy+j*(bh+8)).attr('height',bh).attr('width',0).attr('fill',c).transition().duration(700).delay(i*200+j*100).attr('width',x(v)-x(0));
+   txt(g,x(v)+8,yy+j*(bh+8)+bh/2+7,v+'%',{cls:'lab',size:18});});});}};
+const nat={key:'nat',caption:'Midterm turnout among the voting-eligible population, 1902–2022. UF Election Lab (Burnham before 1948, McDonald after). Hover a point.',draw(g,W,H){
+ title(g,'Midterm Turnout, 1902–2022',W);
+ const x=d3.scaleLinear([1902,2022],[M.l,W-M.r-20]),y=d3.scaleLinear([25,60],[H-M.b,M.t+20]);
+ [30,40,50,60].forEach(v=>{g.append('line').attr('x1',M.l).attr('x2',W-M.r).attr('y1',y(v)).attr('y2',y(v)).attr('stroke',GRID).attr('stroke-width',1.4);txt(g,M.l-8,y(v)+5,v+'%',{size:14,anchor:'end'});});
+ [1902,1930,1962,1994,2022].forEach(v=>txt(g,x(v),H-M.b+24,v,{size:14,anchor:'middle'}));
+ g.append('path').attr('d',d3.line().x(d=>x(d[0])).y(d=>y(d[1]))(NAT)).attr('fill','none').attr('stroke',HI).attr('stroke-width',3.5);
+ g.selectAll('circle').data(NAT).join('circle').attr('cx',d=>x(d[0])).attr('cy',d=>y(d[1])).attr('r',d=>d[0]>=2014||d[0]===1914?6:4).attr('fill',d=>d[0]>=2014||d[0]===1914?INK:HI).call(NID.tip,d=>`<b>${d[0]}</b><br>${d[1]}%`);
+ [[1914,50.4,'1914: 50.4%','start',-16],[2014,36.7,'2014: 36.7%','end',22],[2018,50.05,'2018: 50.1%','end',-14],[2022,46.12,'2022: 46.1%','end',24]].forEach(([a,b,l,an,dy])=>txt(g,x(a)+(an==='end'?-4:an==='start'?8:0),y(b)+dy,l,{cls:'lab',size:15,anchor:an}));
+}};
+const sel=document.getElementById('st');
+if(sel){Object.keys(NM).sort((a,b)=>NM[a].localeCompare(NM[b])).forEach(k=>{const o=document.createElement('option');o.value=k;o.textContent=NM[k];sel.appendChild(o);});
+ sel.addEventListener('change',()=>{const k=sel.value;PICK=k||null;const out=document.getElementById('stout');
+  out.textContent=k?`${T22[k].toFixed(1)}% in 2022 (${(T22[k]-T18[k]>=0?'+':'−')+Math.abs(T22[k]-T18[k]).toFixed(1)} pts from 2018), rank ${Object.keys(T22).filter(s=>s!=='DC').sort((a,b)=>T22[b]-T22[a]).indexOf(k)+1 || '—'} of 50`:'';
+  d3.selectAll('g.c rect').attr('stroke',function(){const kk=d3.select(this.parentNode).datum()[0];return kk===PICK?INK:'#fff';}).attr('stroke-width',function(){const kk=d3.select(this.parentNode).datum()[0];return kk===PICK?4:2;});});}
+NID.setup([tiles('t22'),tiles('chg'),age,nat]);
+new MutationObserver(()=>{const on=[...document.querySelectorAll('.step')].findIndex(s=>s.classList.contains('on'));const f=document.querySelector('.findme');if(f)f.style.visibility=on<=1?'visible':'hidden';}).observe(document.querySelector('.steps'),{subtree:true,attributes:true,attributeFilter:['class']});
+
+</script>
+</body></html>
