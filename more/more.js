@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+ ['paygap','Business',"Women Earned 86% Of Men’s Pay, And Each Group Falls Further Behind",'women-earned-86-of-what-men-earned-in-2025-and-each-group-of-women-falls-further-behind-as-it-ages'],
  ['turnout','Trending',"Midterm Turnout Ranged From 31% To 62% By State",'midterm-turnout-in-2022-ranged-from-31-in-tennessee-to-62-in-oregon'],
  ['midterms','Trending',"The President's Party Lost House Seats In 18 Of 20 Midterms",'the-presidents-party-has-lost-house-seats-in-18-of-the-20-midterms-since-world-war-ii'],
  ['darkmoney','Trending',"Undisclosed Donors Supplied 28% Of Leadership Super PAC Money",'nonprofits-that-dont-name-their-donors-supplied-28-of-the-money-behind-congresss-leadership-super-pacs'],
