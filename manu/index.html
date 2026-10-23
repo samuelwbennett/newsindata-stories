@@ -1,0 +1,179 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rappers Have Named Manu Ginóbili In At Least 1,489 Songs, And Most Came After He Retired — The News in Data</title><meta name="description" content="Rappers have named Manu Ginóbili in at least 1,489 songs on Genius, and more than half of those with a release date came out after he retired in 2018.">
+<link rel="canonical" href="https://www.thenewsindata.com/stories/rappers-have-named-manu-ginobili-in-at-least-1489-songs-and-most-came-after-he-retired">
+<meta property="og:title" content="Rappers Have Named Manu Ginóbili In At Least 1,489 Songs, And Most Came After He Retired"><meta property="og:description" content="Rappers have named Manu Ginóbili in at least 1,489 songs on Genius, and more than half of those with a release date came out after he retired in 2018."><meta property="og:image" content="https://stories.thenewsindata.com/manu/manu-preview.png"><meta property="og:url" content="https://stories.thenewsindata.com/manu/"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23007a55'/%3E%3Crect x='7' y='16' width='5' height='10' fill='white'/%3E%3Crect x='14' y='10' width='5' height='16' fill='white'/%3E%3Crect x='21' y='6' width='5' height='20' fill='white'/%3E%3C/svg%3E">
+</head><body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<style>
+/* Field Notes theme (charts in Times New Roman): graph paper, green ink, pen annotations. A deliberately single light look. */
+:root{--bg:#fbfcfa;--paper:#ffffff;--ink:#13241b;--muted:#5f7268;--grid:#e3eee7;--rule:#cfdfd5;--dot:#a9b8b0;--hi:#007a55;--red:#c2410c;
+--disp:"Archivo",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;--serif:"Newsreader",Georgia,serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased;background-color:var(--bg);
+ background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+.mast{display:flex;justify-content:space-between;align-items:center;padding-block:18px;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.mast b{font-family:var(--disp);font-stretch:85%;font-weight:800;font-size:18px;letter-spacing:0;color:#fff;background:var(--hi);padding:6px 10px}
+header{padding-block:52px 20px;max-width:920px}
+.kick{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--hi)}
+h1{font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:clamp(36px,6vw,72px);line-height:1;letter-spacing:-.02em;margin:16px 0 18px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--hi)}
+.dek{font-size:clamp(19px,2.2vw,23px);line-height:1.45;color:#34473c;max-width:46ch;margin:0}
+.by{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:20px}
+.big{display:flex;gap:40px;flex-wrap:wrap;padding-block:26px 6px}
+.big div{font-family:var(--disp);font-stretch:70%;font-weight:900;font-size:clamp(64px,10vw,120px);line-height:.85;color:var(--ink)}
+.big div.g{color:var(--hi)}
+.big span{display:block;font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:10px;font-weight:400;font-stretch:100%;line-height:1.4}
+.scrolly{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px}
+#fig{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;order:2}
+#fig svg{width:100%;height:auto;max-height:78vh;overflow:visible;background:var(--paper);border:1px solid var(--rule)}
+#figcap{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px;min-height:1.4em}
+.steps{order:1;padding-block:30vh 40vh}
+.step{min-height:70vh;display:flex;align-items:center}
+.step>div{background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--rule);padding:22px 24px;font-size:19px;line-height:1.55;opacity:.4;transition:opacity .4s,border-color .4s}
+.step.on>div{opacity:1;border-left-color:var(--hi)}
+.step b{font-family:var(--mono);font-weight:600;font-size:.9em;color:var(--hi)}
+article{max-width:680px;margin:0 auto;padding-block:20px 80px}
+article h2{font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:30px;margin:40px 0 10px}
+article p{font-size:19px;line-height:1.6;margin:0 0 16px;background:var(--bg)}
+.method{font-family:var(--mono);font-size:13px!important;line-height:1.6!important;color:var(--muted);border-top:2px solid var(--ink);padding-top:16px;margin-top:32px}
+.method a{color:var(--hi)}
+#tip{position:absolute;pointer-events:none;opacity:0;background:#fff;border:1.5px solid var(--ink);padding:8px 10px;font-family:var(--mono);font-size:12px;line-height:1.45;z-index:5;max-width:220px}
+svg text{font-family:'Times New Roman',Times,serif;fill:var(--muted)}
+svg .lab{font-family:'Times New Roman',Times,serif;font-weight:700;fill:var(--ink)}
+svg .hilab{font-family:'Times New Roman',Times,serif;font-weight:700;fill:var(--hi)}
+@media (max-width:820px){
+ .scrolly{display:block}
+ #fig{height:52vh;z-index:4;background:var(--bg);padding-top:6px;justify-content:flex-start}
+ #fig svg{max-height:46vh}
+ .steps{padding-block:10vh 30vh;position:relative;z-index:1}
+ .step{min-height:85vh;align-items:flex-end}
+ .step>div{font-size:17px;opacity:.95}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+
+.step .sh{display:block;font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:22px;line-height:1.15;margin-bottom:8px;color:var(--ink)}
+.findme{display:flex;gap:10px;align-items:center;font-family:var(--mono);font-size:13px;color:var(--muted);margin-bottom:8px}
+.findme select{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1.5px solid var(--ink);background:#fff;color:var(--ink)}
+.findme output{font-family:'Times New Roman',Times,serif;font-size:17px;color:var(--ink);font-weight:700}
+</style>
+
+
+<div class="wrap">
+<div class="mast"><a href="https://www.thenewsindata.com" style="text-decoration:none"><b>The News in Data</b></a><span>CULTURE</span></div>
+<header>
+ <div class="kick">№ 025 · OCT. 23, 2026</div>
+ <h1>Rappers Have Named Manu Ginóbili In At Least <em>1,489 Songs, And Most Came After He Retired</em></h1>
+ <p class="dek">Songs naming the Spurs guard rose after Drake and Future's "Jumpman" in 2015, peaked in 2020 and still number more than 70 a year.</p>
+ <div class="by">By Samuel W. Bennett · Genius lyrics data</div>
+ <div class="big"><div class="g">1,489<span>SONGS ON GENIUS<br>THAT NAME HIM</span></div><div>63%<span>CAME OUT AFTER<br>HE RETIRED</span></div></div>
+</header>
+<section class="scrolly">
+ <div id="fig"><svg role="img" aria-label="Songs on Genius naming Manu Ginóbili rose from a handful a year before 2013 to 163 in 2020, two years after he retired, and have stayed above 70 a year since."></svg><div id="figcap"></div><div id="tip"></div></div>
+ <div class="steps">
+  <div class="step" data-step="0"><div>Rappers have named Manu Ginóbili in at least 1,489 songs posted to Genius, the lyrics site, according to our search of its lyrics, nearly all of them rap songs. About 63% of the songs with a release date came out after he retired from the San Antonio Spurs in August 2018, more than came out during his 16 seasons in the NBA.</div></div>
+  <div class="step" data-step="1"><div><span class="sh">A slow start, then &quot;Jumpman&quot;</span>Ginóbili won NBA titles with the Spurs in 2003, 2005, 2007 and 2014, but no year before 2013 had more than 11 songs naming him. The count climbed to 39 in 2014 and 100 in 2016, after Drake and Future's "Jumpman" (September 2015) named him. "Jumpman" has about 3.4 million views on Genius, more than twice as many as any other song that names him.</div></div>
+  <div class="step" data-step="2"><div><span class="sh">The peak came after he retired</span>The count reached 163 songs in 2020, two years after his last game, and has stayed between 73 and 82 a year from 2023 through 2025. There were 44 through Oct. 23 this year. The two most-viewed songs after "Jumpman" both came out after he retired: NLE Choppa's "Shotta Flow" (2019), with about 1.6 million views, and Pop Smoke's "Hello" (2020), with about 711,000. The Argentine rapper Duki named him in "Givenchy" (2022).</div></div>
+  <div class="step" data-step="3"><div><span class="sh">What rappers say about him</span>Two details come up again and again. About 1 in 8 songs mention his left hand, and about 1 in 11 refer to his Euro step, the side-to-side drive he helped popularize in the NBA, or to his footwork. About 1 in 22 name a Spurs teammate or coach on the same line. Jokes about his hairline, which a <a href="https://noticias.perfil.com/noticias/deportes/la-obsesion-de-los-raperos-estadounidenses-con-manu-ginobili.phtml">Revista Noticias article</a> on rappers and Ginóbili highlighted this month, appear in only about 1 in 65. We counted a detail only when it appeared on the same line as his name.</div></div>
+  <div class="step" data-step="4"><div><span class="sh">Who names him most</span>Juice WRLD named Ginóbili in 14 songs, more than any other artist, and 10 of them have no release date on Genius, which usually marks recordings that were never officially released. No other musician named him in more than 7 songs, so the total is spread across more than 1,300 artists.</div></div>
+ </div>
+</section>
+<article>
+ <h2>What the data can&#x27;t tell us</h2>
+ <p>Genius depends on users to post and transcribe songs, so it misses some songs and includes unreleased ones, and 214 of the songs have no release date. We also tried to compare him with Tim Duncan, Tony Parker, Steve Nash, Kevin Garnett, Paul Pierce, Vince Carter and Kobe Bryant, but Genius returns at most about 1,000 results per search and every one of those searches hit the limit, so the data can't rank him against them. Lines that use only his first name, Manu, are not counted. The search finds misspellings such as "Ginobli," which are counted.</p>
+ <p class="method">How we counted: we ran 14 searches of Genius's lyrics for Ginóbili's surname, its misspellings and phrases that pair it with other words, then kept songs whose lyrics name him, either in the full lyrics we checked or in the lyric excerpt Genius returns. We removed Genius articles, translations and transcripts of games, and counted versions of the same song by the same artist (remixes, freestyles, session recordings) once. Release years are Genius's. Detail counts use the line that names him. Career dates: Spurs and NBA records via <a href="https://www.si.com/nba/2018/08/27/manu-ginobili-retirement-san-antonio-spurs">Sports Illustrated</a>. Searches run Oct. 23, 2026. <a href="https://stories.thenewsindata.com/data/rappers-have-named-manu-ginobili-in-at-least-1489-songs-and-most-came-after-he-retired.csv">Download the data</a>.</p>
+</article>
+<section class="nid-kr"></section><script src="/more/keep-reading.js" defer></script>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>// The News in Data scrolly engine: sticky figure + steps; each step renders a view.
+window.NID = (function () {
+  const MOB = matchMedia('(max-width:820px)').matches; const W = MOB ? 560 : 800, H = MOB ? 600 : 620;
+  function setup(views) {
+    const svg = d3.select('#fig svg').attr('viewBox', `0 0 ${W} ${H}`);
+    const layers = views.map((v, i) => svg.append('g').attr('class', 'layer').attr('data-i', i).style('opacity', 0).style('pointer-events', 'none'));
+    let cur = -1;
+    const drawn = new Set();
+    function show(i) {
+      if (i === cur) return;
+      const prevKey = cur >= 0 ? views[cur].key : null;
+      cur = i;
+      const v = views[i];
+      // views sharing a key reuse the same layer and get an update call
+      const li = views.findIndex(x => x.key === v.key);
+      if (!drawn.has(li)) { views[li].draw(layers[li], W, H); drawn.add(li); }
+      if (v.update) v.update(layers[li], W, H);
+      layers.forEach((g, j) => g.transition().duration(500).style('opacity', j === li ? 1 : 0).style('pointer-events', j === li ? 'all' : 'none'));
+      document.querySelectorAll('.step').forEach((s, j) => s.classList.toggle('on', j === i));
+      const cap = document.getElementById('figcap'); if (cap) cap.textContent = v.caption || '';
+    }
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.isIntersecting) show(+e.target.dataset.step); });
+    }, { rootMargin: matchMedia('(max-width:820px)').matches ? '-62% 0px -12% 0px' : '-45% 0px -45% 0px' });
+    document.querySelectorAll('.step').forEach(s => io.observe(s));
+    show(0);
+  }
+  // tooltip helper
+  function tip(sel, html) {
+    const t = d3.select('#tip');
+    sel.on('pointerenter pointermove', (ev, d) => {
+      t.style('opacity', 1).html(html(d));
+      const fx = document.getElementById('fig').getBoundingClientRect();
+      t.style('left', Math.min(ev.clientX - fx.left + 12, fx.width - 190) + 'px').style('top', (ev.clientY - fx.top + 12) + 'px');
+    }).on('pointerleave', () => t.style('opacity', 0));
+  }
+  return { setup, tip, W, H };
+})();
+</script>
+<script>
+const HI='#007a55',INK='#13241b',MUT='#5f7268',DOT='#a9b8b0',GRID='#e3eee7',REP='#b8473e',DEM='#3a6ea5',OTH='#8f9a94';
+const M={l:70,r:34,t:64,b:56};
+const fmt=d3.format(','),usd=v=>'$'+(v>=1000?(v/1000).toFixed(v%1000?2:1)+'B':(+v.toFixed(1))+'M');
+function txt(g,x,y,s,o={}){const t=g.append('text').attr('x',x).attr('y',y).attr('font-size',o.size||16).attr('text-anchor',o.anchor||'start').text(s);if(o.cls)t.attr('class',o.cls);if(o.fill)t.style('fill',o.fill);if(o.weight)t.style('font-weight',o.weight);return t;}
+function title(g,s,W){const lines=Array.isArray(s)?s:[s];lines.forEach((l,i)=>txt(g,W/2,M.t-30+i*26,l,{cls:'lab',size:23,anchor:'middle'}));}
+function legend(g,items,x,y){let cx=x,cy=y;const maxX=NID.W-20;items.forEach(([c,l])=>{const r=g.append('rect').attr('x',cx).attr('y',cy-12).attr('width',14).attr('height',14).attr('fill',c);const t=txt(g,cx+20,cy,l,{cls:'lab',size:15});const w=t.node().getComputedTextLength();if(cx+20+w>maxX&&cx>x){cx=x;cy+=22;r.attr('x',cx).attr('y',cy-12);t.attr('x',cx+20).attr('y',cy);}cx+=w+46;});}
+const Y=[[2002, 0], [2003, 0], [2004, 1], [2005, 0], [2006, 3], [2007, 1], [2008, 3], [2009, 4], [2010, 3], [2011, 5], [2012, 11], [2013, 22], [2014, 39], [2015, 59], [2016, 100], [2017, 104], [2018, 118], [2019, 128], [2020, 163], [2021, 118], [2022, 117], [2023, 73], [2024, 77], [2025, 82], [2026, 44]],TH=[["His left hand", 186], ["Euro step, footwork", 132], ["Spurs teammates, coach", 69], ["Bald, hairline", 23]],TOP=[["Drake & Future", "Jumpman", 3386095, 2015], ["NLE Choppa", "Shotta Flow", 1570137, 2019], ["Pop Smoke", "Hello", 711303, 2020], ["SOB X RBE", "Anti", 454313, 2016], ["Nicki Minaj", "Big Daddy", 350109, 2014], ["Juice WRLD", "Tim Westwood Freestyle", 339864, 2018], ["Playboi Carti", "No Time", 325727, 2018], ["Duki", "GIVENCHY", 243218, 2022]];
+
+const PALE='#a8d5c2';
+function sc(W,H){const x=d3.scaleBand(Y.map(d=>d[0]),[M.l,W-M.r]).padding(.18),mx=d3.max(Y,d=>d[1]),y=d3.scaleLinear([0,mx*1.3],[H-M.b,M.t+20]);return {x,y,mx};}
+function frame(g,W,H){const {x,y,mx}=sc(W,H);
+ [0,40,80,120,160].forEach(v=>{g.append('line').attr('x1',M.l).attr('x2',W-M.r).attr('y1',y(v)).attr('y2',y(v)).attr('stroke',GRID).attr('stroke-width',1.3);txt(g,M.l-8,y(v)+5,v,{size:14,anchor:'end'});});
+ [2002,2006,2010,2014,2018,2022,2026].forEach(v=>txt(g,x(v)+x.bandwidth()/2,H-M.b+24,v,{size:14,anchor:'middle'}));
+ g.append('line').attr('x1',M.l).attr('x2',W-M.r).attr('y1',H-M.b).attr('y2',H-M.b).attr('stroke','#000').attr('stroke-width',2.2);
+ return {x,y,mx};}
+function tl(mode){return {key:'tl',caption:'Songs on Genius whose lyrics name Ginóbili, by release year. 2026 runs through Oct. 23. Hover or tap a bar.',draw(g,W,H){
+ title(g,'Songs Naming Manu Ginóbili, By Year',W);const {x,y}=frame(g,W,H);
+ g.selectAll('rect.b').data(Y).join('rect').attr('class','b').attr('x',d=>x(d[0])).attr('width',x.bandwidth()).attr('y',H-M.b).attr('height',0).attr('fill',PALE)
+  .call(NID.tip,d=>`<b>${d[0]}</b><br>${d[1]} songs`).transition().duration(800).delay((d,i)=>i*25).attr('y',d=>y(d[1])).attr('height',d=>H-M.b-y(d[1]));
+ [2003,2005,2007,2014].forEach(t=>{const v=Y.find(d=>d[0]===t)[1];txt(g,x(t)+x.bandwidth()/2,y(v)-8,'★',{size:18,anchor:'middle',fill:INK});});
+ txt(g,x(2003),y(60),'★ Spurs title',{size:W<700?13:15,fill:INK});
+ const rx=x(2018)+x.bandwidth()+x.step()*.09;g.append('line').attr('x1',rx).attr('x2',rx).attr('y1',M.t+24).attr('y2',H-M.b).attr('stroke',INK).attr('stroke-width',1.4).attr('stroke-dasharray','5 4');
+ txt(g,rx+5,M.t+42,'Retired',{cls:'lab',size:W<700?13:16});txt(g,rx+5,M.t+62,'Aug. 2018',{size:W<700?13:15,fill:INK});
+ g.append('g').attr('class','ann');},
+ update(g,W,H){const {x,y}=sc(W,H);
+  g.selectAll('rect.b').transition('hl').duration(500).attr('fill',d=>mode==='jump'&&d[0]>=2015&&d[0]<=2018?HI:mode==='post'&&d[0]>=2019?HI:mode==='all'?HI:PALE);
+  const a=g.select('g.ann');a.selectAll('*').remove();const sm=W<700;
+  if(mode==='jump'){const v=Y.find(d=>d[0]===2015)[1];a.append('line').attr('x1',x(2015)+x.bandwidth()/2).attr('x2',x(2011)).attr('y1',y(v)-6).attr('y2',y(105)).attr('stroke',INK);
+   txt(a,x(2011)-4,y(118),'"Jumpman,"',{cls:'lab',size:sm?13:16,anchor:'end'});txt(a,x(2011)-4,y(108),'Sept. 2015',{size:sm?13:15,fill:INK,anchor:'end'});}
+  if(mode==='post'){const pk=d3.greatest(Y,d=>d[1]);txt(a,x(pk[0])+x.bandwidth()/2,y(pk[1])-10,pk[1],{cls:'lab',size:17,anchor:'middle',fill:HI});}
+ }};}
+const themes={key:'th',caption:'Songs whose line naming Ginóbili also mentions each detail. Hover or tap a bar.',draw(g,W,H){
+ title(g,'What Rappers Say About Him',W);const lw=W<700?150:210,x=d3.scaleLinear([0,d3.max(TH,d=>d[1])*1.15],[M.l-40+lw,W-M.r]),bh=Math.min(56,(H-M.t-M.b-60)/TH.length-22);
+ TH.forEach(([n,v],i)=>{const yy=M.t+50+i*(bh+22);txt(g,x(0)-10,yy+bh/2+6,n,{size:sm(W)?14:17,fill:INK,anchor:'end'});
+  g.append('rect').attr('x',x(0)).attr('y',yy).attr('height',bh).attr('width',0).attr('fill',i===0?HI:PALE).call(NID.tip,()=>`<b>${n}</b><br>${v} songs`).transition().duration(700).delay(i*120).attr('width',x(v)-x(0));
+  txt(g,x(v)+8,yy+bh/2+6,v,{cls:'lab',size:17});});
+ g.append('line').attr('x1',x(0)).attr('x2',x(0)).attr('y1',M.t+40).attr('y2',M.t+50+TH.length*(bh+22)).attr('stroke','#000').attr('stroke-width',2.2);}};
+function sm(W){return W<700;}
+const topSongs={key:'top',caption:'Genius page views for each song, as of Oct. 23, 2026. Hover or tap a bar.',draw(g,W,H){
+ title(g,'The Most-Viewed Songs That Name Him',W);const lw=W<700?175:290,x=d3.scaleLinear([0,TOP[0][2]*1.18],[M.l-40+lw,W-M.r]),bh=Math.min(34,(H-M.t-M.b-40)/TOP.length-12);
+ TOP.forEach(([a,t,v,yr],i)=>{const yy=M.t+44+i*(bh+12);txt(g,x(0)-10,yy+bh/2-2,t,{cls:'lab',size:sm(W)?12:15,anchor:'end'});txt(g,x(0)-10,yy+bh/2+14,a+', '+yr,{size:sm(W)?11:13,fill:MUT,anchor:'end'});
+  g.append('rect').attr('x',x(0)).attr('y',yy).attr('height',bh).attr('width',0).attr('fill',i===0?HI:PALE).call(NID.tip,()=>`<b>${t}</b><br>${a}, ${yr}<br>${fmt(v)} views`).transition().duration(700).delay(i*70).attr('width',Math.max(2,x(v)-x(0)));
+  txt(g,x(v)+6,yy+bh/2+6,v>=1e6?(v/1e6).toFixed(1)+'M':Math.round(v/1000)+'K',{cls:'lab',size:15});});}};
+NID.setup([tl('base'),tl('jump'),tl('post'),themes,topSongs]);
+
+</script>
+</body></html>
