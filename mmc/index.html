@@ -1,0 +1,172 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>One Mickey Mouse Club Cast Produced Five Major-Award Winners, And Nearly Half Its Members Never Got A Wikipedia Page — The News in Data</title><meta name="description" content="Five of the 35 Mouseketeers from 1989 to 1994 won a Grammy, Emmy or Golden Globe, compared with two of 99 performers from four other casts, but 17 of the 35 have no Wikipedia page.">
+<link rel="canonical" href="https://www.thenewsindata.com/stories/one-mickey-mouse-club-cast-produced-five-major-award-winners-and-nearly-half-its-members-never-got-a-wikipedia-page">
+<meta property="og:title" content="One Mickey Mouse Club Cast Produced Five Major-Award Winners, And Nearly Half Its Members Never Got A Wikipedia Page"><meta property="og:description" content="Five of the 35 Mouseketeers from 1989 to 1994 won a Grammy, Emmy or Golden Globe, compared with two of 99 performers from four other casts, but 17 of the 35 have no Wikipedia page."><meta property="og:image" content="https://stories.thenewsindata.com/mmc/mmc-preview.png"><meta property="og:url" content="https://stories.thenewsindata.com/mmc/"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23007a55'/%3E%3Crect x='7' y='16' width='5' height='10' fill='white'/%3E%3Crect x='14' y='10' width='5' height='16' fill='white'/%3E%3Crect x='21' y='6' width='5' height='20' fill='white'/%3E%3C/svg%3E">
+</head><body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<style>
+/* Field Notes theme (charts in Times New Roman): graph paper, green ink, pen annotations. A deliberately single light look. */
+:root{--bg:#fbfcfa;--paper:#ffffff;--ink:#13241b;--muted:#5f7268;--grid:#e3eee7;--rule:#cfdfd5;--dot:#a9b8b0;--hi:#007a55;--red:#c2410c;
+--disp:"Archivo",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;--serif:"Newsreader",Georgia,serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased;background-color:var(--bg);
+ background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+.mast{display:flex;justify-content:space-between;align-items:center;padding-block:18px;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.mast b{font-family:var(--disp);font-stretch:85%;font-weight:800;font-size:18px;letter-spacing:0;color:#fff;background:var(--hi);padding:6px 10px}
+header{padding-block:52px 20px;max-width:920px}
+.kick{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--hi)}
+h1{font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:clamp(36px,6vw,72px);line-height:1;letter-spacing:-.02em;margin:16px 0 18px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--hi)}
+.dek{font-size:clamp(19px,2.2vw,23px);line-height:1.45;color:#34473c;max-width:46ch;margin:0}
+.by{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:20px}
+.big{display:flex;gap:40px;flex-wrap:wrap;padding-block:26px 6px}
+.big div{font-family:var(--disp);font-stretch:70%;font-weight:900;font-size:clamp(64px,10vw,120px);line-height:.85;color:var(--ink)}
+.big div.g{color:var(--hi)}
+.big span{display:block;font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:10px;font-weight:400;font-stretch:100%;line-height:1.4}
+.scrolly{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px}
+#fig{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;order:2}
+#fig svg{width:100%;height:auto;max-height:78vh;overflow:visible;background:var(--paper);border:1px solid var(--rule)}
+#figcap{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px;min-height:1.4em}
+.steps{order:1;padding-block:30vh 40vh}
+.step{min-height:70vh;display:flex;align-items:center}
+.step>div{background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--rule);padding:22px 24px;font-size:19px;line-height:1.55;opacity:.4;transition:opacity .4s,border-color .4s}
+.step.on>div{opacity:1;border-left-color:var(--hi)}
+.step b{font-family:var(--mono);font-weight:600;font-size:.9em;color:var(--hi)}
+article{max-width:680px;margin:0 auto;padding-block:20px 80px}
+article h2{font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:30px;margin:40px 0 10px}
+article p{font-size:19px;line-height:1.6;margin:0 0 16px;background:var(--bg)}
+.method{font-family:var(--mono);font-size:13px!important;line-height:1.6!important;color:var(--muted);border-top:2px solid var(--ink);padding-top:16px;margin-top:32px}
+.method a{color:var(--hi)}
+#tip{position:absolute;pointer-events:none;opacity:0;background:#fff;border:1.5px solid var(--ink);padding:8px 10px;font-family:var(--mono);font-size:12px;line-height:1.45;z-index:5;max-width:220px}
+svg text{font-family:'Times New Roman',Times,serif;fill:var(--muted)}
+svg .lab{font-family:'Times New Roman',Times,serif;font-weight:700;fill:var(--ink)}
+svg .hilab{font-family:'Times New Roman',Times,serif;font-weight:700;fill:var(--hi)}
+@media (max-width:820px){
+ .scrolly{display:block}
+ #fig{height:52vh;z-index:4;background:var(--bg);padding-top:6px;justify-content:flex-start}
+ #fig svg{max-height:46vh}
+ .steps{padding-block:10vh 30vh;position:relative;z-index:1}
+ .step{min-height:85vh;align-items:flex-end}
+ .step>div{font-size:17px;opacity:.95}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+
+.step .sh{display:block;font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:22px;line-height:1.15;margin-bottom:8px;color:var(--ink)}
+.findme{display:flex;gap:10px;align-items:center;font-family:var(--mono);font-size:13px;color:var(--muted);margin-bottom:8px}
+.findme select{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1.5px solid var(--ink);background:#fff;color:var(--ink)}
+.findme output{font-family:'Times New Roman',Times,serif;font-size:17px;color:var(--ink);font-weight:700}
+</style>
+
+
+<div class="wrap">
+<div class="mast"><a href="https://www.thenewsindata.com" style="text-decoration:none"><b>The News in Data</b></a><span>CULTURE</span></div>
+<header>
+ <div class="kick">№ 027 · OCT. 26, 2026</div>
+ <h1>One Mickey Mouse Club Cast Produced Five Major-Award Winners, <em>And Nearly Half Its Members Never Got A Wikipedia Page</em></h1>
+ <p class="dek">Five of the 35 Mouseketeers from 1989 to 1994 won a Grammy, Emmy or Golden Globe, compared with two of the 99 performers in four other casts we checked.</p>
+ <div class="by">By Samuel W. Bennett · Wikipedia data</div>
+ <div class="big"><div class="g">5 of 35<span>1989 MOUSEKETEERS WHO<br>WON A MAJOR AWARD</span></div><div>2 of 99<span>IN FOUR OTHER<br>CASTS COMBINED</span></div></div>
+</header>
+<section class="scrolly">
+ <div id="fig"><svg role="img" aria-label="Wikipedia page views for 134 child performers from five TV casts. Five Mouseketeers from 1989 to 1994, led by Ryan Gosling at 5.5 million, stand above almost everyone else; half of that cast has no page."></svg><div id="figcap"></div><div id="tip"></div></div>
+ <div class="steps">
+  <div class="step" data-step="0"><div>Five of the 35 Mouseketeers on Disney's <em>The All-New Mickey Mouse Club</em> from 1989 to 1994 have won a Grammy, a Primetime Emmy or a Golden Globe: Christina Aguilera, Ryan Gosling, Keri Russell, Britney Spears and Justin Timberlake. That is 14% of the cast. Among the 99 performers in the 1955 and 1977 Mickey Mouse Club casts, Nickelodeon's <em>All That</em> and the 1980s and '90s show <em>Kids Incorporated</em>, two have won one of those awards, Fergie and Kenan Thompson.</div></div>
+  <div class="step" data-step="1"><div><span class="sh">The 1989 cast still draws the most attention</span>The 1989 cast's Wikipedia pages drew 16.8 million views from October 2025 through September 2026, 57% of all views for the five casts combined and more than twice the 7.1 million for <em>All That</em>. Gosling's page alone drew 5.5 million, about three times the 1.8 million for all 39 original Mouseketeers combined. Russell drew 4.0 million, Spears 3.0 million, Timberlake 1.9 million and Aguilera 1.5 million.</div></div>
+  <div class="step" data-step="2"><div><span class="sh">The earlier Mouseketeers found work, but not stardom</span>Johnny Crawford, who went on to co-star in <em>The Rifleman</em>, drew 410,000 views, the most of any Mouseketeer from 1955 to 1959, and Annette Funicello drew 393,000, about one-fourteenth of Gosling's total. Two other original Mouseketeers became regulars on long-running sitcoms, Paul Petersen on <em>The Donna Reed Show</em> and Don Grady on <em>My Three Sons</em>. From the 12-member 1977 cast, Lisa Whelchel, who later starred in <em>The Facts of Life</em>, is the only member whose page drew more than 50,000 views.</div></div>
+  <div class="step" data-step="3"><div><span class="sh">Other kids&#x27; shows produced stars too, just fewer</span><em>All That</em> has the highest share of cast members with their own Wikipedia pages, 23 of 27, including Amanda Bynes, Nick Cannon and Thompson. <em>Kids Incorporated</em> produced Fergie and Jennifer Love Hewitt, whose pages each drew more than 1.4 million views. Neither cast had more than two members above 1 million views, compared with five from the 1989 Mickey Mouse Club.</div></div>
+  <div class="step" data-step="4"><div><span class="sh">Half the Mouseketeers never became famous</span>Seventeen of the 35 Mouseketeers from 1989 to 1994 have no Wikipedia page of their own, and among those who do, 9 drew fewer than 20,000 views last year. The five award winners account for 94% of the cast's page views. Across all three Mickey Mouse Club casts, 47 of 86 Mouseketeers, 55%, have no page of their own.</div></div>
+ </div>
+</section>
+<article>
+ <h2>What the data can&#x27;t tell us</h2>
+ <p>Wikipedia pages and page views measure fame, not success, and many cast members without pages have built careers in entertainment and elsewhere that Wikipedia doesn't record. The award count uses Wikipedia's lists of winners, so it leaves out nominations, including Gosling's Academy Award nominations. The 1955 cast had decades longer to build careers, but also lived most of those careers before the internet, which lowers its page views today.</p>
+ <p class="method">How we counted: cast lists are from Wikipedia's articles on the Mickey Mouse Club (39 Mouseketeers from 1955–1959, 12 from 1977–1978 and 35 from 1989–1994), the main-cast table for Kids Incorporated (21 members, 1984–1993) and the cast list for All That (27 members of the 1994–2000 and 2002–2005 runs; the 2019–2020 revival is excluded). A cast member counts as having a page only if Wikipedia has an article about that person that mentions the show; names that redirect to the show, a band or a cast list don't count. Major awards are Grammy, Academy Award, Primetime Emmy and Golden Globe wins, from each article's Wikipedia award categories. Page views are English Wikipedia views by people (not bots), October 2025 through September 2026, from the Wikimedia pageviews API. Data collected Oct. 26, 2026. <a href="https://stories.thenewsindata.com/data/one-mickey-mouse-club-cast-produced-five-major-award-winners-and-nearly-half-its-members-never-got-a-wikipedia-page.csv">Download the data</a>.</p>
+</article>
+<section class="nid-kr"></section><script src="/more/keep-reading.js" defer></script>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>// The News in Data scrolly engine: sticky figure + steps; each step renders a view.
+window.NID = (function () {
+  const MOB = matchMedia('(max-width:820px)').matches; const W = MOB ? 560 : 800, H = MOB ? 600 : 620;
+  function setup(views) {
+    const svg = d3.select('#fig svg').attr('viewBox', `0 0 ${W} ${H}`);
+    const layers = views.map((v, i) => svg.append('g').attr('class', 'layer').attr('data-i', i).style('opacity', 0).style('pointer-events', 'none'));
+    let cur = -1;
+    const drawn = new Set();
+    function show(i) {
+      if (i === cur) return;
+      const prevKey = cur >= 0 ? views[cur].key : null;
+      cur = i;
+      const v = views[i];
+      // views sharing a key reuse the same layer and get an update call
+      const li = views.findIndex(x => x.key === v.key);
+      if (!drawn.has(li)) { views[li].draw(layers[li], W, H); drawn.add(li); }
+      if (v.update) v.update(layers[li], W, H);
+      layers.forEach((g, j) => g.transition().duration(500).style('opacity', j === li ? 1 : 0).style('pointer-events', j === li ? 'all' : 'none'));
+      document.querySelectorAll('.step').forEach((s, j) => s.classList.toggle('on', j === i));
+      const cap = document.getElementById('figcap'); if (cap) cap.textContent = v.caption || '';
+    }
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.isIntersecting) show(+e.target.dataset.step); });
+    }, { rootMargin: matchMedia('(max-width:820px)').matches ? '-62% 0px -12% 0px' : '-45% 0px -45% 0px' });
+    document.querySelectorAll('.step').forEach(s => io.observe(s));
+    show(0);
+  }
+  // tooltip helper
+  function tip(sel, html) {
+    const t = d3.select('#tip');
+    sel.on('pointerenter pointermove', (ev, d) => {
+      t.style('opacity', 1).html(html(d));
+      const fx = document.getElementById('fig').getBoundingClientRect();
+      t.style('left', Math.min(ev.clientX - fx.left + 12, fx.width - 190) + 'px').style('top', (ev.clientY - fx.top + 12) + 'px');
+    }).on('pointerleave', () => t.style('opacity', 0));
+  }
+  return { setup, tip, W, H };
+})();
+</script>
+<script>
+const HI='#007a55',INK='#13241b',MUT='#5f7268',DOT='#a9b8b0',GRID='#e3eee7',REP='#b8473e',DEM='#3a6ea5',OTH='#8f9a94';
+const M={l:70,r:34,t:64,b:56};
+const fmt=d3.format(','),usd=v=>'$'+(v>=1000?(v/1000).toFixed(v%1000?2:1)+'B':(+v.toFixed(1))+'M');
+function txt(g,x,y,s,o={}){const t=g.append('text').attr('x',x).attr('y',y).attr('font-size',o.size||16).attr('text-anchor',o.anchor||'start').text(s);if(o.cls)t.attr('class',o.cls);if(o.fill)t.style('fill',o.fill);if(o.weight)t.style('font-weight',o.weight);return t;}
+function title(g,s,W){const lines=Array.isArray(s)?s:[s];lines.forEach((l,i)=>txt(g,W/2,M.t-30+i*26,l,{cls:'lab',size:23,anchor:'middle'}));}
+function legend(g,items,x,y){let cx=x,cy=y;const maxX=NID.W-20;items.forEach(([c,l])=>{const r=g.append('rect').attr('x',cx).attr('y',cy-12).attr('width',14).attr('height',14).attr('fill',c);const t=txt(g,cx+20,cy,l,{cls:'lab',size:15});const w=t.node().getComputedTextLength();if(cx+20+w>maxX&&cx>x){cx=x;cy+=22;r.attr('x',cx).attr('y',cy-12);t.attr('x',cx+20).attr('y',cy);}cx+=w+46;});}
+const PP=[["A", "Bobby Burgess", 65111, ""], ["A", "Annette Funicello", 392984, ""], ["A", "Darlene Gillespie", 37463, ""], ["A", "Cubby O'Brien", 34702, ""], ["A", "Karen Pendleton", 14504, ""], ["A", "Doreen Tracey", 19857, ""], ["A", "Sharon Baird", 29097, ""], ["A", "Tommy Cole", 11194, ""], ["A", "Lonnie Burr", 24356, ""], ["A", "Dennis Day", 15909, ""], ["A", "Nancy Abbate Caldwell", 4189, ""], ["A", "Johnny Crawford", 410385, ""], ["A", "Paul Petersen", 222660, ""], ["A", "Mickey Rooney Jr.", 102515, ""], ["A", "Cheryl Holdridge", 144708, ""], ["A", "Sherry Alberoni", 22807, ""], ["A", "Don Grady", 204466, ""], ["A", "Bonnie Lynn Fields", 3863, ""], ["B", "Allison Fonte", 3531, ""], ["B", "Lisa Whelchel", 270939, ""], ["B", "Julie Piekarski", 48433, ""], ["C", "Lindsey Alley", 16295, ""], ["C", "Chase Hampton", 16927, ""], ["C", "Albert Fields", 4634, ""], ["C", "Deedee Magno Hall", 138411, ""], ["C", "Braden Danner", 5245, ""], ["C", "Marc Worden", 15553, ""], ["C", "Rhona Bennett", 71564, ""], ["C", "JC Chasez", 368268, ""], ["C", "Dale Godboldo", 12069, ""], ["C", "Tony Lucca", 17419, ""], ["C", "Matt Morris", 10336, ""], ["C", "Keri Russell", 3956638, "globe"], ["C", "Terra Deva", 4642, ""], ["C", "Christina Aguilera", 1540251, "grammy"], ["C", "Nikki DeLoach", 257458, ""], ["C", "Ryan Gosling", 5531005, "globe"], ["C", "Britney Spears", 3010671, "grammy"], ["C", "Justin Timberlake", 1855471, "grammy+emmy"], ["K", "Fergie", 1438400, "grammy"], ["K", "Martika", 244773, ""], ["K", "Rahsaan Patterson", 32321, ""], ["K", "Renee Sands", 59425, ""], ["K", "Moosie Drier", 35020, ""], ["K", "Devyn Puett", 8525, ""], ["K", "Jennifer Love Hewitt", 1638276, ""], ["K", "Eric Balfour", 299275, ""], ["T", "Angelique Bates", 27782, ""], ["T", "Amanda Bynes", 1987013, ""], ["T", "Nick Cannon", 1307772, ""], ["T", "Ryan Coleman", 6841, ""], ["T", "Lori Beth Denberg", 212730, ""], ["T", "Jack DeSena", 106646, ""], ["T", "Tricia Dickson", 16269, ""], ["T", "Lisa Foiles", 37987, ""], ["T", "Leon Frierson", 12104, ""], ["T", "Bryan Hearne", 23965, ""], ["T", "Gabriel Iglesias", 557606, ""], ["T", "Christy Knowings", 218141, ""], ["T", "Shane Lyons", 15556, ""], ["T", "Kel Mitchell", 335218, ""], ["T", "Alisa Reyes", 35455, ""], ["T", "Giovonnie Samuels", 59418, ""], ["T", "Mark Saul", 3715, ""], ["T", "Josh Server", 44183, ""], ["T", "Jamie Lynn Spears", 834061, ""], ["T", "Kyle Sullivan", 97186, ""], ["T", "Danny Tamberelli", 127713, ""], ["T", "Kenan Thompson", 956354, "emmy"], ["T", "Denzel Whitaker", 81272, ""]],N={"C": 35, "T": 27, "K": 21, "A": 39, "B": 12};
+
+const GOLD='#c8962e',PALE='#a8d5c2',GRAY='#c9cfcc',ORD=['C','T','K','A','B'];
+const NM={C:'Mickey Mouse Club, 1989–94',T:'All That, 1994–2005',K:'Kids Incorporated, 1984–93',A:'Mickey Mouse Club, 1955–59',B:'Mickey Mouse Club, 1977–78'};
+const AWN={grammy:'Grammy',emmy:'Primetime Emmy',globe:'Golden Globe','grammy+emmy':'Grammy and Primetime Emmy'};
+const sm=W=>W<700;
+function hash(s){let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))%997;return h/997;}
+function dots(mode){return {key:'dots',caption:'Wikipedia page views, Oct. 2025–Sept. 2026, one dot per cast member with a page. Gold = Grammy, Primetime Emmy or Golden Globe winner. Hover or tap a dot.',draw(g,W,H){
+ title(g,'Five Casts, 134 Performers',W);const lw=sm(W)?118:210,x=d3.scaleLog([1500,1.2e7],[M.l-50+lw,W-M.r]),band=(H-M.t-M.b-30)/5,yc=k=>M.t+40+ORD.indexOf(k)*band+band/2;
+ [1e4,1e5,1e6,1e7].forEach(v=>{g.append('line').attr('x1',x(v)).attr('x2',x(v)).attr('y1',M.t+30).attr('y2',H-M.b).attr('stroke',GRID).attr('stroke-width',1.3);txt(g,x(v),H-M.b+22,v>=1e6?(v/1e6)+'M':(v/1e3)+'K',{size:14,anchor:'middle'});});
+ txt(g,(x(1500)+W-M.r)/2,H-M.b+42,'Page views (log scale)',{size:13,fill:MUT,anchor:'middle'});
+ ORD.forEach(k=>{const n=PP.filter(p=>p[0]===k).length;g.append('text').attr('class','rowlab rl-'+k).attr('x',x(1500)-12).attr('y',yc(k)-4).attr('text-anchor','end').attr('font-size',sm(W)?12:15).style('font-weight',700).style('fill',INK).text(NM[k].split(',')[0]);
+  txt(g,x(1500)-12,yc(k)+14,(N[k]-n)+' of '+N[k]+' no page',{size:sm(W)?11:13,fill:MUT,anchor:'end'});
+  txt(g,x(1500)-12,yc(k)+30,NM[k].split(', ')[1],{size:sm(W)?11:13,fill:MUT,anchor:'end'});});
+ g.selectAll('circle.p').data(PP).join('circle').attr('class',d=>'p c-'+d[0]+(d[3]?' aw':'')).attr('cx',d=>x(Math.max(d[2],1600))).attr('cy',d=>yc(d[0])+(d[3]?0:(hash(d[1])-.5)*band*.45)).attr('r',0).attr('fill',d=>d[3]?GOLD:(d[0]==='C'?HI:PALE)).attr('stroke','#fff')
+  .call(NID.tip,d=>`<b>${d[1]}</b><br>${NM[d[0]]}<br>${fmt(d[2])} page views`+(d[3]?`<br>Won: ${AWN[d[3]]}`:'')).transition().duration(600).delay((d,i)=>i*6).attr('r',d=>d[3]?(sm(W)?7:9):(sm(W)?4.5:6));
+ const OFF={'Ryan Gosling':[4,-16,'start'],'Keri Russell':[6,22,'start'],'Britney Spears':[-2,-16,'end'],'Justin Timberlake':[0,24,'middle'],'Christina Aguilera':[-12,5,'end'],'Kenan Thompson':[-12,5,'end'],'Fergie':[12,5,'start']};
+ PP.filter(d=>d[3]).forEach(d=>{const o=OFF[d[1]],last=d[1]==='Fergie'?'Fergie':d[1].split(' ').slice(-1)[0];txt(g,x(d[2])+o[0],yc(d[0])+o[1],last,{cls:'lab awl',size:sm(W)?11:13,anchor:o[2]});});
+ g.append('g').attr('class','ann');},
+ update(g){const on=mode==='all'?ORD:mode==='C'?['C']:mode==='old'?['A','B']:['T','K'];
+  g.selectAll('circle.p').transition('hl').duration(400).attr('opacity',d=>on.includes(d[0])?1:.18);
+  g.selectAll('text.awl').transition('hl').duration(400).attr('opacity',function(){return mode==='all'||mode==='C'||mode==='other'?1:.25;});
+  g.selectAll('text.rowlab').transition('hl').duration(400).style('fill',function(){return ORD.some(k=>on.includes(k)&&this.classList.contains('rl-'+k))?INK:'#a7b1ac';});}};}
+const out={key:'out',caption:'Share of each cast. A page means a Wikipedia article about that person that mentions the show.',draw(g,W,H){
+ title(g,sm(W)?['Who Got A Wikipedia Page']:'Who Got A Wikipedia Page',W);legend(g,[[GOLD,'Major-award winner'],[HI,'Own page'],[GRAY,'No page']],M.l-40,M.t+10);
+ const lw=sm(W)?120:200,x=d3.scaleLinear([0,1],[M.l-50+lw,W-M.r]),bh=Math.min(54,(H-M.t-M.b-80)/5-24);
+ ORD.forEach((k,i)=>{const yy=M.t+70+i*(bh+24),rows=PP.filter(p=>p[0]===k),a=rows.filter(p=>p[3]).length,p=rows.length-a,m=N[k]-rows.length;
+  txt(g,x(0)-10,yy+bh/2,NM[k].split(',')[0],{cls:'lab',size:sm(W)?11:14,anchor:'end'});txt(g,x(0)-10,yy+bh/2+16,NM[k].split(', ')[1],{size:sm(W)?11:13,fill:MUT,anchor:'end'});
+  let c=0;[[a,GOLD,'#fff'],[p,HI,'#fff'],[m,GRAY,INK]].forEach(([n,col,tc],j)=>{if(!n)return;const w=n/N[k];g.append('rect').attr('x',x(c)).attr('y',yy).attr('height',bh).attr('width',0).attr('fill',col).transition().duration(600).delay(i*100+j*80).attr('width',x(c+w)-x(c)-1);
+   txt(g,x(c+w/2),yy+bh/2+6,n,{cls:'lab',size:15,anchor:'middle',fill:tc});c+=w;});});}};
+NID.setup([dots('all'),dots('C'),dots('old'),dots('other'),out]);
+
+</script>
+</body></html>
