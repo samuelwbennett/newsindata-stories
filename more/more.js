@@ -6,7 +6,7 @@ var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
  ['values','Culture',"34% Say The Country Needs Honesty, And 13% Say Most Americans Share It",'americans-say-honesty-is-the-value-the-country-needs-most-yet-only-13-think-most-americans-share-it'],
- ['manu','Culture',"Rappers Have Named Ginóbili In 1,489 Songs, Mostly After He Retired",'rappers-have-named-manu-ginobili-in-at-least-1489-songs-and-most-came-after-he-retired'],
+ ['manu','Culture',"Rappers Have Named Ginóbili In 1,489 Songs, Mostly After He Retired",'rappers-have-named-manu-ginbili-in-at-least-1489-songs-and-most-came-after-he-retired'],
  ['paygap','Business',"Women Earned 86% Of Men’s Pay, And Each Group Falls Further Behind",'women-earned-86-of-what-men-earned-in-2025-and-each-group-of-women-falls-further-behind-as-it-ages'],
  ['turnout','Trending',"Midterm Turnout Ranged From 31% To 62% By State",'midterm-turnout-in-2022-ranged-from-31-in-tennessee-to-62-in-oregon'],
  ['midterms','Trending',"The President's Party Lost House Seats In 18 Of 20 Midterms",'the-presidents-party-has-lost-house-seats-in-18-of-the-20-midterms-since-world-war-ii'],
