@@ -5,6 +5,8 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+ ['mmc','Culture',"One Mickey Mouse Club Cast Produced Five Major-Award Winners",'one-mickey-mouse-club-cast-produced-five-major-award-winners-and-nearly-half-its-members-never-got-a-wikipedia-page'],
+ ['renew','Science',"Renewables Now Make 3.8 Times As Much Electricity As Nuclear",'renewables-now-generate-more-than-three-times-as-much-of-the-worlds-electricity-as-nuclear-power-does'],
  ['values','Culture',"34% Say The Country Needs Honesty, And 13% Say Most Americans Share It",'americans-say-honesty-is-the-value-the-country-needs-most-yet-only-13-think-most-americans-share-it'],
  ['manu','Culture',"Rappers Have Named Ginóbili In 1,489 Songs, Mostly After He Retired",'rappers-have-named-manu-ginbili-in-at-least-1489-songs-and-most-came-after-he-retired'],
  ['paygap','Business',"Women Earned 86% Of Men’s Pay, And Each Group Falls Further Behind",'women-earned-86-of-what-men-earned-in-2025-and-each-group-of-women-falls-further-behind-as-it-ages'],
