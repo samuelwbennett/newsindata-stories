@@ -12,7 +12,7 @@ for f in fm.findSystemFonts():
         fm.fontManager.addfont(f)
 plt.rcParams["font.family"] = ["Times New Roman", "Liberation Serif", "serif"]
 
-HI, GRAY, INK, MUT, GRID, BG = "#007a55", "#9aa8a0", "#13241b", "#5f7268", "#e3eee7", "#fbfcfa"
+HI, GRAY, INK, MUT, GRID, BG = "#007a55", "#9aa8a0", "#13241b", "#5f7268", "#e3eee7", "#ffffff"
 
 # (value, needed most %, shared by most %)
 ROWS = [("Honesty", 34, 13), ("Responsibility", 32, 14), ("Integrity", 31, 13), ("Equality", 29, 15),
@@ -34,7 +34,7 @@ def graph_paper(fig, step):
 def draw(path, W, H, box, title, sub, s):
     """box = [left, bottom, width, height] of the plot area in figure fractions; s = text scale."""
     fig = plt.figure(figsize=(W / 100, H / 100), dpi=100, facecolor=BG)
-    graph_paper(fig, 28)
+    # plain white background (graph paper removed Oct. 26, 2026)
     fig.text(0.5, 1 - 0.045 * 1350 / H * (H / 1350) ** 0 - 0.0, "", )
     ty = 1 - 60 / H
     for i, line in enumerate(title):
