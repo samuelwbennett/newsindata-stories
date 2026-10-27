@@ -1,0 +1,12 @@
+crime_type,unit,rate_2024,rate_2025_preliminary,significant_95pct
+"Total violent crime","per 1,000 persons age 12+",28.7,25.7,no
+"Simple assault","per 1,000 persons age 12+",18.8,18.3,no
+"Violent crime excluding simple assault","per 1,000 persons age 12+",9.9,7.4,yes
+"Aggravated assault","per 1,000 persons age 12+",4.5,3.1,yes
+"Rape or sexual assault","per 1,000 persons age 12+",3.2,2.8,no
+"Robbery","per 1,000 persons age 12+",2.2,1.6,no
+"Total property crime","per 1,000 households",138.0,111.2,yes
+"Other theft","per 1,000 households",104.6,85.2,yes
+"Burglary or trespassing","per 1,000 households",14.0,10.5,yes
+"Vandalism","per 1,000 households",10.4,9.2,no
+"Motor vehicle theft","per 1,000 households",8.9,6.3,yes
