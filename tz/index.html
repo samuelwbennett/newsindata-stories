@@ -1,0 +1,240 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Americans Are Living On Two Different Dates For 21 Hours Of Every Day — The News in Data</title><meta name="description" content="Guam and American Samoa are 21 hours apart, so the U.S. spans two dates most of the day, and 12.5 million Americans won&#x27;t change clocks when daylight saving time ends Sunday.">
+<link rel="canonical" href="https://www.thenewsindata.com/stories/americans-are-living-on-two-different-dates-for-21-hours-of-every-day">
+<meta property="og:title" content="Americans Are Living On Two Different Dates For 21 Hours Of Every Day"><meta property="og:description" content="Guam and American Samoa are 21 hours apart, so the U.S. spans two dates most of the day, and 12.5 million Americans won&#x27;t change clocks when daylight saving time ends Sunday."><meta property="og:image" content="https://stories.thenewsindata.com/tz/tz-preview.png"><meta property="og:url" content="https://stories.thenewsindata.com/tz/"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23007a55'/%3E%3Crect x='7' y='16' width='5' height='10' fill='white'/%3E%3Crect x='14' y='10' width='5' height='16' fill='white'/%3E%3Crect x='21' y='6' width='5' height='20' fill='white'/%3E%3C/svg%3E">
+</head><body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<style>
+/* Field Notes theme (charts in Times New Roman): graph paper, green ink, pen annotations. A deliberately single light look. */
+:root{--bg:#fbfcfa;--paper:#ffffff;--ink:#13241b;--muted:#5f7268;--grid:#e3eee7;--rule:#cfdfd5;--dot:#a9b8b0;--hi:#007a55;--red:#c2410c;
+--disp:"Archivo",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;--serif:"Newsreader",Georgia,serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased;background-color:var(--bg);
+ background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+.mast{display:flex;justify-content:space-between;align-items:center;padding-block:18px;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.mast b{font-family:var(--disp);font-stretch:85%;font-weight:800;font-size:18px;letter-spacing:0;color:#fff;background:var(--hi);padding:6px 10px}
+header{padding-block:52px 20px;max-width:920px}
+.kick{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--hi)}
+h1{font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:clamp(36px,6vw,72px);line-height:1;letter-spacing:-.02em;margin:16px 0 18px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--hi)}
+.dek{font-size:clamp(19px,2.2vw,23px);line-height:1.45;color:#34473c;max-width:46ch;margin:0}
+.by{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:20px}
+.big{display:flex;gap:40px;flex-wrap:wrap;padding-block:26px 6px}
+.big div{font-family:var(--disp);font-stretch:70%;font-weight:900;font-size:clamp(64px,10vw,120px);line-height:.85;color:var(--ink)}
+.big div.g{color:var(--hi)}
+.big span{display:block;font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:10px;font-weight:400;font-stretch:100%;line-height:1.4}
+.scrolly{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px}
+#fig{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;order:2}
+#fig svg{width:100%;height:auto;max-height:78vh;overflow:visible;background:var(--paper);border:1px solid var(--rule)}
+#figcap{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px;min-height:1.4em}
+.steps{order:1;padding-block:30vh 40vh}
+.step{min-height:70vh;display:flex;align-items:center}
+.step>div{background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--rule);padding:22px 24px;font-size:19px;line-height:1.55;opacity:.4;transition:opacity .4s,border-color .4s}
+.step.on>div{opacity:1;border-left-color:var(--hi)}
+.step b{font-family:var(--mono);font-weight:600;font-size:.9em;color:var(--hi)}
+article{max-width:680px;margin:0 auto;padding-block:20px 80px}
+article h2{font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:30px;margin:40px 0 10px}
+article p{font-size:19px;line-height:1.6;margin:0 0 16px;background:var(--bg)}
+.method{font-family:var(--mono);font-size:13px!important;line-height:1.6!important;color:var(--muted);border-top:2px solid var(--ink);padding-top:16px;margin-top:32px}
+.method a{color:var(--hi)}
+#tip{position:absolute;pointer-events:none;opacity:0;background:#fff;border:1.5px solid var(--ink);padding:8px 10px;font-family:var(--mono);font-size:12px;line-height:1.45;z-index:5;max-width:220px}
+svg text{font-family:'Times New Roman',Times,serif;fill:var(--muted)}
+svg .lab{font-family:'Times New Roman',Times,serif;font-weight:700;fill:var(--ink)}
+svg .hilab{font-family:'Times New Roman',Times,serif;font-weight:700;fill:var(--hi)}
+@media (max-width:820px){
+ .scrolly{display:block}
+ #fig{height:52vh;z-index:4;background:var(--bg);padding-top:6px;justify-content:flex-start}
+ #fig svg{max-height:46vh}
+ .steps{padding-block:10vh 30vh;position:relative;z-index:1}
+ .step{min-height:85vh;align-items:flex-end}
+ .step>div{font-size:17px;opacity:.95}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+
+.step .sh{display:block;font-family:var(--disp);font-stretch:86%;font-weight:800;font-size:22px;line-height:1.15;margin-bottom:8px;color:var(--ink)}
+.findme{display:flex;gap:10px;align-items:center;font-family:var(--mono);font-size:13px;color:var(--muted);margin-bottom:8px}
+.findme select{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1.5px solid var(--ink);background:#fff;color:var(--ink)}
+.findme output{font-family:'Times New Roman',Times,serif;font-size:17px;color:var(--ink);font-weight:700}
+</style>
+
+
+<div class="wrap">
+<div class="mast"><a href="https://www.thenewsindata.com" style="text-decoration:none"><b>The News in Data</b></a><span>TRENDING</span></div>
+<header>
+ <div class="kick">№ 030 · OCT. 27, 2026</div>
+ <h1>Americans Are Living On Two Different <em>Dates For 21 Hours Of Every Day</em></h1>
+ <p class="dek">The U.S. runs on nine time zones from Guam to the Virgin Islands, and when clocks fall back Sunday, 12.5 million Americans in Arizona, Hawaii and the territories won't change theirs.</p>
+ <div class="by">By Samuel W. Bennett</div>
+ <div class="big"><div class="g">21<span>HOURS A DAY THE U.S.<br>SPANS TWO DATES</span></div><div>12.5M<span>AMERICANS WON’T CHANGE<br>CLOCKS SUNDAY</span></div></div>
+</header>
+<section class="scrolly">
+ <div id="fig"><script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script><svg role="img" aria-label="Map of the nine U.S. time zones from Guam to the Virgin Islands, with clocks showing that at noon Sunday in Washington it is 3 a.m. Monday in Guam and 6 a.m. Sunday in American Samoa."></svg><div id="figcap"></div><div id="tip"></div></div>
+ <div class="steps">
+  <div class="step" data-step="0"><div>Guam and the Northern Mariana Islands keep time 10 hours ahead of Coordinated Universal Time (UTC), and American Samoa keeps time 11 hours behind it, so the two ends of the country are 21 hours apart. Both are on the same calendar date for only three hours a day, from 11:00 to 14:00 UTC, which after clocks fall back Sunday is 6 to 9 a.m. Eastern time. At noon Sunday in Washington, it will already be 3 a.m. Monday in Guam and 6 a.m. Sunday in Pago Pago.</div></div>
+  <div class="step" data-step="1"><div><span class="sh">Nine zones, set by federal law</span>Federal law defines nine standard time zones by their distance from UTC, from 4 hours behind (Atlantic, used by Puerto Rico and the U.S. Virgin Islands) to 11 hours behind (Samoa), plus one zone 10 hours ahead (Chamorro). The Department of Transportation draws the lines between them. The country's uninhabited islands stretch the span further: Wake Island keeps time 12 hours ahead of UTC in the standard time zone database, and Baker and Howland islands, which have no residents and no official time, sit in the nautical zone 12 hours behind it.</div></div>
+  <div class="step" data-step="2"><div><span class="sh">Nearly half of Americans live in the Eastern zone</span>The Eastern zone holds 160.9 million people, 46.6% of the 345.3 million in the states, D.C. and the territories, followed by Central at 99.5 million (28.8%) and Pacific at 55.3 million (16.0%). Mountain has 24.0 million (6.9%), about a quarter of Central's population. The other five zones together hold 5.7 million people, 1.6% of the total, and the smallest, Samoa, has 49,710.</div></div>
+  <div class="step" data-step="3"><div><span class="sh">12.5 million won&#x27;t change their clocks Sunday</span>Daylight saving time ends at 2 a.m. local time Sunday, Nov. 1, when clocks in most of the country fall back to 1 a.m. About 332.9 million people, 96.4% of the total, live where clocks change. The 12.5 million who stay on standard time all year are about 7.5 million in Arizona outside the Navajo Nation, 1.4 million in Hawaii, 3.2 million in Puerto Rico and 338,021 in the four island territories.</div></div>
+  <div class="step" data-step="4"><div><span class="sh">After Sunday, most clocks sit close to the sun</span>Each zone's clock is set to the sun's position along one line of longitude, so places west of that line see the sun cross its highest point after noon. Once clocks fall back, 80% of people in the 50 states and D.C. will live in counties where the clock is within 30 minutes of the sun's time, and 30% will live where the clock runs behind it, mostly on the eastern side of a zone. The largest gaps are in western Alaska, which keeps the same clock as Anchorage; in Gambell, on St. Lawrence Island, the clock runs about 2 hours 27 minutes ahead of the sun.</div></div>
+  <div class="step" data-step="5"><div><span class="sh">Daylight time moves clocks an hour further ahead</span>From March to November, the same counties run an hour further ahead. Under daylight saving time, 67% of people in the 50 states and D.C. live where the clock runs at least an hour ahead of the sun and 18% live where it runs at least 90 minutes ahead, compared with fewer than 1% within 30 minutes. In Gambell the gap reaches about 3 hours 27 minutes, so the sun is highest in the sky around 3:30 p.m.</div></div>
+ </div>
+</section>
+<article>
+ <h2>A bill would make the summer numbers permanent</h2>
+ <p>The House passed the Sunshine Protection Act on July 14 by a vote of 308 to 117, and the bill is now with the Senate Commerce Committee. It would keep daylight saving time all year and let states choose to stay on standard time instead. The Senate passed an earlier version in 2022, but the House never took it up. If it becomes law, the daylight-time map would become the year-round map for every state that doesn't opt out, while Arizona, Hawaii and the territories already use standard time all year.</p>
+ <h2>What the data can&#x27;t tell us</h2>
+ <p>The clock-and-sun comparison uses each county's geographic center, not where its residents live, and uses mean solar time, which ignores a seasonal swing of up to about 16 minutes in when the sun actually peaks. A few counties are split between zones, and their populations are divided by land area. The boundaries follow local practice as recorded by the timezone-boundary-builder project, which in a few places, such as Phenix City, Ala., differs from the official federal line.</p>
+ <p class="method">How we counted: time zone boundaries from the timezone-boundary-builder project (release current as of Oct. 2026), based on the IANA time zone database, matched to Census Bureau county boundaries. Population: Census Bureau Vintage 2025 estimates for July 1, 2025, for the states, D.C. and Puerto Rico; 2020 Census counts for Guam (153,836), the Northern Mariana Islands (47,329), American Samoa (49,710) and the U.S. Virgin Islands (87,146), which have no annual estimates. Clock-versus-sun gap = the zone's standard UTC offset minus each county center's longitude divided by 15 degrees per hour. Zone definitions: 15 U.S.C. 261 and 49 CFR Part 71. Sources: <a href="https://www.law.cornell.edu/uscode/text/15/261">15 U.S.C. 261</a>; <a href="https://www.law.cornell.edu/cfr/text/49/71.1">49 CFR 71</a>; <a href="https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/counties/totals/">Census Bureau Vintage 2025 county estimates</a>; <a href="https://www.census.gov/library/stories/2021/10/first-2020-census-united-states-island-areas-data-released-today.html">Census Bureau, 2020 Island Areas counts</a>; <a href="https://github.com/evansiroky/timezone-boundary-builder">timezone-boundary-builder</a>; <a href="https://www.goodmorningamerica.com/news/story/house-passes-bipartisan-bill-make-daylight-saving-time-134769865">ABC News, July 15, 2026</a>. <a href="https://stories.thenewsindata.com/data/americans-are-living-on-two-different-dates-for-21-hours-of-every-day.csv">Download the data</a>.</p>
+</article>
+<section class="nid-kr"></section><script src="/more/keep-reading.js" defer></script>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>// The News in Data scrolly engine: sticky figure + steps; each step renders a view.
+window.NID = (function () {
+  const MOB = matchMedia('(max-width:820px)').matches; const W = MOB ? 560 : 800, H = MOB ? 600 : 620;
+  function setup(views) {
+    const svg = d3.select('#fig svg').attr('viewBox', `0 0 ${W} ${H}`);
+    const layers = views.map((v, i) => svg.append('g').attr('class', 'layer').attr('data-i', i).style('opacity', 0).style('pointer-events', 'none'));
+    let cur = -1;
+    const drawn = new Set();
+    function show(i) {
+      if (i === cur) return;
+      const prevKey = cur >= 0 ? views[cur].key : null;
+      cur = i;
+      const v = views[i];
+      // views sharing a key reuse the same layer and get an update call
+      const li = views.findIndex(x => x.key === v.key);
+      if (!drawn.has(li)) { views[li].draw(layers[li], W, H); drawn.add(li); }
+      if (v.update) v.update(layers[li], W, H);
+      layers.forEach((g, j) => g.transition().duration(500).style('opacity', j === li ? 1 : 0).style('pointer-events', j === li ? 'all' : 'none'));
+      document.querySelectorAll('.step').forEach((s, j) => s.classList.toggle('on', j === i));
+      const cap = document.getElementById('figcap'); if (cap) cap.textContent = v.caption || '';
+    }
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.isIntersecting) show(+e.target.dataset.step); });
+    }, { rootMargin: matchMedia('(max-width:820px)').matches ? '-62% 0px -12% 0px' : '-45% 0px -45% 0px' });
+    document.querySelectorAll('.step').forEach(s => io.observe(s));
+    show(0);
+  }
+  // tooltip helper
+  function tip(sel, html) {
+    const t = d3.select('#tip');
+    sel.on('pointerenter pointermove', (ev, d) => {
+      t.style('opacity', 1).html(html(d));
+      const fx = document.getElementById('fig').getBoundingClientRect();
+      t.style('left', Math.min(ev.clientX - fx.left + 12, fx.width - 190) + 'px').style('top', (ev.clientY - fx.top + 12) + 'px');
+    }).on('pointerleave', () => t.style('opacity', 0));
+  }
+  return { setup, tip, W, H };
+})();
+</script>
+<script>
+const HI='#007a55',INK='#13241b',MUT='#5f7268',DOT='#a9b8b0',GRID='#e3eee7',REP='#b8473e',DEM='#3a6ea5',OTH='#8f9a94';
+const M={l:70,r:34,t:64,b:56};
+const fmt=d3.format(','),usd=v=>'$'+(v>=1000?(v/1000).toFixed(v%1000?2:1)+'B':(+v.toFixed(1))+'M');
+function txt(g,x,y,s,o={}){const t=g.append('text').attr('x',x).attr('y',y).attr('font-size',o.size||16).attr('text-anchor',o.anchor||'start').text(s);if(o.cls)t.attr('class',o.cls);if(o.fill)t.style('fill',o.fill);if(o.weight)t.style('font-weight',o.weight);return t;}
+function title(g,s,W){const lines=Array.isArray(s)?s:[s];lines.forEach((l,i)=>txt(g,W/2,M.t-30+i*26,l,{cls:'lab',size:23,anchor:'middle'}));}
+function legend(g,items,x,y){let cx=x,cy=y;const maxX=NID.W-20;items.forEach(([c,l])=>{const r=g.append('rect').attr('x',cx).attr('y',cy-12).attr('width',14).attr('height',14).attr('fill',c);const t=txt(g,cx+20,cy,l,{cls:'lab',size:15});const w=t.node().getComputedTextLength();if(cx+20+w>maxX&&cx>x){cx=x;cy+=22;r.attr('x',cx).attr('y',cy-12);t.attr('x',cx+20).attr('y',cy);}cx+=w+46;});}
+// Shared drawing code for the time zone story (interactive page and static PNGs).
+const ZN=['Chamorro','Samoa','Hawaii-Aleutian','Alaska','Pacific','Mountain','Central','Eastern','Atlantic'];
+const ZOFF={Chamorro:10,Samoa:-11,'Hawaii-Aleutian':-10,Alaska:-9,Pacific:-8,Mountain:-7,Central:-6,Eastern:-5,Atlantic:-4};
+const ZC={Chamorro:'#2b2f6b',Samoa:'#47509c','Hawaii-Aleutian':'#3f7cb3',Alaska:'#4f9fae',Pacific:'#5fae8a',Mountain:'#a3c56f',Central:'#e5c35a',Eastern:'#e8904a',Atlantic:'#c65a4c'};
+const ZPOP={Chamorro:201165,Samoa:49710,'Hawaii-Aleutian':1433030,Alaska:737060,Pacific:55281679,Mountain:23990420,Central:99475552,Eastern:160867116,Atlantic:3271981};
+const ZNODST={Chamorro:201165,Samoa:49710,'Hawaii-Aleutian':1432820,Alaska:0,Pacific:0,Mountain:7500839,Central:0,Eastern:0,Atlantic:3271981};
+const ISL=[['Guam',144.79,13.44,'Chamorro'],['N. Mariana Is.',145.75,15.18,'Chamorro'],['American Samoa',-170.7,-14.3,'Samoa'],['Puerto Rico',-66.5,18.2,'Atlantic'],['U.S. Virgin Is.',-64.8,18.0,'Atlantic']];
+const EMPTY=[['Wake',166.64,19.29],['Midway',-177.37,28.21],['Johnston',-169.53,16.74],['Baker',-176.48,0.19],['Howland',-176.62,0.81],['Jarvis',-160.02,-0.37],['Palmyra',-162.08,5.88],['Kingman',-162.4,6.42],['Navassa',-75.02,18.41]];
+const tf=h=>{const hh=((h%24)+24)%24,ap=hh<12?'a.m.':'p.m.',d=hh%12||12;return hh===12?'Noon':d+(ap==='a.m.'?' a.m.':' p.m.');};
+function hatch(svg,id,col){let d=svg.select('defs');if(d.empty())d=svg.append('defs');if(!d.select('#'+id).empty())return;
+ const p=d.append('pattern').attr('id',id).attr('patternUnits','userSpaceOnUse').attr('width',6).attr('height',6).attr('patternTransform','rotate(45)');
+ p.append('line').attr('x1',0).attr('y1',0).attr('x2',0).attr('y2',6).attr('stroke',col||'#fff').attr('stroke-width',2.2).attr('opacity',.85);}
+function clock(g,cx,cy,r,h,col,on){const c=g.append('g').attr('class','clk').attr('transform',`translate(${cx},${cy})`).attr('opacity',on===false?.25:1);
+ c.append('circle').attr('r',r).attr('fill','#fff').attr('stroke',col).attr('stroke-width',Math.max(2,r/9));
+ for(let i=0;i<12;i++){const a=i*Math.PI/6;c.append('line').attr('x1',Math.sin(a)*r*.78).attr('y1',-Math.cos(a)*r*.78).attr('x2',Math.sin(a)*r*.9).attr('y2',-Math.cos(a)*r*.9).attr('stroke','#13241b').attr('stroke-width',i%3?1:2);}
+ const ah=((h%12)/12)*2*Math.PI;c.append('line').attr('x2',Math.sin(ah)*r*.5).attr('y2',-Math.cos(ah)*r*.5).attr('stroke','#13241b').attr('stroke-width',Math.max(2.5,r/10)).attr('stroke-linecap','round');
+ c.append('line').attr('x2',0).attr('y2',-r*.74).attr('stroke','#13241b').attr('stroke-width',Math.max(1.6,r/16)).attr('stroke-linecap','round');
+ c.append('circle').attr('r',Math.max(2,r/12)).attr('fill',col);return c;}
+// ---- Map of the nine zones with a row of clocks. o: {x0,y0,w,h (map box), cy (clock row y), small, sz (font scale)}
+function zoneMap(g,GEO,o){
+ const zones=topojson.feature(GEO,GEO.objects.zones),S=o.sz||1;
+ hatch(d3.select(g.node().ownerSVGElement),'nodst');
+ const pr=d3.geoEqualEarth().rotate([145,0]).fitExtent([[o.x0+30*S,o.y0],[o.x0+o.w-30*S,o.y0+o.h]],{type:'MultiPoint',coordinates:[[144.6,13.2],[-64.6,17.7],[-170.7,-14.4],[-152,71.4],[-141,70],[-67,47.4],[-124.7,48.4],[-81,24.5],[172.5,52.9],[-155,18.9]]}),path=d3.geoPath(pr);
+ // faint graticule and date line
+ g.append('path').datum(d3.geoGraticule().step([15,15]).extent([[120,-25],[300,78]])).attr('d',path).attr('fill','none').attr('stroke','#e3eee7').attr('stroke-width',1);
+ const dl=d3.range(-22,76,1).map(l=>pr([180,l]));g.append('path').attr('d',d3.line()(dl)).attr('fill','none').attr('stroke','#13241b').attr('stroke-width',1.2).attr('stroke-dasharray','5 4').attr('opacity',.55);
+ txt(g,pr([180,-22])[0],pr([180,-22])[1]+16*S,'180°: dates change here',{size:13*S,anchor:'middle',fill:'#5f7268'});
+ const L=g.append('g').attr('class','land');
+ zones.features.forEach(f=>{L.append('path').attr('class','zn zn-'+f.properties.zone.replace(/\W/g,'')).attr('data-dst',f.properties.dst?1:0).attr('d',path(f)).attr('fill',ZC[f.properties.zone]).attr('stroke','#fff').attr('stroke-width',.6);
+  if(!f.properties.dst)L.append('path').attr('class','nd zn-'+f.properties.zone.replace(/\W/g,'')).attr('d',path(f)).attr('fill','url(#nodst)').attr('pointer-events','none');});
+ // rings around small islands
+ ISL.forEach(([n,lo,la,z],i)=>{const [x,y]=pr([lo,la]);if(n==='U.S. Virgin Is.')return;
+  g.append('circle').attr('cx',x).attr('cy',y).attr('r',(n==='Puerto Rico'?13:10)*S).attr('fill','none').attr('stroke',ZC[z]).attr('stroke-width',2*S);
+  const dy={Guam:26,'N. Mariana Is.':-16,'American Samoa':26,'Puerto Rico':30}[n]*S,an={Guam:'middle','N. Mariana Is.':'start','American Samoa':'middle','Puerto Rico':'end'}[n],dx={'N. Mariana Is.':-8,'Puerto Rico':16}[n]||0;
+  txt(g,x+dx*S,y+dy,n==='Puerto Rico'?'Puerto Rico & U.S.V.I.':n,{size:14*S,anchor:an,cls:'lab'});});
+ EMPTY.forEach(([n,lo,la])=>{const [x,y]=pr([lo,la]);g.append('circle').attr('cx',x).attr('cy',y).attr('r',2.6*S).attr('fill','#8f9a94');});
+ [['Wake',166.64,19.29,'Wake (UTC+12)'],['Baker',-176.48,0.19,'Baker (no official time)']].forEach(([n,lo,la,l])=>{const [x,y]=pr([lo,la]);txt(g,x+8*S,y+5*S,l,{size:12.5*S,fill:'#5f7268'});});
+ const gd=pr([-150,-6]);txt(g,gd[0],gd[1],'Gray dots: uninhabited U.S. islands',{size:12.5*S,anchor:'middle',fill:'#5f7268'});
+ // zone labels on land
+ [['Alaska',-152,64],['Hawaii-Aleutian',-156.5,19.8]].forEach(([z,lo,la])=>{const [x,y]=pr([lo,la]);
+  const t=txt(g,x,y+(z==='Hawaii-Aleutian'?32*S:0),z==='Hawaii-Aleutian'?'Hawaii':z,{size:(o.small&&z!=='Alaska'?11:14)*S,anchor:'middle',cls:'lab'});t.style('fill',z==='Central'||z==='Mountain'?'#13241b':'#fff');if(z==='Hawaii-Aleutian')t.style('fill','#13241b');});
+ // clock row: local time at noon Sunday Nov. 1 Eastern (17:00 UTC)
+ const n=ZN.length,rows=o.small?2:1,per=Math.ceil(n/rows),cw=(o.w)/per,r=Math.min(30*S,cw*.3);
+ const C=g.append('g').attr('class','clocks');
+ ZN.forEach((z,i)=>{const row=Math.floor(i/per),col=i%per,shift=row===1?(per-(n-per))*cw/2:0,cx=o.x0+shift+cw*col+cw/2,cy=o.cy+row*(r*2+64*S);
+  const h=17+ZOFF[z],day=h>=24?'Mon., Nov. 2':'Sun., Nov. 1';const k=C.append('g').attr('class','ck ck-'+z.replace(/\W/g,''));
+  clock(k,cx,cy,r,(h%24),ZC[z]);
+  txt(k,cx,cy+r+18*S,z==='Hawaii-Aleutian'?'Hawaii-Aleut.':z,{size:13.5*S,anchor:'middle',cls:'lab'});
+  txt(k,cx,cy+r+35*S,tf(h),{size:13.5*S,anchor:'middle',fill:'#13241b'});
+  txt(k,cx,cy+r+51*S,day,{size:12.5*S,anchor:'middle',fill:h>=24?'#c2410c':'#5f7268'}).style('font-weight',h>=24?700:400);});
+ if(o.note){const nb=[0,o.y0+o.h*.36];['Guam is 21 hours ahead of','American Samoa, so the two','share a date only 3 hours a day'].forEach((l,i)=>txt(g,o.x0+10*S,nb[1]+i*19*S,l,{size:15*S,cls:'lab'}));}
+ return {pr,path};}
+function zoneLegend(g,x,y,S){S=S||1;const r=g.append('rect').attr('x',x).attr('y',y-12*S).attr('width',26*S).attr('height',15*S).attr('fill','#a3c56f');g.append('rect').attr('x',x).attr('y',y-12*S).attr('width',26*S).attr('height',15*S).attr('fill','url(#nodst)');
+ txt(g,x+34*S,y,'Striped: no daylight saving time',{size:14*S,fill:'#13241b'});}
+// ---- population bars
+function popBars(g,x0,y0,w,h,S){S=S||1;const lw=150*S,x=d3.scaleLinear([0,175e6],[x0+lw,x0+w-110*S]),bh=Math.min(72*S,h/ZN.length-14*S);
+ hatch(d3.select(g.node().ownerSVGElement),'nodst');
+ [0,50e6,100e6,150e6].forEach(v=>{g.append('line').attr('x1',x(v)).attr('x2',x(v)).attr('y1',y0-6).attr('y2',y0+ZN.length*(bh+12*S)).attr('stroke',v?'#e3eee7':'#000').attr('stroke-width',v?1.3:2.4);txt(g,x(v),y0+ZN.length*(bh+12*S)+22*S,v?(v/1e6)+'M':'0',{size:14*S,anchor:'middle'});});
+ g.append('line').attr('x1',x(0)).attr('x2',x(175e6)).attr('y1',y0+ZN.length*(bh+12*S)).attr('y2',y0+ZN.length*(bh+12*S)).attr('stroke','#000').attr('stroke-width',2.4);
+ ZN.forEach((z,i)=>{const yy=y0+i*(bh+12*S),p=ZPOP[z],nd=ZNODST[z];
+  txt(g,x(0)-10*S,yy+bh/2+5*S,z,{size:15*S,anchor:'end',cls:'lab'});
+  const b=g.append('rect').attr('class','pb').attr('x',x(0)).attr('y',yy).attr('height',bh).attr('width',Math.max(2,x(p)-x(0))).attr('fill',ZC[z]);
+  if(nd)g.append('rect').attr('x',x(p-nd)).attr('y',yy).attr('height',bh).attr('width',Math.max(2,x(p)-x(p-nd))).attr('fill','url(#nodst)');
+  const lab=p>=1e6?(p/1e6).toFixed(1)+'M':d3.format(',')(p);txt(g,x(p)+8*S,yy+bh/2+6*S,lab+' ('+(p/345307713*100).toFixed(p/345307713<.01?2:1)+'%)',{size:15*S,cls:'lab'});
+  if(typeof NID!=='undefined'&&NID.tip)b.call(NID.tip,()=>`<b>${z}</b> (UTC${ZOFF[z]>0?'+':'−'}${Math.abs(ZOFF[z])})<br>${d3.format(',')(p)} people<br>${nd?d3.format(',')(nd)+' on standard time all year':'All change clocks'}`);});}
+// ---- clock vs. sun county map
+const SB=[-1e9,-15,0,15,30,45,60,90,120,1e9],SCOL=['#2f6690','#9cc3dd','#f6edd9','#f7cf8d','#f0a35a','#de7134','#b8452a','#7d2615','#3d0d06'];
+const scol=v=>SCOL[d3.bisectRight(SB,v)-1];
+function sunMap(g,GEO,o){const all=topojson.feature(GEO,GEO.objects.counties).features.filter(f=>!/^(60|66|69|72|78)/.test(f.id));
+ const pr=d3.geoAlbersUsa().fitExtent([[o.x0,o.y0],[o.x0+o.w,o.y0+o.h]],{type:'FeatureCollection',features:all}),path=d3.geoPath(pr);
+ const val=f=>f.properties.s+(o.dst&&f.properties.d?60:0);
+ const P=g.append('g').attr('class','ct').selectAll('path').data(all).join('path').attr('d',path).attr('fill',f=>scol(val(f))).attr('stroke',f=>scol(val(f))).attr('stroke-width',.3);
+ if(typeof NID!=='undefined'&&NID.tip)P.call(NID.tip,f=>{const v=f.properties.s+(g.node().__dst&&f.properties.d?60:0);return `<b>${f.properties.n}</b><br>${f.properties.z} zone<br>Clock ${v>=0?'ahead of':'behind'} the sun by ${Math.floor(Math.abs(v)/60)?Math.floor(Math.abs(v)/60)+' h ':''}${Math.abs(v)%60} min`;});
+ const C=topojson.feature(GEO,GEO.objects.counties);
+ g.append('path').datum(topojson.mesh(GEO,GEO.objects.counties,(a,b)=>a!==b&&a.id.slice(0,2)!==b.id.slice(0,2))).attr('d',path).attr('fill','none').attr('stroke','#fff').attr('stroke-width',.7*(o.sz||1));
+ g.append('path').datum(topojson.mesh(GEO,GEO.objects.counties,(a,b)=>a!==b&&a.properties.z!==b.properties.z)).attr('d',path).attr('fill','none').attr('stroke','#13241b').attr('stroke-width',1.6*(o.sz||1));
+ g.node().__dst=!!o.dst;return {P,val,pr};}
+function sunLegend(g,x,y,w,S){S=S||1;const n=SCOL.length,cw=w/n,labs=['','−15','0','+15','+30','+45','+60','+90','+120',''];
+ SCOL.forEach((c,i)=>g.append('rect').attr('x',x+i*cw).attr('y',y).attr('width',cw-1).attr('height',14*S).attr('fill',c).attr('stroke',i==2?'#cfdfd5':null));
+ labs.forEach((l,i)=>{if(l)txt(g,x+i*cw,y+32*S,l,{size:13*S,anchor:'middle',fill:'#13241b'});});
+ txt(g,x,y-8*S,'← Clock behind the sun',{size:13*S,fill:'#2f6690'}).style('font-weight',700);txt(g,x+w,y-8*S,'Clock ahead of the sun (minutes) →',{size:13*S,anchor:'end',fill:'#b8452a'}).style('font-weight',700);}
+
+let GEO=null;const sm=W=>W<700;
+const mapV=mode=>({key:'map',caption:'Local time in each zone at noon Sunday, Nov. 1, in Washington. Striped areas stay on standard time all year.',draw(g,W,H){
+ title(g,'The Nine Time Zones Of The United States',W);
+ zoneMap(g,GEO,sm(W)?{x0:6,y0:60,w:W-12,h:300,cy:400,sz:.72,small:1}:{x0:10,y0:56,w:W-20,h:380,cy:528,sz:.85});},
+ update(g){g.selectAll('.ck').transition('hl').duration(400).attr('opacity',function(){return mode!=='dates'||/Chamorro|Samoa/.test(this.getAttribute('class'))?1:.2;});
+  g.selectAll('.zn').transition('hl').duration(400).attr('opacity',function(){return mode==='nodst'&&this.getAttribute('data-dst')==='1'?.18:1;});}});
+const popV={key:'pop',caption:'2025 Census estimates; 2020 Census for Guam, N. Mariana Is., American Samoa and U.S.V.I. Striped: no daylight saving time. Hover or tap a bar.',draw(g,W,H){
+ title(g,'Where Americans Live, By Time Zone',W);popBars(g,sm(W)?4:20,M.t+20,W-(sm(W)?8:40),H-M.t-90,sm(W)?.8:1);}};
+const sunV=dst=>({key:'sun',caption:'Minutes each county clock runs ahead of (orange) or behind (blue) mean solar time, using the county center. Black lines: zone borders. Hover or tap a county.',draw(g,W,H){
+ title(g,'How Far Clocks Run From The Sun',W);g.append('text').attr('class','lab sunsub').attr('x',W/2).attr('y',M.t+4).attr('text-anchor','middle').attr('font-size',17);
+ const r=sunMap(g,GEO,{x0:10,y0:M.t+16,w:W-20,h:H-M.t-110,dst:false,sz:sm(W)?.7:1});g.node().__r=r;sunLegend(g,sm(W)?30:120,H-50,sm(W)?W-60:W-240,sm(W)?.85:1);},
+ update(g){const r=g.node().__r;g.node().__dst=dst;g.select('.sunsub').text(dst?'Daylight saving time (March to November)':'Standard time (from Sunday, Nov. 1)');
+  r.P.transition('c').duration(700).attr('fill',f=>scol(f.properties.s+(dst&&f.properties.d?60:0))).attr('stroke',f=>scol(f.properties.s+(dst&&f.properties.d?60:0)));}});
+fetch('geo.json').then(r=>r.json()).then(G=>{GEO=G;NID.setup([mapV('dates'),mapV('all'),popV,mapV('nodst'),sunV(false),sunV(true)]);});
+
+</script>
+</body></html>
