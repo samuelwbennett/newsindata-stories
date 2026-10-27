@@ -5,6 +5,8 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+ ['agency','Trending',"Americans Rate The Park Service Highest Of 12 Agencies And ICE Lowest",'americans-rate-the-national-park-service-highest-of-12-federal-agencies-and-ice-lowest'],
+ ['crime','Trending',"Serious Violent Crime Fell 25% In A Federal Victims Survey",'americans-reported-19-fewer-property-crimes-and-25-fewer-serious-violent-crimes-to-a-federal-survey-in-2025-than-in-2024'],
  ['mmc','Culture',"One Mickey Mouse Club Cast Produced Five Major-Award Winners",'one-mickey-mouse-club-cast-produced-five-major-award-winners-and-nearly-half-its-members-never-got-a-wikipedia-page'],
  ['renew','Science',"Renewables Now Make 3.8 Times As Much Electricity As Nuclear",'renewables-now-generate-more-than-three-times-as-much-of-the-worlds-electricity-as-nuclear-power-does'],
  ['values','Culture',"34% Say The Country Needs Honesty, And 13% Say Most Americans Share It",'americans-say-honesty-is-the-value-the-country-needs-most-yet-only-13-think-most-americans-share-it'],

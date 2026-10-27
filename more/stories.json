@@ -1,7 +1,19 @@
 {
- "updated": "2026-10-26",
+ "updated": "2026-10-27",
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
+  {
+   "slug": "americans-rate-the-national-park-service-highest-of-12-federal-agencies-and-ice-lowest",
+   "title": "Americans Rate The National Park Service Highest Of 12 Federal Agencies And ICE Lowest",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793106292878-W61P48DM22ZTYXCJU0C2/agency-preview.png"
+  },
+  {
+   "slug": "americans-reported-19-fewer-property-crimes-and-25-fewer-serious-violent-crimes-to-a-federal-survey-in-2025-than-in-2024",
+   "title": "Americans Reported 19% Fewer Property Crimes And 25% Fewer Serious Violent Crimes To A Federal Survey In 2025 Than In 2024",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793106145033-O7XTB4M3EC46SL0QU93E/crime-preview.png"
+  },
   {
    "slug": "one-mickey-mouse-club-cast-produced-five-major-award-winners-and-nearly-half-its-members-never-got-a-wikipedia-page",
    "title": "One Mickey Mouse Club Cast Produced Five Major-Award Winners, And Nearly Half Its Members Never Got A Wikipedia Page",
