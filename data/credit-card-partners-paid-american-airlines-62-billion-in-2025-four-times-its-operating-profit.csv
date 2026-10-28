@@ -1,10 +1,10 @@
-airline,ticker,revenue_2025_musd,operating_income_2025_musd,pretax_income_2025_musd,card_partner_cash_2025_musd,unredeemed_loyalty_liability_dec31_2025_musd,operating_margin_pct
-Delta,DAL,63364,5822,6185,8200,9262,9.19
-American,AAL,54633,1467,190,6200,10564,2.69
-United,UAL,59070,4713,4306,,7777,7.98
-Southwest,LUV,28063,428,563,,4334,1.53
-Alaska,ALK,14239,303,146,,3433,2.13
-JetBlue,JBLU,9062,-368,-774,,1227,-4.06
-Frontier,ULCC,3724,-149,-134,,,-4.0
-Allegiant,ALGT,2607,37,-55,,,1.42
-Sun Country,SNCY,1127,101,70,,,8.96
+airline,ticker,revenue_2025_musd,operating_income_2025_musd,pretax_income_2025_musd,card_partner_cash_2025_musd,unredeemed_loyalty_liability_dec31_2025_musd,operating_margin_pct,operating_expenses_2025_musd,salaries_benefits_2025_musd,fuel_2025_musd
+Delta,DAL,63364,5822,6185,8200,9262,9.19,57542,17520,9819
+American,AAL,54633,1467,190,6200,10564,2.69,53166,17566,10718
+United,UAL,59070,4713,4306,,7777,7.98,54356,17647,11396
+Southwest,LUV,28063,428,563,,4334,1.53,27635,12963,5240
+Alaska,ALK,14239,303,146,,3433,2.13,13936,4763,2879
+JetBlue,JBLU,9062,-368,-774,,1227,-4.06,9430,3453,2057
+Frontier,ULCC,3724,-149,-134,,,-4.0,3873,1016,929
+Allegiant,ALGT,2607,37,-55,,,1.42,2569,833,640
+Sun Country,SNCY,1127,101,70,,,8.96,1026,373,213
