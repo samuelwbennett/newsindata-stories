@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+ ['air','Business',"Card Partners Paid American Airlines Four Times Its Profit",'credit-card-partners-paid-american-airlines-62-billion-in-2025-four-times-its-operating-profit'],
  ['tz','Trending',"Americans Live On Two Different Dates For 21 Hours A Day",'americans-are-living-on-two-different-dates-for-21-hours-of-every-day'],
  ['agency','Trending',"Americans Rate The Park Service Highest Of 12 Agencies And ICE Lowest",'americans-rate-the-national-park-service-highest-of-12-federal-agencies-and-ice-lowest'],
  ['crime','Trending',"Serious Violent Crime Fell 25% In A Federal Victims Survey",'americans-reported-19-fewer-property-crimes-and-25-fewer-serious-violent-crimes-to-a-federal-survey-in-2025-than-in-2024'],
