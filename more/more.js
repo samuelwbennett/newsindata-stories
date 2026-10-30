@@ -5,6 +5,9 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+ ['spend','Business',"Households Spent 8% More On Shelter, Three Times The Rise In Prices",'households-spent-8-more-on-shelter-in-2025-about-three-times-the-rise-in-consumer-prices'],
+ ['wages','Business',"Wages Rose 3.1% But Fell 0.6% After Inflation",'wages-rose-31-over-the-year-to-september-but-fell-06-after-inflation'],
+ ['engage','Trending',"A Record 56% Have Given The Midterm 'Quite A Lot' Of Thought",'a-record-56-of-americans-say-they-have-given-quite-a-lot-of-thought-to-the-midterm'],
  ['air','Business',"Card Partners Paid American Airlines Four Times Its Profit",'credit-card-partners-paid-american-airlines-62-billion-in-2025-four-times-its-operating-profit'],
  ['tz','Trending',"Americans Live On Two Different Dates For 21 Hours A Day",'americans-are-living-on-two-different-dates-for-21-hours-of-every-day'],
  ['agency','Trending',"Americans Rate The Park Service Highest Of 12 Agencies And ICE Lowest",'americans-rate-the-national-park-service-highest-of-12-federal-agencies-and-ice-lowest'],

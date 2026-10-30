@@ -1,7 +1,25 @@
 {
- "updated": "2026-10-27",
+ "updated": "2026-10-30",
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
+  {
+   "slug": "households-spent-8-more-on-shelter-in-2025-about-three-times-the-rise-in-consumer-prices",
+   "title": "Households Spent 8% More On Shelter In 2025, About Three Times The Rise In Consumer Prices",
+   "section": "Business",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793366419758-5C3H1BQ97YHJYQ9L0TMY/spend-preview.png"
+  },
+  {
+   "slug": "wages-rose-31-over-the-year-to-september-but-fell-06-after-inflation",
+   "title": "Wages Rose 3.1% Over The Year To September But Fell 0.6% After Inflation",
+   "section": "Business",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793366550598-H568K2JWMG1Y8HBIBVMM/wages-preview.png"
+  },
+  {
+   "slug": "a-record-56-of-americans-say-they-have-given-quite-a-lot-of-thought-to-the-midterm",
+   "title": "A Record 56% Of Americans Say They Have Given 'Quite A Lot' Of Thought To The Midterm",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793366658936-8B7SF8T35OMQ3KG6K6NY/engage-preview.png"
+  },
   {
    "slug": "credit-card-partners-paid-american-airlines-62-billion-in-2025-four-times-its-operating-profit",
    "title": "Credit Card Partners Paid American Airlines $6.2 Billion In 2025, Four Times Its Operating Profit",
