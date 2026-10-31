@@ -1,7 +1,13 @@
 {
- "updated": "2026-10-30",
+ "updated": "2026-10-31",
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
+  {
+   "slug": "there-are-14-fewer-potential-trick-or-treaters-per-household-than-in-2010",
+   "title": "There Are 14% Fewer Potential Trick-Or-Treaters Per Household Than In 2010",
+   "section": "Culture",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793440740165-4OYAQZ5YGUCLXK8LM082/halloween-preview.png"
+  },
   {
    "slug": "households-spent-8-more-on-shelter-in-2025-about-three-times-the-rise-in-consumer-prices",
    "title": "Households Spent 8% More On Shelter In 2025, About Three Times The Rise In Consumer Prices",

@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+ ['halloween','Culture',"There Are 14% Fewer Trick-Or-Treaters Per Household Than In 2010",'there-are-14-fewer-potential-trick-or-treaters-per-household-than-in-2010'],
  ['spend','Business',"Households Spent 8% More On Shelter, Three Times The Rise In Prices",'households-spent-8-more-on-shelter-in-2025-about-three-times-the-rise-in-consumer-prices'],
  ['wages','Business',"Wages Rose 3.1% But Fell 0.6% After Inflation",'wages-rose-31-over-the-year-to-september-but-fell-06-after-inflation'],
  ['engage','Trending',"A Record 56% Have Given The Midterm 'Quite A Lot' Of Thought",'a-record-56-of-americans-say-they-have-given-quite-a-lot-of-thought-to-the-midterm'],
