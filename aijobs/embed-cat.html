@@ -1,0 +1,32 @@
+<style>
+.nid-ai{max-width:640px;margin:2.4em auto;font-family:Georgia,'Times New Roman',serif;color:#111}
+.nid-ai h3{font-size:1.25em;margin:0 0 .2em;text-align:center}
+.nid-ai .sub{font-size:.88em;color:#4b5b52;text-align:center;margin:0 0 .9em}
+.nid-ai input{width:100%;box-sizing:border-box;padding:11px 14px;font:16px Georgia,serif;border:2px solid #0E5A3A;border-radius:999px;margin-bottom:10px;outline:none}
+.nid-ai .list{max-height:520px;overflow-y:auto;border:1px solid #dbe9e0;border-radius:10px;padding:6px 10px;background:#fff}
+.nid-ai .row{display:grid;grid-template-columns:2.2em 1fr 3em;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid #f0f5f2;font-size:.9em}
+.nid-ai .row:last-child{border-bottom:none}
+.nid-ai .rk{color:#6b7f73;font-size:.85em;text-align:right}
+.nid-ai .nm{line-height:1.2}
+.nid-ai .bar{height:8px;border-radius:4px;margin-top:4px}
+.nid-ai .val{font-weight:700;color:#0E5A3A;text-align:right}
+.nid-ai .row.hit{background:#E8F5EE}
+.nid-ai .note{font-size:.78em;color:#5f7268;margin-top:.6em;line-height:1.4;text-align:center}
+.nid-ai .tg{display:flex;justify-content:center;gap:8px;margin-bottom:10px}
+.nid-ai .tg button{font:600 14px/1 Georgia,serif;padding:8px 16px;border-radius:999px;border:2px solid #0E5A3A;background:#fff;color:#0E5A3A;cursor:pointer}
+.nid-ai .tg button[aria-pressed=true]{background:#0E5A3A;color:#fff}
+.nid-ai .cat{display:grid;grid-template-columns:minmax(120px,40%) 1fr;align-items:center;gap:10px;padding:4px 0;font-size:.9em;cursor:pointer}
+.nid-ai .track{background:#E8F5EE;border-radius:5px;height:20px;position:relative}
+.nid-ai .fill{height:20px;border-radius:5px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;box-sizing:border-box;color:#fff;font-weight:700;font-size:.82em}
+.nid-ai .fill.out{justify-content:flex-start}
+.nid-ai .lab{text-align:right;line-height:1.15}
+</style><div class="nid-ai" id="nid-ai-cat"><h3>How Much Of Each Job AI Could Speed Up</h3><p class="sub">Share of each job category's tasks a language model could theoretically speed up. Tap a bar for details.</p>
+<div class="tg" role="group" aria-label="Sort"><button type="button" data-s="v" aria-pressed="true">Highest first</button><button type="button" data-s="a" aria-pressed="false">A to Z</button></div><div class="bars"></div>
+<p class="note" id="nid-ai-cat-d">In computer and math jobs, AI could theoretically speed up 94% of tasks, but Claude was being used for only about a third of them.</p>
+<p class="note">Theoretical shares are Eloundou et al. (2023) task ratings as charted by Anthropic, "Labor market impacts of AI," March 2026, as reported by Euronews.</p></div>
+<script>(function(){var C=[["Computer and math", 94.3], ["Business and finance", 94.3], ["Management", 91.3], ["Office and administrative support", 90.0], ["Legal", 89.0], ["Architecture and engineering", 84.8], ["Arts and media", 83.7], ["Life, physical and social science", 77.0], ["Sales", 62.0], ["Education and library", 61.7], ["Healthcare practitioners", 59.9], ["Community and social service", 50.5], ["Protective service", 31.6], ["Healthcare support", 28.5], ["Production", 19.0], ["Installation and repair", 18.4], ["Personal care and service", 18.2], ["Food preparation and serving", 16.9], ["Construction", 16.9], ["Farming, fishing and forestry", 15.7], ["Transportation", 12.1], ["Grounds maintenance", 3.9]];var r=document.getElementById("nid-ai-cat");if(!r)return;var B=r.querySelector(".bars"),N=document.getElementById("nid-ai-cat-d"),bt=r.querySelectorAll("button");
+function col(v){var t=v/100;var a=[168,219,190],b=[14,90,58];return "rgb("+a.map(function(x,i){return Math.round(x+(b[i]-x)*t)}).join(",")+")"}
+function draw(s){var d=C.slice();if(s==="a")d.sort(function(x,y){return x[0]<y[0]?-1:1});B.innerHTML="";d.forEach(function(c){var e=document.createElement("div");e.className="cat";var o=c[1]<14;
+e.innerHTML='<span class="lab">'+c[0]+'</span><span class="track"><span class="fill'+(o?' out':'')+'" style="width:'+(o?Math.max(c[1],1):c[1])+'%;background:'+col(c[1])+'">'+(o?'':c[1].toFixed(1)+'%')+'</span>'+(o?'<span style="position:absolute;left:'+(c[1]+1.5)+'%;top:1px;font-weight:700;font-size:.82em;color:#0E5A3A">'+c[1].toFixed(1)+'%</span>':'')+'</span>';
+e.onclick=function(){N.textContent=c[0]+": a language model could theoretically speed up "+c[1].toFixed(1)+"% of the tasks in these jobs."};B.appendChild(e)})}
+bt.forEach(function(b){b.onclick=function(){bt.forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});draw(b.getAttribute("data-s"))}});draw("v")})();</script>
