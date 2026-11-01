@@ -38,7 +38,7 @@ async function run(){
   const R=new Float32Array(st.ref);
   while(st.i<st.items.length){const [u,d,y,t]=st.items[st.i];try{const im=await loadImg(u);const ds=await faceapi.detectAllFaces(im,new faceapi.SsdMobilenetv1Options({minConfidence:0.5})).withFaceLandmarks().withFaceDescriptors().withAgeAndGender();let b=null;for(const f of ds){const dist=faceapi.euclideanDistance(f.descriptor,R);if(!b||dist<b[0])b=[dist,f.age,f.detection.box.width,ds.length]}if(b&&b[0]<0.6)st.res.push([st.i,d,y,+b[1].toFixed(1),+b[0].toFixed(3),Math.round(b[2]),b[3]])}catch(e){}
    st.i++;if(st.i%10==0||st.i===st.items.length){put('ag_'+key+'_st',st);log(key+' '+st.i+'/'+st.items.length+' matched '+st.res.length+' tensors '+faceapi.tf.memory().numTensors)}}
-  st.phase='done';put('ag_'+key+'_st',st)}
+  st.phase='done';st.n=st.items.length;delete st.items;put('ag_'+key+'_st',st)}
  log('ALL DONE')}
 run().catch(e=>log('ERROR '+e));
 </script></body></html>
