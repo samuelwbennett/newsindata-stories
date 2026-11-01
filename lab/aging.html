@@ -15,7 +15,7 @@ const P=[
  ['obama','Barack Obama',[2008,2009,2010,2011,2012,2013,2014,2015,2016,2017],2,'1961-08-04','2009-01-20','2017-01-20'],
  ['trump','Donald Trump',[2016,2017,2018,2019,2020,2021,2024,2025,2026],2,'1946-06-14','2017-01-20','2021-01-20|2025-01-20|2029-01-20'],
  ['biden','Joe Biden',[2020,2021,2022,2023,2024,2025],2,'1942-11-20','2021-01-20','2025-01-20']];
-const CAP=3000;
+const CAP=500;
 const log=t=>{document.getElementById('log').textContent=t};
 const API=async p=>{for(let k=0;k<4;k++){try{return await fetch('https://commons.wikimedia.org/w/api.php?format=json&origin=*&'+new URLSearchParams(p)).then(r=>r.json())}catch(e){await new Promise(r=>setTimeout(r,3000))}}return {}};
 async function listFiles(cat,depth,acc,seenC){if(seenC.has(cat))return;seenC.add(cat);let cont=null;do{const p={action:'query',list:'categorymembers',cmtitle:cat,cmlimit:500,cmtype:'file|subcat'};if(cont)p.cmcontinue=cont;const j=await API(p);const mem=(j.query&&j.query.categorymembers)||[];for(const m of mem){if(m.ns===14){if(depth>0&&!/video|audio|document|signature|map/i.test(m.title))await listFiles(m.title,depth-1,acc,seenC)}else if(/\.(jpe?g|png)$/i.test(m.title))acc.add(m.title)}cont=j.continue&&j.continue.cmcontinue}while(cont)}
@@ -32,12 +32,13 @@ async function run(){
   if(st.phase==='done')continue;
   if(!st.ref){st.ref=await ref(name);put('ag_'+key+'_st',st)}
   if(!st.items){log(key+': listing…');const per={};for(const y of years){const acc=new Set();await listFiles('Category:'+name+' in '+y,depth,acc,new Set());per[y]=[...acc];log(key+': listed '+y+' '+acc.size)}
-   const cap=Math.ceil(CAP/years.length);let titles=[];for(const y of years){const a=per[y].sort(()=>Math.random()-.5).slice(0,cap);titles.push(...a.map(t=>[t,y]))}
+   const cap=Math.ceil(CAP/years.length);let titles=[];for(const y of years){const a=per[y].sort(()=>Math.random()-.5).slice(0,cap);titles.push(...a.map(t=>[t,y]))}titles.sort(()=>Math.random()-.5);
    const items=[];for(let i=0;i<titles.length;i+=40){const b=titles.slice(i,i+40);const j=await API({action:'query',prop:'imageinfo',iiprop:'url|extmetadata',iiurlwidth:640,titles:b.map(x=>x[0]).join('|')});const yr=Object.fromEntries(b);for(const p of Object.values((j.query&&j.query.pages)||{})){const ii=p.imageinfo&&p.imageinfo[0];if(!ii)continue;const m=ii.extmetadata||{};const d=pdate((m.DateTimeOriginal||{}).value);items.push([ii.thumburl||ii.url,d?+d.toFixed(3):null,yr[p.title],p.title.slice(5,80)])}log(key+': meta '+items.length)}
    st.items=items;st.i=0;st.res=[];put('ag_'+key+'_st',st)}
-  const R=new Float32Array(st.ref);
-  while(st.i<st.items.length){const [u,d,y,t]=st.items[st.i];try{const im=await loadImg(u);const ds=await faceapi.detectAllFaces(im,new faceapi.SsdMobilenetv1Options({minConfidence:0.5})).withFaceLandmarks().withFaceDescriptors().withAgeAndGender();let b=null;for(const f of ds){const dist=faceapi.euclideanDistance(f.descriptor,R);if(!b||dist<b[0])b=[dist,f.age,f.detection.box.width,ds.length]}if(b&&b[0]<0.6)st.res.push([st.i,d,y,+b[1].toFixed(1),+b[0].toFixed(3),Math.round(b[2]),b[3]])}catch(e){}
-   st.i++;if(st.i%10==0||st.i===st.items.length){put('ag_'+key+'_st',st);log(key+' '+st.i+'/'+st.items.length+' matched '+st.res.length+' tensors '+faceapi.tf.memory().numTensors)}}
+  if(key==='nixon'&&st.items&&!st.lim){const done=st.items.slice(0,st.i),rest=st.items.slice(st.i).filter(x=>x[2]>=1971).sort(()=>Math.random()-.5);st.items=done.concat(rest);st.lim=st.i+250;put('ag_'+key+'_st',st)}
+  const R=new Float32Array(st.ref);const LIM=st.lim||st.items.length;
+  while(st.i<Math.min(LIM,st.items.length)){const [u,d,y,t]=st.items[st.i];try{const im=await loadImg(u);const ds=await faceapi.detectAllFaces(im,new faceapi.SsdMobilenetv1Options({minConfidence:0.5})).withFaceLandmarks().withFaceDescriptors().withAgeAndGender();let b=null;for(const f of ds){const dist=faceapi.euclideanDistance(f.descriptor,R);if(!b||dist<b[0])b=[dist,f.age,f.detection.box.width,ds.length]}if(b&&b[0]<0.6)st.res.push([st.i,d,y,+b[1].toFixed(1),+b[0].toFixed(3),Math.round(b[2]),b[3]])}catch(e){}
+   st.i++;if(st.i%10==0||st.i===LIM){put('ag_'+key+'_st',st);log(key+' '+st.i+'/'+Math.min(LIM,st.items.length)+' matched '+st.res.length+' tensors '+faceapi.tf.memory().numTensors)}}
   st.phase='done';st.n=st.items.length;delete st.items;put('ag_'+key+'_st',st)}
  log('ALL DONE')}
 run().catch(e=>log('ERROR '+e));
