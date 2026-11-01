@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+ ['aijobs','AI & Tech',"AI Already Covers Three-Quarters Of A Programmer's Tasks",'ai-already-covers-three-quarters-of-a-programmers-tasks-but-exposed-workers-arent-losing-jobs-yet'],
  ['halloween','Culture',"There Are 14% Fewer Trick-Or-Treaters Per Household Than In 2010",'there-are-14-fewer-potential-trick-or-treaters-per-household-than-in-2010'],
  ['spend','Business',"Households Spent 8% More On Shelter, Three Times The Rise In Prices",'households-spent-8-more-on-shelter-in-2025-about-three-times-the-rise-in-consumer-prices'],
  ['wages','Business',"Wages Rose 3.1% But Fell 0.6% After Inflation",'wages-rose-31-over-the-year-to-september-but-fell-06-after-inflation'],

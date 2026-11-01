@@ -1,7 +1,13 @@
 {
- "updated": "2026-10-31",
+ "updated": "2026-11-01",
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
+  {
+   "slug": "ai-already-covers-three-quarters-of-a-programmers-tasks-but-exposed-workers-arent-losing-jobs-yet",
+   "title": "AI Already Covers Three-Quarters Of A Programmer's Tasks, But Exposed Workers Aren't Losing Jobs Yet",
+   "section": "AI & Tech",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793548524909-YMRGEDD79PPL2VZLSKBQ/aijobs-preview.png"
+  },
   {
    "slug": "there-are-14-fewer-potential-trick-or-treaters-per-household-than-in-2010",
    "title": "There Are 14% Fewer Potential Trick-Or-Treaters Per Household Than In 2010",
