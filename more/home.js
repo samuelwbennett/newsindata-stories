@@ -4,7 +4,7 @@
    Loaded site-wide (Settings > Developer tools > Code injection > Footer); runs on the home page only. */
 (function(){
 if(location.pathname!=='/'&&location.pathname!=='')return;
-var N=4;
+var N=6;
 function strip(h){var d=document.createElement('div');d.innerHTML=h||'';return (d.textContent||'').replace(/\s+/g,' ').trim();}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function run(){
