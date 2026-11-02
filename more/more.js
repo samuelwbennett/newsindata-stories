@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+ ['aging','Trending',"Carter, Clinton And Nixon Appeared To Age Fastest In Office",'carter-clinton-and-nixon-appeared-to-age-fastest-in-office-in-a-face-models-reading-of-7000-photos'],
  ['aijobs','AI & Tech',"AI Already Covers Three-Quarters Of A Programmer's Tasks",'ai-already-covers-three-quarters-of-a-programmers-tasks-but-exposed-workers-arent-losing-jobs-yet'],
  ['halloween','Culture',"There Are 14% Fewer Trick-Or-Treaters Per Household Than In 2010",'there-are-14-fewer-potential-trick-or-treaters-per-household-than-in-2010'],
  ['spend','Business',"Households Spent 8% More On Shelter, Three Times The Rise In Prices",'households-spent-8-more-on-shelter-in-2025-about-three-times-the-rise-in-consumer-prices'],
