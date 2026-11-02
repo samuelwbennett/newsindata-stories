@@ -46,13 +46,13 @@
     '@container (max-width:520px){.nid-gfs-map .nm-list{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row}}' +
     '.nid-gfs-map .nm-row{display:grid;grid-template-columns:118px 1fr 46px;align-items:center;gap:6px;cursor:pointer;padding:1px 0}.nid-gfs-map .nm-row.on{font-weight:700}' +
     '.nid-gfs-map .nm-bar{height:10px;background:#c9d4ce}.nid-gfs-map .nm-row.hl .nm-bar{background:var(--g)}.nid-gfs-map .nm-row span:last-child{text-align:right}' +
-    '.nid-gfs-map .nm-note{font-size:13px;color:var(--mut);margin-top:8px}';
+    '.nid-gfs-map .nm-note{font-size:13px;line-height:1.4;color:var(--mut);margin-top:8px;font-family:"Times New Roman",Times,serif}.nid-gfs-map .nm-t,.nid-gfs-map .nm-s{font-family:"Times New Roman",Times,serif}';
 
   function init(el) {
     if (el.dataset.ready) return; el.dataset.ready = 1;
     if (!document.getElementById('nid-gfs-css')) { var st = document.createElement('style'); st.id = 'nid-gfs-css'; st.textContent = CSS; document.head.appendChild(st); }
-    el.innerHTML = '<div class="nm-top"><p class="nm-t"></p><p class="nm-s"></p><div class="nm-btns"></div></div><svg viewBox="0 0 960 500" role="img" aria-label="World map of 22 places. Japan has the highest share of adults with no one they feel very close to, 32.8%; Nigeria the lowest, 7.2%."></svg><div class="nm-tip"></div><div class="nm-list"></div>' +
-      '<p class="nm-note">22 places, 2022–23. Global Flourishing Study, Wave 1, weighted. Hong Kong shown as a circle. Gray: not surveyed. Tap or hover a country.</p>';
+    el.innerHTML = '<div class="nm-top"><div class="nm-t"></div><div class="nm-s"></div><div class="nm-btns"></div></div><svg viewBox="0 0 960 500" role="img" aria-label="World map of 22 places. Japan has the highest share of adults with no one they feel very close to, 32.8%; Nigeria the lowest, 7.2%."></svg><div class="nm-tip"></div><div class="nm-list"></div>' +
+      '<div class="nm-note">22 places, 2022–23. Global Flourishing Study, Wave 1, weighted. Hong Kong shown as a circle. Gray: not surveyed. Tap or hover a country.</div>';
     var mode = el.dataset.mode || 'close', sel = null, paint = function () {};
     var svg = d3.select(el).select('svg'), tip = el.querySelector('.nm-tip');
     var btns = d3.select(el).select('.nm-btns').selectAll('button').data(Object.keys(MODES)).join('button')
