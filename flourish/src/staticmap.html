@@ -1,0 +1,82 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff}svg{display:block}text{font-family:"Times New Roman","Liberation Serif",serif}</style></head>
+<body><svg id="v"></svg>
+<script src="d3.min.js"></script><script src="topojson.min.js"></script><script src="world.js"></script>
+<script>
+const P=new URLSearchParams(location.search),MODE=P.get('m')||'tall';
+const W=MODE==='tall'?1080:1200,H=MODE==='tall'?1350:630;
+const INK='#13241b',MUT='#5f7268',G='#007a55';
+// iso: [name, pct, label anchor lon/lat or null, label offset dx,dy (px at tall scale), leader?]
+const D={'032':['Argentina',18.9],'036':['Australia',14.6],'076':['Brazil',17.9],'818':['Egypt',12.4],'276':['Germany',14.5],'356':['India',18.3],'360':['Indonesia',22.7],'376':['Israel',11.6],'392':['Japan',32.8],'404':['Kenya',18.2],'484':['Mexico',20.7],'566':['Nigeria',7.2],'608':['Philippines',9.9],'616':['Poland',13.2],'710':['South Africa',16.8],'724':['Spain',13.0],'834':['Tanzania',24.9],'792':['Turkey',22.3],'826':['United Kingdom',17.2],'840':['United States',13.5],'752':['Sweden',13.4],'344':['Hong Kong',16.2]};
+const BRK=[10,15,20,25,30],COL=['#d9efe4','#aedcc5','#79c09f','#46a07a','#177a55','#004a33'];
+const col=v=>COL[d3.bisectRight(BRK,v)];
+const svg=d3.select('#v').attr('width',W).attr('height',H).attr('viewBox',`0 0 ${W} ${H}`);
+const feats=topojson.feature(WORLD,WORLD.objects.countries).features;
+const land={type:'FeatureCollection',features:feats};
+function T(g,x,y,s,o={}){const t=g.append('text').attr('x',x).attr('y',y).attr('font-size',o.size||20).attr('text-anchor',o.a||'middle').attr('font-weight',o.w||400).attr('fill',o.fill||INK).text(s);if(o.halo)t.attr('paint-order','stroke').attr('stroke','#fff').attr('stroke-width',o.halo).attr('stroke-linejoin','round');if(o.it)t.attr('font-style','italic');if(o.ls)t.attr('letter-spacing',o.ls);return t;}
+const s=MODE==='tall'?1:0.62;           // text scale
+// ---------- title ----------
+if(MODE==='tall'){
+ T(svg,W/2,76,'Share Of Adults With No One',{size:50,w:700});T(svg,W/2,134,'They Feel Very Close To',{size:50,w:700});
+ T(svg,W/2,184,'Percent answering no to “Is there any one special person you know',{size:25,fill:'#34473c'});
+ T(svg,W/2,216,'that you feel very close to?” 22 places, 2022–23.',{size:25,fill:'#34473c'});
+}else{
+ T(svg,W/2,48,'Share Of Adults With No One They Feel Very Close To',{size:34,w:700});
+ T(svg,W/2,80,'Percent answering no to “Is there any one special person you know that you feel very close to?” 22 places, 2022–23.',{size:17,fill:'#34473c'});
+}
+// ---------- map ----------
+const box=MODE==='tall'?[[14,246],[1066,800]]:[[150,96],[1050,600]];
+const proj=d3.geoEqualEarth().rotate([-10,0]);
+const clip={type:'Polygon',coordinates:[[[-169,-57],[-169,83],[191,83],[191,-57],[-169,-57]].reverse()]};
+proj.fitExtent(box,{type:'MultiPoint',coordinates:[[-169,-57],[191,-57],[-169,83],[191,83],[10,83],[10,-57],[-169.9,0],[189.9,0],[-169.9,20],[189.9,20],[-169.9,-20],[189.9,-20]]});
+{const k=MODE==='tall'?1.1:1.16;proj.scale(proj.scale()*k);const c=proj([10,13]);const t=proj.translate();proj.translate([t[0]+((box[0][0]+box[1][0])/2-c[0]),t[1]+((box[0][1]+box[1][1])/2-c[1])]);}
+const path=d3.geoPath(proj);
+const mg=svg.append('g');
+mg.append('path').attr('d',path(d3.geoGraticule().step([30,30]).extentMajor([[-180,-60],[180,85]])())).attr('fill','none').attr('stroke','#e9efeb').attr('stroke-width',1);
+mg.selectAll(null).data(feats.filter(f=>!D[f.id])).join('path').attr('d',path).attr('fill','#ededea').attr('stroke','#fff').attr('stroke-width',.7);
+mg.selectAll(null).data(feats.filter(f=>D[f.id])).join('path').attr('d',path).attr('fill',f=>col(D[f.id][1])).attr('stroke','#fff').attr('stroke-width',.9);
+const hk=proj([114.17,22.32]);mg.append('circle').attr('cx',hk[0]).attr('cy',hk[1]).attr('r',5.5*(MODE==='tall'?1:.8)).attr('fill',col(16.2)).attr('stroke','#fff').attr('stroke-width',1.2);
+// ---------- labels ----------
+// [iso, anchor lon/lat, label lon/lat (null = on anchor), align]
+const L=[['840',[-99,39],null,'middle'],['484',[-102,23],[-118,12],'end'],['076',[-52,-10],null,'middle'],['032',[-65,-35],null,'middle'],
+ ['826',[-2,53],[-36,58],'end'],['724',[-4,40],[-36,40],'end'],['752',[16,63],[16,74],'middle'],['276',[10,51],[36,68],'start'],['616',[19.5,52],[62,58],'start'],
+ ['792',[34,39],[52,40],'start'],['376',[35,31.3],[56,30],'start'],['818',[30,26],[18,17],'end'],['566',[8,9.5],[-22,8],'end'],
+ ['404',[38,0.5],[58,6],'start'],['834',[35,-6.5],[58,-7],'start'],['710',[24,-29],null,'middle'],['356',[78.5,21],null,'middle'],
+ ['360',[115,-1],[104,-19],'end'],['608',[122,12],[142,17],'start'],['344',[114.17,22.32],[104,38],'middle'],['036',[134,-25],null,'middle'],['392',[138.5,37],[160,37],'start']];
+const lg=svg.append('g');const fs=MODE==='tall'?1:.72;
+L.forEach(([id,a,l,al])=>{const d=D[id],pa=proj(a),pl=l?proj(l):pa,big=id==='392';
+ if(l)lg.append('line').attr('x1',pa[0]).attr('y1',pa[1]).attr('x2',pl[0]+(al==='end'?4:al==='start'?-4:0)).attr('y2',pl[1]-4*fs).attr('stroke','#5f7268').attr('stroke-width',1);
+ const nameS=(big?19:15)*fs,valS=(big?30:19)*fs;
+ T(lg,pl[0],pl[1]-(big?13:9)*fs,d[0]==='United Kingdom'?'U.K.':d[0]==='United States'?'U.S.':d[0],{size:nameS,a:al,fill:big?G:INK,halo:3.5,w:big?700:400});
+ T(lg,pl[0],pl[1]+(big?18:11)*fs,d[1].toFixed(1)+'%',{size:valS,a:al,w:700,fill:big?G:INK,halo:4});
+});
+// ---------- legend ----------
+const LY=MODE==='tall'?836:572,LX=MODE==='tall'?W/2-270:20;
+const leg=svg.append('g').attr('transform',`translate(${LX},${LY})`);const sw=MODE==='tall'?78:20,sh=MODE==='tall'?18:14;
+if(MODE==='tall'){
+ COL.forEach((c,i)=>leg.append('rect').attr('x',i*sw).attr('y',0).attr('width',sw-3).attr('height',sh).attr('fill',c));
+ ['','10%','15%','20%','25%','30%'].forEach((t,i)=>t&&T(leg,i*sw-1.5,sh+26,t,{size:20,w:700}));
+ leg.append('rect').attr('x',6*sw+26).attr('y',0).attr('width',sw-3).attr('height',sh).attr('fill','#ededea');
+ T(leg,6*sw+26+(sw-3)/2,sh+26,'Not surveyed',{size:18,fill:MUT});
+}else{
+ COL.slice().reverse().forEach((c,i)=>leg.append('rect').attr('x',0).attr('y',-i*(sh+3)).attr('width',sw).attr('height',sh).attr('fill',c));
+ ['30%+','25','20','15','10','<10%'].forEach((t,i)=>T(leg,sw+6,-i*(sh+3)+sh-2,t,{size:13,a:'start',w:700}));
+ leg.append('rect').attr('x',0).attr('y',-6*(sh+3)-6).attr('width',sw).attr('height',sh).attr('fill','#ededea');T(leg,sw+6,-6*(sh+3)-6+sh-2,'Not surveyed',{size:13,a:'start',fill:MUT});
+}
+// ---------- tall: bottom strip with ranked dot line ----------
+if(MODE==='tall'){
+ const y0=1068,x=d3.scaleLinear([5,35],[90,990]);
+ T(svg,90,y0-118,'All 22 places, ranked',{size:22,w:700,a:'start'});
+ svg.append('line').attr('x1',x(5)).attr('x2',x(35)).attr('y1',y0+40).attr('y2',y0+40).attr('stroke','#000').attr('stroke-width',2.4);
+ [5,10,15,20,25,30,35].forEach(v=>{svg.append('line').attr('x1',x(v)).attr('x2',x(v)).attr('y1',y0+40).attr('y2',y0+48).attr('stroke','#000').attr('stroke-width',2);T(svg,x(v),y0+74,v+'%',{size:19,w:700});});
+ const pts=Object.entries(D).map(([k,d])=>({k,n:d[0],v:d[1]})).sort((a,b)=>a.v-b.v);
+ // stack dots in columns to avoid overlap
+ const placed=[];pts.forEach(p=>{let lvl=0;while(placed.some(q=>q.lvl===lvl&&Math.abs(x(q.v)-x(p.v))<17))lvl++;p.lvl=lvl;placed.push(p);});
+ pts.forEach(p=>svg.append('circle').attr('cx',x(p.v)).attr('cy',y0+28-p.lvl*18).attr('r',8).attr('fill',col(p.v)).attr('stroke',p.k==='392'||p.k==='840'||p.k==='566'?INK:'#fff').attr('stroke-width',p.k==='392'||p.k==='840'||p.k==='566'?2:1.2));
+ const lab=(k,txt,dy,a)=>{const p=pts.find(q=>q.k===k);const yy=y0+28-p.lvl*18;dy=yy-(y0-72);svg.append('line').attr('x1',x(p.v)).attr('x2',x(p.v)).attr('y1',yy-10).attr('y2',yy-dy+8).attr('stroke',MUT).attr('stroke-width',1);T(svg,x(p.v),yy-dy,txt,{size:20,w:700,a:a||'middle',fill:k==='392'?G:INK});};
+ lab('566','Nigeria 7.2%',58);lab('840','U.S. 13.5%',96);lab('392','Japan 32.8%',58);lab('834','Tanzania 24.9%',58);
+ // callout
+ T(svg,W/2,1196,'Japanese adults were 2.4 times as likely as Americans to say there’s no one,',{size:25});
+ T(svg,W/2,1230,'and Japanese men were the most likely group in any country, at 38.2%.',{size:25});
+}
+</script></body></html>

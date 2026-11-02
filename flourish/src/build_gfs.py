@@ -28,6 +28,7 @@ STORIES["friends"] = dict(
               "very close to,” someone you can confide in, and 32.8% of Japanese adults said no. That is 2.4 times the U.S. "
               "share of 13.5% and about twice the 16.5% in the median country."),
         ("p", "[Samuel: one sentence on why you looked at this, e.g. something you've seen in students, athletes or friends.]"),
+        ("img", "friends-map-chart.png", "World map of 22 places shaded by the share of adults with no one they feel very close to. Japan is darkest at 32.8%, more than twice the U.S. at 13.5%; Nigeria is lowest at 7.2%."),
         ("map", "close"),
         ("photo", UP + "c/c5/Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg/960px-Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg",
          "Crowds crossing at Shibuya Crossing in Tokyo",
@@ -186,6 +187,9 @@ for folder, S in STORIES.items():
         elif b[0] == "chart":
             out.append(f'<figure class="nid-fig"><img src="{base}{b[1]}" alt="{html.escape(S["alt"])}" width="1080" height="1350"></figure>')
             md.append(f"[chart: {base}{b[1]}]\n")
+        elif b[0] == "img":
+            out.append(f'<figure class="nid-fig"><img src="{base}{b[1]}" alt="{html.escape(b[2])}" width="1080" height="1350"></figure>')
+            md.append(f"[map image: {base}{b[1]}]\n")
         elif b[0] == "map":
             out.append(f'<div class="nid-gfs-map" data-mode="{b[1]}"></div>'
                        '<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>'
