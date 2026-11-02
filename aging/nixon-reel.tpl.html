@@ -1,0 +1,55 @@
+<style>
+#nid-reel{max-width:640px;margin:2.4em auto;font-family:Georgia,'Times New Roman',serif;text-align:center}
+#nid-reel canvas{width:100%;height:auto;display:block;border:1px solid #e6e3dd;border-radius:6px;background:#fff}
+#nid-reel .ctl{display:flex;justify-content:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+#nid-reel button{font:600 14px/1 Georgia,serif;padding:9px 16px;border-radius:999px;border:2px solid #0E5A3A;background:#fff;color:#0E5A3A;cursor:pointer}
+#nid-reel button.p{background:#0E5A3A;color:#fff}
+#nid-reel .cap{font-size:.8em;color:#5f7268;margin-top:.6em;line-height:1.4}
+</style>
+<div id="nid-reel"><canvas width="1080" height="1350" aria-label="Animation of 100 photos of Richard Nixon from 1968 to 1974, each with a face box and the model's age estimate, building a chart of apparent age against actual age"></canvas>
+<div class="ctl"><button type="button" class="p" data-a="play">Play</button><button type="button" data-a="rec">Download video</button></div>
+<p class="cap">100 dated photos of Nixon from Wikimedia Commons (public domain), with the face the model matched to Nixon boxed and its age estimate. Model: face-api.js.</p></div>
+<script>(function(){
+var D=__DATA__;var BIRTH=1913.025;
+var root=document.getElementById('nid-reel');if(!root)return;var cv=root.querySelector('canvas'),cx=cv.getContext('2d');var W=1080,H=1350;
+var G='#0E5A3A',MG='#4DB37E',LG='#A8DBBE',INK='#111',SUB='#4b5b52',GR='#9aa3ad';
+var imgs=[],ready=false,playing=false,t0=0,FR=90,HOLD=1400,rec=null;
+var MON=['Jan.','Feb.','March','April','May','June','July','Aug.','Sept.','Oct.','Nov.','Dec.'];
+function dstr(t){var y=Math.floor(t),f=t-y,m=Math.min(11,Math.floor(f*12));return MON[m]+' '+y}
+// chart geometry
+var CX0=120,CX1=1020,CY0=1240,CY1=930,X0=1968,X1=1974.7,Y0=50,Y1=76;
+function px(t){return CX0+(t-X0)/(X1-X0)*(CX1-CX0)}function py(a){return CY0-(a-Y0)/(Y1-Y0)*(CY0-CY1)}
+function drawChart(n,cur){cx.fillStyle='#fff';cx.fillRect(0,880,W,470);
+ cx.strokeStyle='#e6e8eb';cx.lineWidth=2;cx.font='bold 24px Georgia';cx.fillStyle=INK;cx.textAlign='right';cx.textBaseline='middle';
+ for(var a=50;a<=75;a+=5){cx.beginPath();cx.moveTo(CX0,py(a));cx.lineTo(CX1,py(a));cx.stroke();cx.fillText(a,CX0-12,py(a))}
+ cx.textAlign='center';cx.textBaseline='top';for(var y=1968;y<=1974;y++){cx.fillText(y,px(y+.5),CY0+10)}
+ cx.strokeStyle='#000';cx.lineWidth=3;cx.beginPath();cx.moveTo(CX0,CY1-10);cx.lineTo(CX0,CY0);cx.lineTo(CX1,CY0);cx.stroke();
+ cx.font='bold 22px Georgia';cx.fillStyle=INK;cx.textAlign='center';cx.fillText('YEAR',(CX0+CX1)/2,CY0+44);
+ cx.save();cx.translate(40,(CY0+CY1)/2);cx.rotate(-Math.PI/2);cx.fillText('AGE',0,0);cx.restore();
+ cx.setLineDash([10,8]);cx.strokeStyle=GR;cx.lineWidth=3;cx.beginPath();cx.moveTo(px(X0),py(X0-BIRTH));cx.lineTo(px(X1),py(X1-BIRTH));cx.stroke();cx.setLineDash([]);
+ cx.font='bold 22px Georgia';cx.fillStyle=GR;cx.textAlign='left';cx.fillText('Actual age',px(1968.15),py(1968.15-BIRTH)+14);
+ for(var i=0;i<n;i++){cx.beginPath();cx.arc(px(D[i][1]),py(D[i][2]),i===cur?13:8,0,7);cx.fillStyle=i===cur?G:MG;cx.globalAlpha=i===cur?1:.75;cx.fill();cx.globalAlpha=1}
+ if(n>=D.length){var sx=0,sy=0,sxx=0,sxy=0;for(i=0;i<D.length;i++){sx+=D[i][1];sy+=D[i][2]}var mx=sx/D.length,my=sy/D.length;for(i=0;i<D.length;i++){sxx+=(D[i][1]-mx)*(D[i][1]-mx);sxy+=(D[i][1]-mx)*(D[i][2]-my)}var b=sxy/sxx;cx.strokeStyle=G;cx.lineWidth=6;cx.beginPath();cx.moveTo(px(X0),py(my+b*(X0-mx)));cx.lineTo(px(X1),py(my+b*(X1-mx)));cx.stroke();
+  cx.font='bold 26px Georgia';cx.fillStyle=G;cx.textAlign='left';cx.fillText('Trend: '+b.toFixed(1)+' apparent years per year',px(1968.15),py(73.5))}}
+function drawHeader(){cx.fillStyle='#fff';cx.fillRect(0,0,W,140);cx.fillStyle=INK;cx.textAlign='center';cx.textBaseline='top';cx.font='bold 46px Georgia';cx.fillText('How A Face Model Read Nixon, 1968–1974',W/2,34);cx.font='26px Georgia';cx.fillStyle=SUB;cx.fillText('Each photo: the face matched to Nixon, the model’s age estimate and his actual age',W/2,94)}
+function drawPhoto(i){var d=D[i],im=imgs[i];var PX=60,PY=150,PW=960,PH=700;cx.fillStyle='#f3f5f4';cx.fillRect(PX,PY,PW,PH);if(!im)return;
+ var s=im.naturalWidth/d[7];var bx=d[3]*s,by=d[4]*s,bw=d[5]*s,bh=d[6]*s;var fcx=bx+bw/2,fcy=by+bh/2;var z=Math.min(PH*0.42/bh,PW/im.naturalWidth*3);z=Math.max(z,PH/im.naturalHeight,PW/im.naturalWidth);
+ var sw=PW/z,sh=PH/z;var sx=Math.max(0,Math.min(im.naturalWidth-sw,fcx-sw/2)),sy=Math.max(0,Math.min(im.naturalHeight-sh,fcy-sh/2));
+ cx.save();cx.beginPath();cx.rect(PX,PY,PW,PH);cx.clip();cx.drawImage(im,sx,sy,sw,sh,PX,PY,PW,PH);
+ var rx=PX+(bx-sx)*z,ry=PY+(by-sy)*z,rw=bw*z,rh=bh*z;cx.strokeStyle='#39d98a';cx.lineWidth=6;cx.strokeRect(rx,ry,rw,rh);
+ var act=d[1]-BIRTH;var lab='Model: '+Math.round(d[2])+'   Actual: '+Math.floor(act);cx.font='bold 34px Georgia';var tw=cx.measureText(lab).width+30;var lx=Math.max(PX+8,Math.min(PX+PW-tw-8,rx+rw/2-tw/2)),ly=ry+rh+14;if(ly+52>PY+PH)ly=ry-66;
+ cx.fillStyle='rgba(14,90,58,.92)';cx.fillRect(lx,ly,tw,52);cx.fillStyle='#fff';cx.textAlign='left';cx.textBaseline='middle';cx.fillText(lab,lx+15,ly+27);cx.restore();
+ cx.fillStyle='rgba(0,0,0,.6)';cx.fillRect(PX,PY,240,56);cx.fillStyle='#fff';cx.font='bold 30px Georgia';cx.textAlign='left';cx.fillText(dstr(d[1]),PX+16,PY+29);
+ cx.fillStyle='rgba(0,0,0,.6)';cx.fillRect(PX+PW-150,PY,150,56);cx.fillStyle='#fff';cx.textAlign='right';cx.fillText((i+1)+' / '+D.length,PX+PW-14,PY+29)}
+function frame(i){drawHeader();drawPhoto(Math.min(i,D.length-1));drawChart(Math.min(i+1,D.length),i<D.length?i:-1);cx.fillStyle=SUB;cx.font='18px Georgia';cx.textAlign='center';cx.textBaseline='bottom';cx.fillText('Photos: Wikimedia Commons, public domain. Ages: face-api.js. thenewsindata.com',W/2,H-8)}
+function tick(ts){if(!playing)return;if(!t0)t0=ts;var el=ts-t0,i=Math.floor(el/FR);if(i>=D.length){frame(D.length);if(el>D.length*FR+HOLD){playing=false;btn.textContent='Replay';if(rec){rec.stop()}return}}else frame(i);requestAnimationFrame(tick)}
+var btn=root.querySelector('[data-a=play]'),rb=root.querySelector('[data-a=rec]');
+function play(){if(!ready)return;t0=0;playing=true;btn.textContent='Playing…';requestAnimationFrame(tick)}
+btn.onclick=play;
+rb.onclick=function(){if(!ready||!window.MediaRecorder)return;var types=['video/mp4;codecs=avc1','video/mp4','video/webm;codecs=vp9','video/webm'];var ty=types.find(function(x){return MediaRecorder.isTypeSupported(x)});var st=cv.captureStream(30);var chunks=[];rec=new MediaRecorder(st,{mimeType:ty,videoBitsPerSecond:8e6});rec.ondataavailable=function(e){if(e.data.size)chunks.push(e.data)};rec.onstop=function(){var bl=new Blob(chunks,{type:ty});var a=document.createElement('a');a.href=URL.createObjectURL(bl);a.download='nixon-face-model.'+(ty.indexOf('mp4')>-1?'mp4':'webm');document.body.appendChild(a);a.click();a.remove();rec=null};rec.start();play()};
+// load
+cx.fillStyle='#fff';cx.fillRect(0,0,W,H);drawHeader();cx.fillStyle=SUB;cx.font='30px Georgia';cx.textAlign='center';cx.fillText('Loading 100 photos…',W/2,500);
+var ids=D.map(function(d){return d[0]});var urls={};var batches=[];for(var k=0;k<ids.length;k+=50)batches.push(ids.slice(k,k+50));
+Promise.all(batches.map(function(b){return fetch('https://commons.wikimedia.org/w/api.php?format=json&origin=*&action=query&prop=imageinfo&iiprop=url&iiurlwidth=640&pageids='+b.join('|')).then(function(r){return r.json()}).then(function(j){var p=j.query.pages;for(var id in p){var ii=p[id].imageinfo;if(ii)urls[id]=ii[0].thumburl}})})).then(function(){var n=0;return Promise.all(D.map(function(d,i){return new Promise(function(res){var im=new Image();im.crossOrigin='anonymous';im.onload=function(){imgs[i]=im;n++;res()};im.onerror=function(){res()};im.src=urls[d[0]]})}))}).then(function(){ready=true;frame(D.length);btn.textContent='Play';
+ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();play()}},{threshold:.5});io.observe(cv)}});
+})();</script>
