@@ -1,0 +1,76 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff}svg{display:block}text{font-family:"Times New Roman","Liberation Serif",serif}</style></head>
+<body><svg id="v" width="1080" height="1350" viewBox="0 0 1080 1350"></svg>
+<script src="d3.min.js"></script><script src="topojson.min.js"></script><script src="world.js"></script>
+<script>
+const W=1080,H=1350,G='#007a55',INK='#13241b',MUT='#5f7268',GR='#c3ccc7',GRID='#e3eee7';
+const D=[["032","Argentina",18.9,7.79,27230],["036","Australia",14.6,7.02,60685],["076","Brazil",17.9,7.63,19080],["818","Egypt",12.4,7.63,16691],["276","Germany",14.5,7.10,63140],["356","India",18.3,7.43,8871],["360","Indonesia",22.7,8.47,13890],["376","Israel",11.6,8.00,47671],["392","Japan",32.8,5.93,47387],["404","Kenya",18.2,7.77,5692],["484","Mexico",20.7,8.19,21865],["566","Nigeria",7.2,7.82,7843],["608","Philippines",9.9,8.11,9899],["616","Poland",13.2,7.63,43673],["710","South Africa",16.8,7.41,13695],["724","Spain",13.0,7.31,47323],["834","Tanzania",24.9,7.48,3621],["792","Turkey",22.3,6.59,35069],["826","United Kingdom",17.2,6.88,53423],["840","United States",13.5,7.18,74352],["752","Sweden",13.4,7.04,62123],["344","Hong Kong",16.2,7.17,64388]];
+const svg=d3.select('#v');const ease=t=>t<0?0:t>1?1:1-Math.pow(1-t,3);const cl=(x,a,b)=>Math.max(a,Math.min(b,x));
+function T(g,x,y,s,o={}){return g.append('text').attr('x',x).attr('y',y).attr('font-size',o.size||28).attr('text-anchor',o.a||'middle').attr('font-weight',o.w||400).attr('fill',o.fill||INK).attr('opacity',o.op==null?1:o.op).text(s);}
+function head(g,l1,l2,sub,op=1){T(g,W/2,92,l1,{size:52,w:700,op});if(l2)T(g,W/2,152,l2,{size:52,w:700,op});sub.forEach((s,i)=>T(g,W/2,(l2?205:150)+i*34,s,{size:27,fill:'#34473c',op}));}
+const ramp=v=>d3.interpolate('#bfe3d1','#00412c')(cl((v-5)/30,0,1));
+let world=null;
+// ---------- map: countries fill from lowest to highest share ----------
+function mapFrame(t){svg.selectAll('*').remove();const g=svg.append('g');
+ head(g,'Share Of Adults With No One','They Feel Very Close To',['Percent answering no. 22 countries, 2022–23. Global Flourishing Study.']);
+ const proj=d3.geoEqualEarth().rotate([-10,0]).fitExtent([[20,300],[1060,840]],{type:'Sphere'}),path=d3.geoPath(proj);
+ g.append('path').attr('d',path({type:'Sphere'})).attr('fill','#f6f9f7').attr('stroke','#dfe7e2');
+ const order=D.slice().sort((a,b)=>a[2]-b[2]);const per=0.33,start=0.6;
+ const shown={};order.forEach((d,i)=>{shown[d[0]]=ease((t-start-i*per)/0.35);});
+ const feats=topojson.feature(world,world.objects.countries).features;
+ g.selectAll(null).data(feats).join('path').attr('d',path).attr('stroke','#fff').attr('stroke-width',.6)
+  .attr('fill',f=>{const d=D.find(x=>x[0]===f.id);if(!d)return '#eceeed';const k=shown[f.id];return d3.interpolate('#eceeed',ramp(d[2]))(k);});
+ const hk=proj([114.17,22.32]);const dh=D.find(x=>x[0]==='344');g.append('circle').attr('cx',hk[0]).attr('cy',hk[1]).attr('r',7).attr('stroke','#fff').attr('fill',d3.interpolate('#eceeed',ramp(dh[2]))(shown['344']));
+ // current country callout
+ const idx=Math.min(order.length-1,Math.max(0,Math.floor((t-start)/per)));const cur=order[idx];const done=t>start+order.length*per+0.2;
+ if(t>start&&!done){const f=feats.find(x=>x.id===cur[0]);const c=cur[0]==='344'?hk:cur[0]==='840'?proj([-99,39]):cur[0]==='392'?proj([138.5,37]):path.centroid(f);
+  g.append('circle').attr('cx',c[0]).attr('cy',c[1]).attr('r',22).attr('fill','none').attr('stroke',INK).attr('stroke-width',3);
+  T(g,W/2,960,cur[1],{size:62,w:700});T(g,W/2,1060,cur[2].toFixed(1)+'%',{size:96,w:700,fill:cur[0]==='392'?G:INK});}
+ // running list (ranked so far)
+ if(done){const k=ease((t-(start+order.length*per+0.2))/0.6);const c=proj([138.5,37]);
+  g.append('circle').attr('cx',c[0]).attr('cy',c[1]).attr('r',26).attr('fill','none').attr('stroke',G).attr('stroke-width',4).attr('opacity',k);
+  T(g,W/2,960,'Japan',{size:62,w:700,op:k,fill:G});T(g,W/2,1060,'32.8%',{size:96,w:700,fill:G,op:k});
+  T(g,W/2,1130,'2.4 times the U.S. share of 13.5%. Nigeria: 7.2%.',{size:34,op:k});
+  T(g,W/2,1180,'Japanese men: 38.2%',{size:34,w:700,op:k});}
+ // legend
+ const lg=g.append('g').attr('transform','translate(390,1250)');const gr=lg.append('defs').append('linearGradient').attr('id','gg');d3.range(0,1.01,.1).forEach(s=>gr.append('stop').attr('offset',s*100+'%').attr('stop-color',d3.interpolate('#bfe3d1','#00412c')(s)));
+ lg.append('rect').attr('width',300).attr('height',16).attr('fill','url(#gg)');[[0,'5%'],[150,'20%'],[300,'35%']].forEach(([x,s])=>T(lg,x,48,s,{size:24,w:700}));
+}
+// ---------- bars: grow from lowest to Japan ----------
+function barFrame(t){svg.selectAll('*').remove();const g=svg.append('g');
+ head(g,'Share Of Adults With No One','They Feel Very Close To',['Percent answering no to “Is there any one special person','you know that you feel very close to?” 22 countries, 2022–23.']);
+ const order=D.slice().sort((a,b)=>b[2]-a[2]);const L=290,R=980,top=300,bh=38,gap=4.5,x=d3.scaleLinear([0,40],[L,R]);
+ [10,20,30,40].forEach(v=>{g.append('line').attr('x1',x(v)).attr('x2',x(v)).attr('y1',top-10).attr('y2',top+22*(bh+gap)).attr('stroke',GRID).attr('stroke-width',1.5);T(g,x(v),top+22*(bh+gap)+38,v+'%',{size:24,w:700});});
+ T(g,x(0),top+22*(bh+gap)+38,'0%',{size:24,w:700});
+ const n=order.length,per=0.32,start=0.5;
+ order.forEach((d,i)=>{const k=ease((t-start-(n-1-i)*per)/0.5);const y=top+i*(bh+gap);const hl=d[0]==='392',us=d[0]==='840';
+  T(g,L-14,y+bh/2+9,d[1],{size:26,a:'end',w:hl||us?700:400,fill:hl?G:INK,op:Math.min(1,k*3)});
+  g.append('rect').attr('x',L).attr('y',y).attr('height',bh).attr('width',Math.max(0,x(d[2]*k)-L)).attr('fill',hl?G:us?'#5f7268':GR);
+  if(k>0.02)T(g,x(d[2]*k)+10,y+bh/2+9,(d[2]*k).toFixed(1)+'%',{size:24,a:'start',w:hl||us?700:400,fill:hl?G:INK});});
+ g.append('line').attr('x1',L).attr('x2',L).attr('y1',top-10).attr('y2',top+22*(bh+gap)).attr('stroke','#000').attr('stroke-width',3);
+ g.append('line').attr('x1',L).attr('x2',R).attr('y1',top+22*(bh+gap)).attr('y2',top+22*(bh+gap)).attr('stroke','#000').attr('stroke-width',3);
+ const k2=ease((t-(start+n*per+0.4))/0.6);T(g,W/2,1322,'Japanese men: 38.2%. Japanese women: 27.7%.',{size:32,w:700,fill:G,op:k2});
+}
+// ---------- scatter: dots in order of wealth, then trend ----------
+function scatFrame(t){svg.selectAll('*').remove();const g=svg.append('g');
+ head(g,'Poorer Countries Score Higher','On Flourishing',['Average 0–10 flourishing score vs. GDP per person.','22 countries, 2022–23. Global Flourishing Study; World Bank.']);
+ const L=130,R=1010,TOP=300,B=1170,x=d3.scaleLog([3.2,100],[L,R]),y=d3.scaleLinear([5.7,8.75],[B,TOP]);
+ [6,6.5,7,7.5,8,8.5].forEach(v=>{g.append('line').attr('x1',L).attr('x2',R).attr('y1',y(v)).attr('y2',y(v)).attr('stroke',GRID).attr('stroke-width',1.5);T(g,L-14,y(v)+9,v,{size:24,a:'end',w:700});});
+ [4,8,16,32,64].forEach(v=>T(g,x(v),B+40,'$'+v+'K',{size:24,w:700}));
+ T(g,(L+R)/2,B+82,'GDP PER PERSON, 2023 (PPP, LOG SCALE)',{size:22,w:700});T(g,L+12,TOP-2,'FLOURISHING SCORE (0–10)',{size:22,w:700,a:'start'});
+ g.append('line').attr('x1',L).attr('x2',L).attr('y1',TOP-20).attr('y2',B).attr('stroke','#000').attr('stroke-width',3);
+ g.append('line').attr('x1',L).attr('x2',R).attr('y1',B).attr('y2',B).attr('stroke','#000').attr('stroke-width',3);
+ const order=D.slice().sort((a,b)=>a[4]-b[4]);const per=0.3,start=0.5;
+ order.forEach((d,i)=>{const k=ease((t-start-i*per)/0.4);if(k<=0)return;const hl=['360','392','840'].includes(d[0]);
+  g.append('circle').attr('cx',x(d[4]/1000)).attr('cy',y(d[3])).attr('r',(hl?14:10)*k).attr('fill',hl?G:'#a9b8b0').attr('stroke','#fff').attr('stroke-width',2);
+  const last=Math.floor((t-start)/per)===i;
+  if(hl||last){const lab=hl?d[1]+' '+d[3].toFixed(2):d[1];T(g,x(d[4]/1000)+(d[0]==='840'?0:18),y(d[3])+(d[0]==='840'?-118:9),lab,{size:hl?30:26,a:d[0]==='840'?'end':'start',w:hl?700:400,fill:hl?G:INK,op:hl?k:1}).attr('paint-order','stroke').attr('stroke','#fff').attr('stroke-width',8);if(d[0]==='840')g.append('line').attr('x1',x(d[4]/1000)-4).attr('y1',y(d[3])-16).attr('x2',x(d[4]/1000)-30).attr('y2',y(d[3])-108).attr('stroke',G).attr('stroke-width',2.5).attr('opacity',k);}});
+ const k=ease((t-(start+order.length*per+0.2))/1.0);if(k>0){const b=-1.18,a=7.0;// drawn from published least-squares fit on log10 GDP
+  const lx=d3.range(0,1.0001,0.01).filter(s=>s<=k).map(s=>3.6*Math.pow(78/3.6,s));
+  const fit=(()=>{const X=D.map(d=>Math.log10(d[4]/1000)),Y=D.map(d=>d[3]),mx=d3.mean(X),my=d3.mean(Y);const bb=d3.sum(X.map((v,i)=>(v-mx)*(Y[i]-my)))/d3.sum(X.map(v=>(v-mx)**2));return v=>my+bb*(Math.log10(v)-mx);})();
+  g.append('path').attr('d',d3.line().x(v=>x(v)).y(v=>y(fit(v)))(lx)).attr('fill','none').attr('stroke',INK).attr('stroke-width',3).attr('stroke-dasharray','12 9');
+  T(g,W/2,1300,'8 of the 10 richest countries rank in the bottom half.',{size:34,w:700,op:ease((t-(start+order.length*per+1.0))/0.6)});}
+}
+window.frame=(mode,t)=>({map:mapFrame,bar:barFrame,scat:scatFrame})[mode](t);
+world=window.WORLD;window.ready=Promise.resolve(true);
+</script></body></html>

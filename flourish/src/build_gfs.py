@@ -28,7 +28,7 @@ STORIES["friends"] = dict(
               "very close to,” someone you can confide in, and 32.8% of Japanese adults said no. That is 2.4 times the U.S. "
               "share of 13.5% and about twice the 16.5% in the median country."),
         ("p", "[Samuel: one sentence on why you looked at this, e.g. something you've seen in students, athletes or friends.]"),
-        ("chart", "friends-chart.png"),
+        ("map", "close"),
         ("photo", UP + "c/c5/Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg/960px-Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg",
          "Crowds crossing at Shibuya Crossing in Tokyo",
          "Shibuya Crossing in Tokyo in 2018. In Japan, 32.8% of adults told the survey there's no one they feel very close to.",
@@ -39,12 +39,14 @@ STORIES["friends"] = dict(
               "a Japanese adult about 4.5 times as likely as a Nigerian to give that answer. Indonesia is worth a second look, "
               "since it ranks first in the study on overall flourishing even though more than one in five Indonesians said "
               "there's no one they feel very close to."),
+        ("video", "friends-map", "The 22 places fill in from the lowest share to the highest. Free to share with credit."),
         ("h2", "Middle-aged Japanese men answered no most often"),
         ("p", "Japanese men were the most likely group to say there's no one, at 38.2%, compared with 27.7% of Japanese women. "
               "That 10.5-point gap is the widest of the 22 countries, and men answered no more often than women in 19 of them. "
               "In Japan the share peaked among adults 30 to 49, at 36.7%, and was lowest among those 65 and older, at 27.6%. The "
               "U.S. runs the other way, with 17.4% of adults 18 to 29 saying there's no one, compared with 11.7% of those 65 and "
               "older."),
+        ("video", "friends-bars", "Every country, ranked. Free to share with credit."),
         ("photo", UP + "4/42/2007-08-06_a_station_of_JR_East_with_commuter_trains_in_Tokyo_Metropolitan_Area.jpg/960px-2007-08-06_a_station_of_JR_East_with_commuter_trains_in_Tokyo_Metropolitan_Area.jpg",
          "A man walking along an empty platform between two commuter trains",
          "A JR East commuter station in the Tokyo area. Japanese men were the most likely group in the survey to say there's no one they feel very close to, at 38.2%.",
@@ -110,7 +112,7 @@ STORIES["flourish"] = dict(
               "it produces more than five times as much per person, about $74,400. Japan finished last at 5.93, 2.54 points "
               "below Indonesia and 0.66 below Turkey, the next lowest."),
         ("p", "[Samuel: one line on why this caught your eye, e.g. what you see in the Vail Valley or in your students.]"),
-        ("chart", "flourish-chart.png"),
+        ("video", "flourish-scatter", "Each dot is a country, added from poorest to richest. Free to share with credit."),
         ("photo", UP + "0/06/Jakarta_Car_Free_Day.jpg/960px-Jakarta_Car_Free_Day.jpg",
          "Crowds walking and cycling on a closed avenue in central Jakarta",
          "Car-free day on Jakarta's main avenue. Indonesia ranked first of 22 countries, at 8.47.",
@@ -125,6 +127,7 @@ STORIES["flourish"] = dict(
          "The Zócalo plaza in Mexico City with the cathedral and a large Mexican flag",
          "The Zócalo in Mexico City. Mexico ranked second at 8.19.",
          "https://commons.wikimedia.org/wiki/File:Mexico_City_Zocalo_Panorama_(49275255128).jpg", "Nan Palmero", "CC BY 2.0"),
+        ("map", "flourish"),
         ("h2", "Add money worries and the gap shrinks"),
         ("p", "The study also publishes a version of the index with two more questions, about worrying over monthly expenses "
               "and over safety, food or housing. People in richer countries worry less about both, so that version narrows the "
@@ -183,6 +186,18 @@ for folder, S in STORIES.items():
         elif b[0] == "chart":
             out.append(f'<figure class="nid-fig"><img src="{base}{b[1]}" alt="{html.escape(S["alt"])}" width="1080" height="1350"></figure>')
             md.append(f"[chart: {base}{b[1]}]\n")
+        elif b[0] == "map":
+            out.append(f'<div class="nid-gfs-map" data-mode="{b[1]}"></div>'
+                       '<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>'
+                       '<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>'
+                       '<script src="https://stories.thenewsindata.com/friends/map.js"></script>')
+            md.append(f"[interactive world map, mode {b[1]}]\n")
+        elif b[0] == "video":
+            v = b[1]; vb = "https://stories.thenewsindata.com/" + v.split("-")[0] + "/"
+            out.append(f'<figure class="nid-fig"><video src="{vb}{v}.mp4" poster="{vb}{v}-poster.jpg" width="1080" height="1350" '
+                       f'autoplay muted loop playsinline preload="metadata" style="width:100%;height:auto;display:block;border:1px solid #e6e3dd;border-radius:6px"></video>'
+                       f'<figcaption>{e(b[2])} <a href="{vb}{v}.mp4" download>Download the video</a>.</figcaption></figure>')
+            md.append(f"[video: {vb}{v}.mp4]\n")
         elif b[0] == "photo":
             _, src, alt, cap, page, who, lic = b
             out.append(f'<figure class="nid-fig nid-photo"><img src="{src}" alt="{html.escape(alt)}" loading="lazy"><figcaption>'
