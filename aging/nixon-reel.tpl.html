@@ -30,7 +30,7 @@ function drawChart(n,cur){cx.fillStyle='#fff';cx.fillRect(0,880,W,470);
  cx.font='bold 22px Georgia';cx.fillStyle=GR;cx.textAlign='left';cx.fillText('Actual age',px(1968.15),py(1968.15-BIRTH)+14);
  for(var i=0;i<n;i++){cx.beginPath();cx.arc(px(D[i][1]),py(D[i][2]),i===cur?13:8,0,7);cx.fillStyle=i===cur?G:MG;cx.globalAlpha=i===cur?1:.75;cx.fill();cx.globalAlpha=1}
  if(n>=D.length){var sx=0,sy=0,sxx=0,sxy=0;for(i=0;i<D.length;i++){sx+=D[i][1];sy+=D[i][2]}var mx=sx/D.length,my=sy/D.length;for(i=0;i<D.length;i++){sxx+=(D[i][1]-mx)*(D[i][1]-mx);sxy+=(D[i][1]-mx)*(D[i][2]-my)}var b=sxy/sxx;cx.strokeStyle=G;cx.lineWidth=6;cx.beginPath();cx.moveTo(px(X0),py(my+b*(X0-mx)));cx.lineTo(px(X1),py(my+b*(X1-mx)));cx.stroke();
-  cx.font='bold 26px Georgia';cx.fillStyle=G;cx.textAlign='left';cx.fillText('Trend: '+b.toFixed(1)+' apparent years per year',px(1968.15),py(73.5))}}
+  cx.font='bold 26px Georgia';cx.fillStyle=G;cx.textAlign='left';cx.fillText('Trend in these 100 photos: '+b.toFixed(1)+' apparent years per year',px(1968.15),py(73.5))}}
 function drawHeader(){cx.fillStyle='#fff';cx.fillRect(0,0,W,140);cx.fillStyle=INK;cx.textAlign='center';cx.textBaseline='top';cx.font='bold 46px Georgia';cx.fillText('How A Face Model Read Nixon, 1968–1974',W/2,34);cx.font='26px Georgia';cx.fillStyle=SUB;cx.fillText('Each photo: the face matched to Nixon, the model’s age estimate and his actual age',W/2,94)}
 function drawPhoto(i){var d=D[i],im=imgs[i];var PX=60,PY=150,PW=960,PH=700;cx.fillStyle='#f3f5f4';cx.fillRect(PX,PY,PW,PH);if(!im)return;
  var s=im.naturalWidth/d[7];var bx=d[3]*s,by=d[4]*s,bw=d[5]*s,bh=d[6]*s;var fcx=bx+bw/2,fcy=by+bh/2;var z=Math.min(PH*0.42/bh,PW/im.naturalWidth*3);z=Math.max(z,PH/im.naturalHeight,PW/im.naturalWidth);
