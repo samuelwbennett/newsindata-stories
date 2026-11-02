@@ -1,7 +1,19 @@
 {
- "updated": "2026-11-01",
+ "updated": "2026-11-02",
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
+  {
+   "slug": "one-in-three-japanese-adults-say-theres-no-one-they-feel-very-close-to-more-than-twice-the-us-share",
+   "title": "One In Three Japanese Adults Say There's No One They Feel Very Close To, More Than Twice The U.S. Share",
+   "section": "Culture",
+   "image": "https://stories.thenewsindata.com/friends/friends-preview.png"
+  },
+  {
+   "slug": "in-the-worlds-largest-flourishing-study-8-of-the-10-richest-countries-rank-in-the-bottom-half",
+   "title": "In The World's Largest Flourishing Study, 8 Of The 10 Richest Countries Rank In The Bottom Half",
+   "section": "Science",
+   "image": "https://stories.thenewsindata.com/flourish/flourish-preview.png"
+  },
   {
    "slug": "carter-clinton-and-nixon-appeared-to-age-fastest-in-office-in-a-face-models-reading-of-7000-photos",
    "title": "Carter, Clinton And Nixon Appeared To Age Fastest In Office, In A Face Model's Reading Of 7,000 Photos",
