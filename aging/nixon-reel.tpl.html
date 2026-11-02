@@ -17,11 +17,11 @@ var imgs=[],ready=false,playing=false,t0=0,FR=90,HOLD=1400,rec=null;
 var MON=['Jan.','Feb.','March','April','May','June','July','Aug.','Sept.','Oct.','Nov.','Dec.'];
 function dstr(t){var y=Math.floor(t),f=t-y,m=Math.min(11,Math.floor(f*12));return MON[m]+' '+y}
 // chart geometry
-var CX0=120,CX1=1020,CY0=1240,CY1=930,X0=1968,X1=1974.7,Y0=50,Y1=76;
+var CX0=120,CX1=1020,CY0=1240,CY1=930,X0=1968,X1=1974.7,Y0=38,Y1=78;
 function px(t){return CX0+(t-X0)/(X1-X0)*(CX1-CX0)}function py(a){return CY0-(a-Y0)/(Y1-Y0)*(CY0-CY1)}
 function drawChart(n,cur){cx.fillStyle='#fff';cx.fillRect(0,880,W,470);
  cx.strokeStyle='#e6e8eb';cx.lineWidth=2;cx.font='bold 24px Georgia';cx.fillStyle=INK;cx.textAlign='right';cx.textBaseline='middle';
- for(var a=50;a<=75;a+=5){cx.beginPath();cx.moveTo(CX0,py(a));cx.lineTo(CX1,py(a));cx.stroke();cx.fillText(a,CX0-12,py(a))}
+ for(var a=40;a<=75;a+=5){cx.beginPath();cx.moveTo(CX0,py(a));cx.lineTo(CX1,py(a));cx.stroke();cx.fillText(a,CX0-12,py(a))}
  cx.textAlign='center';cx.textBaseline='top';for(var y=1968;y<=1974;y++){cx.fillText(y,px(y+.5),CY0+10)}
  cx.strokeStyle='#000';cx.lineWidth=3;cx.beginPath();cx.moveTo(CX0,CY1-10);cx.lineTo(CX0,CY0);cx.lineTo(CX1,CY0);cx.stroke();
  cx.font='bold 22px Georgia';cx.fillStyle=INK;cx.textAlign='center';cx.fillText('YEAR',(CX0+CX1)/2,CY0+44);
