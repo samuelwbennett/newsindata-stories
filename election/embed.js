@@ -38,17 +38,17 @@
     '<h1 class="ne-serif" style="font-size:clamp(30px,6.5cqi,46px);line-height:1.08;margin:8px 0 6px">The Midterms In Data</h1>' +
     '<div class="ne-upd">Loading the latest numbers…</div>' +
     '<div class="ne-hero" id="ne-senate"></div>' +
-    '<div class="ne-nav"><a href="#ne-senate">Senate</a><a href="#ne-measures">145 ballot measures</a><a href="#ne-house">The House in history</a><a href="#ne-turnout">Turnout</a><a href="#ne-colorado">Colorado and Eagle County</a></div></div>' +
-    '<section id="ne-measures"></section><section id="ne-house"></section><section id="ne-turnout"></section><section id="ne-colorado"></section>' +
+    '<div class="ne-nav"><a href="#ne-senate">Senate</a><a href="#ne-measures">145 ballot measures</a><a href="#ne-house">The House in history</a><a href="#ne-colorado">Colorado and Eagle County</a></div></div>' +
+    '<section id="ne-measures"></section><section id="ne-house"></section><section id="ne-colorado"></section>' +
     '<p class="ne-note">Results are unofficial and change as ballots are counted; a measure or race is marked decided only after a major news organization or the state calls it. This page refreshes hourly once results start coming in, starting when the first polls close at 6 p.m. Eastern. By Samuel W. Bennett, The News in Data.</p>';
   var state = {topic:'all', st:'all', q:'', showAll:false};
   function load(){
-    Promise.all(['measures','colorado','house','turnout','senate'].map(get)).then(function(a){
-      var M=a[0],C=a[1],H=a[2],T=a[3],S=a[4];
-      var upd=[M.updated,C.updated,H.updated,T.updated,S.updated].sort().pop();
+    Promise.all(['measures','colorado','house','senate'].map(get)).then(function(a){
+      var M=a[0],C=a[1],H=a[2],S=a[3];
+      var upd=[M.updated,C.updated,H.updated,S.updated].sort().pop();
       senate(S,upd);
       el.querySelector('.ne-upd').innerHTML='Last updated '+fmtTime(upd)+'. Updates hourly after polls close.';
-      measures(M); colorado(C); house(H); turnout(T);
+      measures(M); colorado(C); house(H);
     }).catch(function(){el.querySelector('.ne-upd').textContent='Could not load the latest data. Refresh to try again.';});
   }
 
@@ -146,17 +146,6 @@
     s.innerHTML='<h2 class="ne-h">Where 2026 Lands Among Postwar Midterms</h2><p class="ne-dek">The president\'s party lost House seats in 18 of the 20 midterms from 1946 to 2022, an average of 25.7 seats. The dashed outline for 2026 marks that average until networks project the House.</p>' +
       '<svg viewBox="0 0 '+W+' '+Hh+'" role="img" aria-label="House seats gained or lost by the president\'s party in midterms, 1946 to 2022, with 2026 pending">'+grid+bars+b26+'<text x="'+(x(i26)+bw/2)+'" y="'+(Hh-B+18)+'" font-size="12" font-weight="700" text-anchor="middle" fill="#c2410c">\'26</text><line x1="'+L+'" x2="'+L+'" y1="'+Tp+'" y2="'+(Hh-B)+'" stroke="#000" stroke-width="2"/><text x="'+(L+6)+'" y="'+(Tp+4)+'" font-size="12" font-weight="700" fill="#13241b">SEATS GAINED OR LOST</text></svg>' +
       '<p style="font-size:16px;margin-top:10px">'+(p==null?'<b>2026:</b> No projection yet. '+esc(y.note||''):'<b>2026 (as of '+esc(y.as_of)+'):</b> Republicans '+(p>0?'gain ':'lose ')+Math.abs(p)+' seats in the projection, with '+y.uncalled+' races not yet called.')+'</p><p class="ne-note">'+esc(H.source)+' Gerald Ford counted as president in 1974.</p>';
-  }
-  function turnout(T){
-    var s=document.getElementById('ne-turnout'),sr=T.series,y=T.y2026;
-    var W=760,Hh=320,L=40,R=60,Tp=20,B=34,x=function(v){return L+(v-1902)*(W-L-R)/(2026-1902);},yS=function(v){return Tp+(60-v)*(Hh-Tp-B)/(60-30);};
-    var path='M'+sr.map(function(d){return x(d[0])+','+yS(d[1]);}).join('L');
-    var dots=sr.map(function(d){return '<circle cx="'+x(d[0])+'" cy="'+yS(d[1])+'" r="3.2" fill="#007a55"><title>'+d[0]+': '+d[1]+'%</title></circle>';}).join('');
-    var grid=[30,40,50,60].map(function(v){return '<line x1="'+L+'" x2="'+(W-R)+'" y1="'+yS(v)+'" y2="'+yS(v)+'" stroke="#e3eee7"/><text x="'+(L-6)+'" y="'+(yS(v)+4)+'" font-size="12" font-weight="700" text-anchor="end" fill="#13241b">'+v+'%</text>';}).join('')+[1910,1950,1990,2026].map(function(v){return '<text x="'+x(v)+'" y="'+(Hh-B+18)+'" font-size="12" font-weight="700" text-anchor="middle" fill="#13241b">'+v+'</text>';}).join('');
-    var e=y.estimate_pct,p26=e==null?'<line x1="'+x(2026)+'" x2="'+x(2026)+'" y1="'+yS(58)+'" y2="'+yS(32)+'" stroke="#c2410c" stroke-dasharray="4 3"/><text x="'+(x(2026)+6)+'" y="'+yS(56)+'" font-size="12" fill="#c2410c">2026</text><text x="'+(x(2026)+6)+'" y="'+(yS(56)+14)+'" font-size="12" fill="#c2410c">pending</text>':'<circle cx="'+x(2026)+'" cy="'+yS(e)+'" r="6" fill="#c2410c"/><text x="'+(x(2026)+9)+'" y="'+(yS(e)+4)+'" font-size="13" font-weight="700" fill="#c2410c">'+e+'%</text>';
-    s.innerHTML='<h2 class="ne-h">Will Turnout Beat 2018?</h2><p class="ne-dek">Midterm turnout hit 50.1% of eligible voters in 2018, the highest since 1914, and 46.1% in 2022. '+(e==null?'By '+esc(y.early_as_of)+', '+y.early_votes_m+' million people had already voted early, '+Math.round(100*y.early_votes_m/y.ballots_2022_m)+'% of all 2022 ballots.':'The first 2026 estimate, as of '+esc(y.as_of)+', is '+e+'%.')+'</p>' +
-      '<svg viewBox="0 0 '+W+' '+Hh+'" role="img" aria-label="Midterm turnout 1902 to 2022 with 2026 pending">'+grid+'<path d="'+path+'" fill="none" stroke="#007a55" stroke-width="2.5"/>'+dots+p26+'<line x1="'+L+'" x2="'+L+'" y1="'+Tp+'" y2="'+(Hh-B)+'" stroke="#000" stroke-width="2"/><line x1="'+L+'" x2="'+(W-R)+'" y1="'+(Hh-B)+'" y2="'+(Hh-B)+'" stroke="#000" stroke-width="2"/><text x="'+(L+6)+'" y="'+(Tp+4)+'" font-size="12" font-weight="700" fill="#13241b">SHARE OF ELIGIBLE VOTERS</text></svg>' +
-      '<p class="ne-note">'+esc(T.source)+'</p>';
   }
   load(); setInterval(load, 10*60*1000);
 })();

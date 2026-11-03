@@ -27,9 +27,6 @@ for x in sn["races"]:
     if x["winner_party"] and not x["called_by"]: bad.append(f"senate {x['state']}: called without called_by")
 h = json.load(open(f"{D}/house.json")); y = h["y2026"]
 if y["projected_change"] is not None and not (-120 < y["projected_change"] < 60): bad.append("house: implausible change")
-t = json.load(open(f"{D}/turnout.json"))
-e = t["y2026"]["estimate_pct"]
-if e is not None and not (25 < e < 75): bad.append("turnout: implausible estimate")
-for f, j in (("measures", m), ("colorado", c), ("house", h), ("turnout", t), ("senate", sn)):
+for f, j in (("measures", m), ("colorado", c), ("house", h), ("senate", sn)):
     datetime.datetime.fromisoformat(j["updated"].replace("Z", "+00:00"))
 print("OK" if not bad else "PROBLEMS:\n" + "\n".join(bad)); sys.exit(1 if bad else 0)
