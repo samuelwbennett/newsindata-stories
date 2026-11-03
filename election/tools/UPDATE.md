@@ -1,6 +1,6 @@
 # Election 2026 hourly update runbook
 
-The page at thenewsindata.com/election (and stories.thenewsindata.com/election/) reads four JSON files in `election/data/`. Each hourly run updates those files from public results pages and pushes to `main`. Never change `embed.js` during a run.
+The page at thenewsindata.com/election (and stories.thenewsindata.com/election/) reads five JSON files in `election/data/`. Each hourly run updates those files from public results pages and pushes to `main`. Never change `embed.js` during a run.
 
 ## Rules
 - Use only published results. Mark a measure or race decided (`passed`, `failed`, `called`) only when the source says it was called/projected (AP, a network decision desk, or the state's certified result). Record who called it in `called_by` (e.g. "AP via NBC News").
@@ -11,6 +11,7 @@ The page at thenewsindata.com/election (and stories.thenewsindata.com/election/)
 - Commit message: `Election data update <HH:MM> MT`. Push to `main` (fetch and rebase first).
 
 ## Sources, in order
+0. **senate.json** (35 races; set `winner`, `winner_party` (D, R or I), `called_by`, optional `note` such as "Heads to Dec. runoff"): NBC News Senate results https://www.nbcnews.com/politics/2026-elections/senate-results (AP data), confirmed with AP or another network if unclear. Leave `not_up` and `before` unchanged. Independents who win count as `I` (e.g. Dan Osborn in Nebraska).
 1. **measures.json** (145 statewide measures; `status`, `yes_pct`, `called_by`):
    - Wikipedia "2026 United States ballot measures" (results columns fill in fast): https://en.wikipedia.org/wiki/2026_United_States_ballot_measures (read with offset 100000 for the end).
    - Ballotpedia "2026 ballot measures": https://ballotpedia.org/2026_ballot_measures and state pages `https://ballotpedia.org/<State>_2026_ballot_measures` (marks Approved/Defeated with yes %).
@@ -25,4 +26,4 @@ The page at thenewsindata.com/election (and stories.thenewsindata.com/election/)
 4. **turnout.json** (`y2026.estimate_pct`, `as_of`): University of Florida Election Lab 2026 turnout estimate (https://election.lab.ufl.edu/). Before an estimate exists, update `early_votes_m` and `early_as_of` from https://election.lab.ufl.edu/early-vote/2026-early-voting/ (quote the national total only).
 
 ## After the run
-Reply with a 3–5 line summary: measures newly decided, Colorado changes, House and turnout status, and anything unresolved.
+Reply with a 3–5 line summary: Senate calls and the current count, measures newly decided, Colorado changes, House and turnout status, and anything unresolved.

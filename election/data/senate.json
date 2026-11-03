@@ -1,0 +1,332 @@
+{
+ "updated": "2026-11-03T13:30:00Z",
+ "source": "Seats not up and seats on the ballot: Wikipedia, 2026 United States Senate elections. Calls: AP and network decision desks via NBC News.",
+ "not_up": {
+  "D": 32,
+  "I": 2,
+  "R": 31
+ },
+ "before": {
+  "R": 53,
+  "D": 45,
+  "I": 2
+ },
+ "rule": "Democrats need 51 seats for control; Republicans need 50, with Vice President JD Vance breaking ties. The two independents caucus with Democrats.",
+ "races": [
+  {
+   "state": "AL",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "AK",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "AR",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "CO",
+   "held": "D",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "DE",
+   "held": "D",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "FL",
+   "held": "R",
+   "special": true,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "GA",
+   "held": "D",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "ID",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "IL",
+   "held": "D",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "IA",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "KS",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "KY",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "LA",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "ME",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "MA",
+   "held": "D",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "MI",
+   "held": "D",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "MN",
+   "held": "D",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "MS",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "MT",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "NE",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "NH",
+   "held": "D",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "NJ",
+   "held": "D",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "NM",
+   "held": "D",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "NC",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "OH",
+   "held": "R",
+   "special": true,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "OK",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "OR",
+   "held": "D",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "RI",
+   "held": "D",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "SC",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "SD",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "TN",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "TX",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "VA",
+   "held": "D",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "WV",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  },
+  {
+   "state": "WY",
+   "held": "R",
+   "special": false,
+   "winner": null,
+   "winner_party": null,
+   "called_by": null,
+   "note": null
+  }
+ ]
+}

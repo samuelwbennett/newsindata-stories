@@ -19,11 +19,17 @@ for x in c.get("local", []):
 for r in c["races"]:
     names = [k["name"].replace("*", "") for k in r["candidates"]]
     if r["called"] and r["called"] not in names: bad.append(f"CO {r['race']}: called name not a candidate")
+sn = json.load(open(f"{D}/senate.json"))
+if len(sn["races"]) != 35: bad.append("senate: race count changed")
+if sum(sn["not_up"].values()) != 65: bad.append("senate: not_up must total 65")
+for x in sn["races"]:
+    if x["winner_party"] not in (None, "D", "R", "I"): bad.append(f"senate {x['state']}: bad winner_party")
+    if x["winner_party"] and not x["called_by"]: bad.append(f"senate {x['state']}: called without called_by")
 h = json.load(open(f"{D}/house.json")); y = h["y2026"]
 if y["projected_change"] is not None and not (-120 < y["projected_change"] < 60): bad.append("house: implausible change")
 t = json.load(open(f"{D}/turnout.json"))
 e = t["y2026"]["estimate_pct"]
 if e is not None and not (25 < e < 75): bad.append("turnout: implausible estimate")
-for f, j in (("measures", m), ("colorado", c), ("house", h), ("turnout", t)):
+for f, j in (("measures", m), ("colorado", c), ("house", h), ("turnout", t), ("senate", sn)):
     datetime.datetime.fromisoformat(j["updated"].replace("Z", "+00:00"))
 print("OK" if not bad else "PROBLEMS:\n" + "\n".join(bad)); sys.exit(1 if bad else 0)
