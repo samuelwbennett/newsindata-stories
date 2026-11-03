@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+ ['trust','Trending',"Trust In National News Rose 6 Points In The Past Year",'trust-in-national-news-rose-6-points-in-the-past-year-to-62-still-well-below-the-76-of-2016'],
  ['friends','Culture',"One In Three Japanese Adults Say There's No One They Feel Close To",'one-in-three-japanese-adults-say-theres-no-one-they-feel-very-close-to-more-than-twice-the-us-share'],
  ['flourish','Science',"8 Of The 10 Richest Countries Rank In The Bottom Half On Flourishing",'in-the-worlds-largest-flourishing-study-8-of-the-10-richest-countries-rank-in-the-bottom-half'],
  ['aging','Trending',"Carter, Clinton And Nixon Appeared To Age Fastest In Office",'carter-clinton-and-nixon-appeared-to-age-fastest-in-office-in-a-face-models-reading-of-7000-photos'],

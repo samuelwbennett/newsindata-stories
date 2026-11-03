@@ -3,6 +3,12 @@
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
   {
+   "slug": "trust-in-national-news-rose-6-points-in-the-past-year-to-62-still-well-below-the-76-of-2016",
+   "title": "Trust In National News Rose 6 Points In The Past Year To 62%, Still Well Below The 76% Of 2016",
+   "section": "Trending",
+   "image": "https://stories.thenewsindata.com/trust/trust-preview.png"
+  },
+  {
    "slug": "one-in-three-japanese-adults-say-theres-no-one-they-feel-very-close-to-more-than-twice-the-us-share",
    "title": "One In Three Japanese Adults Say There's No One They Feel Very Close To, More Than Twice The U.S. Share",
    "section": "Culture",
