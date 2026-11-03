@@ -6,7 +6,7 @@
     if(/^\/election-2026/.test(location.pathname))return;
     if(window.top!==window.self)return;            /* not inside the Squarespace editor preview */
     try{if(sessionStorage.getItem('nidElecBanner')==='x')return;}catch(e){}
-    var css='#nid-breaking{position:relative;z-index:99999;background:#b3261e;color:#fff;font:600 15px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;padding:10px 44px}'+
+    var css='#nid-breaking{position:relative;z-index:99999;pointer-events:auto;background:#b3261e;color:#fff;font:600 15px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;padding:10px 44px}'+
       '#nid-breaking a{color:#fff;text-decoration:none}#nid-breaking a:hover u{text-decoration-thickness:2px}'+
       '#nid-breaking .k{display:inline-block;background:#fff;color:#b3261e;font-weight:800;font-size:12px;letter-spacing:.08em;padding:2px 7px;border-radius:3px;margin-right:8px;vertical-align:1px}'+
       '#nid-breaking .d{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:0;color:#fff;font-size:22px;line-height:1;cursor:pointer;padding:4px 8px}'+
