@@ -19,7 +19,7 @@
       '<span class="sm">Election 2026: Live results for 145 ballot measures <u>→</u></span></a>'+
       '<button class="d" aria-label="Dismiss">×</button>';
     b.querySelector('.d').onclick=function(){b.remove();try{sessionStorage.setItem('nidElecBanner','x');}catch(e){}};
-    function put(){if(document.getElementById('nid-breaking'))return;document.body.insertBefore(b,document.body.firstChild);}
+    function put(){if(document.getElementById('nid-breaking'))return;var h=document.querySelector('header#header, header.header, header');if(h){h.insertBefore(b,h.firstChild);}else{document.body.insertBefore(b,document.body.firstChild);}setTimeout(function(){try{window.dispatchEvent(new Event('resize'));}catch(e){}},50);}
     if(document.body)put();else document.addEventListener('DOMContentLoaded',put);
   }catch(e){}
 })();
