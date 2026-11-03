@@ -37,8 +37,8 @@
   el.innerHTML = '<div class="ne-top"><div class="ne-kick"><span class="ne-live"></span>Election 2026 · Live data</div>' +
     '<h1 class="ne-serif" style="font-size:clamp(30px,6.5cqi,46px);line-height:1.08;margin:8px 0 6px">The Midterms In Data</h1>' +
     '<div class="ne-upd">Loading the latest numbers…</div>' +
-    '<div class="ne-nav"><a href="#ne-measures">145 ballot measures</a><a href="#ne-colorado">Colorado</a><a href="#ne-house">The House in history</a><a href="#ne-turnout">Turnout</a></div></div>' +
-    '<section id="ne-measures"></section><section id="ne-colorado"></section><section id="ne-house"></section><section id="ne-turnout"></section>' +
+    '<div class="ne-nav"><a href="#ne-measures">145 ballot measures</a><a href="#ne-house">The House in history</a><a href="#ne-turnout">Turnout</a><a href="#ne-colorado">Colorado and Eagle County</a></div></div>' +
+    '<section id="ne-measures"></section><section id="ne-house"></section><section id="ne-turnout"></section><section id="ne-colorado"></section>' +
     '<p class="ne-note">Results are unofficial and change as ballots are counted; a measure or race is marked decided only after a major news organization or the state calls it. This page refreshes hourly once results start coming in, starting when the first polls close at 6 p.m. Eastern. By Samuel W. Bennett, The News in Data.</p>';
   var state = {topic:'all', st:'all', q:'', showAll:false};
   function load(){
@@ -92,8 +92,9 @@
       var html=main.map(function(c){var p=tot?100*(c.votes||0)/tot:0;return '<div class="cr"><span>'+esc(c.name)+' <span style="color:var(--mut)">('+esc(c.party)+')</span>'+(r.called&&r.called===c.name.replace('*','')?' <span class="pill pass" style="margin:0">Winner</span>':'')+'</span><span class="v">'+(tot?p.toFixed(1)+'%':'–')+'</span><div class="b"><i style="width:'+p+'%;background:'+(PCOL[c.party]||'#8f9a94')+'"></i></div></div>';}).join('');
       if(rest.length)html+='<div class="cr"><span style="color:var(--mut)">'+rest.length+(rest.length===1?' other':' others')+'</span><span class="v">'+(tot?(100*restV/tot).toFixed(1)+'%':'–')+'</span></div>';
       return '<div class="ne-race"><h3>'+esc(r.race)+'</h3>'+html+'<div style="font-size:12.5px;color:var(--mut)">'+(tot?tot.toLocaleString()+' votes counted':'No votes counted yet')+'</div></div>';}).join('');
-    s.innerHTML='<h2 class="ne-h">Colorado: 14 Ballot Measures And The Top Races</h2><p class="ne-dek">Colorado votes by mail, and polls close at 7 p.m. Mountain. Most counties post their first results within the hour, and the counts keep growing for days.</p>' +
-      '<table><thead><tr><th>Measure</th><th>Yes share</th><th>Status</th></tr></thead><tbody>'+rows+'</tbody></table>' +
+    var loc=(C.local||[]).map(function(m){var tot=(m.yes||0)+(m.no||0),y=tot?100*m.yes/tot:null;var cls=m.status==='passed'?'pass':m.status==='failed'?'fail':'';var lab=m.status==='passed'?'Passed':m.status==='failed'?'Failed':(tot?'Counting':'No results yet');return '<tr><td style="width:34%"><b>'+esc(m.name)+'</b><div style="font-size:13px;color:#34473c">'+esc(m.desc)+'</div><div style="font-size:12px;color:var(--mut);margin-top:4px"><i>'+esc(m.disclosure||'')+'</i></div></td><td>'+(y==null?'<div class="yn" style="background:#eef1ef"><em style="left:'+m.threshold+'%"></em></div>':'<div class="yn"><i style="width:'+y.toFixed(1)+'%"></i><em style="left:'+m.threshold+'%"></em></div><div style="font-size:12.5px;margin-top:3px">Yes '+y.toFixed(1)+'% · '+tot.toLocaleString()+' votes</div>')+'<div style="font-size:11.5px;color:var(--mut)">Needs a majority</div></td><td style="width:92px"><span class="pill '+cls+'">'+lab+'</span></td></tr>';}).join('');
+    s.innerHTML='<h2 class="ne-h">Colorado And Eagle County</h2><p class="ne-dek">Results for Colorado\'s 14 statewide measures, the Eagle County school funding question and the state\'s top races. Colorado votes by mail, and counts keep growing for days after polls close at 7 p.m. Mountain.</p>' +
+      '<table><thead><tr><th>Measure</th><th>Yes share</th><th>Status</th></tr></thead><tbody>'+rows+(loc?'<tr><th colspan="3" style="padding-top:16px">Eagle County</th></tr>'+loc:'')+'</tbody></table>' +
       '<div class="ne-races">'+races+'</div><p class="ne-note">'+esc(C.note)+' '+esc(C.source)+' Candidate order follows the vote count; party labels: D Democratic, R Republican, L Libertarian, U unaffiliated, AV Approval Voting, ACP American Constitution, Forward, Unity.</p>';
   }
   function house(H){

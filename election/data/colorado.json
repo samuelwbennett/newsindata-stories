@@ -1,6 +1,6 @@
 {
  "updated": "2026-11-03T13:00:00Z",
- "source": "Colorado Secretary of State (unofficial results); candidates and measures from Ballotpedia.",
+ "source": "Colorado Secretary of State (unofficial results); candidates and measures from Ballotpedia. Eagle County results: Eagle County Clerk and Recorder (unofficial).",
  "note": "* incumbent. Constitutional amendments need 55% to pass; propositions need a simple majority.",
  "measures": [
   {
@@ -479,6 +479,17 @@
      "votes": null
     }
    ]
+  }
+ ],
+ "local": [
+  {
+   "name": "Eagle County School District Ballot Issue 5B",
+   "desc": "Mill levy override raising $10.1 million a year, 80% of it for teacher and staff pay; about $133 a year on a $1 million home, per the district",
+   "threshold": 50,
+   "yes": null,
+   "no": null,
+   "status": "pending",
+   "disclosure": "Disclosure: Samuel W. Bennett, who publishes The News in Data, has worked on the campaign supporting this measure."
   }
  ]
 }

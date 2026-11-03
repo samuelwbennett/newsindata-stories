@@ -6,16 +6,18 @@
     if(/^\/election-2026/.test(location.pathname))return;
     if(window.top!==window.self)return;            /* not inside the Squarespace editor preview */
     try{if(sessionStorage.getItem('nidElecBanner')==='x')return;}catch(e){}
-    var css='#nid-breaking{position:relative;z-index:99999;pointer-events:auto;background:#b3261e;color:#fff;font:600 15px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;padding:10px 44px}'+
-      '#nid-breaking a{color:#fff;text-decoration:none}#nid-breaking a:hover u{text-decoration-thickness:2px}'+
-      '#nid-breaking .k{display:inline-block;background:#fff;color:#b3261e;font-weight:800;font-size:12px;letter-spacing:.08em;padding:2px 7px;border-radius:3px;margin-right:8px;vertical-align:1px}'+
-      '#nid-breaking .d{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:0;color:#fff;font-size:22px;line-height:1;cursor:pointer;padding:4px 8px}'+
-      '#nid-breaking .lg{display:inline}#nid-breaking .sm{display:none}@media(max-width:640px){#nid-breaking{font-size:14px;padding:9px 40px 9px 12px;text-align:left}#nid-breaking .lg{display:none}#nid-breaking .sm{display:inline}}'+
-      '#nid-breaking .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#fff;margin-right:6px;animation:nidbp 1.4s infinite}@keyframes nidbp{50%{opacity:.2}}';
+    var css='#nid-breaking{position:relative;z-index:99999;pointer-events:auto;background:rgba(19,36,27,.84);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#f4f7f5;font:500 14.5px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;padding:9px 44px;border-bottom:1px solid rgba(255,255,255,.12)}'+
+      '#nid-breaking a{color:#f4f7f5;text-decoration:none}#nid-breaking a:hover u{text-decoration-thickness:2px}#nid-breaking u{text-underline-offset:3px;text-decoration-color:rgba(244,247,245,.55)}'+
+      '#nid-breaking .k{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.45);color:#fff;font-weight:700;font-size:11.5px;letter-spacing:.1em;padding:2px 8px 2px 7px;border-radius:999px;margin-right:9px;vertical-align:1px}'+
+      '#nid-breaking .dot{width:7px;height:7px;border-radius:50%;background:#ef4444;box-shadow:0 0 0 0 rgba(239,68,68,.6);animation:nidbp 1.6s ease-in-out infinite}'+
+      '@keyframes nidbp{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(239,68,68,.55)}50%{opacity:.35;box-shadow:0 0 0 4px rgba(239,68,68,0)}}'+
+      '#nid-breaking .d{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:0;color:rgba(244,247,245,.75);font-size:20px;line-height:1;cursor:pointer;padding:4px 8px}#nid-breaking .d:hover{color:#fff}'+
+      '#nid-breaking .lg{display:inline}#nid-breaking .sm{display:none}@media(max-width:640px){#nid-breaking{font-size:13.5px;padding:8px 40px 8px 12px;text-align:left}#nid-breaking .lg{display:none}#nid-breaking .sm{display:inline}}'+
+      '@media(prefers-reduced-motion:reduce){#nid-breaking .dot{animation:none}}';
     var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
     var b=document.createElement('div');b.id='nid-breaking';b.setAttribute('role','region');b.setAttribute('aria-label','Breaking news');
     b.innerHTML='<a href="/election-2026"><span class="k"><span class="dot"></span>LIVE</span>'+
-      '<span class="lg">Election 2026: Results for all 145 statewide ballot measures and Colorado’s races, updated hourly. <u>See the data →</u></span>'+
+      '<span class="lg">Election 2026: Live results for all 145 statewide ballot measures, updated hourly. <u>See the data →</u></span>'+
       '<span class="sm">Election 2026: Live results for 145 ballot measures <u>→</u></span></a>'+
       '<button class="d" aria-label="Dismiss">×</button>';
     b.querySelector('.d').onclick=function(){b.remove();try{sessionStorage.setItem('nidElecBanner','x');}catch(e){}};

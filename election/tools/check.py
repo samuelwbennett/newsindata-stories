@@ -12,6 +12,10 @@ for x in c["measures"]:
     if x["status"] not in ("pending", "passed", "failed"): bad.append(f"CO {x['name']}: bad status")
     for k in ("yes", "no"):
         if x[k] is not None and (not isinstance(x[k], int) or x[k] < 0): bad.append(f"CO {x['name']}: bad {k}")
+for x in c.get("local", []):
+    if x["status"] not in ("pending", "passed", "failed"): bad.append(f"local {x['name']}: bad status")
+    for k in ("yes", "no"):
+        if x[k] is not None and (not isinstance(x[k], int) or x[k] < 0): bad.append(f"local {x['name']}: bad {k}")
 for r in c["races"]:
     names = [k["name"].replace("*", "") for k in r["candidates"]]
     if r["called"] and r["called"] not in names: bad.append(f"CO {r['race']}: called name not a candidate")
