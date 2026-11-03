@@ -1,0 +1,136 @@
+{
+ "updated": "2026-11-03T13:00:00Z",
+ "source": "American Presidency Project, UC Santa Barbara (1934\u20132022); 2026 from network projections.",
+ "history": [
+  {
+   "year": 1946,
+   "president": "Truman",
+   "party": "D",
+   "change": -56
+  },
+  {
+   "year": 1950,
+   "president": "Truman",
+   "party": "D",
+   "change": -28
+  },
+  {
+   "year": 1954,
+   "president": "Eisenhower",
+   "party": "R",
+   "change": -18
+  },
+  {
+   "year": 1958,
+   "president": "Eisenhower",
+   "party": "R",
+   "change": -48
+  },
+  {
+   "year": 1962,
+   "president": "Kennedy",
+   "party": "D",
+   "change": -4
+  },
+  {
+   "year": 1966,
+   "president": "Johnson",
+   "party": "D",
+   "change": -47
+  },
+  {
+   "year": 1970,
+   "president": "Nixon",
+   "party": "R",
+   "change": -12
+  },
+  {
+   "year": 1974,
+   "president": "Ford",
+   "party": "R",
+   "change": -48
+  },
+  {
+   "year": 1978,
+   "president": "Carter",
+   "party": "D",
+   "change": -15
+  },
+  {
+   "year": 1982,
+   "president": "Reagan",
+   "party": "R",
+   "change": -26
+  },
+  {
+   "year": 1986,
+   "president": "Reagan",
+   "party": "R",
+   "change": -5
+  },
+  {
+   "year": 1990,
+   "president": "G.H.W. Bush",
+   "party": "R",
+   "change": -8
+  },
+  {
+   "year": 1994,
+   "president": "Clinton",
+   "party": "D",
+   "change": -54
+  },
+  {
+   "year": 1998,
+   "president": "Clinton",
+   "party": "D",
+   "change": 4
+  },
+  {
+   "year": 2002,
+   "president": "G.W. Bush",
+   "party": "R",
+   "change": 8
+  },
+  {
+   "year": 2006,
+   "president": "G.W. Bush",
+   "party": "R",
+   "change": -30
+  },
+  {
+   "year": 2010,
+   "president": "Obama",
+   "party": "D",
+   "change": -63
+  },
+  {
+   "year": 2014,
+   "president": "Obama",
+   "party": "D",
+   "change": -13
+  },
+  {
+   "year": 2018,
+   "president": "Trump",
+   "party": "R",
+   "change": -41
+  },
+  {
+   "year": 2022,
+   "president": "Biden",
+   "party": "D",
+   "change": -9
+  }
+ ],
+ "y2026": {
+  "president": "Trump",
+  "party": "R",
+  "seats_before": null,
+  "projected_change": null,
+  "called": 0,
+  "uncalled": 435,
+  "as_of": null,
+  "note": "Results pending."
+ }
+}

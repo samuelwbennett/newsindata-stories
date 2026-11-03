@@ -1,0 +1,484 @@
+{
+ "updated": "2026-11-03T13:00:00Z",
+ "source": "Colorado Secretary of State (unofficial results); candidates and measures from Ballotpedia.",
+ "note": "* incumbent. Constitutional amendments need 55% to pass; propositions need a simple majority.",
+ "measures": [
+  {
+   "name": "Amendment 81",
+   "desc": "Notify DHS of certain charged people with unknown immigration status",
+   "threshold": 55,
+   "yes": null,
+   "no": null,
+   "status": "pending"
+  },
+  {
+   "name": "Amendment 82",
+   "desc": "Right to buy and sell natural gas for heating and cooking",
+   "threshold": 55,
+   "yes": null,
+   "no": null,
+   "status": "pending"
+  },
+  {
+   "name": "Amendment 83",
+   "desc": "Constitutional right to hunt and fish",
+   "threshold": 55,
+   "yes": null,
+   "no": null,
+   "status": "pending"
+  },
+  {
+   "name": "Amendment 84",
+   "desc": "Voter ID number on mail ballots",
+   "threshold": 55,
+   "yes": null,
+   "no": null,
+   "status": "pending"
+  },
+  {
+   "name": "Amendment 85",
+   "desc": "Ballot questions at an eighth-grade reading level",
+   "threshold": 55,
+   "yes": null,
+   "no": null,
+   "status": "pending"
+  },
+  {
+   "name": "Amendment 86",
+   "desc": "Commission and court approval for mid-decade congressional maps",
+   "threshold": 55,
+   "yes": null,
+   "no": null,
+   "status": "pending"
+  },
+  {
+   "name": "Amendment 87",
+   "desc": "Graduated income tax for education, health and child care",
+   "threshold": 55,
+   "yes": null,
+   "no": null,
+   "status": "pending"
+  },
+  {
+   "name": "Prop. 132",
+   "desc": "Higher fentanyl penalties; mandated treatment",
+   "threshold": 50,
+   "yes": null,
+   "no": null,
+   "status": "pending"
+  },
+  {
+   "name": "Prop. 133",
+   "desc": "Life without parole for trafficking minors",
+   "threshold": 50,
+   "yes": null,
+   "no": null,
+   "status": "pending"
+  },
+  {
+   "name": "Prop. 134",
+   "desc": "School and college teams separated by sex",
+   "threshold": 50,
+   "yes": null,
+   "no": null,
+   "status": "pending"
+  },
+  {
+   "name": "Prop. 135",
+   "desc": "Bar gender-related surgeries for minors",
+   "threshold": 50,
+   "yes": null,
+   "no": null,
+   "status": "pending"
+  },
+  {
+   "name": "Prop. 136",
+   "desc": "Cap income tax rates at 4.4%",
+   "threshold": 50,
+   "yes": null,
+   "no": null,
+   "status": "pending"
+  },
+  {
+   "name": "Prop. 137",
+   "desc": "Keep sporting goods tax for conservation and wildfire",
+   "threshold": 50,
+   "yes": null,
+   "no": null,
+   "status": "pending"
+  },
+  {
+   "name": "Prop. NN",
+   "desc": "Raise TABOR cap for K-12 education",
+   "threshold": 50,
+   "yes": null,
+   "no": null,
+   "status": "pending"
+  }
+ ],
+ "races": [
+  {
+   "race": "Governor",
+   "called": null,
+   "candidates": [
+    {
+     "name": "Phil Weiser",
+     "party": "D",
+     "votes": null
+    },
+    {
+     "name": "Victor Marx",
+     "party": "R",
+     "votes": null
+    },
+    {
+     "name": "Greg Lopez",
+     "party": "U",
+     "votes": null
+    },
+    {
+     "name": "Eric Mulder",
+     "party": "L",
+     "votes": null
+    },
+    {
+     "name": "Erik Underwood",
+     "party": "AV",
+     "votes": null
+    },
+    {
+     "name": "Stephen Hamilton",
+     "party": "ACP",
+     "votes": null
+    },
+    {
+     "name": "Jeff Peckman",
+     "party": "Unity",
+     "votes": null
+    }
+   ]
+  },
+  {
+   "race": "U.S. Senate",
+   "called": null,
+   "candidates": [
+    {
+     "name": "John Hickenlooper",
+     "party": "D",
+     "votes": null
+    },
+    {
+     "name": "Mark Baisley",
+     "party": "R",
+     "votes": null
+    },
+    {
+     "name": "Blake Huber",
+     "party": "L",
+     "votes": null
+    },
+    {
+     "name": "Chris Baum",
+     "party": "AV",
+     "votes": null
+    },
+    {
+     "name": "Bob Chew",
+     "party": "Forward",
+     "votes": null
+    },
+    {
+     "name": "Adam Withrow",
+     "party": "Unity",
+     "votes": null
+    }
+   ]
+  },
+  {
+   "race": "Attorney general",
+   "called": null,
+   "candidates": [
+    {
+     "name": "Jena Griswold",
+     "party": "D",
+     "votes": null
+    },
+    {
+     "name": "Michael Allen",
+     "party": "R",
+     "votes": null
+    }
+   ]
+  },
+  {
+   "race": "Secretary of state",
+   "called": null,
+   "candidates": [
+    {
+     "name": "Amanda Gonzalez",
+     "party": "D",
+     "votes": null
+    },
+    {
+     "name": "James Wiley",
+     "party": "R",
+     "votes": null
+    },
+    {
+     "name": "Celeste Landry",
+     "party": "Forward",
+     "votes": null
+    },
+    {
+     "name": "Amanda Campbell",
+     "party": "ACP",
+     "votes": null
+    },
+    {
+     "name": "Sean Vadney",
+     "party": "L",
+     "votes": null
+    }
+   ]
+  },
+  {
+   "race": "Treasurer",
+   "called": null,
+   "candidates": [
+    {
+     "name": "Jeff Bridges",
+     "party": "D",
+     "votes": null
+    },
+    {
+     "name": "Kevin J. Grantham",
+     "party": "R",
+     "votes": null
+    },
+    {
+     "name": "Marilee Langner Sturgis",
+     "party": "AV",
+     "votes": null
+    },
+    {
+     "name": "Jodie Barr",
+     "party": "L",
+     "votes": null
+    }
+   ]
+  },
+  {
+   "race": "U.S. House, 1st District",
+   "called": null,
+   "candidates": [
+    {
+     "name": "Melat Kiros",
+     "party": "D",
+     "votes": null
+    },
+    {
+     "name": "Christy Peterson",
+     "party": "R",
+     "votes": null
+    },
+    {
+     "name": "Chad Humphrey",
+     "party": "L",
+     "votes": null
+    },
+    {
+     "name": "Shimon Blau",
+     "party": "U",
+     "votes": null
+    },
+    {
+     "name": "Critter Milton",
+     "party": "Unity",
+     "votes": null
+    }
+   ]
+  },
+  {
+   "race": "U.S. House, 2nd District",
+   "called": null,
+   "candidates": [
+    {
+     "name": "Joe Neguse*",
+     "party": "D",
+     "votes": null
+    },
+    {
+     "name": "Kelley Dennison",
+     "party": "R",
+     "votes": null
+    },
+    {
+     "name": "Gaylon Kent",
+     "party": "L",
+     "votes": null
+    }
+   ]
+  },
+  {
+   "race": "U.S. House, 3rd District",
+   "called": null,
+   "candidates": [
+    {
+     "name": "Jeff Hurd*",
+     "party": "R",
+     "votes": null
+    },
+    {
+     "name": "Dwayne Romero",
+     "party": "D",
+     "votes": null
+    },
+    {
+     "name": "Cory Robertson",
+     "party": "L",
+     "votes": null
+    },
+    {
+     "name": "Clifton Brown",
+     "party": "U",
+     "votes": null
+    }
+   ]
+  },
+  {
+   "race": "U.S. House, 4th District",
+   "called": null,
+   "candidates": [
+    {
+     "name": "Lauren Boebert*",
+     "party": "R",
+     "votes": null
+    },
+    {
+     "name": "Eileen Laubacher",
+     "party": "D",
+     "votes": null
+    },
+    {
+     "name": "Douglas Mangeris",
+     "party": "L",
+     "votes": null
+    }
+   ]
+  },
+  {
+   "race": "U.S. House, 5th District",
+   "called": null,
+   "candidates": [
+    {
+     "name": "Jeff Crank*",
+     "party": "R",
+     "votes": null
+    },
+    {
+     "name": "Jessica Killin",
+     "party": "D",
+     "votes": null
+    },
+    {
+     "name": "Christopher Mitchell",
+     "party": "ACP",
+     "votes": null
+    },
+    {
+     "name": "Mark Elworth Jr.",
+     "party": "L",
+     "votes": null
+    }
+   ]
+  },
+  {
+   "race": "U.S. House, 6th District",
+   "called": null,
+   "candidates": [
+    {
+     "name": "Jason Crow*",
+     "party": "D",
+     "votes": null
+    },
+    {
+     "name": "Jason Ray Clark",
+     "party": "R",
+     "votes": null
+    },
+    {
+     "name": "Patty McMahon",
+     "party": "L",
+     "votes": null
+    },
+    {
+     "name": "Samir Witta",
+     "party": "U",
+     "votes": null
+    },
+    {
+     "name": "Meredith Ryan",
+     "party": "Unity",
+     "votes": null
+    }
+   ]
+  },
+  {
+   "race": "U.S. House, 7th District",
+   "called": null,
+   "candidates": [
+    {
+     "name": "Brittany Pettersen*",
+     "party": "D",
+     "votes": null
+    },
+    {
+     "name": "Timothy Bennett",
+     "party": "R",
+     "votes": null
+    },
+    {
+     "name": "Lawrence Clark",
+     "party": "ACP",
+     "votes": null
+    },
+    {
+     "name": "Dan Sallis",
+     "party": "L",
+     "votes": null
+    },
+    {
+     "name": "Joe Krzeczkowski",
+     "party": "U",
+     "votes": null
+    },
+    {
+     "name": "Susan Hall",
+     "party": "Unity",
+     "votes": null
+    }
+   ]
+  },
+  {
+   "race": "U.S. House, 8th District",
+   "called": null,
+   "candidates": [
+    {
+     "name": "Gabe Evans*",
+     "party": "R",
+     "votes": null
+    },
+    {
+     "name": "Manny Rutinel",
+     "party": "D",
+     "votes": null
+    },
+    {
+     "name": "David Wood",
+     "party": "L",
+     "votes": null
+    }
+   ]
+  }
+ ]
+}
