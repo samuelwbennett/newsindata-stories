@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-04T08:40:16Z",
+ "updated": "2026-11-04T13:08:24Z",
  "source": "Seats not up and seats on the ballot: Wikipedia, 2026 United States Senate elections. Calls: AP and network decision desks via NBC News.",
  "not_up": {
   "D": 32,
@@ -17,9 +17,9 @@
    "state": "AL",
    "held": "R",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Barry Moore",
+   "winner_party": "R",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
@@ -29,15 +29,15 @@
    "winner": null,
    "winner_party": null,
    "called_by": null,
-   "note": null
+   "note": "Too early to call: Sullivan 48.5%, Peltola 47.7%, 72.4% in"
   },
   {
    "state": "AR",
    "held": "R",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Tom Cotton",
+   "winner_party": "R",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
@@ -62,9 +62,9 @@
    "state": "FL",
    "held": "R",
    "special": true,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Ashley Moody",
+   "winner_party": "R",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
@@ -80,18 +80,18 @@
    "state": "ID",
    "held": "R",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Jim Risch",
+   "winner_party": "R",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
    "state": "IL",
    "held": "D",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Juliana Stratton",
+   "winner_party": "D",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
@@ -107,9 +107,9 @@
    "state": "KS",
    "held": "R",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Adam Hamilton",
+   "winner_party": "D",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
@@ -125,9 +125,9 @@
    "state": "LA",
    "held": "R",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Julia Letlow",
+   "winner_party": "R",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
@@ -143,9 +143,9 @@
    "state": "MA",
    "held": "D",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Ed Markey",
+   "winner_party": "D",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
@@ -161,9 +161,9 @@
    "state": "MN",
    "held": "D",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Peggy Flanagan",
+   "winner_party": "D",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
@@ -173,24 +173,24 @@
    "winner": null,
    "winner_party": null,
    "called_by": null,
-   "note": null
+   "note": "Too close to call: 48.9% to 48.9% with 95.6% in"
   },
   {
    "state": "MT",
    "held": "R",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Kurt Alme",
+   "winner_party": "R",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
    "state": "NE",
    "held": "R",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Pete Ricketts",
+   "winner_party": "R",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
@@ -215,9 +215,9 @@
    "state": "NM",
    "held": "D",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Ben Ray Luján",
+   "winner_party": "D",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
@@ -233,36 +233,36 @@
    "state": "OH",
    "held": "R",
    "special": true,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Sherrod Brown",
+   "winner_party": "D",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
    "state": "OK",
    "held": "R",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Kevin Hern",
+   "winner_party": "R",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
    "state": "OR",
    "held": "D",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Jeff Merkley",
+   "winner_party": "D",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
    "state": "RI",
    "held": "D",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Jack Reed",
+   "winner_party": "D",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
@@ -278,18 +278,18 @@
    "state": "SD",
    "held": "R",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Mike Rounds",
+   "winner_party": "R",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
    "state": "TN",
    "held": "R",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Bill Hagerty",
+   "winner_party": "R",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
@@ -305,27 +305,27 @@
    "state": "VA",
    "held": "D",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Mark Warner",
+   "winner_party": "D",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
    "state": "WV",
    "held": "R",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Shelley Moore Capito",
+   "winner_party": "R",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   },
   {
    "state": "WY",
    "held": "R",
    "special": false,
-   "winner": null,
-   "winner_party": null,
-   "called_by": null,
+   "winner": "Harriet Hageman",
+   "winner_party": "R",
+   "called_by": "NBC News Decision Desk (AP data)",
    "note": null
   }
  ]

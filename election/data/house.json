@@ -1,6 +1,6 @@
 {
- "updated": "2026-11-04T08:40:16Z",
- "source": "American Presidency Project, UC Santa Barbara (1934\u20132022); 2026 from network projections.",
+ "updated": "2026-11-04T13:08:24Z",
+ "source": "American Presidency Project, UC Santa Barbara (1934–2022); 2026 from network projections.",
  "history": [
   {
    "year": 1946,
@@ -127,10 +127,10 @@
   "president": "Trump",
   "party": "R",
   "seats_before": 220,
-  "projected_change": null,
-  "called": 0,
-  "uncalled": 435,
-  "as_of": "Nov. 4, 1:30 a.m. MT",
-  "note": "NBC News projects Democrats win control of the House; seat-by-seat projection not yet available."
+  "projected_change": -43,
+  "called": 375,
+  "uncalled": 60,
+  "as_of": "Nov. 4, 6:05 a.m. MT",
+  "note": "NBC News projects Democrats win control. NBC Decision Desk estimate: 258 Democrats, 177 Republicans; 231 D and 144 R called so far."
  }
 }
