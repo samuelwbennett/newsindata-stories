@@ -17,8 +17,8 @@
     var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
     var b=document.createElement('div');b.id='nid-breaking';b.setAttribute('role','region');b.setAttribute('aria-label','Breaking news');
     b.innerHTML='<a href="/election-2026"><span class="k"><span class="dot"></span>LIVE</span>'+
-      '<span class="lg">Election 2026: Live results for all 145 statewide ballot measures, updated hourly. <u>See the data →</u></span>'+
-      '<span class="sm">Election 2026: Live results for 145 ballot measures <u>→</u></span></a>'+
+      '<span class="lg">Election 2026: Democrats win the House and Senate. See every Senate race and 145 ballot measures. <u>See the data →</u></span>'+
+      '<span class="sm">Democrats win the House and Senate <u>→</u></span></a>'+
       '<button class="d" aria-label="Dismiss">×</button>';
     b.querySelector('.d').onclick=function(){b.remove();try{sessionStorage.setItem('nidElecBanner','x');}catch(e){}};
     function put(){if(document.getElementById('nid-breaking'))return;var h=document.querySelector('header#header, header.header, header');if(h){h.insertBefore(b,h.firstChild);}else{document.body.insertBefore(b,document.body.firstChild);}setTimeout(function(){try{window.dispatchEvent(new Event('resize'));}catch(e){}},50);}
