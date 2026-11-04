@@ -23,9 +23,9 @@
     '.fx .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 16px}.fx .chips button{font:600 14px/1 Georgia,serif;padding:8px 15px;border-radius:999px;border:1.5px solid '+NAVY+';background:#fff;color:'+NAVY+';cursor:pointer}'+
     '.fx .chips button[aria-pressed=true]{background:'+NAVY+';color:#fff}'+
     '.fx .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}'+
-    '.fx .card{position:relative;border-radius:14px;overflow:hidden;background:#fff;border:1px solid '+LINE+';box-shadow:0 1px 2px rgba(0,0,0,.04);cursor:pointer;text-align:left;padding:0;font:inherit;color:inherit;transition:transform .2s,box-shadow .2s}'+
+    '.fx .card{position:relative;border-radius:14px;overflow:hidden;background:#fff;border:1px solid '+LINE+';box-shadow:0 1px 2px rgba(0,0,0,.04);cursor:pointer;text-align:left;padding:0;font:inherit;color:inherit;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;width:100%}'+
     '.fx .card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(20,33,27,.12)}'+
-    '.fx .ph{aspect-ratio:4/4.4;background:#eef0ef center 18%/cover no-repeat;position:relative}'+
+    '.fx .ph{width:100%;flex:none;aspect-ratio:4/4.4;background:#eef0ef center 18%/cover no-repeat;position:relative}'+
     '.fx .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(10,20,30,.55))}'+
     '.fx .pt{position:absolute;left:10px;top:10px;z-index:1;font:700 11px/1 Arial,sans-serif;letter-spacing:.06em;color:#fff;padding:5px 8px;border-radius:999px}'+
     '.fx .nm{position:absolute;left:12px;right:12px;bottom:10px;z-index:1;color:#fff;font-weight:700;font-size:1.02em;line-height:1.15;text-shadow:0 1px 3px rgba(0,0,0,.4)}'+
@@ -65,10 +65,10 @@
   function wait(root){
     root.className='fx';root.innerHTML='<h3>How Long Each Barrier Stood</h3><p class="dek">Years from the creation of the office to Tuesday’s first</p><div class="tog chips"></div><svg role="img"></svg><div class="tip">Tap a bar for details</div><p class="note">Counted from when the office first existed (state governors 1776, Congress 1789) or from statehood, to 2026; the speaker vote is in January 2027.</p>';
     var svg=root.querySelector('svg'),tip=root.querySelector('.tip');
-    function draw(k){var d=WAIT[k],W=720,lh=58,top=10,L=300,Rr=W-60,H=top+d.length*lh+40,mx=260;
+    function draw(k){var d=WAIT[k],W=740,lh=58,top=10,L=338,Rr=W-60,H=top+d.length*lh+40,mx=260;
       var s='';for(var t=0;t<=250;t+=50){var x=L+(Rr-L)*t/mx;s+='<line x1="'+x+'" x2="'+x+'" y1="'+top+'" y2="'+(H-34)+'" stroke="'+LINE+'"/><text x="'+x+'" y="'+(H-16)+'" text-anchor="middle" font-size="13" font-weight="700" fill="'+INK+'">'+t+'</text>';}
       d.forEach(function(r,i){var y=top+i*lh,w=(Rr-L)*r[2]/mx;
-        s+='<g class="bar" data-i="'+i+'"><rect x="0" y="'+y+'" width="'+W+'" height="'+lh+'" fill="transparent"/><text x="'+(L-12)+'" y="'+(y+lh/2-3)+'" text-anchor="end" font-size="14.5" font-weight="700" fill="'+INK+'">'+r[0].replace(/&/g,'&amp;')+'</text><text x="'+(L-12)+'" y="'+(y+lh/2+15)+'" text-anchor="end" font-size="13" fill="'+SUB+'">'+r[1]+'</text>'+
+        s+='<g class="bar" data-i="'+i+'"><rect x="0" y="'+y+'" width="'+W+'" height="'+lh+'" fill="transparent"/><text x="'+(L-12)+'" y="'+(y+lh/2-3)+'" text-anchor="end" font-size="14" font-weight="700" fill="'+INK+'">'+r[0].replace(/&/g,'&amp;')+'</text><text x="'+(L-12)+'" y="'+(y+lh/2+15)+'" text-anchor="end" font-size="13" fill="'+SUB+'">'+r[1]+'</text>'+
         '<rect x="'+L+'" y="'+(y+12)+'" width="'+w.toFixed(1)+'" height="'+(lh-24)+'" rx="5" fill="'+(k==='us'?NAVY:GOLD)+'"/><text x="'+(L+w+8)+'" y="'+(y+lh/2+5)+'" font-size="15" font-weight="700" fill="'+(k==='us'?NAVY:'#8a6420')+'">'+r[2]+'</text></g>';});
       s+='<line x1="'+L+'" x2="'+L+'" y1="'+top+'" y2="'+(H-34)+'" stroke="'+INK+'" stroke-width="2"/><text x="'+((L+Rr)/2)+'" y="'+(H)+'" text-anchor="middle" font-size="12" font-weight="700" fill="'+INK+'" letter-spacing=".06em">YEARS THE BARRIER STOOD</text>';
       svg.setAttribute('viewBox','0 0 '+W+' '+(H+6));svg.setAttribute('aria-label','Bar chart of years each barrier stood');svg.innerHTML=s;tip.textContent='Tap a bar for details';
