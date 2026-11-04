@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-03T13:00:00Z",
+ "updated": "2026-11-04T08:40:16Z",
  "source": "American Presidency Project, UC Santa Barbara (1934\u20132022); 2026 from network projections.",
  "history": [
   {
@@ -126,11 +126,11 @@
  "y2026": {
   "president": "Trump",
   "party": "R",
-  "seats_before": null,
+  "seats_before": 220,
   "projected_change": null,
   "called": 0,
   "uncalled": 435,
-  "as_of": null,
-  "note": "Results pending."
+  "as_of": "Nov. 4, 1:30 a.m. MT",
+  "note": "NBC News projects Democrats win control of the House; seat-by-seat projection not yet available."
  }
 }
