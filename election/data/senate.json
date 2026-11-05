@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T01:46:00Z",
+ "updated": "2026-11-05T13:41:26Z",
  "source": "Seats not up and seats on the ballot: Wikipedia, 2026 United States Senate elections. Calls: AP and network decision desks via NBC News.",
  "not_up": {
   "D": 32,
@@ -173,7 +173,7 @@
    "winner": null,
    "winner_party": null,
    "called_by": null,
-   "note": "Too close to call: Colom 49%, Hyde-Smith 48.9%, about 95.6% of expected vote in (WLBT, 6 p.m. CT Nov. 4)"
+   "note": "Too close to call: Colom 49% (464,926), Hyde-Smith 48.9% (463,788), 96% of expected vote in (ABC News, 1:18 a.m. ET Nov. 5); certification deadline Nov. 13"
   },
   {
    "state": "MT",

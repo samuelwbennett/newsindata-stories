@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T01:46:00Z",
+ "updated": "2026-11-05T13:41:26Z",
  "topics": {
   "tax": "Taxes and budgets",
   "vote": "Elections and voting",
@@ -112,9 +112,9 @@
    "name": "Prop. 144",
    "desc": "Voter ID and citizenship voting requirements",
    "topic": "vote",
-   "status": "pending",
+   "status": "failed",
    "yes_pct": 46.7,
-   "called_by": null,
+   "called_by": "Ballotpedia",
    "threshold": 50
   },
   {
@@ -134,9 +134,9 @@
    "name": "Prop. 317",
    "desc": "Designate drug cartels as terrorist organizations",
    "topic": "crime",
-   "status": "pending",
+   "status": "passed",
    "yes_pct": 54,
-   "called_by": null,
+   "called_by": "Ballotpedia",
    "threshold": 50
   },
   {
@@ -244,9 +244,9 @@
    "name": "Prop. 3",
    "desc": "Make high-earner income tax rates permanent for schools",
    "topic": "tax",
-   "status": "pending",
+   "status": "passed",
    "yes_pct": 59,
-   "called_by": null,
+   "called_by": "Ballotpedia",
    "threshold": 50
   },
   {
@@ -299,9 +299,9 @@
    "name": "Prop. 39",
    "desc": "Voter ID and voter-roll checks",
    "topic": "vote",
-   "status": "pending",
+   "status": "failed",
    "yes_pct": 41.4,
-   "called_by": null,
+   "called_by": "Ballotpedia",
    "threshold": 50
   },
   {
