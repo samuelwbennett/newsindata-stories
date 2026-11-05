@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T13:41:26Z",
+ "updated": "2026-11-05T13:49:27Z",
  "source": "Seats not up and seats on the ballot: Wikipedia, 2026 United States Senate elections. Calls: AP and network decision desks via NBC News.",
  "not_up": {
   "D": 32,
@@ -29,7 +29,7 @@
    "winner": null,
    "winner_party": null,
    "called_by": null,
-   "note": "Too early to call: Peltola 48.2%, Sullivan 47.9%, more than 94% in (AP, 10 a.m. ET Nov. 4); ranked-choice tabulation Nov. 18"
+   "note": "Not yet called: Peltola 48.2%, Sullivan 47.9%, 75.5% in (NBC, Nov. 5)"
   },
   {
    "state": "AR",
@@ -173,7 +173,7 @@
    "winner": null,
    "winner_party": null,
    "called_by": null,
-   "note": "Too close to call: Colom 49% (464,926), Hyde-Smith 48.9% (463,788), 96% of expected vote in (ABC News, 1:18 a.m. ET Nov. 5); certification deadline Nov. 13"
+   "note": "Too close to call: Colom 49.0%, Hyde-Smith 48.9%, 95.6% in (NBC, Nov. 5)"
   },
   {
    "state": "MT",
