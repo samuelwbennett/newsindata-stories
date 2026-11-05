@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-03T13:00:00Z",
+ "updated": "2026-11-05T01:46:00Z",
  "source": "University of Florida Election Lab national midterm turnout series (share of eligible voters); 2026 estimate and early vote from the Election Lab.",
  "series": [
   [
@@ -128,8 +128,8 @@
   ]
  ],
  "y2026": {
-  "estimate_pct": null,
-  "as_of": null,
+  "estimate_pct": 49.42,
+  "as_of": "Nov. 4, 2:52 a.m. ET (preliminary)",
   "early_votes_m": 41.2,
   "early_as_of": "Oct. 29, 9:19 a.m. ET",
   "ballots_2022_m": 111.5

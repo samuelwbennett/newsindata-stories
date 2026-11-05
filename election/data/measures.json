@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-04T13:19:18Z",
+ "updated": "2026-11-05T01:46:00Z",
  "topics": {
   "tax": "Taxes and budgets",
   "vote": "Elections and voting",
@@ -376,9 +376,9 @@
    "name": "Amendment 81",
    "desc": "Notify DHS of certain charged people with unknown immigration status",
    "topic": "crime",
-   "status": "pending",
+   "status": "failed",
    "yes_pct": 44.8,
-   "called_by": null,
+   "called_by": "AP via Colorado Newsline",
    "threshold": 55
   },
   {
@@ -387,9 +387,9 @@
    "name": "Amendment 82",
    "desc": "Right to buy and sell natural gas for heating and cooking",
    "topic": "env",
-   "status": "pending",
+   "status": "failed",
    "yes_pct": 46.13,
-   "called_by": null,
+   "called_by": "AP via Colorado Newsline",
    "threshold": 55
   },
   {
@@ -398,9 +398,9 @@
    "name": "Amendment 83",
    "desc": "Constitutional right to hunt and fish",
    "topic": "env",
-   "status": "pending",
+   "status": "failed",
    "yes_pct": 44.84,
-   "called_by": null,
+   "called_by": "AP via Colorado Newsline",
    "threshold": 55
   },
   {
@@ -443,7 +443,7 @@
    "desc": "Graduated income tax for education, health and child care",
    "topic": "tax",
    "status": "pending",
-   "yes_pct": 50.49,
+   "yes_pct": 50.55,
    "called_by": null,
    "threshold": 55
   },
