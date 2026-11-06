@@ -27,7 +27,6 @@ STORIES["friends"] = dict(
               "Japan. The survey asked people in 22 countries whether “there's any one special person you know that you feel "
               "very close to,” someone you can confide in, and 32.8% of Japanese adults said no. That is 2.4 times the U.S. "
               "share of 13.5% and about twice the 16.5% in the median country."),
-        ("p", "[Samuel: one sentence on why you looked at this, e.g. something you've seen in students, athletes or friends.]"),
         ("img", "friends-map-chart.png", "World map of 22 places shaded by the share of adults with no one they feel very close to. Japan is darkest at 32.8%, more than twice the U.S. at 13.5%; Nigeria is lowest at 7.2%."),
         ("map", "close"),
         ("photo", UP + "c/c5/Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg/960px-Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg",
@@ -112,7 +111,6 @@ STORIES["flourish"] = dict(
         ("p", "Indonesia ranked first at 8.47, with GDP per person of about $13,900. The U.S. ranked 15th at 7.18, even though "
               "it produces more than five times as much per person, about $74,400. Japan finished last at 5.93, 2.54 points "
               "below Indonesia and 0.66 below Turkey, the next lowest."),
-        ("p", "[Samuel: one line on why this caught your eye, e.g. what you see in the Vail Valley or in your students.]"),
         ("video", "flourish-scatter", "Each dot is a country, added from poorest to richest. Free to share with credit."),
         ("photo", UP + "0/06/Jakarta_Car_Free_Day.jpg/960px-Jakarta_Car_Free_Day.jpg",
          "Crowds walking and cycling on a closed avenue in central Jakarta",
