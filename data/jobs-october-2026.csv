@@ -1,0 +1,32 @@
+month,total_nonfarm_thousands,change_thousands
+2025-10,158408,-140
+2025-11,158449,41
+2025-12,158432,-17
+2026-01,158592,160
+2026-02,158436,-156
+2026-03,158650,214
+2026-04,158798,148
+2026-05,158861,63
+2026-06,158892,31
+2026-07,158882,-10
+2026-08,159068,186
+2026-09,159128,60
+2026-10,159293,165
+
+industry_oct_2026,change_thousands
+Professional and business services,70.0
+Health care,41.6
+Transportation and warehousing,24.8
+Manufacturing,19.0
+Social assistance,13.5
+Financial activities,7.0
+Retail trade,6.0
+Other services,6.0
+Government,6.0
+Utilities,0.1
+Mining and logging,-1.0
+Information,-1.0
+Private education,-2.0
+Construction,-3.0
+Wholesale trade,-9.1
+Leisure and hospitality,-13.0

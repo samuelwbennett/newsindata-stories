@@ -5,6 +5,8 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+ ['jobs1026','Business',"Employers Added 165,000 Jobs In October",'employers-added-165000-jobs-in-october-more-than-three-times-the-monthly-average-of-the-past-year'],
+ ['territories','Trending',"American Samoa Could Lose 61% Of Its People By 2100",'american-samoa-is-projected-to-lose-61-of-its-population-by-2100-the-steepest-drop-among-us-territories'],
  ['firsts','Trending',"The First Black Woman Governor, The First Muslim Senator And More",'voters-elected-the-first-black-woman-governor-the-first-muslim-senator-and-a-record-number-of-women-governors'],
  ['trust','Trending',"Trust In National News Rose 6 Points In The Past Year",'trust-in-national-news-rose-6-points-in-the-past-year-to-62-still-well-below-the-76-of-2016'],
  ['friends','Culture',"One In Three Japanese Adults Say There's No One They Feel Close To",'one-in-three-japanese-adults-say-theres-no-one-they-feel-very-close-to-more-than-twice-the-us-share'],

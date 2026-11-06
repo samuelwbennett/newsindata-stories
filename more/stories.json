@@ -3,6 +3,18 @@
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
   {
+   "slug": "employers-added-165000-jobs-in-october-more-than-three-times-the-monthly-average-of-the-past-year",
+   "title": "Employers Added 165,000 Jobs In October, More Than Three Times The Monthly Average Of The Past Year",
+   "section": "Business",
+   "image": "https://stories.thenewsindata.com/jobs-oct26/jobs-preview.png"
+  },
+  {
+   "slug": "american-samoa-is-projected-to-lose-61-of-its-population-by-2100-the-steepest-drop-among-us-territories",
+   "title": "American Samoa Is Projected To Lose 61% Of Its Population By 2100, The Steepest Drop Among U.S. Territories",
+   "section": "Trending",
+   "image": "https://stories.thenewsindata.com/territories/territories-preview.png"
+  },
+  {
    "slug": "voters-elected-the-first-black-woman-governor-the-first-muslim-senator-and-a-record-number-of-women-governors",
    "title": "Voters Elected The First Black Woman Governor, The First Muslim Senator And A Record Number Of Women Governors",
    "section": "Trending",
