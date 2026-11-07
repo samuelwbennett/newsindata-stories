@@ -28,17 +28,17 @@ var CSS=[
 /* graph-paper green: the band is a chart */
 '.nig-band{position:relative;width:100vw;margin:72px 0 72px calc(50% - 50vw);overflow:hidden;background-color:var(--g);background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px),radial-gradient(120% 90% at 85% 40%,rgba(255,255,255,.10),transparent 60%);background-size:44px 44px,44px 44px,100% 100%}',
 '.nig-band .in{max-width:1080px;margin:0 auto;padding:72px max(24px,env(safe-area-inset-right,0px)) 76px max(24px,env(safe-area-inset-left,0px));display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;align-items:center}',
-'.nig-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:5px 12px 5px 10px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}',
+'.nig .nig-pill{display:inline-flex;align-items:center;gap:8px;color:#fff!important;line-height:1.2!important;border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:5px 12px 5px 10px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}',
 '.nig-pill i{width:8px;height:8px;border-radius:50%;background:#fff;animation:nigp 1.8s ease-in-out infinite}',
 '@keyframes nigp{0%,100%{opacity:1}50%{opacity:.3}}',
-'.nig h2{font-family:"Times New Roman",Times,serif;font-weight:700;color:#fff!important;font-size:clamp(40px,6vw,68px);line-height:1.02;letter-spacing:-.01em;margin:22px 0 18px;text-wrap:balance}',
-'.nig h2 em{font-style:italic;font-weight:700;color:#CFEBDD}',
-'.nig p{color:rgba(255,255,255,.92)!important;font-size:19px;line-height:1.5;margin:0 0 30px;max-width:30em}',
-'.nig-cta{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--ink)!important;border-radius:999px;padding:16px 26px 16px 22px;font-size:18px;font-weight:700;box-shadow:0 10px 30px rgba(0,0,0,.18);transition:transform .15s ease,box-shadow .15s ease}',
-'.nig-cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.24)}',
-'.nig-cta:focus-visible{outline:3px solid #fff;outline-offset:3px}',
-'.nig-cta svg{color:var(--g)}',
-'.nig-who{display:flex;align-items:center;gap:12px;margin-top:26px;font-size:15px;color:rgba(255,255,255,.88)}',
+'.nig h2.nig-h{font-family:"Times New Roman",Times,serif!important;font-weight:700!important;color:#fff!important;font-size:clamp(42px,6vw,72px)!important;line-height:1.02!important;letter-spacing:-.01em!important;margin:24px 0 18px!important;text-wrap:balance;text-transform:none!important}',
+'.nig h2.nig-h em{font-family:inherit!important;font-style:italic!important;font-weight:700!important;color:#CFEBDD!important}',
+'.nig p.nig-p{color:rgba(255,255,255,.92)!important;font-size:19px!important;line-height:1.5!important;margin:0 0 30px!important;max-width:30em}',
+'.nig a.nig-cta{display:inline-flex!important;align-items:center;gap:10px;white-space:nowrap!important;line-height:1.2!important;background:#fff!important;color:var(--ink)!important;border-radius:999px;padding:16px 26px 16px 22px;font-size:18px!important;font-weight:700!important;box-shadow:0 10px 30px rgba(0,0,0,.18);transition:transform .15s ease,box-shadow .15s ease}',
+'.nig a.nig-cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.24)}',
+'.nig a.nig-cta:focus-visible{outline:3px solid #fff;outline-offset:3px}',
+'.nig a.nig-cta svg{color:var(--g)!important;width:22px!important;height:22px!important;flex:none!important;max-width:none!important}',
+'.nig .nig-who{line-height:1.35!important;display:flex;align-items:center;gap:12px;margin-top:26px;font-size:15px;color:rgba(255,255,255,.88)}',
 '.nig-who img{width:40px;height:40px;border-radius:50%;box-shadow:0 0 0 2px rgba(255,255,255,.8)}',
 '.nig-who b{color:#fff}',
 /* the phone and the fanned covers behind it */
@@ -52,7 +52,7 @@ var CSS=[
 '.nig-phone .scr{position:relative;width:100%;height:100%;border-radius:33px;overflow:hidden;background:#FBFCFA}',
 '.nig-phone video,.nig-phone img.pv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}',
 '.nig-phone .notch{position:absolute;z-index:3;top:9px;left:50%;transform:translateX(-50%);width:84px;height:24px;border-radius:14px;background:#0d1612}',
-'.nig-phone .ui{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:34px 14px 14px;background:linear-gradient(transparent,rgba(13,22,18,.72));color:#fff;font-size:12.5px;line-height:1.3}',
+'.nig-phone .ui{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:38px 14px 14px;background:linear-gradient(transparent,rgba(13,22,18,.82) 45%);color:#fff!important;font-size:12.5px!important;line-height:1.3!important;text-align:left}','.nig-phone .ui *{color:#fff!important}',
 '.nig-phone .ui b{display:flex;align-items:center;gap:7px;font-size:13px;margin-bottom:4px}',
 '.nig-phone .ui b img{width:22px;height:22px;border-radius:50%}',
 '.nig-phone .ui .fb{margin-left:4px;border:1px solid rgba(255,255,255,.8);border-radius:6px;padding:1px 7px;font-size:11.5px}',
@@ -65,9 +65,9 @@ var CSS=[
 '.nig-story .nig-phone{width:150px;border-radius:28px;padding:7px;transform:rotate(-3deg)}',
 '.nig-story .nig-phone .scr{border-radius:22px}',
 '.nig-story .nig-phone .notch{width:50px;height:15px;top:6px}',
-'.nig-story h3{font-family:"Times New Roman",Times,serif;color:#fff!important;font-size:30px;line-height:1.1;font-weight:700;margin:12px 0 10px;text-wrap:balance}',
-'.nig-story p{font-size:16.5px;margin:0 0 18px}',
-'.nig-story .nig-cta{font-size:16px;padding:13px 22px 13px 18px}',
+'.nig-story h3.nig-h{font-family:"Times New Roman",Times,serif!important;color:#fff!important;font-size:30px!important;line-height:1.1!important;font-weight:700!important;margin:12px 0 10px!important;text-wrap:balance;text-transform:none!important;letter-spacing:0!important}',
+'.nig-story p.nig-p{font-size:16.5px!important;margin:0 0 18px!important}',
+'.nig-story a.nig-cta{font-size:16px!important;padding:13px 22px 13px 18px}',
 '@media(max-width:600px){.nig-story{grid-template-columns:1fr;justify-items:center;text-align:center;padding:26px 20px}.nig-story .nig-phone{width:140px}}',
 '@media(prefers-reduced-motion:reduce){.nig *{animation:none!important;transition:none!important}}'
 ].join('\n');
@@ -109,8 +109,8 @@ function homeBand(){
   var d=document.createElement('section'); d.className='nig nig-band'; d.setAttribute('aria-label','Follow The News in Data on Instagram');
   d.innerHTML='<div class="in"><div>'+
     '<span class="nig-pill"><i></i>Now on Instagram</span>'+
-    '<h2>Our charts <em>move</em> now.</h2>'+
-    '<p>Every day we turn one of our stories into a short animated chart, from the midterms to Luka Dončić’s scoring run. Follow along and they’ll show up in your feed, each one linked back to the full story here.</p>'+
+    '<h2 class="nig-h">Our charts <em>move</em> now.</h2>'+
+    '<p class="nig-p">Every day we turn one of our stories into a short animated chart, from the midterms to Luka Dončić’s scoring run. Follow along and they’ll show up in your feed, each one linked back to the full story here.</p>'+
     '<a class="nig-cta" href="'+IG+'" target="_blank" rel="noopener">'+GLYPH+'Follow @thenewsindata</a>'+
     '<div class="nig-who"><img src="'+BASE+'avatar.png" alt=""><span><b>@thenewsindata</b> · a new chart every day · making charts since 2016</span></div>'+
     '</div><a class="nig-stage" href="'+IG+'" target="_blank" rel="noopener" aria-label="Watch our charts on Instagram">'+
@@ -134,8 +134,8 @@ function storyCard(){
   var d=document.createElement('aside'); d.className='nig nig-story';
   d.innerHTML='<a href="'+IG+'" target="_blank" rel="noopener" aria-label="Watch on Instagram">'+phone(keys,false)+'</a><div>'+
     '<span class="nig-pill"><i></i>On Instagram</span>'+
-    (own.length?'<h3>This story is also an animated chart.</h3><p>Watch it move, and get a new chart in your feed every day.</p>'
-               :'<h3>Like this chart? Watch ours move.</h3><p>Follow for a new animated chart every day, each one linked back to the full story.</p>')+
+    (own.length?'<h3 class="nig-h">This story is also an animated chart.</h3><p class="nig-p">Watch it move, and get a new chart in your feed every day.</p>'
+               :'<h3 class="nig-h">Like this chart? Watch ours move.</h3><p class="nig-p">Follow for a new animated chart every day, each one linked back to the full story.</p>')+
     '<a class="nig-cta" href="'+IG+'" target="_blank" rel="noopener">'+GLYPH+'Follow @thenewsindata</a></div>';
   if(before)before.parentNode.insertBefore(d,before); else art.appendChild(d);
   wire(d,keys);
