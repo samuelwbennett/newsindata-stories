@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+ ['hormuz','Business',"The Strait Of Hormuz Has Gone Dark",'ship-crossings-through-the-strait-of-hormuz-have-fallen-94-since-the-iran-war-began'],
  ['coal1126','Science',"China's Emissions Have Stopped Rising",'chinas-emissions-have-been-flat-or-falling-since-march-2024-and-69-countries-now-emit-at-least-10-less-than-at-their-peak'],
  ['jobs1026','Business',"Employers Added 165,000 Jobs In October",'employers-added-165000-jobs-in-october-more-than-three-times-the-monthly-average-of-the-past-year'],
  ['territories','Trending',"American Samoa Could Lose 61% Of Its People By 2100",'american-samoa-is-projected-to-lose-61-of-its-population-by-2100-the-steepest-drop-among-us-territories'],

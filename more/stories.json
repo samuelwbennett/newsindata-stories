@@ -3,6 +3,12 @@
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
   {
+   "slug": "ship-crossings-through-the-strait-of-hormuz-have-fallen-94-since-the-iran-war-began",
+   "title": "Ship Crossings Through The Strait Of Hormuz Have Fallen 94% Since The Iran War Began",
+   "section": "Business",
+   "image": "https://stories.thenewsindata.com/hormuz/hormuz-lead.png"
+  },
+  {
    "slug": "chinas-emissions-have-been-flat-or-falling-since-march-2024-and-69-countries-now-emit-at-least-10-less-than-at-their-peak",
    "title": "China's Emissions Have Been Flat Or Falling Since March 2024, And 69 Countries Now Emit At Least 10% Less Than At Their Peak",
    "section": "Science",
