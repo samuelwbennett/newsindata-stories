@@ -2,6 +2,7 @@
    dismissible for the session, and switches itself off after Nov. 8, 2026. */
 (function(){
   try{
+    return; /* turned off Nov. 7, 2026 at Samuel's request */
     if(Date.now()>Date.UTC(2026,10,8,7))return;
     if(/^\/election-2026/.test(location.pathname))return;
     if(window.top!==window.self)return;            /* not inside the Squarespace editor preview */
