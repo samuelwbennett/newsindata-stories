@@ -1,0 +1,21 @@
+import datetime as dt
+DATES="19540918,19820202,19641113,19570522,19791120,19640221,19770513,19501210,19600622,19730322,19520207,19641128,19730803,19460213,19620210,19630909,19521201,19750328,19870216,19690723,19471103,19721020,19430503,19510520,19441121,19680312,19790716,19720824,19700701,19330917,19600809,19540529,19420220,19630107,19570928,19511121,19440331,19521207,19710223,19590110,19490622,19460711,19760710,19581201,19600525,19580304,19510705,19590510,19791231,19750620,19851118,19620820,19510301,19640819,19570802,19640329,19470128,19580227,19820712,19690427,19711017,19720607,19661209,19501123,19600830,19711021,19610121,19570313,19670214,19670825,19620711,19680304,19561024,19490503,19650817,19690815,19551020,19491112,19640612,19650919,19541024,19610107,19520606,19590814,19701222,19520202,19600510,19710604,19410908,19470502,19580226,19541215,19581013,19501011,19510427,19531126,19620211,19550408,19520721,19540910".split(",")
+SEATS="""AL 2 Tommy Tuberville R|AL 3 Katie Britt R|AK 2 Dan Sullivan R|AK 3 Lisa Murkowski R|AZ 1 Ruben Gallego D|AZ 3 Mark Kelly D|AR 2 Tom Cotton R|AR 3 John Boozman R|CA 1 Adam Schiff D|CA 3 Alex Padilla D|CO 2 John Hickenlooper D|CO 3 Michael Bennet D|CT 1 Chris Murphy D|CT 3 Richard Blumenthal D|DE 1 Lisa Blunt Rochester D|DE 2 Chris Coons D|FL 1 Rick Scott R|FL 3 Ashley Moody R|GA 2 Jon Ossoff D|GA 3 Raphael Warnock D|HI 1 Mazie Hirono D|HI 3 Brian Schatz D|ID 2 Jim Risch R|ID 3 Mike Crapo R|IL 2 Dick Durbin D|IL 3 Tammy Duckworth D|IN 1 Jim Banks R|IN 3 Todd Young R|IA 2 Joni Ernst R|IA 3 Chuck Grassley R|KS 2 Roger Marshall R|KS 3 Jerry Moran R|KY 2 Mitch McConnell R|KY 3 Rand Paul R|LA 2 Bill Cassidy R|LA 3 John Kennedy R|ME 1 Angus King I|ME 2 Susan Collins R|MD 1 Angela Alsobrooks D|MD 3 Chris Van Hollen D|MA 1 Elizabeth Warren D|MA 2 Ed Markey D|MI 1 Elissa Slotkin D|MI 2 Gary Peters D|MN 1 Amy Klobuchar D|MN 2 Tina Smith D|MS 1 Roger Wicker R|MS 2 Cindy Hyde-Smith R|MO 1 Josh Hawley R|MO 3 Eric Schmitt R|MT 1 Tim Sheehy R|MT 2 Steve Daines R|NE 1 Deb Fischer R|NE 2 Pete Ricketts R|NV 1 Jacky Rosen D|NV 3 Catherine Cortez Masto D|NH 2 Jeanne Shaheen D|NH 3 Maggie Hassan D|NJ 1 Andy Kim D|NJ 2 Cory Booker D|NM 1 Martin Heinrich D|NM 2 Ben Ray Luján D|NY 1 Kirsten Gillibrand D|NY 3 Chuck Schumer D|NC 2 Thom Tillis R|NC 3 Ted Budd R|ND 1 Kevin Cramer R|ND 3 John Hoeven R|OH 1 Bernie Moreno R|OH 3 Jon Husted R|OK 2 Alan Armstrong R|OK 3 James Lankford R|OR 2 Jeff Merkley D|OR 3 Ron Wyden D|PA 1 Dave McCormick R|PA 3 John Fetterman D|RI 1 Sheldon Whitehouse D|RI 2 Jack Reed D|SC 2 Darline Graham Nordone R|SC 3 Tim Scott R|SD 2 Mike Rounds R|SD 3 John Thune R|TN 1 Marsha Blackburn R|TN 2 Bill Hagerty R|TX 1 Ted Cruz R|TX 2 John Cornyn R|UT 1 John Curtis R|UT 3 Mike Lee R|VT 1 Bernie Sanders I|VT 3 Peter Welch D|VA 1 Tim Kaine D|VA 2 Mark Warner D|WA 1 Maria Cantwell D|WA 3 Patty Murray D|WV 1 Jim Justice R|WV 2 Shelley Moore Capito R|WI 1 Tammy Baldwin D|WI 3 Ron Johnson R|WY 1 John Barrasso R|WY 2 Cynthia Lummis R""".split("|")
+# 2026 winners (reelected incumbents keep their own birth date); AK and MS uncalled as of Nov. 7
+NEW={"AL":("Barry Moore","R","19660926"),"IL":("Juliana Stratton","D","19650908"),"IA":("Josh Turek","D","19790412"),
+ "KS":("Adam Hamilton","D","19640712"),"KY":("Andy Barr","R","19730724"),"LA":("Julia Letlow","R","19810316"),
+ "ME":("Troy Jackson","D","19680626"),"MI":("Abdul El-Sayed","D","19841031"),"MN":("Peggy Flanagan","D","19790922"),
+ "MT":("Kurt Alme","R","19661007"),"NH":("Chris Pappas","D","19800604"),"NC":("Roy Cooper","D","19570613"),
+ "OH":("Sherrod Brown","D","19521109"),"OK":("Kevin Hern","R","19611204"),"SC":("Annie Andrews","D","19800809"),
+ "TX":("James Talarico","D","19890517"),"WY":("Harriet Hageman","R","19621018")}
+LEADERS={"AK":("Mary Peltola","D","19730831"),"MS":("Scott Colom","D","19831224")}
+UP_CLASS3={"FL","OH"}
+REF=dt.date(2027,1,3)
+def age(s):
+    b=dt.date(int(s[:4]),int(s[4:6]),int(s[6:]))
+    return (REF-b).days/365.2425
+def seats():
+    out=[]
+    for d,s in zip(DATES,SEATS):
+        st,cl,*name,party=s.split(); out.append(dict(st=st,cl=cl,name=" ".join(name),party=party,dob=d,up=(cl=="2" or (cl=="3" and st in UP_CLASS3))))
+    return out

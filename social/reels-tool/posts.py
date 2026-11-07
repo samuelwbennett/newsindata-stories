@@ -251,6 +251,300 @@ def trust():
 POSTS = {"solar": solar, "coal": coal, "renew": renew, "luka": luka, "travel": travel,
          "aging": aging, "turnout": turnout, "midterms": midterms, "trust": trust}
 
+
+
+# ---------------------------------------------------------------- batch 2 (Nov. 7)
+PRIME = [("Cowboys",4,4,5,4,5),("Chiefs",4,3,4,5,4),("Chargers",5,4,4,3,2),("Eagles",4,5,2,3,4),("49ers",4,3,4,4,3),
+ ("Bills",2,5,4,3,3),("Packers",5,4,2,3,3),("Ravens",3,3,3,4,2),("Steelers",3,2,3,4,3),("Lions",1,1,5,4,3),
+ ("Vikings",1,4,3,3,3),("Giants",2,4,2,2,3),("Buccaneers",4,1,3,3,2),("Bears",2,2,2,3,3),("Bengals",2,3,4,1,2),
+ ("Broncos",3,3,1,2,2),("Rams",2,1,3,2,3),("Commanders",2,0,2,4,3),("Falcons",0,0,4,4,2),("Dolphins",2,4,2,2,0),
+ ("Seahawks",1,2,2,2,3),("Patriots",2,2,0,3,2),("Texans",0,0,3,3,2),("Raiders",1,4,1,2,0),("Jets",0,4,3,1,0),
+ ("Colts",3,0,1,1,1),("Jaguars",0,2,1,1,2),("Saints",2,1,2,0,1),("Cardinals",3,0,1,1,0),("Panthers",0,1,0,1,2),
+ ("Titans",2,1,1,0,0),("Browns",1,1,1,0,0)]
+SEASON_COL = ["#CFE7DC", "#9CCFB6", "#5FAF8B", "#2E8C66", "#00573D"]
+
+
+def primetime():
+    assert len(PRIME) == 32 and sum(sum(t[1:]) for t in PRIME) % 2 == 0
+    intro, per, hold = 1.0, 1.3, 4.0
+    dur = intro + 5 * per + 0.4 + hold
+    TOP, SLOT, BH, PXG = 720, 50, 32, 13.2
+
+    def draw(c, t):
+        brand_block(c)
+        header(c, "Sports · NFL", ["Which NFL Teams Get", "The Most Prime-Time Games?"],
+               ["Sunday and Monday night games, 2022 through", "the 2026 schedule as of Oct. 9"], title_size=58)
+        prog = min(max((t - intro) / per, 0), 5)
+        yr = 2022 + min(int(prog), 4)
+        scrubber(c, 655, 2022, 2026, 2022 + min(prog, 5) * 4 / 5, label=str(yr) if prog > 0 else "",
+                 ticks=[2022, 2023, 2024, 2025, 2026])
+        for i, (team, *g) in enumerate(PRIME):
+            col, row = divmod(i, 16)
+            x0 = 40 + col * 520
+            y = TOP + row * SLOT
+            hi = i in (0, 31)
+            c.text(x0 + 150, y + BH / 2 + 1, team, size=23, ha="right", va="center", color=INK,
+                   weight="bold" if hi else "normal")
+            x = x0 + 160
+            tot = 0
+            for s in range(5):
+                f = ease_out(prog - s) if prog > s else 0
+                w = g[s] * PXG * f
+                if w > 0:
+                    c.rect(x, y, w, BH, SEASON_COL[s], z=3)
+                x += w
+                tot += g[s] * (1 if prog >= s + 0.5 else 0)
+            if prog > 0:
+                c.text(x + 8, y + BH / 2 + 1, str(tot), size=23, va="center", weight="bold" if hi else "normal",
+                       color=GREEN if hi else MUTED)
+        ly = TOP + 16 * SLOT + 30
+        for s in range(5):
+            lx = 210 + s * 140
+            c.rect(lx, ly - 18, 26, 22, SEASON_COL[s], z=3)
+            c.text(lx + 34, ly, str(2022 + s) + ("*" if s == 4 else ""), size=22, color=MUTED)
+        footer(c, "*2026 as scheduled on Oct. 9. Source: NFL schedules")
+        bottom_band(c)
+    return draw, dur
+
+
+def _monthly(start, vals):
+    y, m = start
+    out = []
+    for i, v in enumerate(vals):
+        mm = m - 1 + i
+        out.append((y + mm // 12 + (mm % 12) / 12, v))
+    return out
+
+
+def candy():
+    candy_idx = [153.74,155.99,156.51,156.48,157.66,159.01,157.50,158.20,157.38,158.62,158.70,158.33,159.02,159.10,158.97,161.32,164.70,166.66,168.71,170.25,168.90,168.49,169.69,173.14,176.42,179.92,181.49,182.05,183.81,187.00,186.57,186.64,187.33,187.95,192.06,192.34,193.06,193.49,192.18,193.40,193.97,195.84,197.36,194.93,194.82,194.50,194.24,195.05,195.71,194.16,197.21,199.56,201.15,206.48,205.26,205.39,207.00,206.98,209.94,209.60,211.60,213.10,None,219.80,221.33,221.87,229.11,227.06,222.77,226.25,230.04,229.76,228.79]
+    cpi = [259.918,260.280,260.388,260.229,260.474,261.582,263.014,264.877,267.054,269.195,271.696,273.003,273.567,274.310,276.589,277.948,278.802,281.148,283.716,287.504,289.109,292.296,296.311,296.276,296.171,296.808,298.012,297.711,296.797,299.170,300.840,301.836,303.363,304.127,305.109,305.691,307.026,307.789,307.671,307.051,306.746,308.417,310.326,312.332,313.548,314.069,314.175,314.540,314.796,315.301,315.664,315.493,315.605,317.671,319.082,319.799,320.795,321.465,322.561,323.048,323.976,324.800,None,324.122,324.054,325.252,326.785,330.213,333.020,335.123,333.952,333.918,334.980]
+    ahe = [29.49,29.51,29.54,29.64,29.91,29.93,30.05,30.03,30.22,30.41,30.54,30.66,30.78,30.98,31.14,31.23,31.39,31.60,31.64,31.80,31.96,32.10,32.19,32.34,32.44,32.57,32.70,32.82,32.94,33.02,33.15,33.27,33.43,33.50,33.69,33.85,33.89,34.01,34.08,34.17,34.29,34.47,34.52,34.65,34.76,34.89,35.01,35.08,35.22,35.34,35.46,35.60,35.69,35.84,35.94,36.11,36.12,36.28,36.36,36.47,36.62,36.70,36.85,37.00,37.02,37.15,37.27,37.35,37.41,37.49,37.59,37.64,37.76]
+    def fill(a):  # Oct. 2025 was not collected (shutdown): interpolate
+        a = list(a)
+        for i, v in enumerate(a):
+            if v is None:
+                a[i] = (a[i - 1] + a[i + 1]) / 2
+        return a
+    candy_idx, cpi = fill(candy_idx), fill(cpi)
+    assert len(candy_idx) == len(cpi) == len(ahe) == 73
+    xs = [2020 + 7 / 12 + i / 12 for i in range(73)]
+    pct = lambda a: [(v / a[0] - 1) * 100 for v in a]
+    lines = [dict(name="Candy", ys=pct(candy_idx), color=GREEN, lw=8, label_dy=-6),
+             dict(name="All prices", ys=pct(cpi), color="#4B4F54", lw=5, label_dy=-30),
+             dict(name="Wages", ys=pct(ahe), color=BLUE, lw=5, label_dy=34)]
+    assert round(pct(candy_idx)[-1], 1) == 48.8 and round(pct(cpi)[-1], 1) == 28.9 and round(pct(ahe)[-1], 1) == 28.0
+    return line_race(xs, lines, kicker="Business · Prices",
+                     title=["Candy Prices Are Up 49%", "Since 2020"],
+                     subtitle=["Change in prices and wages since August 2020"],
+                     source="Source: Bureau of Labor Statistics",
+                     y_fmt=lambda v, tip=False: (f"+{v:.0f}%" if v > 0 else "0") if not tip else f"+{v:.1f}%",
+                     x_label_fmt=lambda v: str(int(v)), ymax=55, y_step=10, anim=9.5,
+                     ticks_x=[2021, 2022, 2023, 2024, 2025, 2026], scrub_label=lambda v: str(int(v)),
+                     end_note=["$50 of candy in Aug. 2020", "cost $74.41 in Aug. 2026"], note_xy=(600, 760))
+
+
+def canada():
+    rows = list(csv.DictReader(open(R + "canadians-made-25-fewer-trips-to-the-us-this-year-than-in-2024-while-their-trips-elsewhere-rose-12.csv")))
+    xs = [int(r["month"][:4]) + (int(r["month"][5:]) - 1) / 12 for r in rows]
+    us = [float(r["canada_total_return_from_us"]) / 1e6 for r in rows]
+    oth = [float(r["canada_return_from_other_countries"]) / 1e6 for r in rows]
+    jan_aug = lambda y: sum(u for x, u in zip(xs, us) if int(x) == y and x - int(x) < 0.6)
+    assert round(jan_aug(2026), 1) == 19.9 and round(jan_aug(2024), 1) == 26.6
+    lines = [dict(name="To the U.S.", ys=us, color=RED, lw=7, label_dy=-6),
+             dict(name="Elsewhere", ys=oth, color=GREEN, lw=6, label_dy=10)]
+    return line_race(xs, lines, kicker="Trending · Travel",
+                     title=["Canadians Are Still", "Skipping Trips To The U.S."],
+                     subtitle=["Canadian residents' return trips each month, millions"],
+                     source="Source: Statistics Canada, table 24-10-0053-01",
+                     y_fmt=lambda v, tip=False: f"{v:.1f}M" if tip else f"{v:.0f}M",
+                     x_label_fmt=lambda v: str(int(v)), ymax=4.5, y_step=1, anim=10.0,
+                     ticks_x=[2023, 2024, 2025, 2026], scrub_label=lambda v: str(int(v)),
+                     events=[(2025 + 2 / 12, "U.S. tariffs take effect")],
+                     end_note=["19.9M trips to the U.S. so far", "in 2026, 25% fewer than 2024"],
+                     note_xy=(862, 1332))
+
+
+def youth():
+    data = [(2018, 67, 32, "Edison"), (2022, 63, 35, "Edison"), (2024, None, None, "Edison"), (2026, 66, 31, "NORC")]
+    margins = {2018: 35, 2022: 28, 2024: 14, 2026: 35}
+    intro, per, hold = 1.0, 1.3, 4.2
+    dur = intro + 4 * per + 0.5 + hold
+    Y0, PX = 1430, 14.5   # baseline, px per point of margin
+    xs = {2018: 230, 2022: 430, 2024: 630, 2026: 830}
+    BW = 150
+
+    def draw(c, t):
+        brand_block(c)
+        header(c, "Trending · Midterms", ["Young Voters Swung Back To", "Democrats By 35 Points"],
+               ["Democratic margin among voters 18–29", "in U.S. House races"], title_size=60)
+        prog = min(max((t - intro) / per, 0), 4)
+        k = min(int(prog), 3)
+        yrs = [2018, 2022, 2024, 2026]
+        scrubber(c, 655, 2018, 2026, 2018 + min(prog / 4, 1) * 8, label=str(yrs[k]) if prog > 0 else "",
+                 ticks=yrs)
+        for v in (0, 10, 20, 30, 40):
+            yy = Y0 - v * PX
+            c.line([110, 980], [yy, yy], color=RULE if v == 0 else GRID, lw=2.5 if v == 0 else 2, z=1)
+            c.text(98, yy + 8, f"D+{v}" if v else "0", size=21, color=FAINT, ha="right")
+        for i, y in enumerate(yrs):
+            g = ease_out(prog - i) if prog > i else 0
+            if g <= 0:
+                c.text(xs[y], Y0 + 42, str(y), size=26, ha="center", color=FAINT)
+                continue
+            m = margins[y]
+            h = m * PX * g
+            col = GREEN if y == 2026 else (BLUE if y != 2024 else "#7FA0C4")
+            c.rect(xs[y] - BW / 2, Y0 - h, BW, h, col, z=3, radius=6)
+            c.text(xs[y], Y0 - h - 18, f"D+{round(m * g)}", size=34, ha="center", weight="bold", color=col)
+            c.text(xs[y], Y0 + 42, str(y), size=26, ha="center", color=INK, weight="bold" if y == 2026 else "normal")
+            sub = {2018: "67% to 32%", 2022: "63% to 35%", 2024: "Edison", 2026: "66% to 31%"}[y]
+            c.text(xs[y], Y0 + 74, sub, size=21, ha="center", color=MUTED)
+        if t > intro + 4 * per + 0.5:
+            a = ease((t - intro - 4 * per - 0.5) / 0.8)
+            note_card(c, ["Young women: 70% Democratic", "Young men: 59% D, 37% R"], 735, a, x_right=575, size=26)
+        footer(c, "Source: CIRCLE (Tufts); Edison exit polls 2018–24, NORC 2026")
+        bottom_band(c)
+    return draw, dur
+
+
+def senate():
+    from senate_data import seats, age, NEW, LEADERS
+    S = seats()
+    people = []   # (key, age, party, phase) phase: stay / leave / new / newpending
+    for s in S:
+        a = age(s["dob"])
+        replaced = s["up"] and (s["st"] in NEW or s["st"] in LEADERS) and not (s["st"] == "OH" and s["cl"] == "1")
+        people.append(dict(name=s["name"], age=a, party=s["party"], kind="leave" if replaced else "stay"))
+        if replaced:
+            n = NEW.get(s["st"]) or LEADERS[s["st"]]
+            people.append(dict(name=n[0], age=age(n[2]), party=n[1], kind="pending" if s["st"] in LEADERS else "new"))
+    LO, HI = 34, 96
+    BIN = 2
+    X0, X1, BASE, R_ = 90, 990, 1380, 12.5
+    nb = int((HI - LO) / BIN)
+    bw = (X1 - X0) / nb
+
+    def layout(members):
+        pos = {}
+        bins = {}
+        for p in sorted(members, key=lambda p: ({"D": 0, "I": 1, "R": 2}[p["party"]], p["age"])):
+            b = int((p["age"] - LO) // BIN)
+            k = bins.get(b, 0)
+            bins[b] = k + 1
+            pos[id(p)] = (X0 + (b + 0.5) * bw, BASE - R_ - k * (2 * R_ + 2))
+        return pos
+    before = [p for p in people if p["kind"] in ("stay", "leave")]
+    after = [p for p in people if p["kind"] in ("stay", "new", "pending")]
+    pb, pa = layout(before), layout(after)
+    mean_b = sum(p["age"] for p in before) / 100
+    mean_a = sum(p["age"] for p in after) / 100
+    u50_b = sum(p["age"] < 50 for p in before)
+    u50_a = sum(p["age"] < 50 for p in after)
+    assert len(after) == 100 and round(mean_b, 1) == 66.1 and round(mean_a, 1) == 63.3
+    COL = {"D": BLUE, "R": RED, "I": "#7A5C99"}
+    T_IN, T_HL, T_OUT, T_NEW, T_END = 1.2, 3.0, 6.0, 8.6, 12.0
+    dur = T_END + 4.5
+    LABELS_B = {"Chuck Grassley": "Grassley, 93", "Mitch McConnell": "McConnell, 84", "Dick Durbin": "Durbin, 82",
+                "Jon Ossoff": "Ossoff, 39"}
+    LABELS_A = {"James Talarico": "Talarico, 37", "Abdul El-Sayed": "El-Sayed, 42", "Chuck Grassley": "Grassley, 93"}
+
+    def draw(c, t):
+        brand_block(c)
+        header(c, "Trending · Politics", ["The Senate Is About", "To Get Younger"],
+               ["Ages of all 100 senators on Jan. 3, 2027, before", "and after the 2026 election"], title_size=60)
+        mv = ease((t - T_NEW) / 2.4)
+        cur = mean_b + (mean_a - mean_b) * mv
+        scrubber(c, 655, 60, 68, cur, label=f"Average {cur:.1f}", ticks=[60, 62, 64, 66, 68])
+        # axis
+        c.line([X0, X1], [BASE + 4, BASE + 4], color=RULE, lw=2.5, z=1)
+        for a in range(40, 97, 10):
+            x = X0 + (a - LO) / BIN * bw
+            c.line([x, x], [BASE + 4, BASE + 14], color=FAINT, lw=2, z=1)
+            c.text(x, BASE + 46, str(a), size=22, color=MUTED, ha="center")
+        c.text(W / 2, BASE + 84, "Age", size=22, color=FAINT, ha="center")
+        # mean markers
+        for m, a_, lab in ((mean_b, 1 - mv * 0.65, "Before"), (mean_a, mv, "After")):
+            if a_ <= 0.02:
+                continue
+            x = X0 + (m - LO) / BIN * bw
+            c.line([x, x], [BASE - 470, BASE + 4], color=INK if lab == "After" else FAINT, lw=2.5, dash=(5, 5), z=2, alpha=a_)
+            c.text(x, BASE - 482, f"{lab}: {m:.1f}", size=22, ha="center", color=INK if lab == "After" else MUTED,
+                   alpha=a_, weight="bold" if lab == "After" else "normal")
+        appear = ease_out((t - 0.2) / T_IN)
+        for p in people:
+            k = p["kind"]
+            col = COL[p["party"]]
+            if k in ("stay", "leave"):
+                x0, y0 = pb[id(p)]
+                if k == "stay":
+                    x1, y1 = pa[id(p)]
+                    f = ease((t - T_NEW - 0.3) / 1.2)
+                    x, y = x0 + (x1 - x0) * f, y0 + (y1 - y0) * f
+                    c.circle(x, y, R_ * appear, col, z=4, alpha=appear)
+                else:
+                    hl = ease((t - T_HL) / 0.6)
+                    out = ease((t - T_OUT) / 1.6)
+                    if out >= 1:
+                        continue
+                    y = y0 - out * 260
+                    c.circle(x0, y, R_ * appear, col, z=5, alpha=appear * (1 - out) * (1 - 0.15 * hl))
+                    if hl > 0:
+                        c.circle(x0, y, R_ + 4, "none", ec=GREEN_LT if False else "#E0B030", lw=4, z=6, alpha=hl * (1 - out))
+            else:
+                f = ease_out((t - T_NEW - 0.2 * (p["age"] % 1)) / 1.1)
+                if f <= 0:
+                    continue
+                x1, y1 = pa[id(p)]
+                y = y1 - (1 - f) * 320
+                if k == "new":
+                    c.circle(x1, y, R_, col, z=5, alpha=f)
+                    c.circle(x1, y, R_ + 4, "none", ec=GREEN, lw=4, z=6, alpha=f)
+                else:
+                    c.circle(x1, y, R_, "white", ec=col, lw=4, z=5, alpha=f)
+        # labels
+        UP = {"Abdul El-Sayed": 46, "Mitch McConnell": 46}
+        def lab(name, text, layout_, alpha):
+            p = next(q for q in people if q["name"] == name)
+            if id(p) not in layout_:
+                return
+            x, y = layout_[id(p)]
+            d = UP.get(name, 0)
+            c.line([x, x], [y - R_ - 4, y - R_ - 40 - d], color=MUTED, lw=1.5, z=6, alpha=alpha)
+            c.text(x, y - R_ - 48 - d, text, size=21, ha="center", color=INK, alpha=alpha, z=7)
+        a1 = ease((t - T_IN) / 0.6) * (1 - ease((t - T_OUT) / 0.6))
+        for n, s_ in LABELS_B.items():
+            if a1 > 0:
+                lab(n, s_, pb, a1)
+        a2 = ease((t - T_NEW - 1.4) / 0.6)
+        for n, s_ in LABELS_A.items():
+            if a2 > 0:
+                lab(n, s_, pa, a2)
+        # status line
+        if T_HL <= t < T_NEW:
+            a = ease((t - T_HL) / 0.5)
+            c.text(W / 2, 745, "19 senators are leaving, gold rings", size=27, ha="center", color=INK, alpha=a)
+        elif t >= T_NEW:
+            a = ease((t - T_NEW) / 0.5)
+            c.text(W / 2, 745, "19 arriving, green rings", size=27, ha="center", color=INK, alpha=a)
+        if t > T_END:
+            a = ease((t - T_END) / 0.8)
+            note_card(c, [f"Under 50: {u50_b} senators now,", f"{u50_a} in January", "Talarico, 37, will be the youngest"],
+                      790, a, x_right=1010, size=25)
+        lx = 250
+        for lbl, cc in (("Democrat", BLUE), ("Republican", RED), ("Independent", "#7A5C99")):
+            c.circle(lx, 1503, 9, cc, z=4)
+            c.text(lx + 16, 1511, lbl, size=21, color=MUTED)
+            lx += 30 + c.text_width(lbl, 21) + 24
+        c.text(W / 2, 1546, "Hollow dots: Alaska and Mississippi leaders, races not yet called", size=19, color=MUTED, ha="center")
+        footer(c, "Source: Wikidata birth dates; AP calls via NBC News")
+        bottom_band(c)
+    return draw, dur
+
+
+POSTS.update({"primetime": primetime, "candy": candy, "canada": canada, "youth": youth, "senate": senate})
+
+
 if __name__ == "__main__":
     name = sys.argv[1]
     draw, dur = POSTS[name]()

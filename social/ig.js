@@ -15,9 +15,14 @@ var REELS={
   travel:{t:'How deadly is each way to travel?',s:'the-drive-to-the-airport-is-the-riskiest-part-of-a-holiday-flight'},
   aging:{t:'Which presidents appeared to age fastest in office?',s:'carter-clinton-and-nixon-appeared-to-age-fastest-in-office-in-a-face-models-reading-of-7000-photos'},
   trust:{t:"Trust in national news is up to 62%, below 2016's 76%",s:'trust-in-national-news-rose-6-points-in-the-past-year-to-62-still-well-below-the-76-of-2016'},
-  renew:{t:'Renewables passed coal as a power source in 2025',s:'renewables-now-generate-more-than-three-times-as-much-of-the-worlds-electricity-as-nuclear-power-does'}
+  renew:{t:'Renewables passed coal as a power source in 2025',s:'renewables-now-generate-more-than-three-times-as-much-of-the-worlds-electricity-as-nuclear-power-does'},
+  primetime:{t:'Which NFL teams get the most prime-time games?',s:'who-owns-prime-time-the-nfl-books-audiences-not-records'},
+  candy:{t:'Candy prices are up 49% since 2020',s:'candy-prices-are-up-49-since-2020-while-overall-prices-rose-29-and-wages-28'},
+  canada:{t:'Canadians are still skipping trips to the U.S.',s:'canadians-made-25-fewer-trips-to-the-us-this-year-than-in-2024-while-their-trips-elsewhere-rose-12'},
+  senate:{t:'The Senate is about to get younger',s:'-'},
+  youth:{t:'Young voters swung back to Democrats by 35 points',s:'-'}
 };
-var HOME_ORDER=['luka','midterms','solar','turnout','coal','travel'];
+var HOME_ORDER=['senate','primetime','youth','luka','candy','canada'];
 var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 var GLYPH='<svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="5.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.25" fill="currentColor"/></svg>';
 
