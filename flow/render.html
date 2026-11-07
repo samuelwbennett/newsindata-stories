@@ -6,6 +6,6 @@
 @font-face{font-family:Montserrat;font-weight:800;src:url(fonts/montserrat-latin-800-normal.woff2)}
 body{margin:0;background:#000}</style><canvas id=c></canvas>
 <script src="engine.js"></script><script>
-window.go=async function(cfgUrl){const cfg=await fetch(cfgUrl).then(r=>r.json());await document.fonts.load('800 40px Montserrat');await document.fonts.load('400 20px Montserrat');await document.fonts.load('600 20px Montserrat');await document.fonts.load('700 20px Montserrat');await document.fonts.load('500 20px Montserrat');
+window.go=async function(cfgUrl){const cfg=await fetch(cfgUrl).then(r=>r.json());cfg.base.src=cfg.base.src.split('/').pop();await document.fonts.load('800 40px Montserrat');await document.fonts.load('400 20px Montserrat');await document.fonts.load('600 20px Montserrat');await document.fonts.load('700 20px Montserrat');await document.fonts.load('500 20px Montserrat');
 window.F=NIDFlow(document.getElementById('c'),cfg,{});await new Promise(r=>{(function w(){F.ready()?r():setTimeout(w,50)})()});return F.frames;};
 </script>

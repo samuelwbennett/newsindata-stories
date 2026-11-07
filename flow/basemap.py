@@ -1,7 +1,7 @@
 import numpy as np, sys, json, warnings; warnings.filterwarnings('ignore')
 from PIL import Image, ImageFilter
 import geopandas as gpd, matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt
-def make(ext,W,H,out):
+def make(ext,W,H,out,HL=None):
     lon0,lon1,lat0,lat1=ext
     N=np.asarray(Image.open('earth_normal_2048.jpg').convert('RGB')).astype(float)/255*2-1
     S=np.asarray(Image.open('earth_specular_2048.jpg').convert('L')).astype(float)/255
@@ -28,7 +28,10 @@ def make(ext,W,H,out):
     fig=plt.figure(figsize=(W/100,H/100),dpi=100,facecolor='#0b0f16');ax=fig.add_axes([0,0,1,1]);ax.set_axis_off()
     ax.imshow(img,extent=[lon0,lon1,lat0,lat1],aspect='auto')
     wd.boundary.plot(ax=ax,color='#5a6472',linewidth=0.35,alpha=0.55)
-    ax.set_xlim(lon0,lon1);ax.set_ylim(lat0,lat1)
+    if HL:
+        a=wd[wd.name==HL[0]].geometry.iloc[0].buffer(0.05);b=wd[wd.name==HL[1]].geometry.iloc[0]
+        gpd.GeoSeries([a.intersection(b.boundary)]).plot(ax=ax,color='#c9a46a',linewidth=1.1,alpha=0.75)
+    ax.set_aspect('auto');ax.set_xlim(lon0,lon1);ax.set_ylim(lat0,lat1)
     fig.savefig(out,dpi=100,facecolor='#0b0f16');plt.close(fig)
 if __name__=='__main__':
-    a=json.loads(sys.argv[1]);make(a['ext'],a['W'],a['H'],a['out'])
+    a=json.loads(sys.argv[1]);make(a['ext'],a['W'],a['H'],a['out'],a.get('hl'))
