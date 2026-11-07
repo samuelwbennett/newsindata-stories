@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+ ['sinking1126','Science',"The Ground Under Medan, Indonesia, Dropped Nearly A Foot",'medan-indonesia-sank-about-a-foot-in-nine-years-seven-times-faster-than-the-sea-is-rising'],
  ['fly26','Trending',"Flying Home For The Holidays Is Safer",'the-drive-to-the-airport-is-the-riskiest-part-of-a-holiday-flight'],
  ['luka40','Sports',"Luka Dončić Is Scoring Like Wilt",'luka-doncic-is-scoring-401-points-a-game-a-pace-only-wilt-chamberlain-has-topped'],
  ['canada26','Trending',"Canadians Are Still Skipping U.S. Trips",'canadians-made-25-fewer-trips-to-the-us-this-year-than-in-2024-while-their-trips-elsewhere-rose-12'],
