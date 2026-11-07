@@ -2,7 +2,7 @@
 (function(){
   var S=document.currentScript&&document.currentScript.src||'https://stories.thenewsindata.com/flow/embed.js';var BASE=S.replace(/embed\.js.*$/,'');
   function css(){if(document.getElementById('nid-flow-css'))return;var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap';document.head.appendChild(l);
-    var s=document.createElement('style');s.id='nid-flow-css';s.textContent='.nid-flow{max-width:540px;margin:2.4em auto;font-family:Montserrat,Arial,sans-serif}.nid-flow canvas{width:100%;height:auto;display:block;border-radius:10px;background:#0b0f16}'+
+    var s=document.createElement('style');s.id='nid-flow-css';s.textContent='.nid-flow{max-width:540px;margin:2.4em auto;font-family:Montserrat,Arial,sans-serif}.nid-flow.wide{max-width:100%}.nid-flow canvas{width:100%;height:auto;display:block;border-radius:10px;background:#0b0f16}'+
     '.nid-flow .ctl{display:flex;align-items:center;gap:12px;margin-top:10px}.nid-flow button{font-family:inherit;font-weight:700;font-size:14px;border:0;border-radius:18px;padding:8px 16px;background:#14211b;color:#fff;cursor:pointer;min-width:84px}'+
     '.nid-flow input[type=range]{flex:1;accent-color:#d9622b}.nid-flow .cap{font-size:12.5px;color:#5f6b66;margin-top:6px;font-family:Georgia,serif}';document.head.appendChild(s);}
   function load(src,cb){if(window.NIDFlow)return cb();var s=document.createElement('script');s.src=src;s.onload=cb;document.head.appendChild(s);}

@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+ ['canada26','Trending',"Canadians Are Still Skipping U.S. Trips",'canadians-made-25-fewer-trips-to-the-us-this-year-than-in-2024-while-their-trips-elsewhere-rose-12'],
  ['hormuz','Business',"The Strait Of Hormuz Has Gone Dark",'ship-crossings-through-the-strait-of-hormuz-have-fallen-94-since-the-iran-war-began'],
  ['coal1126','Science',"China's Emissions Have Stopped Rising",'chinas-emissions-have-been-flat-or-falling-since-march-2024-and-69-countries-now-emit-at-least-10-less-than-at-their-peak'],
  ['jobs1026','Business',"Employers Added 165,000 Jobs In October",'employers-added-165000-jobs-in-october-more-than-three-times-the-monthly-average-of-the-past-year'],

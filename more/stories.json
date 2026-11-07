@@ -3,6 +3,12 @@
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
   {
+   "slug": "canadians-made-25-fewer-trips-to-the-us-this-year-than-in-2024-while-their-trips-elsewhere-rose-12",
+   "title": "Canadians Made 25% Fewer Trips To The U.S. This Year Than In 2024, While Their Trips Elsewhere Rose 12%",
+   "section": "Trending",
+   "image": "https://stories.thenewsindata.com/canada/canada-lead.png"
+  },
+  {
    "slug": "ship-crossings-through-the-strait-of-hormuz-have-fallen-94-since-the-iran-war-began",
    "title": "Ship Crossings Through The Strait Of Hormuz Have Fallen 94% Since The Iran War Began",
    "section": "Business",
