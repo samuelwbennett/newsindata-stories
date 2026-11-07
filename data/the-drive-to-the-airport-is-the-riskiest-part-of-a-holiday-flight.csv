@@ -1,0 +1,144 @@
+measure,series,year,value
+deaths per 100 million passenger-miles (NSC),Passenger vehicles,2007,0.66
+deaths per 100 million passenger-miles (NSC),Passenger vehicles,2008,0.59
+deaths per 100 million passenger-miles (NSC),Passenger vehicles,2009,0.53
+deaths per 100 million passenger-miles (NSC),Passenger vehicles,2010,0.5
+deaths per 100 million passenger-miles (NSC),Passenger vehicles,2011,0.48
+deaths per 100 million passenger-miles (NSC),Passenger vehicles,2012,0.49
+deaths per 100 million passenger-miles (NSC),Passenger vehicles,2013,0.47
+deaths per 100 million passenger-miles (NSC),Passenger vehicles,2014,0.46
+deaths per 100 million passenger-miles (NSC),Passenger vehicles,2015,0.49
+deaths per 100 million passenger-miles (NSC),Passenger vehicles,2016,0.5
+deaths per 100 million passenger-miles (NSC),Passenger vehicles,2017,0.49
+deaths per 100 million passenger-miles (NSC),Passenger vehicles,2018,0.47
+deaths per 100 million passenger-miles (NSC),Passenger vehicles,2019,0.46
+deaths per 100 million passenger-miles (NSC),Passenger vehicles,2020,0.56
+deaths per 100 million passenger-miles (NSC),Passenger vehicles,2021,0.57
+deaths per 100 million passenger-miles (NSC),Passenger vehicles,2022,0.59
+deaths per 100 million passenger-miles (NSC),Passenger vehicles,2023,0.5
+deaths per 100 million passenger-miles (NSC),Passenger vehicles,2024,0.46
+deaths per 100 million passenger-miles (NSC),Buses,2007,0.03
+deaths per 100 million passenger-miles (NSC),Buses,2008,0.08
+deaths per 100 million passenger-miles (NSC),Buses,2009,0.04
+deaths per 100 million passenger-miles (NSC),Buses,2010,0.05
+deaths per 100 million passenger-miles (NSC),Buses,2011,0.06
+deaths per 100 million passenger-miles (NSC),Buses,2012,0.04
+deaths per 100 million passenger-miles (NSC),Buses,2013,0.06
+deaths per 100 million passenger-miles (NSC),Buses,2014,0.04
+deaths per 100 million passenger-miles (NSC),Buses,2015,0.04
+deaths per 100 million passenger-miles (NSC),Buses,2016,0.014
+deaths per 100 million passenger-miles (NSC),Buses,2017,0.008
+deaths per 100 million passenger-miles (NSC),Buses,2018,0.008
+deaths per 100 million passenger-miles (NSC),Buses,2019,0.007
+deaths per 100 million passenger-miles (NSC),Buses,2020,0.004
+deaths per 100 million passenger-miles (NSC),Buses,2021,0.002
+deaths per 100 million passenger-miles (NSC),Buses,2022,0.004
+deaths per 100 million passenger-miles (NSC),Buses,2023,0.007
+deaths per 100 million passenger-miles (NSC),Buses,2024,0.009
+deaths per 100 million passenger-miles (NSC),Railroad passenger trains,2007,0.03
+deaths per 100 million passenger-miles (NSC),Railroad passenger trains,2008,0.12
+deaths per 100 million passenger-miles (NSC),Railroad passenger trains,2009,0.02
+deaths per 100 million passenger-miles (NSC),Railroad passenger trains,2010,0.02
+deaths per 100 million passenger-miles (NSC),Railroad passenger trains,2011,0.03
+deaths per 100 million passenger-miles (NSC),Railroad passenger trains,2012,0.02
+deaths per 100 million passenger-miles (NSC),Railroad passenger trains,2013,0.03
+deaths per 100 million passenger-miles (NSC),Railroad passenger trains,2014,0.02
+deaths per 100 million passenger-miles (NSC),Railroad passenger trains,2015,0.07
+deaths per 100 million passenger-miles (NSC),Railroad passenger trains,2016,0.01
+deaths per 100 million passenger-miles (NSC),Railroad passenger trains,2017,0.04
+deaths per 100 million passenger-miles (NSC),Railroad passenger trains,2018,0.03
+deaths per 100 million passenger-miles (NSC),Railroad passenger trains,2019,0.005
+deaths per 100 million passenger-miles (NSC),Railroad passenger trains,2020,0.01
+deaths per 100 million passenger-miles (NSC),Railroad passenger trains,2021,0.04
+deaths per 100 million passenger-miles (NSC),Railroad passenger trains,2022,0.03
+deaths per 100 million passenger-miles (NSC),Railroad passenger trains,2023,0.004
+deaths per 100 million passenger-miles (NSC),Railroad passenger trains,2024,0.01
+deaths per 100 million passenger-miles (NSC),Scheduled airlines,2008,0.0
+deaths per 100 million passenger-miles (NSC),Scheduled airlines,2009,0.01
+deaths per 100 million passenger-miles (NSC),Scheduled airlines,2010,0.0
+deaths per 100 million passenger-miles (NSC),Scheduled airlines,2011,0.0
+deaths per 100 million passenger-miles (NSC),Scheduled airlines,2012,0.0
+deaths per 100 million passenger-miles (NSC),Scheduled airlines,2013,0.001
+deaths per 100 million passenger-miles (NSC),Scheduled airlines,2014,0.0
+deaths per 100 million passenger-miles (NSC),Scheduled airlines,2015,0.0
+deaths per 100 million passenger-miles (NSC),Scheduled airlines,2016,0.001
+deaths per 100 million passenger-miles (NSC),Scheduled airlines,2017,0.0
+deaths per 100 million passenger-miles (NSC),Scheduled airlines,2018,0.00014
+deaths per 100 million passenger-miles (NSC),Scheduled airlines,2019,0.000398
+deaths per 100 million passenger-miles (NSC),Scheduled airlines,2020,0.001
+deaths per 100 million passenger-miles (NSC),Scheduled airlines,2021,0.0
+deaths per 100 million passenger-miles (NSC),Scheduled airlines,2022,0.001
+deaths per 100 million passenger-miles (NSC),Scheduled airlines,2023,0.0
+deaths per 100 million passenger-miles (NSC),Scheduled airlines,2024,0.0
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",us_airlines_part121,2013,0.0112488210532484
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",us_airlines_part121,2014,0.0
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",us_airlines_part121,2015,0.0
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",us_airlines_part121,2016,0.0
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",us_airlines_part121,2017,0.0
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",us_airlines_part121,2018,0.0051844486862451
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",us_airlines_part121,2019,0.0101194044184051
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",us_airlines_part121,2020,0.0
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",us_airlines_part121,2021,0.0
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",us_airlines_part121,2022,0.0056122690937111
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",us_airlines_part121,2023,0.0
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",us_airlines_part121,2024,0.0
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",charter_air_taxi_part135_ondemand,2013,0.2955437324927281
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",charter_air_taxi_part135_ondemand,2014,0.2189503138789593
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",charter_air_taxi_part135_ondemand,2015,0.196309824016656
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",charter_air_taxi_part135_ondemand,2016,0.2000276038093257
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",charter_air_taxi_part135_ondemand,2017,0.2279558825582691
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",charter_air_taxi_part135_ondemand,2018,0.1821699354025409
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",charter_air_taxi_part135_ondemand,2019,0.3187046144709954
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",charter_air_taxi_part135_ondemand,2020,0.1975371073456149
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",charter_air_taxi_part135_ondemand,2021,0.2011267118397261
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",charter_air_taxi_part135_ondemand,2022,0.0906942691651728
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",charter_air_taxi_part135_ondemand,2023,0.221399415892991
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",charter_air_taxi_part135_ondemand,2024,0.1431290779363798
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",general_aviation,2013,1.118387125701993
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",general_aviation,2014,1.2998671739648942
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",general_aviation,2015,1.0983631861319303
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",general_aviation,2016,0.98435591272363
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",general_aviation,2017,0.9353666699550413
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",general_aviation,2018,1.0247714494242746
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",general_aviation,2019,1.0733605713103838
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",general_aviation,2020,1.0434621519057807
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",general_aviation,2021,0.956032345578924
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",general_aviation,2022,0.9359890403224522
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",general_aviation,2023,0.749519155404941
+"fatal accidents per 100,000 flight hours (NTSB via BTS)",general_aviation,2024,0.7213873622130763
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,1990,39.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,1991,50.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,1992,33.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,1993,1.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,1994,239.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,1995,168.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,1996,380.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,1997,8.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,1998,1.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,1999,12.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2000,92.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2001,531.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2002,0.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2003,22.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2004,14.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2005,22.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2006,50.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2007,1.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2008,3.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2009,52.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2010,2.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2011,0.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2012,0.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2013,9.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2014,0.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2015,0.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2016,0.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2017,0.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2018,1.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2019,4.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2020,0.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2021,0.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2022,1.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2023,0.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2024,0.0
+"deaths, all persons (NTSB via BTS table 2-9; 2025 preliminary)",us_airline_accident_deaths,2025,82.0

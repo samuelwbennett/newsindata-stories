@@ -1,7 +1,13 @@
 {
- "updated": "2026-11-02",
+ "updated": "2026-11-07",
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
+  {
+   "slug": "the-drive-to-the-airport-is-the-riskiest-part-of-a-holiday-flight",
+   "title": "The Drive To The Airport Is The Riskiest Part Of A Holiday Flight",
+   "section": "Trending",
+   "image": "https://stories.thenewsindata.com/fly/fly-lead.png"
+  },
   {
    "slug": "luka-doncic-is-scoring-401-points-a-game-a-pace-only-wilt-chamberlain-has-topped",
    "title": "Luka Dončić Is Scoring 40.1 Points A Game, A Pace Only Wilt Chamberlain Has Topped",
