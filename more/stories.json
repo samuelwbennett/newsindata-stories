@@ -3,6 +3,12 @@
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
   {
+   "slug": "chinas-emissions-have-been-flat-or-falling-since-march-2024-and-69-countries-now-emit-at-least-10-less-than-at-their-peak",
+   "title": "China's Emissions Have Been Flat Or Falling Since March 2024, And 69 Countries Now Emit At Least 10% Less Than At Their Peak",
+   "section": "Science",
+   "image": "https://stories.thenewsindata.com/coal/map-lead.png"
+  },
+  {
    "slug": "employers-added-165000-jobs-in-october-more-than-three-times-the-monthly-average-of-the-past-year",
    "title": "Employers Added 165,000 Jobs In October, More Than Three Times The Monthly Average Of The Past Year",
    "section": "Business",
