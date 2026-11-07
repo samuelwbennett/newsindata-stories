@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+ ['luka40','Sports',"Luka Dončić Is Scoring Like Wilt",'luka-doncic-is-scoring-401-points-a-game-a-pace-only-wilt-chamberlain-has-topped'],
  ['canada26','Trending',"Canadians Are Still Skipping U.S. Trips",'canadians-made-25-fewer-trips-to-the-us-this-year-than-in-2024-while-their-trips-elsewhere-rose-12'],
  ['hormuz','Business',"The Strait Of Hormuz Has Gone Dark",'ship-crossings-through-the-strait-of-hormuz-have-fallen-94-since-the-iran-war-began'],
  ['coal1126','Science',"China's Emissions Have Stopped Rising",'chinas-emissions-have-been-flat-or-falling-since-march-2024-and-69-countries-now-emit-at-least-10-less-than-at-their-peak'],
