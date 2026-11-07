@@ -199,9 +199,9 @@
       if(sel){var i=rows.indexOf(sel),x=xp(sel[2])*W,y=yy(i);g.beginPath();g.arc(x,y,7.5,0,7);g.strokeStyle=GREEN;g.lineWidth=3;g.stroke();
         var l=document.createElement('div');l.className='lab';l.textContent=sel[0];l.style.left=Math.max(40,Math.min(W-40,x))+'px';l.style.top=(y-27)+'px';strip.appendChild(l);}}
     function select(r,fromUser){if(!r)return;sel=r;STATE.focus=r;var card=mount.querySelector('.card'),nine=r[2]*9,ratio=r[2]/SEA_RATE,line;
-      if(r[2]<0)line=esc(place(r))+'’s ground rose slightly, about '+Math.abs(r[2])+' mm a year.';
-      else if(r[2]===0)line=esc(place(r))+'’s ground held steady at the median.';
-      else line=esc(place(r))+' sank '+r[2]+' mm a year, '+(ratio>=1?ratio.toFixed(1)+' times':Math.round(ratio*100)+'% of')+' the rate the sea is rising.';
+      if(r[2]<0)line='The ground under '+esc(place(r))+', rose slightly, about '+Math.abs(r[2])+' mm a year.';
+      else if(r[2]===0)line='The ground under '+esc(place(r))+', held steady at the median.';
+      else line=esc(place(r))+', sank '+r[2]+' mm a year, '+(ratio>=1?ratio.toFixed(1)+' times':Math.round(ratio*100)+'% of')+' the rate the sea is rising.';
       card.innerHTML='<div><div class="big">'+line+'</div><p>It ranks '+r[5]+' of 465 for fastest sinking. Its fastest-sinking 5% of ground dropped at least '+r[3]+' mm a year.</p></div>'+
         '<div class="stats"><div class="stat"><b>'+(nine<0?'+':'−')+Math.abs(nine).toFixed(0)+' mm</b><span>Change at the median, 2014–2023 ('+inch(Math.abs(nine))+' in)</span></div><div class="stat"><b>'+r[4]+'%</b><span>Share of the city sinking faster than 10 mm a year</span></div></div>';
       draw();if(fromUser&&STATE.globeTo)STATE.globeTo(r);else if(STATE.globePaint)STATE.globePaint();}
