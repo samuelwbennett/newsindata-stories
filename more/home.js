@@ -56,3 +56,9 @@ function run(){
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
 })();
+/* Instagram follow band (home page) and follow card (end of every story): social/ig.js */
+(function(){
+  if(window.top!==window.self)return;
+  var s=document.createElement('script');s.src='https://stories.thenewsindata.com/social/ig.js';s.defer=true;
+  (document.body||document.head).appendChild(s);
+})();
