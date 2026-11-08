@@ -7,8 +7,13 @@ if(window.top!==window.self)return;
 if(location.pathname!=='/'&&location.pathname!=='')return;
 if(window.__nidPlay)return;window.__nidPlay=1;
 var BASE='https://stories.thenewsindata.com/play/';
-var GUESS={slug:'candy',q:'From August 2020 to August 2026, how much did candy prices rise?',min:0,max:100,start:15,unit:'%'};
-var SIDE={slug:'canada',k:'Guess the number',t:'How much have Canadians cut back on trips to the U.S.?'};
+/* The slider game rotates on each visit; the side tile shows a different game. */
+var GAMES=[
+ {slug:'luka',k:'Guess the number \u00b7 Sports',q:'Through nine games, how many points a game is Luka Don\u010di\u0107 scoring?',min:20,max:55,start:30,unit:' pts'},
+ {slug:'manu',k:'Guess the number \u00b7 Culture',q:'Rappers have named Manu Gin\u00f3bili in how many songs?',min:0,max:3000,step:25,start:300,unit:''},
+ {slug:'candy',k:'Guess the number \u00b7 Trending',q:'From August 2020 to August 2026, how much did candy prices rise?',min:0,max:100,start:15,unit:'%'}
+];
+var gi=Math.floor(Math.random()*GAMES.length),GUESS=GAMES[gi],SIDE=GAMES[(gi+1)%GAMES.length];
 
 var CSS=[
 '.npl{--g:#007A55;--gd:#005C40;--gl:#E6F2EC;--ink:#13241B;--mute:#5F7268;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);box-sizing:border-box}',
@@ -43,12 +48,12 @@ var CSS=[
 ].join('');
 
 function css(){if(document.getElementById('npl-css'))return;var s=document.createElement('style');s.id='npl-css';s.textContent=CSS;document.head.appendChild(s)}
-function fmt(v){return v+GUESS.unit}
+function fmt(v){return Number(v).toLocaleString('en-US')+GUESS.unit}
 
 /* mini beeswarm of the newest Today's Chart puzzle; the mystery is the green dot */
 function mini(p){
-  var W=420,H=86,r=3.6,vals=p.items.map(function(i){return i[1]}),lo=Math.min.apply(0,vals),hi=Math.max.apply(0,vals);
-  var x=function(v){return 8+(v-lo)/(hi-lo||1)*(W-16)},pts=p.items.map(function(it){return {it:it,x:x(it[1]),y:0}}).sort(function(a,b){return a.x-b.x}),placed=[],d=2*r+.8;
+  var W=420,H=86,r=3.6,tv=function(v){return p.log?Math.log10(Math.max(v,1)):v},vals=p.items.map(function(i){return tv(i[1])}),lo=Math.min.apply(0,vals),hi=Math.max.apply(0,vals);
+  var x=function(v){return 8+(tv(v)-lo)/(hi-lo||1)*(W-16)},pts=p.items.map(function(it){return {it:it,x:x(it[1]),y:0}}).sort(function(a,b){return a.x-b.x}),placed=[],d=2*r+.8;
   pts.forEach(function(q){for(var k=0;k<120;k++){var off=(k%2?1:-1)*Math.ceil(k/2)*d*.9;if(Math.abs(off)>34)off=Math.sign(off)*34;var ok=placed.every(function(o){var dx=o.x-q.x,dy=o.y-off;return dx*dx+dy*dy>=d*d});if(ok||Math.abs(off)>=34){q.y=off;break}}placed.push(q)});
   var s='<svg viewBox="0 0 '+W+' '+H+'" aria-hidden="true">',a;
   pts.forEach(function(q){if(q.it[0]===p.answer){a=q;return}s+='<circle cx="'+q.x+'" cy="'+(H/2+q.y)+'" r="'+r+'" fill="#D3DBD6"/>'});
@@ -67,11 +72,11 @@ function band(){
     '<h2 class="npl-h">Guess first, <em>then</em> see the data.</h2>'+
     '<p class="npl-p">Commit to a number before the chart appears. Then see how close you were, how every other reader guessed, and share your result.</p>'+
     '<div class="npl-try"><p class="npl-q">'+GUESS.q+'</p>'+
-    '<div class="npl-row"><span class="npl-val" aria-live="polite">'+fmt(GUESS.start)+'</span><label style="position:absolute;left:-9999px" for="npl-r">Your guess</label><input class="npl-range" id="npl-r" type="range" min="'+GUESS.min+'" max="'+GUESS.max+'" step="1" value="'+GUESS.start+'"></div>'+
+    '<div class="npl-row"><span class="npl-val" aria-live="polite">'+fmt(GUESS.start)+'</span><label style="position:absolute;left:-9999px" for="npl-r">Your guess</label><input class="npl-range" id="npl-r" type="range" min="'+GUESS.min+'" max="'+GUESS.max+'" step="'+(GUESS.step||1)+'" value="'+GUESS.start+'"></div>'+
     '<a class="npl-cta" href="'+BASE+GUESS.slug+'/">Lock in my guess →</a><div class="npl-note">Opens the full game with your answer, the chart and the crowd.</div></div>'+
     '</div><div class="npl-tiles">'+
-    (p?'<a class="npl-tile" href="'+BASE+'today/"><small>Today’s Chart #'+p.n+'</small><b>'+p.ask+'</b>'+mini(p)+'<span>Find it in six guesses →</span></a>':'')+
-    '<a class="npl-tile" href="'+BASE+SIDE.slug+'/"><small>'+SIDE.k+'</small><b>'+SIDE.t+'</b><span>Make your guess →</span></a>'+
+    (p?'<a class="npl-tile" href="'+BASE+'today/"><small>Today’s Chart #'+p.n+' · '+p.topic+'</small><b>'+p.ask+'</b>'+mini(p)+'<span>Find it in six guesses →</span></a>':'')+
+    '<a class="npl-tile" href="'+BASE+SIDE.slug+'/"><small>'+SIDE.k+'</small><b>'+SIDE.q+'</b><span>Make your guess →</span></a>'+
     '<a class="npl-all" href="'+BASE+'">All games →</a>'+
     '</div></div>';
   lead.parentNode.insertBefore(d,lead.nextSibling);
@@ -80,7 +85,7 @@ function band(){
   a.onclick=function(){if(!moved)a.href=BASE+GUESS.slug+'/'};
   return true;
 }
-function load(){var s=document.createElement('script');s.src=BASE+'today/puzzles.js?v=2';s.onload=s.onerror=go;document.head.appendChild(s)}
+function load(){var s=document.createElement('script');s.src=BASE+'today/puzzles.js?v=4';s.onload=s.onerror=go;document.head.appendChild(s)}
 var tries=0;function go(){if(band()||++tries>20)return;setTimeout(go,300)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load);else load();
 })();

@@ -8,13 +8,14 @@ var key='nid-today-'+p.n,st=NID.store(key)||{g:[],done:false,won:false};
 var byName={};p.items.forEach(function(it){byName[it[0].toLowerCase()]=it});
 Object.keys(p.aliases||{}).forEach(function(a){byName[a.toLowerCase()]=byName[p.aliases[a].toLowerCase()]});
 var ans=byName[p.answer.toLowerCase()];
-function fmt(v){var s=(Math.round(v*10)/10).toFixed(p.dec);return (v<0?'−'+s.slice(1):s)+p.suffix}
+function fmt(v){if(p.kind==='views')return v>=1e6?(v/1e6).toFixed(1)+'M':v>=1e3?Math.round(v/1e3)+'K':String(v);var s=(Math.round(v*10)/10).toFixed(p.dec);return (v<0?'−'+s.slice(1):s)+p.suffix+(p.unit&&Math.abs(v)!==1?p.unit:p.unit?p.unit.replace(/s$/,''):'')}
+function tv(v){return p.log?Math.log10(Math.max(v,1)):v}
 var root=document.getElementById('today');
 
 /* beeswarm layout, shared by page and card */
 function swarm(W,r,cap){
-  var vals=p.items.map(function(i){return i[1]}),lo=Math.min.apply(0,vals),hi=Math.max.apply(0,vals),pad=(hi-lo)*.03;
-  lo-=pad;hi+=pad;var x=function(v){return r+(v-lo)/(hi-lo)*(W-2*r)};
+  var vals=p.items.map(function(i){return tv(i[1])}),lo=Math.min.apply(0,vals),hi=Math.max.apply(0,vals),pad=(hi-lo)*.03;
+  lo-=pad;hi+=pad;var x=function(v){return r+(tv(v)-lo)/(hi-lo)*(W-2*r)};
   var pts=p.items.map(function(it){return {it:it,x:x(it[1]),y:0}}).sort(function(a,b){return a.x-b.x});
   var placed=[],d=2*r+1;
   pts.forEach(function(q){
@@ -23,14 +24,14 @@ function swarm(W,r,cap){
   });
   var ext=Math.max.apply(0,pts.map(function(q){return Math.abs(q.y)}))+r;
   if(cap&&ext>cap){var k=(cap-r)/(ext-r);pts.forEach(function(q){q.y*=k});ext=cap}
-  return {pts:pts,ext:ext,x:x,lo:lo,hi:hi,min:Math.min.apply(0,vals),max:Math.max.apply(0,vals)};
+  return {pts:pts,ext:ext,x:x,lo:lo,hi:hi,min:Math.min.apply(0,p.items.map(function(i){return i[1]})),max:Math.max.apply(0,p.items.map(function(i){return i[1]}))};
 }
 function chartSVG(){
   var W=420,r=4.5,s=swarm(W,r,64),top=46,mid=top+s.ext,H=mid+s.ext+52+Math.min(st.g.length,4)*15,guessed={};
   st.g.forEach(function(g){guessed[g]=1});
   var o='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+esc(p.axis+'. The mystery is the green dot at '+fmt(ans[1])+'.')+'">';
   o+='<line x1="0" x2="'+W+'" y1="'+(H-34)+'" y2="'+(H-34)+'" stroke="'+C.INK+'" stroke-width="2"/>';
-  var tk=[[s.min,'start'],[s.max,'end']];if(s.min<0&&s.max>0&&s.x(0)-s.x(s.min)>60&&s.x(s.max)-s.x(0)>60)tk.push([0,'middle']);
+  var tk=[[s.min,'start'],[s.max,'end']];if(s.min<0&&s.max>0&&s.x(0)-s.x(s.min)>60&&s.x(s.max)-s.x(0)>60)tk.push([0,'middle']);if(p.log){tk=[];[1e3,1e4,1e5,1e6].forEach(function(v){if(v>=s.min&&v<=s.max)tk.push([v,'middle'])})}
   tk.forEach(function(t){o+='<line x1="'+s.x(t[0])+'" x2="'+s.x(t[0])+'" y1="'+(H-34)+'" y2="'+(H-28)+'" stroke="'+C.INK+'" stroke-width="1.5"/><text x="'+s.x(t[0])+'" y="'+(H-12)+'" font-size="13" fill="'+C.MUTE+'" text-anchor="'+t[1]+'">'+esc(fmt(t[0]))+'</text>'});
   var labels='',gl=[];
   s.pts.forEach(function(q){
@@ -73,7 +74,7 @@ function emoji(){return st.g.map(function(g){var it=byName[g.toLowerCase()];retu
 function render(fresh){
   var hint='';(p.hints||[]).forEach(function(h){var misses=st.g.length-(st.won?1:0);if(misses>=h[0])hint+='<div class="p-hint"><b>Hint:</b> '+esc(h[1])+'</div>'});
   var tries=st.g.map(function(g){var it=byName[g.toLowerCase()];if(it===ans)return '<li class="ok"><span>'+esc(g)+' · '+esc(fmt(it[1]))+'</span><span class="dir">Correct</span></li>';
-    var up=ans[1]>it[1];return '<li><span>'+esc(g)+' · '+esc(fmt(it[1]))+(it[2]?' (peak '+it[2]+')':'')+'</span><span class="dir" style="color:'+C.GD+'">'+(up?'▶ ':'◀ ')+esc(up?p.higher:p.lower)+'</span></li>'}).join('');
+    var up=ans[1]>it[1],same=ans[1]===it[1];return '<li><span>'+esc(g)+' · '+esc(fmt(it[1]))+(it[2]&&p.id==='co2-peak'?' (peak '+it[2]+')':'')+'</span><span class="dir" style="color:'+C.GD+'">'+(same?'= Same number, different answer':(up?'▶ ':'◀ ')+esc(up?p.higher:p.lower))+'</span></li>'}).join('');
   var dots='';for(var i=0;i<MAX;i++)dots+='<i class="'+(i<st.g.length?(st.won&&i===st.g.length-1?'win':'used'):'')+'"></i>';
   var h='<div class="p-card"><p class="p-kick">Today’s Chart #'+p.n+' · '+esc(p.topic)+'</p><p class="p-q">'+esc(p.ask)+'</p><p class="p-qsub" style="margin-bottom:6px">'+esc(p.clue)+'</p>'+
     '<p class="p-ctitle" style="font-size:16px;margin-top:14px">'+esc(p.axis)+'</p><div class="p-chart">'+chartSVG()+'</div>'+

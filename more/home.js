@@ -65,6 +65,6 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 /* Play band (home page, under the top story): play/home-band.js */
 (function(){
   if(window.top!==window.self)return;
-  var s=document.createElement('script');s.src='https://stories.thenewsindata.com/play/home-band.js?v=1';s.defer=true;
+  var s=document.createElement('script');s.src='https://stories.thenewsindata.com/play/home-band.js?v=2';s.defer=true;
   (document.body||document.head).appendChild(s);
 })();
