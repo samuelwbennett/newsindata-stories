@@ -33,16 +33,16 @@ var STORY={
 var CSS=[
 '.npc{--g:#007A55;--gd:#005C40;--ink:#13241B;--mute:#5F7268;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);box-sizing:border-box;margin:2.2em auto!important;max-width:620px;position:relative;border-radius:16px;padding:20px 20px 18px;',
 /* the one bit of shine: a thin iridescent edge that drifts slowly */
-'border:1.5px solid transparent;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(115deg,#E7C77A,#F2D3E4,#BFE5DD,#C8D6F4,#E7C77A,#F2D3E4) border-box;background-size:100% 100%,300% 100%;box-shadow:0 10px 28px rgba(19,36,27,.08)}',
+'border:2px solid transparent;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(115deg,#E2B94F,#EBB8D6,#8FD3C4,#A9BCEF,#E2B94F,#EBB8D6) border-box;background-size:100% 100%,300% 100%;box-shadow:0 10px 28px rgba(19,36,27,.08)}',
 '@media (prefers-reduced-motion:no-preference){.npc{animation:npcSheen 9s linear infinite}.npc-spark{animation:npcTw 3.2s ease-in-out infinite}}',
 '@keyframes npcSheen{0%{background-position:0 0,0% 0}100%{background-position:0 0,300% 0}}',
 '@keyframes npcTw{0%,70%,100%{transform:scale(1) rotate(0);opacity:1}82%{transform:scale(1.35) rotate(20deg);opacity:.85}}',
 '.npc *{box-sizing:border-box}',
 '.npc a{text-decoration:none!important}',
 '.npc .npc-top{display:flex;align-items:center;gap:8px;margin:0 0 8px}',
-'.npc .npc-spark{width:18px;height:18px;flex:none;display:block}',
+'.npc .npc-spark{width:20px;height:20px;flex:none;display:block}',
 '.npc .npc-k{font-size:12px!important;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g)!important;line-height:1.2!important;margin:0!important}',
-'.npc p.npc-q{font-family:"Times New Roman",Times,serif!important;font-size:22px!important;font-weight:700!important;line-height:1.22!important;margin:0 0 10px!important;color:var(--ink)!important}',
+'.npc .npc-q{font-family:"Times New Roman",Times,serif!important;font-size:22px!important;font-weight:700!important;line-height:1.22!important;margin:0 0 10px!important;color:var(--ink)!important}',
 '.npc-row{display:flex;align-items:center;gap:14px;margin:4px 0 2px}',
 '.npc-val{font-family:"Times New Roman",Times,serif;font-size:40px;font-weight:700;color:var(--g);min-width:2.6em;font-variant-numeric:tabular-nums;line-height:1}',
 '.npc-range{flex:1;min-width:0;accent-color:#007A55;height:36px}',
@@ -50,8 +50,8 @@ var CSS=[
 '.npc a.npc-cta{display:inline-flex!important;align-items:center;gap:8px;background:var(--g)!important;color:#fff!important;border-radius:999px;padding:12px 20px;font-size:15px!important;font-weight:700;line-height:1.2!important;margin-top:8px;transition:transform .2s,background .2s,box-shadow .2s}',
 '.npc a.npc-cta:hover{background:var(--gd)!important;transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,92,64,.22)}',
 '.npc a.npc-cta:focus-visible,.npc-range:focus-visible{outline:3px solid #7FC4A6;outline-offset:3px}',
-'.npc p.npc-note{font-size:13px!important;color:var(--mute)!important;margin:10px 0 0!important;line-height:1.4!important}',
-'.npc p.npc-note a{color:var(--g)!important;font-weight:600}'
+'.npc .npc-note{font-size:13px!important;color:var(--mute)!important;margin:10px 0 0!important;line-height:1.4!important}',
+'.npc .npc-note a{color:var(--g)!important;font-weight:600}'
 ].join('');
 var SPARK='<svg class="npc-spark" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="npcG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F3D27A"/><stop offset=".45" stop-color="#E9B949"/><stop offset=".75" stop-color="#E7B8D3"/><stop offset="1" stop-color="#9FD8CC"/></linearGradient></defs><path d="M12 1.5c.6 4.9 2.6 7.4 9 10.5-6.4 3.1-8.4 5.6-9 10.5-.6-4.9-2.6-7.4-9-10.5 6.4-3.1 8.4-5.6 9-10.5z" fill="url(#npcG)"/></svg>';
 
@@ -72,13 +72,13 @@ function build(){
   var pick=STORY[slug]||{},P=window.NID_PUZZLES||[],h,g,key;
   if(pick.guess&&GUESS[pick.guess]){
     key=pick.guess;g=GUESS[key];
-    h='<div class="npc-top">'+SPARK+'<p class="npc-k">Play · '+esc(g.k)+'</p></div><p class="npc-q">'+esc(g.q)+'</p>'+
+    h='<div class="npc-top">'+SPARK+'<div class="npc-k">Play · '+esc(g.k)+'</div></div><div class="npc-q">'+esc(g.q)+'</div>'+
       '<div class="npc-row"><span class="npc-val" aria-live="polite">'+fmt(g,g.start)+'</span><label style="position:absolute;left:-9999px" for="npc-r">Your guess</label><input class="npc-range" id="npc-r" type="range" min="'+g.min+'" max="'+g.max+'" step="'+(g.step||1)+'" value="'+g.start+'"></div>'+
-      '<a class="npc-cta" href="'+BASE+key+'/">Lock in my guess →</a><p class="npc-note">See the answer, how every other reader guessed, and a card to share. <a href="'+BASE+'">More games</a></p>';
+      '<a class="npc-cta" href="'+BASE+key+'/">Lock in my guess →</a><div class="npc-note">See the answer, how every other reader guessed, and a card to share. <a href="'+BASE+'">More games</a></div>';
   }else{
     var p=null;P.forEach(function(x){if(x.n===pick.today)p=x});if(!p)p=P[P.length-1];if(!p)return null;
-    h='<div class="npc-top">'+SPARK+'<p class="npc-k">Play · Today’s Chart #'+p.n+' · '+esc(p.topic)+'</p></div><p class="npc-q">'+esc(p.ask)+'</p>'+mini(p)+
-      '<a class="npc-cta" href="'+BASE+'today/?n='+p.n+'">Find it in six guesses →</a><p class="npc-note">'+esc(p.clue)+' <a href="'+BASE+'">More games</a></p>';
+    h='<div class="npc-top">'+SPARK+'<div class="npc-k">Play · Today’s Chart #'+p.n+' · '+esc(p.topic)+'</div></div><div class="npc-q">'+esc(p.ask)+'</div>'+mini(p)+
+      '<a class="npc-cta" href="'+BASE+'today/?n='+p.n+'">Find it in six guesses →</a><div class="npc-note">'+esc(p.clue)+' <a href="'+BASE+'">More games</a></div>';
   }
   var d=document.createElement('aside');d.className='npc';d.setAttribute('aria-label','Play a 30-second data game');d.innerHTML=h;
   if(g){var r=d.querySelector('.npc-range'),v=d.querySelector('.npc-val'),a=d.querySelector('.npc-cta');
