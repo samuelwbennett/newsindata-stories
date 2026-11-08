@@ -17,13 +17,14 @@ NID.store=store;
 /* ---------- crowd ---------- */
 var C=window.NID_CROWD||null;
 function api(path,body){
-  return fetch(C.url+'/rest/v1/'+path,{method:'POST',headers:{'apikey':C.key,'Authorization':'Bearer '+C.key,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(body)})
+  var h={'apikey':C.key,'Content-Type':'application/json'};if(path.indexOf('rpc/')!==0)h.Prefer='return=minimal';
+  return fetch(C.url+'/rest/v1/'+path,{method:'POST',headers:h,body:JSON.stringify(body)})
     .then(function(r){if(!r.ok)throw new Error(r.status);return r.status===204?null:r.json()});
 }
 NID.crowd={
   on:!!(C&&C.url&&C.key),
-  submit:function(game,value){if(!this.on)return Promise.resolve(null);return api('guesses',{game:game,value:value}).catch(function(){return null})},
-  stats:function(game,lo,hi,nb,mine,ans){if(!this.on)return Promise.resolve(null);return api('rpc/guess_stats',{g:game,lo:lo,hi:hi,nb:nb,mine:mine,ans:ans}).catch(function(){return null})}
+  submit:function(game,value){if(!this.on)return Promise.resolve(null);return api('nid_guesses',{game:game,value:value}).catch(function(){return null})},
+  stats:function(game,lo,hi,nb,mine,ans){if(!this.on)return Promise.resolve(null);return api('rpc/nid_guess_stats',{g:game,lo:lo,hi:hi,nb:nb,mine:mine,ans:ans}).catch(function(){return null})}
 };
 
 /* ---------- bar chart (SVG on the page, canvas on the card) ---------- */
