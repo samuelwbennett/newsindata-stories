@@ -11,6 +11,7 @@ var BASE='https://stories.thenewsindata.com/play/';
 var GAMES=[
  {slug:'luka',k:'Guess the number \u00b7 Sports',q:'Through nine games, how many points a game is Luka Don\u010di\u0107 scoring?',min:20,max:55,start:30,unit:' pts'},
  {slug:'manu',k:'Guess the number \u00b7 Culture',q:'Rappers have named Manu Gin\u00f3bili in how many songs?',min:0,max:3000,step:25,start:300,unit:''},
+ {slug:'japan',k:'Guess the number \u00b7 Culture',q:'What share of Japanese adults say no one is very close to them?',min:0,max:60,start:10,unit:'%'},
  {slug:'candy',k:'Guess the number \u00b7 Trending',q:'From August 2020 to August 2026, how much did candy prices rise?',min:0,max:100,start:15,unit:'%'}
 ];
 var gi=Math.floor(Math.random()*GAMES.length),GUESS=GAMES[gi],SIDE=GAMES[(gi+1)%GAMES.length];
@@ -85,7 +86,7 @@ function band(){
   a.onclick=function(){if(!moved)a.href=BASE+GUESS.slug+'/'};
   return true;
 }
-function load(){var s=document.createElement('script');s.src=BASE+'today/puzzles.js?v=4';s.onload=s.onerror=go;document.head.appendChild(s)}
+function load(){var s=document.createElement('script');s.src=BASE+'today/puzzles.js?v=5';s.onload=s.onerror=go;document.head.appendChild(s)}
 var tries=0;function go(){if(band()||++tries>20)return;setTimeout(go,300)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load);else load();
 })();
