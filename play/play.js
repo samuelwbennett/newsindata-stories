@@ -156,6 +156,7 @@ NID.guessGame=function(c){
   function show(){big.textContent=c.fmt(+rng.value)}rng.oninput=show;show();
   $('.p-lock',root).onclick=function(){var v=+rng.value;store(key,v);NID.crowd.submit(c.id,v);reveal(v,true)};
   if(prev!=null)reveal(prev,false);
+  else{var q=new URLSearchParams(location.search).get('g');if(q!==null&&q!==''&&!isNaN(+q)&&+q>=c.min&&+q<=c.max){rng.value=+q;show();try{history.replaceState(null,'',location.pathname)}catch(e){}$('.p-lock',root).click()}}
   function reveal(v,fresh){
     $('.p-ask',root).classList.add('p-hide');
     var r=$('.p-reveal',root);r.classList.remove('p-hide');
