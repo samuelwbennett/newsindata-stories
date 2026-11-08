@@ -68,3 +68,10 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   var s=document.createElement('script');s.src='https://stories.thenewsindata.com/play/home-band.js?v=2';s.defer=true;
   (document.body||document.head).appendChild(s);
 })();
+/* Play card on every story page, after the first chart: play/story-card.js */
+(function(){
+  if(window.top!==window.self)return;
+  if(!/^\/stories\/[^\/]+/.test(location.pathname))return;
+  var s=document.createElement('script');s.src='https://stories.thenewsindata.com/play/story-card.js?v=1';s.defer=true;
+  (document.body||document.head).appendChild(s);
+})();

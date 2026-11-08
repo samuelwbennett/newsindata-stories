@@ -1,6 +1,6 @@
 /* The News in Data: Play card on every story page.
-   Placed right after the story's first chart. Stories with their own game get that game;
-   every other story gets the newest Today's Chart. Loaded site-wide by more/home.js.
+   Placed right after the story's first chart. Each listed story gets a related game whose answer it doesn't
+   already show; every other story gets the newest Today's Chart. Loaded site-wide by more/home.js.
    To give a new story its own game: add its slug to STORY below. */
 (function(){
 if(window.top!==window.self)return;
@@ -18,16 +18,17 @@ var GUESS={
 };
 /* story slug -> game. Anything not listed gets the newest Today's Chart. */
 var STORY={
+ /* Each story offers a related game whose answer it doesn't already show. */
  'chinas-emissions-have-been-flat-or-falling-since-march-2024-and-69-countries-now-emit-at-least-10-less-than-at-their-peak':{today:2},
- 'in-the-worlds-largest-flourishing-study-8-of-the-10-richest-countries-rank-in-the-bottom-half':{today:5},
- 'one-in-three-japanese-adults-say-theres-no-one-they-feel-very-close-to-more-than-twice-the-us-share':{guess:'japan'},
- 'candy-prices-are-up-49-since-2020-while-overall-prices-rose-29-and-wages-28':{guess:'candy'},
- 'canadians-made-25-fewer-trips-to-the-us-this-year-than-in-2024-while-their-trips-elsewhere-rose-12':{guess:'canada'},
- 'luka-doncic-is-scoring-401-points-a-game-a-pace-only-wilt-chamberlain-has-topped':{guess:'luka'},
- 'rappers-have-named-manu-ginbili-in-at-least-1489-songs-and-most-came-after-he-retired':{guess:'manu'},
- 'who-owns-prime-time-the-nfl-books-audiences-not-records':{today:3},
- 'one-mickey-mouse-club-cast-produced-five-major-award-winners-and-nearly-half-its-members-never-got-a-wikipedia-page':{today:4},
- 'midterm-turnout-in-2022-ranged-from-31-in-tennessee-to-62-in-oregon':{today:1}
+ 'in-the-worlds-largest-flourishing-study-8-of-the-10-richest-countries-rank-in-the-bottom-half':{guess:'japan'},
+ 'one-in-three-japanese-adults-say-theres-no-one-they-feel-very-close-to-more-than-twice-the-us-share':{today:5},
+ 'candy-prices-are-up-49-since-2020-while-overall-prices-rose-29-and-wages-28':{guess:'canada'},
+ 'canadians-made-25-fewer-trips-to-the-us-this-year-than-in-2024-while-their-trips-elsewhere-rose-12':{guess:'candy'},
+ 'luka-doncic-is-scoring-401-points-a-game-a-pace-only-wilt-chamberlain-has-topped':{today:3},
+ 'who-owns-prime-time-the-nfl-books-audiences-not-records':{guess:'luka'},
+ 'rappers-have-named-manu-ginbili-in-at-least-1489-songs-and-most-came-after-he-retired':{today:4},
+ 'one-mickey-mouse-club-cast-produced-five-major-award-winners-and-nearly-half-its-members-never-got-a-wikipedia-page':{guess:'manu'},
+ 'midterm-turnout-in-2022-ranged-from-31-in-tennessee-to-62-in-oregon':{guess:'candy'}
 };
 
 var CSS=[
