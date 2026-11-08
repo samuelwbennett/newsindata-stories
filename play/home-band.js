@@ -52,7 +52,7 @@ function mini(p){
   pts.forEach(function(q){for(var k=0;k<120;k++){var off=(k%2?1:-1)*Math.ceil(k/2)*d*.9;if(Math.abs(off)>34)off=Math.sign(off)*34;var ok=placed.every(function(o){var dx=o.x-q.x,dy=o.y-off;return dx*dx+dy*dy>=d*d});if(ok||Math.abs(off)>=34){q.y=off;break}}placed.push(q)});
   var s='<svg viewBox="0 0 '+W+' '+H+'" aria-hidden="true">',a;
   pts.forEach(function(q){if(q.it[0]===p.answer){a=q;return}s+='<circle cx="'+q.x+'" cy="'+(H/2+q.y)+'" r="'+r+'" fill="#D3DBD6"/>'});
-  if(a)s+='<circle cx="'+a.x+'" cy="'+(H/2+a.y)+'" r="'+(r+4)+'" fill="#007A55" stroke="#fff" stroke-width="2"/><text x="'+a.x+'" y="'+(H/2+a.y-12)+'" text-anchor="middle" font-family="Times New Roman,serif" font-weight="700" font-size="16" fill="#007A55">?</text>';
+  if(a)s+='<circle cx="'+a.x+'" cy="'+(H/2+a.y)+'" r="'+(r+4)+'" fill="#007A55" stroke="#fff" stroke-width="2"/><text x="'+a.x+'" y="'+(H/2+a.y-14)+'" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke" font-family="Times New Roman,serif" font-weight="700" font-size="16" fill="#007A55">?</text>';
   return s+'</svg>';
 }
 

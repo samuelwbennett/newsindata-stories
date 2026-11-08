@@ -108,7 +108,7 @@ function wire(root,keys){
 function css(){if(document.getElementById('nig-css'))return;var s=document.createElement('style');s.id='nig-css';s.textContent=CSS;document.head.appendChild(s);}
 
 function homeBand(){
-  var nid=document.querySelector('div.nid'), anchor=nid&&nid.querySelector(':scope > .head');
+  var nid=document.querySelector('div.nid'), anchor=nid&&nid.querySelector(':scope > .grid');  /* band sits after the Latest grid; the Play band sits under the top story */
   if(!anchor||document.querySelector('.nig-band'))return false;
   css();
   var d=document.createElement('section'); d.className='nig nig-band'; d.setAttribute('aria-label','Follow The News in Data on Instagram');
@@ -122,7 +122,7 @@ function homeBand(){
     '<span class="nig-card l" style="background-image:url('+BASE+'coal-grid.jpg)"></span>'+
     '<span class="nig-card r" style="background-image:url('+BASE+'trust-grid.jpg)"></span>'+
     phone(HOME_ORDER,true)+'</a></div>';
-  nid.insertBefore(d,anchor);
+  nid.insertBefore(d,anchor.nextSibling);
   wire(d,HOME_ORDER);
   return true;
 }
