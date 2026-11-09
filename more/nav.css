@@ -7,6 +7,8 @@
 #header .header-background{background:rgba(255,255,255,.82)!important;-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px)}
 #header .header-border{border-bottom:1px solid rgba(0,0,0,.08)!important}
 #header .header-dropshadow{display:none}
+#header .header-skip-link{position:absolute!important;left:8px;top:-100px!important}
+#header .header-skip-link:focus{top:8px!important}
 @media (min-width:768px){
 #header .header-announcement-bar-wrapper{padding-top:0!important;padding-bottom:0!important}
 #header .header-inner{padding-top:0!important;padding-bottom:0!important;min-height:48px}
@@ -25,5 +27,5 @@
 #header .header-actions-action--social{margin:0!important}
 #header .header-icon{width:16px!important;height:16px!important;margin:0 6px!important;opacity:.8}
 #header .header-icon svg{width:16px!important;height:16px!important}
-#header .header-actions-action--cta .btn{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif!important;font-size:12px!important;font-weight:500!important;padding:6px 14px!important;border-radius:980px!important;letter-spacing:0!important}
+#header .header-actions-action--cta .btn{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif!important;font-size:12px!important;font-weight:500!important;padding:4px 12px!important;border-radius:980px!important;letter-spacing:0!important}
 }
