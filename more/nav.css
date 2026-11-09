@@ -1,10 +1,11 @@
 /* The News in Data: apple.com-style header (Nov. 9, 2026) */
+/* Installed in Squarespace Website Tools > Custom CSS (appended at the end). Wrap LESS-like functions in ~"..." there. */
 /* hide Election 2026 everywhere in navigation */
 .header-nav-item:has(> a[href="/election-2026"]),
 .header-menu-nav-item:has(> a[href="/election-2026"]){display:none!important}
 /* bar */
 #header,header#header{position:sticky!important;top:0;z-index:999}
-#header .header-background{background:rgba(255,255,255,.82)!important;-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px)}
+#header .header-background{background:rgba(255,255,255,.82)!important;-webkit-backdrop-filter:~"saturate(180%) blur(20px)";backdrop-filter:~"saturate(180%) blur(20px)"}
 #header .header-border{border-bottom:1px solid rgba(0,0,0,.08)!important}
 #header .header-dropshadow{display:none}
 #header .header-skip-link{position:absolute!important;left:8px;top:-100px!important}
