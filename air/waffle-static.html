@@ -20,35 +20,47 @@ var A=[
 var size=new URLSearchParams(location.search).get('size')||'post';
 var svg=document.getElementById('c'),out='';
 function t(x,y,s,o){o=o||{};return '<text x="'+x+'" y="'+y+'" font-size="'+(o.fs||20)+'" font-weight="'+(o.fw||400)+'" fill="'+(o.c||INK)+'" text-anchor="'+(o.a||'start')+'"'+(o.cls?' class="'+o.cls+'"':'')+(o.ls?' letter-spacing="'+o.ls+'"':'')+'>'+s+'</text>'}
-/* squares fill from the bottom row up, left to right; the last square is filled in proportion */
-function block(x,yBase,val,color,cell,gap,cols){
-  var n=val/100,full=Math.floor(n),frac=n-full,s='',sq=cell-gap,total=Math.ceil(n);
+/* Tiles fill from the bottom row up, left to right; the last tile is filled in proportion.
+   Every tile is a card-shaped rectangle; card-partner tiles get a gold chip so they read as credit cards. */
+var GOLD='#D9A93B',GOLDL='#F3D27A';
+function tile(x,y,w,h,color,chip){
+  var s='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="'+(h*0.16).toFixed(1)+'" fill="'+color+'"/>';
+  if(chip){
+    var cw=w*0.22,ch=h*0.27,cx=x+w*0.13,cy=y+h*0.30;
+    s+='<rect x="'+cx.toFixed(1)+'" y="'+cy.toFixed(1)+'" width="'+cw.toFixed(1)+'" height="'+ch.toFixed(1)+'" rx="1.6" fill="url(#chip)"/>';
+    s+='<rect x="'+(x+w*0.13).toFixed(1)+'" y="'+(y+h*0.74).toFixed(1)+'" width="'+(w*0.5).toFixed(1)+'" height="'+Math.max(1.4,h*0.06).toFixed(1)+'" rx=".7" fill="#fff" opacity=".45"/>';
+  }
+  return s;
+}
+function block(x,yBase,val,color,cw,chh,gap,cols,chip){
+  var n=val/100,full=Math.floor(n),frac=n-full,s='',tw=cw-gap,th=chh-gap,total=Math.ceil(n);
   for(var i=0;i<total;i++){
-    var c=i%cols,r=Math.floor(i/cols),xx=x+c*cell,yy=yBase-(r+1)*cell+gap;
-    if(i<full){s+='<rect x="'+xx+'" y="'+yy+'" width="'+sq+'" height="'+sq+'" rx="3" fill="'+color+'"/>'}
-    else{s+='<rect x="'+xx+'" y="'+yy+'" width="'+sq+'" height="'+sq+'" rx="3" fill="'+EMPTY+'"/><rect x="'+xx+'" y="'+yy+'" width="'+(sq*frac).toFixed(1)+'" height="'+sq+'" rx="3" fill="'+color+'"/>'}
+    var c=i%cols,r=Math.floor(i/cols),xx=x+c*cw,yy=yBase-(r+1)*chh+gap;
+    if(i<full){s+=tile(xx,yy,tw,th,color,chip)}
+    else{s+='<rect x="'+xx+'" y="'+yy+'" width="'+tw+'" height="'+th+'" rx="'+(th*0.16).toFixed(1)+'" fill="'+EMPTY+'"/>'+'<rect x="'+xx+'" y="'+yy+'" width="'+(tw*frac).toFixed(1)+'" height="'+th+'" rx="'+(th*0.16).toFixed(1)+'" fill="'+color+'"/>'}
   }
   return {svg:s,rows:Math.ceil(total/cols)};
 }
+var DEFS='<defs><linearGradient id="chip" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+GOLDL+'"/><stop offset="1" stop-color="'+GOLD+'"/></linearGradient></defs>';
 if(size==='post'){
   var W=1080,H=1350;svg.setAttribute('width',W);svg.setAttribute('height',H);svg.setAttribute('viewBox','0 0 '+W+' '+H);
-  out+='<rect width="'+W+'" height="'+H+'" fill="#fff"/>';
+  out+=DEFS+'<rect width="'+W+'" height="'+H+'" fill="#fff"/>';
   out+=t(W/2,92,'Credit Card Partners Paid American Airlines',{fs:50,fw:700,a:'middle'});
   out+=t(W/2,150,'Four Times Its Operating Profit In 2025',{fs:50,fw:700,a:'middle'});
-  out+=t(W/2,200,'Cash from co-branded credit card partners vs. operating profit. Each square is $100 million.',{fs:23,c:MUTE,a:'middle'});
+  out+=t(W/2,200,'Cash from co-branded credit card partners vs. operating profit. Each tile is $100 million.',{fs:23,c:MUTE,a:'middle'});
   /* legend */
   var lx=W/2-250;
-  out+='<rect x="'+lx+'" y="228" width="22" height="22" rx="3" fill="'+INK+'"/>'+t(lx+32,246,'Operating profit',{fs:22});
-  out+='<rect x="'+(lx+235)+'" y="228" width="22" height="22" rx="3" fill="'+G+'"/>'+t(lx+267,246,'Paid by credit card partners',{fs:22});
-  var cell=37,gap=6,cols=10,bw=cols*cell-gap,left=(W-(2*bw+100))/2,right=left+bw+100;
-  var bases=[668,1206];
+  out+=tile(lx-4,229,32,21,INK,false)+t(lx+36,246,'Operating profit',{fs:22});
+  out+=tile(lx+231,229,32,21,G,true)+t(lx+271,246,'Paid by credit card partners',{fs:22});
+  var cell=48,ch=34,gap=6,cols=9,bw=cols*cell-gap,left=(W-(2*bw+90))/2,right=left+bw+90;
+  var bases=[660,1206];
   A.forEach(function(a,i){
     var base=bases[i];
-    var p=block(left,base,a.profit,INK,cell,gap,cols),c=block(right,base,a.card,G,cell,gap,cols);
-    var top=base-Math.max(p.rows,c.rows)*cell;
+    var p=block(left,base,a.profit,INK,cell,ch,gap,cols,false),c=block(right,base,a.card,G,cell,ch,gap,cols,true);
+    var top=base-Math.max(p.rows,c.rows)*ch;
     out+=t(left,top-118,a.name,{fs:34,fw:700});
     out+='<line x1="'+left+'" x2="'+(right+bw)+'" y1="'+(top-100)+'" y2="'+(top-100)+'" stroke="'+INK+'" stroke-width="2"/>';
-    var pt=base-p.rows*cell, ct=base-c.rows*cell;
+    var pt=base-p.rows*ch, ct=base-c.rows*ch;
     out+=t(left,pt-46,'$'+(a.profit/1000).toFixed(1)+' billion',{fs:38,fw:700});
     out+=t(left,pt-16,'operating profit',{fs:21,c:MUTE});
     out+=t(right,ct-46,'$'+(a.card/1000).toFixed(1)+' billion',{fs:38,fw:700,c:G});
@@ -60,15 +72,15 @@ if(size==='post'){
   out+=t(W/2,1300,'Data: 2025 annual reports (Form 10-K) and Delta’s full-year 2025 earnings release  •  thenewsindata.com',{fs:18,c:MUTE,a:'middle'});
 }else{
   var W=1200,H=630;svg.setAttribute('width',W);svg.setAttribute('height',H);svg.setAttribute('viewBox','0 0 '+W+' '+H);
-  out+='<rect width="'+W+'" height="'+H+'" fill="#fff"/><rect width="'+W+'" height="10" fill="'+G+'"/>';
+  out+=DEFS+'<rect width="'+W+'" height="'+H+'" fill="#fff"/><rect width="'+W+'" height="10" fill="'+G+'"/>';
   ['Credit Card Partners','Paid American Airlines','Four Times Its','Operating Profit'].forEach(function(l,i){out+=t(64,140+i*66,l,{fs:56,fw:700})});
-  out+=t(64,440,'2025. Each square is $100 million.',{fs:26,c:MUTE});
-  out+='<rect x="64" y="478" width="22" height="22" rx="3" fill="'+INK+'"/>'+t(96,497,'Operating profit',{fs:24});
-  out+='<rect x="64" y="516" width="22" height="22" rx="3" fill="'+G+'"/>'+t(96,535,'Paid by card partners',{fs:24});
-  var cell=38,gap=6,cols=10,bw=cols*cell-gap,a=A[0],base=560,px=640,cx=px;
-  var c=block(cx,base,a.card,G,cell,gap,cols),p=block(cx,base-c.rows*cell-96,a.profit,INK,cell,gap,cols);
-  out+=t(cx,base-c.rows*cell-16,'$6.2B from card partners',{fs:30,fw:700,c:G});
-  out+=t(cx,base-c.rows*cell-96-p.rows*cell-14,'$1.5B operating profit',{fs:30,fw:700});
+  out+=t(64,440,'2025. Each tile is $100 million.',{fs:26,c:MUTE});
+  out+=tile(60,479,32,21,INK,false)+t(102,497,'Operating profit',{fs:24});
+  out+=tile(60,517,32,21,G,true)+t(102,535,'Paid by card partners',{fs:24});
+  var cell=46,ch=31,gap=5,cols=10,bw=cols*cell-gap,a=A[0],base=575,px=668,cx=px;
+  var c=block(cx,base,a.card,G,cell,ch,gap,cols,true),p=block(cx,base-c.rows*ch-92,a.profit,INK,cell,ch,gap,cols,false);
+  out+=t(cx,base-c.rows*ch-16,'$6.2B from card partners',{fs:30,fw:700,c:G});
+  out+=t(cx,base-c.rows*ch-92-p.rows*ch-14,'$1.5B operating profit',{fs:30,fw:700});
   out+=c.svg+p.svg;
   out+=t(W-48,600,'thenewsindata.com',{fs:20,c:MUTE,a:'end'});
 }

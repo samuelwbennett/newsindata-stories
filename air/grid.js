@@ -57,7 +57,10 @@ function squares(val,color,opts){
     if(opts.cap){
       s+='<rect class="cell" data-i="'+(i+1)+'" x="'+x+'" y="'+y+'" width="'+sq+'" height="'+sq+'" rx="1.4" fill="#fff" stroke="#CBD5CF" stroke-width=".6" stroke-dasharray="1.4 1"/>';
     }else if(i<full){
-      s+='<rect class="sq'+(opts.hidden?' off':'')+'" style="transition-delay:'+(reduce?0:i*12)+'ms" x="'+x+'" y="'+y+'" width="'+sq+'" height="'+sq+'" rx="1.4" fill="'+color+'"/>';
+      var dl='transition-delay:'+(reduce?0:i*12)+'ms',cl='sq'+(opts.hidden?' off':'');
+      s+='<rect class="'+cl+'" style="'+dl+'" x="'+x+'" y="'+y+'" width="'+sq+'" height="'+sq+'" rx="1.4" fill="'+color+'"/>';
+      /* card-partner squares get a small gold chip so they read as credit cards */
+      if(opts.chip)s+='<rect class="'+cl+'" style="'+dl+'" x="'+(x+1.5)+'" y="'+(y+2.6)+'" width="2.4" height="1.9" rx=".4" fill="#F0C75E"/><rect class="'+cl+'" style="'+dl+'" x="'+(x+1.5)+'" y="'+(y+6)+'" width="4.4" height=".55" rx=".25" fill="#fff" opacity=".5"/>';
     }else{
       s+='<rect x="'+x+'" y="'+y+'" width="'+sq+'" height="'+sq+'" rx="1.4" fill="#EEF2EF"/><rect class="sq'+(opts.hidden?' off':'')+'" style="transition-delay:'+(reduce?0:i*12)+'ms" x="'+x+'" y="'+y+'" width="'+(sq*frac).toFixed(2)+'" height="'+sq+'" rx="1.4" fill="'+color+'"/>';
     }
@@ -80,7 +83,7 @@ function mount(el){
     var a=AIR[cur],x=(a.card/a.profit).toFixed(1),key='nid-air-miles-'+cur,prev=store(key);
     body.innerHTML=
       '<div class="ag-sec"><div class="ag-row"><span class="ag-lab">Operating profit</span><span class="ag-val">'+bil(a.profit)+'</span></div>'+squares(a.profit,'#13241B',{label:a.full+' operating profit, '+bil(a.profit)})+'</div>'+
-      '<div class="ag-sec ag-card"><div class="ag-row"><span class="ag-lab" style="color:#007A55">Paid by credit card partners</span><span class="ag-val" style="color:#007A55">'+bil(a.card)+'</span></div>'+squares(a.card,'#007A55',{hidden:animate&&!reduce,label:a.full+' cash from card partners, '+bil(a.card)})+'<div class="ag-sub">'+x+' times its operating profit.</div></div>'+
+      '<div class="ag-sec ag-card"><div class="ag-row"><span class="ag-lab" style="color:#007A55">Paid by credit card partners</span><span class="ag-val" style="color:#007A55">'+bil(a.card)+'</span></div>'+squares(a.card,'#007A55',{chip:true,hidden:animate&&!reduce,label:a.full+' cash from card partners, '+bil(a.card)})+'<div class="ag-sub">'+x+' times its operating profit.</div></div>'+
       '<div class="ag-sec ag-miles"><div class="ag-row"><span class="ag-lab" style="color:#9A6B00">Owed to members in unspent miles</span><span class="ag-val ag-mv" style="color:#9A6B00">?</span></div>'+
       '<div class="ag-q"><b>Your turn.</b> Every mile a bank buys and a member hasn’t spent is a debt the airline owes. Tap the square where you think '+a.name+'’s ends.</div>'+
       '<div class="ag-gold"><div class="ag-grid ag-tap">'+squares(0,'',{cap:CAP})+'</div></div>'+

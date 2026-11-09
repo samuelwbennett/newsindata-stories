@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Air charts (static render source)</title>
+<meta name="robots" content="noindex">
+<style>
+html,body{margin:0;background:#fff}
+svg{display:block}
+text{font-family:"Times New Roman","Liberation Serif",Times,serif}
+</style></head><body>
+<!-- Renders the supporting charts for the airline story at 1080x1350:
+     ?c=mekko (where every dollar went, six biggest), ?c=margin (profit per dollar), ?c=costs (costs per dollar).
+     Values: FY2025 Form 10-Ks via SEC XBRL, $ millions (data/credit-card-partners-...csv). Card cash: AA 10-K, Delta FY2025 release. -->
+<svg id="c" width="1080" height="1350" viewBox="0 0 1080 1350"></svg>
+<script>
+var INK='#13241B',G='#007A55',GOLD='#D9A93B',SAL='#2F4A3E',OTHER='#DCE3DF',MUTE='#5F7268',LOSS='#B5462F',W=1080,H=1350;
+var D=[ /* airline, revenue, opex, salaries, fuel, opinc, card */
+ ['Delta',63364,57542,17520,9819,5822,8200],
+ ['United',59070,54356,17647,11396,4713,null],
+ ['American',54633,53166,17566,10718,1467,6200],
+ ['Southwest',28063,27635,12963,5240,428,null],
+ ['Alaska',14239,13936,4763,2879,303,null],
+ ['JetBlue',9062,9430,3453,2057,-368,null],
+ ['Frontier',3724,3873,1016,929,-149,null],
+ ['Allegiant',2607,2569,833,640,37,null],
+ ['Sun Country',1127,1026,373,213,101,null]
+].map(function(r){return {n:r[0],rev:r[1],opex:r[2],sal:r[3],fuel:r[4],op:r[5],card:r[6]}});
+function t(x,y,s,o){o=o||{};return '<text x="'+x+'" y="'+y+'" font-size="'+(o.fs||20)+'" font-weight="'+(o.fw||400)+'" fill="'+(o.c||INK)+'" text-anchor="'+(o.a||'start')+'"'+(o.ls?' letter-spacing="'+o.ls+'"':'')+(o.tr?' transform="'+o.tr+'"':'')+(o.halo?' stroke="#fff" stroke-width="5" paint-order="stroke"':'')+'>'+s+'</text>'}
+function c1(v){return (Math.round(v*10)/10).toFixed(1)+'¢'}
+function head(title,sub){return t(W/2,84,title,{fs:52,fw:700,a:'middle'})+t(W/2,128,sub,{fs:24,c:MUTE,a:'middle'})}
+function key(items,y){ /* centered legend */
+  var widths=items.map(function(i){return 34+i[0].length*9.4+34}),tot=widths.reduce(function(a,b){return a+b},0),x=(W-tot)/2,s='';
+  items.forEach(function(i,k){s+=sw(x,y-17,i[1])+t(x+32,y,i[0],{fs:21});x+=widths[k]});return s}
+function sw(x,y,f){if(f==='card')return '<rect x="'+x+'" y="'+y+'" width="22" height="22" rx="3" fill="url(#hatch)" stroke="'+G+'" stroke-width="2" stroke-dasharray="4 3"/>';return '<rect x="'+x+'" y="'+y+'" width="22" height="22" rx="3" fill="'+f+'"/>'}
+var DEFS='<defs><pattern id="hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" fill="#fff"/><rect width="4" height="9" fill="'+G+'" opacity=".38"/></pattern><pattern id="hatchT" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="3" height="9" fill="#fff" opacity=".55"/></pattern>'+
+ '<pattern id="hatchL" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" fill="#F7E3DE"/><rect width="4" height="9" fill="'+LOSS+'" opacity=".55"/></pattern></defs>';
+var foot=function(){return t(W/2,1312,'Data: 2025 annual reports (Form 10-K); Delta’s full-year 2025 earnings release  •  thenewsindata.com',{fs:18,c:MUTE,a:'middle'})};
+var c=new URLSearchParams(location.search).get('c')||'mekko',o=DEFS+'<rect width="'+W+'" height="'+H+'" fill="#fff"/>';
+
+if(c==='mekko'){
+  var six=D.slice(0,6),tot=six.reduce(function(a,d){return a+d.rev},0);
+  o+=head('Where Every Airline Dollar Went','Six largest U.S. airlines, 2025. Each column is as wide as the airline’s revenue.');
+  o+=key([['Salaries and benefits',SAL],['Fuel',GOLD],['Everything else',OTHER],['Operating profit',G],['Loss',LOSS]],186);
+  o+=key([['Cash from credit card partners (only Delta and American report it)','card']],222);
+  var L=118,R=1040,T=280,B=1130,gap=5,y=function(v){return B-(v)*(B-T)/1.06},x=L;
+  /* gridlines and y axis */
+  [0,.25,.5,.75,1].forEach(function(v){o+='<line x1="'+L+'" x2="'+R+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="'+(v===1?'#9AA9A1':'#E3E8E4')+'" stroke-width="'+(v===1?1.5:1)+'"'+(v===1?' stroke-dasharray="6 5"':'')+'/>'+t(L-12,y(v)+7,v===1?'$1':(v*100)+'¢',{fs:20,a:'end',fw:v===1?700:400})});
+  var usable=R-L-gap*(six.length-1);
+  six.forEach(function(d){
+    var w=usable*d.rev/tot,s=d.sal/d.rev,f=d.fuel/d.rev,ot=(d.opex-d.sal-d.fuel)/d.rev,cost=d.opex/d.rev,p=d.op/d.rev;
+    var segs=[[0,s,SAL,'#fff'],[s,s+f,GOLD,INK],[s+f,cost,OTHER,INK]];
+    segs.forEach(function(g){o+='<rect x="'+x.toFixed(1)+'" y="'+y(g[1]).toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+(y(g[0])-y(g[1])).toFixed(1)+'" fill="'+g[2]+'"/>';
+      if(w>120)o+=t(x+w/2,(y(g[0])+y(g[1]))/2+8,c1((g[1]-g[0])*100),{fs:22,fw:700,c:g[3],a:'middle'})});
+    if(p>0){o+='<rect x="'+x.toFixed(1)+'" y="'+y(1).toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+(y(cost)-y(1)).toFixed(1)+'" fill="'+G+'"/>';
+      o+=t(x+w/2,y(1)-12,'+'+c1(p*100),{fs:w>60?22:17,fw:700,c:G,a:'middle'})}
+    else{o+='<rect x="'+x.toFixed(1)+'" y="'+y(cost).toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+(y(1)-y(cost)).toFixed(1)+'" fill="url(#hatchL)"/>';
+      o+=t(x+w/2,y(cost)-12,'−'+c1(-p*100),{fs:17,fw:700,c:LOSS,a:'middle'})}
+    if(d.card){var cc=d.card/d.rev;
+      /* card cash: a dashed bracket hanging from the $1 line; light hatching over whatever it covers, so profit stays visible */
+      var cy0=y(1),cy1=y(1-cc),gy=y((d.opex)/d.rev);
+      o+='<rect x="'+(x+2).toFixed(1)+'" y="'+gy.toFixed(1)+'" width="'+(w-4).toFixed(1)+'" height="'+(cy1-gy).toFixed(1)+'" fill="#B9E2D2" opacity=".55"/>';
+      o+='<rect x="'+(x+2).toFixed(1)+'" y="'+cy0.toFixed(1)+'" width="'+(w-4).toFixed(1)+'" height="'+(cy1-cy0).toFixed(1)+'" fill="url(#hatchT)" stroke="'+G+'" stroke-width="3" stroke-dasharray="8 5"/>';
+      var lx=x+14,ly=cy1+32;
+      o+=t(lx,ly,'Card partners: '+c1(cc*100),{fs:21,fw:700,c:G,halo:true});
+      o+=t(lx,ly+25,(d.card/d.op).toFixed(1)+'× its operating profit',{fs:19,fw:700,c:G,halo:true});}
+    var last=d.n==='JetBlue',ax=last?x+w:x+w/2,an=last?'end':'middle',fs=w>60?22:15,dy=last?44:0;
+    if(last)o+='<line x1="'+(x+w/2)+'" x2="'+(x+w/2)+'" y1="'+(B+4)+'" y2="'+(B+56)+'" stroke="'+MUTE+'" stroke-width="1"/>';
+    o+=t(ax-(last?w/2+6:0),B+30+dy,d.n,{fs:fs,fw:700,a:an});
+    o+=t(ax-(last?w/2+6:0),B+50+dy,'$'+(d.rev/1000).toFixed(1)+'B',{fs:w>60?18:14,c:MUTE,a:an});
+    x+=w+gap;
+  });
+  o+='<line x1="'+L+'" x2="'+L+'" y1="'+(T-10)+'" y2="'+B+'" stroke="'+INK+'" stroke-width="2.5"/><line x1="'+L+'" x2="'+R+'" y1="'+B+'" y2="'+B+'" stroke="'+INK+'" stroke-width="2.5"/>';
+  o+=t(40,(T+B)/2,'CENTS OF EACH REVENUE DOLLAR',{fs:18,fw:700,a:'middle',ls:1.5,tr:'rotate(-90 40 '+((T+B)/2)+')'});
+  o+=t((L+R)/2-40,B+104,'COLUMN WIDTH = 2025 REVENUE ($'+(tot/1000).toFixed(1)+' BILLION FOR ALL SIX)',{fs:18,fw:700,a:'middle',ls:1.5});
+  o+=t(W/2,1262,'Card cash isn’t all profit: part of it pays for the miles members later redeem.',{fs:20,c:MUTE,a:'middle'});
+  o+=foot();
+}
+
+if(c==='margin'){
+  var rows=D.slice().sort(function(a,b){return b.op/b.rev-a.op/a.rev});
+  o+=head('Profit Per Dollar Of Revenue','Operating profit per dollar of revenue, U.S. airlines, 2025');
+  o+=key([['Operating profit',G],['Loss',LOSS],['Cash from credit card partners','card']],186);
+  var L=250,R=1000,T=250,B=1150,lo=-6,hi=15,x=function(v){return L+(v-lo)*(R-L)/(hi-lo)},bh=(B-T)/rows.length;
+  [-5,0,5,10,15].forEach(function(v){o+='<line x1="'+x(v)+'" x2="'+x(v)+'" y1="'+T+'" y2="'+B+'" stroke="'+(v===0?INK:'#E3E8E4')+'" stroke-width="'+(v===0?2.5:1)+'"/>'+t(x(v),B+32,(v>0?'':v<0?'−':'')+Math.abs(v)+'¢',{fs:20,a:'middle'})});
+  rows.forEach(function(d,i){
+    var m=d.op/d.rev*100,yc=T+i*bh+bh/2,hasCard=!!d.card,barH=hasCard?30:40,yb=hasCard?yc-34:yc-barH/2;
+    o+=t(L-20,yc+8,d.n,{fs:24,fw:700,a:'end'});
+    var x0=Math.min(x(0),x(m)),w=Math.abs(x(m)-x(0));
+    o+='<rect x="'+x0+'" y="'+yb+'" width="'+w+'" height="'+barH+'" rx="2" fill="'+(m<0?LOSS:G)+'"/>';
+    o+=t(m<0?x0-10:x0+w+10,yb+barH/2+8,(m<0?'−':'')+c1(Math.abs(m)),{fs:22,fw:700,c:m<0?LOSS:G,a:m<0?'end':'start'});
+    if(hasCard){var cc=d.card/d.rev*100,y2=yc+4;
+      o+='<rect x="'+x(0)+'" y="'+y2+'" width="'+(x(cc)-x(0))+'" height="30" rx="2" fill="url(#hatch)" stroke="'+G+'" stroke-width="2" stroke-dasharray="6 4"/>';
+      o+=t(x(0)+12,y2+22,c1(cc)+' from card partners, '+(d.card/d.op).toFixed(1)+'× its profit',{fs:19,fw:700,c:'#005C40',halo:true});}
+  });
+  o+='<line x1="'+L+'" x2="'+R+'" y1="'+B+'" y2="'+B+'" stroke="'+INK+'" stroke-width="2.5"/>';
+  o+=t((L+R)/2,B+76,'CENTS PER DOLLAR OF REVENUE',{fs:18,fw:700,a:'middle',ls:1.5});
+  o+=t(W/2,1262,'Only Delta and American report how much their card partners pay in total.',{fs:20,c:MUTE,a:'middle'});
+  o+=foot();
+}
+
+if(c==='costs'){
+  var rows=D.slice().sort(function(a,b){return a.opex/a.rev-b.opex/b.rev});
+  o+=head('Where Each Dollar Of Revenue Goes','Operating costs per dollar of revenue, U.S. airlines, 2025');
+  o+=key([['Salaries and benefits',SAL],['Fuel',GOLD],['Everything else',OTHER]],186);
+  var L=250,R=930,T=250,B=1150,hi=1.1,x=function(v){return L+v*(R-L)/hi},bh=(B-T)/rows.length;
+  [0,.25,.5,.75,1].forEach(function(v){o+='<line x1="'+x(v)+'" x2="'+x(v)+'" y1="'+T+'" y2="'+B+'" stroke="#E3E8E4"/>'+t(x(v),B+32,v===1?'$1':(v*100)+'¢',{fs:20,a:'middle',fw:v===1?700:400})});
+  o+='<line x1="'+x(1)+'" x2="'+x(1)+'" y1="'+(T-26)+'" y2="'+B+'" stroke="'+LOSS+'" stroke-width="2" stroke-dasharray="6 5"/>'+t(x(1),T-34,'Revenue',{fs:19,fw:700,c:LOSS,a:'middle'});
+  rows.forEach(function(d,i){
+    var yc=T+i*bh+bh/2,bhh=44,yb=yc-bhh/2,s=d.sal/d.rev,f=d.fuel/d.rev,cost=d.opex/d.rev;
+    o+=t(L-20,yc+8,d.n,{fs:24,fw:700,a:'end'});
+    [[0,s,SAL,'#fff'],[s,s+f,GOLD,INK],[s+f,cost,OTHER,INK]].forEach(function(g,k){
+      o+='<rect x="'+x(g[0])+'" y="'+yb+'" width="'+(x(g[1])-x(g[0]))+'" height="'+bhh+'" fill="'+g[2]+'"/>';
+      if(k<2&&(x(g[1])-x(g[0]))>70)o+=t((x(g[0])+x(g[1]))/2,yc+7,c1((g[1]-g[0])*100),{fs:18,fw:700,c:g[3],a:'middle'});
+    });
+    o+=cost>1?t(x(cost)+12,yc+8,c1(cost*100),{fs:22,fw:700,c:LOSS}):t(x(cost)-10,yc+8,c1(cost*100),{fs:21,fw:700,c:INK,a:'end'});
+  });
+  o+='<line x1="'+L+'" x2="'+L+'" y1="'+T+'" y2="'+B+'" stroke="'+INK+'" stroke-width="2.5"/><line x1="'+L+'" x2="'+R+'" y1="'+B+'" y2="'+B+'" stroke="'+INK+'" stroke-width="2.5"/>';
+  o+=t((L+R)/2,B+76,'CENTS OF OPERATING COSTS PER DOLLAR OF REVENUE',{fs:18,fw:700,a:'middle',ls:1.5});
+  o+=t(W/2,1262,'Frontier and JetBlue spent more than they took in. Delta’s revenue includes about $5 billion of refinery sales.',{fs:20,c:MUTE,a:'middle'});
+  o+=foot();
+}
+document.getElementById('c').innerHTML=o;
+</script></body></html>
