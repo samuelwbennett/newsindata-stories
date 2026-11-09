@@ -47,13 +47,13 @@ if(size==='post'){
   out+=DEFS+'<rect width="'+W+'" height="'+H+'" fill="#fff"/>';
   out+=t(W/2,92,'Credit Card Partners Paid American Airlines',{fs:50,fw:700,a:'middle'});
   out+=t(W/2,150,'Four Times Its Operating Profit In 2025',{fs:50,fw:700,a:'middle'});
-  out+=t(W/2,200,'Cash from co-branded credit card partners vs. operating profit. Each tile is $100 million.',{fs:23,c:MUTE,a:'middle'});
+  out+=t(W/2,200,'Cash from co-branded credit card partners vs. operating profit',{fs:23,c:MUTE,a:'middle'});
   /* legend */
   var lx=W/2-250;
   out+=tile(lx-4,229,32,21,INK,false)+t(lx+36,246,'Operating profit',{fs:22});
   out+=tile(lx+231,229,32,21,G,true)+t(lx+271,246,'Paid by credit card partners',{fs:22});
   var cell=48,ch=34,gap=6,cols=9,bw=cols*cell-gap,left=(W-(2*bw+90))/2,right=left+bw+90;
-  var bases=[660,1206];
+  var bases=[690,1262];
   A.forEach(function(a,i){
     var base=bases[i];
     var p=block(left,base,a.profit,INK,cell,ch,gap,cols,false),c=block(right,base,a.card,G,cell,ch,gap,cols,true);
@@ -68,8 +68,12 @@ if(size==='post'){
     out+=p.svg+c.svg;
     out+='<line x1="'+(left-8)+'" x2="'+(right+bw+8)+'" y1="'+(base+4)+'" y2="'+(base+4)+'" stroke="'+INK+'" stroke-width="3"/>';
   });
-  out+=t(W/2,1262,'American and Delta are the only U.S. airlines that report the total cash their card partners pay.',{fs:20,c:MUTE,a:'middle'});
-  out+=t(W/2,1300,'Data: 2025 annual reports (Form 10-K) and Delta’s full-year 2025 earnings release  •  thenewsindata.com',{fs:18,c:MUTE,a:'middle'});
+  /* key: circle the lone card in Delta's top row and label it */
+  var kx=right+(cell-gap)/2,ky=bases[1]-Math.ceil(A[1].card/100/cols)*ch+gap+(ch-gap)/2;
+  out+='<ellipse cx="'+kx+'" cy="'+ky+'" rx="'+(cell*0.62)+'" ry="'+(ch*0.72)+'" fill="none" stroke="'+GOLD+'" stroke-width="3" transform="rotate(-6 '+kx+' '+ky+')"/>';
+  out+='<path d="M'+(kx+cell*0.7)+' '+(ky-2)+' q 26 -14 52 -4" fill="none" stroke="'+GOLD+'" stroke-width="2.5" stroke-linecap="round"/>';
+  out+=t(kx+cell*0.7+60,ky+8,'= $100 million',{fs:28,fw:700,c:INK});
+  out+=t(W-60,1322,'thenewsindata.com',{fs:18,c:MUTE,a:'end'});
 }else{
   var W=1200,H=630;svg.setAttribute('width',W);svg.setAttribute('height',H);svg.setAttribute('viewBox','0 0 '+W+' '+H);
   out+=DEFS+'<rect width="'+W+'" height="'+H+'" fill="#fff"/><rect width="'+W+'" height="10" fill="'+G+'"/>';
