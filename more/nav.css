@@ -8,6 +8,7 @@
 #header .header-border{border-bottom:1px solid rgba(0,0,0,.08)!important}
 #header .header-dropshadow{display:none}
 @media (min-width:768px){
+#header .header-announcement-bar-wrapper{padding-top:0!important;padding-bottom:0!important}
 #header .header-inner{padding-top:0!important;padding-bottom:0!important;min-height:48px}
 #header .header-display-desktop{max-width:1080px;margin:0 auto;height:48px;display:flex;align-items:center;gap:28px}
 #header .header-title-nav-wrapper{flex:1 1 auto!important;display:flex!important;align-items:center;gap:28px;width:auto!important}
@@ -19,7 +20,8 @@
 #header .header-nav-item a{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif!important;font-size:12px!important;font-weight:400!important;letter-spacing:-.01em!important;color:rgba(0,0,0,.8)!important;padding:0 2px!important;line-height:48px!important;background:none!important;text-decoration:none!important;transition:color .2s}
 #header .header-nav-item a:hover,#header .header-nav-item--active a{color:#000!important;opacity:1!important}
 #header .header-nav-item--active a{font-weight:500!important}
-#header .header-actions{flex:0 0 auto!important;gap:16px;display:flex!important;align-items:center}
+#header .header-actions{flex:0 0 auto!important;width:auto!important;gap:14px;display:flex!important;align-items:center;justify-content:flex-end}
+#header .header-actions>*{margin:0!important;padding:0!important}
 #header .header-actions-action--social{margin:0!important}
 #header .header-icon{width:16px!important;height:16px!important;margin:0 6px!important;opacity:.8}
 #header .header-icon svg{width:16px!important;height:16px!important}
