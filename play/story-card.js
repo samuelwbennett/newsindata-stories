@@ -28,7 +28,8 @@ var STORY={
  'who-owns-prime-time-the-nfl-books-audiences-not-records':{guess:'luka'},
  'rappers-have-named-manu-ginbili-in-at-least-1489-songs-and-most-came-after-he-retired':{today:4},
  'one-mickey-mouse-club-cast-produced-five-major-award-winners-and-nearly-half-its-members-never-got-a-wikipedia-page':{guess:'manu'},
- 'midterm-turnout-in-2022-ranged-from-31-in-tennessee-to-62-in-oregon':{guess:'candy'}
+ 'midterm-turnout-in-2022-ranged-from-31-in-tennessee-to-62-in-oregon':{guess:'candy'},
+ 'credit-card-partners-paid-american-airlines-62-billion-in-2025-four-times-its-operating-profit':{guess:'canada'}
 };
 
 var CSS=[
@@ -90,7 +91,7 @@ function place(){
   if(document.querySelector('.npc'))return true;
   var body=document.querySelector('.blog-item-content');if(!body)return false;
   var root=body.querySelector('.nid-a')||body;
-  var fig=root.querySelector('figure, .nid-fig');
+  var fig=root.querySelector('[data-npc-after]')||root.querySelector('figure, .nid-fig');
   var d=build();if(!d)return false;css();
   if(fig&&fig.parentNode){fig.parentNode.insertBefore(d,fig.nextSibling)}
   else{var ps=root.querySelectorAll('p');if(ps.length>2)ps[1].parentNode.insertBefore(d,ps[1].nextSibling);else root.appendChild(d)}

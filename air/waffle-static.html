@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Air waffle (static render source)</title>
+<meta name="robots" content="noindex">
+<style>
+html,body{margin:0;background:#fff}
+svg{display:block}
+text{font-family:"Times New Roman","Liberation Serif",Times,serif}
+.sans{font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,"Liberation Sans",sans-serif}
+</style></head><body>
+<!-- Renders the lead chart for the airline story. ?size=post (1080x1350) or ?size=preview (1200x630).
+     Values: 2025 annual reports (see data/credit-card-partners-...csv). Each square = $100 million. -->
+<svg id="c"></svg>
+<script>
+var INK='#13241B',G='#007A55',MUTE='#5F7268',EMPTY='#EEF2EF';
+var A=[
+  {name:'American Airlines',profit:1467,card:6200,x:'4.2'},
+  {name:'Delta Air Lines',profit:5822,card:8200,x:'1.4'}
+];
+var size=new URLSearchParams(location.search).get('size')||'post';
+var svg=document.getElementById('c'),out='';
+function t(x,y,s,o){o=o||{};return '<text x="'+x+'" y="'+y+'" font-size="'+(o.fs||20)+'" font-weight="'+(o.fw||400)+'" fill="'+(o.c||INK)+'" text-anchor="'+(o.a||'start')+'"'+(o.cls?' class="'+o.cls+'"':'')+(o.ls?' letter-spacing="'+o.ls+'"':'')+'>'+s+'</text>'}
+/* squares fill from the bottom row up, left to right; the last square is filled in proportion */
+function block(x,yBase,val,color,cell,gap,cols){
+  var n=val/100,full=Math.floor(n),frac=n-full,s='',sq=cell-gap,total=Math.ceil(n);
+  for(var i=0;i<total;i++){
+    var c=i%cols,r=Math.floor(i/cols),xx=x+c*cell,yy=yBase-(r+1)*cell+gap;
+    if(i<full){s+='<rect x="'+xx+'" y="'+yy+'" width="'+sq+'" height="'+sq+'" rx="3" fill="'+color+'"/>'}
+    else{s+='<rect x="'+xx+'" y="'+yy+'" width="'+sq+'" height="'+sq+'" rx="3" fill="'+EMPTY+'"/><rect x="'+xx+'" y="'+yy+'" width="'+(sq*frac).toFixed(1)+'" height="'+sq+'" rx="3" fill="'+color+'"/>'}
+  }
+  return {svg:s,rows:Math.ceil(total/cols)};
+}
+if(size==='post'){
+  var W=1080,H=1350;svg.setAttribute('width',W);svg.setAttribute('height',H);svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  out+='<rect width="'+W+'" height="'+H+'" fill="#fff"/>';
+  out+=t(W/2,92,'Credit Card Partners Paid American Airlines',{fs:50,fw:700,a:'middle'});
+  out+=t(W/2,150,'Four Times Its Operating Profit In 2025',{fs:50,fw:700,a:'middle'});
+  out+=t(W/2,200,'Cash from co-branded credit card partners vs. operating profit. Each square is $100 million.',{fs:23,c:MUTE,a:'middle'});
+  /* legend */
+  var lx=W/2-250;
+  out+='<rect x="'+lx+'" y="228" width="22" height="22" rx="3" fill="'+INK+'"/>'+t(lx+32,246,'Operating profit',{fs:22});
+  out+='<rect x="'+(lx+235)+'" y="228" width="22" height="22" rx="3" fill="'+G+'"/>'+t(lx+267,246,'Paid by credit card partners',{fs:22});
+  var cell=37,gap=6,cols=10,bw=cols*cell-gap,left=(W-(2*bw+100))/2,right=left+bw+100;
+  var bases=[668,1206];
+  A.forEach(function(a,i){
+    var base=bases[i];
+    var p=block(left,base,a.profit,INK,cell,gap,cols),c=block(right,base,a.card,G,cell,gap,cols);
+    var top=base-Math.max(p.rows,c.rows)*cell;
+    out+=t(left,top-118,a.name,{fs:34,fw:700});
+    out+='<line x1="'+left+'" x2="'+(right+bw)+'" y1="'+(top-100)+'" y2="'+(top-100)+'" stroke="'+INK+'" stroke-width="2"/>';
+    var pt=base-p.rows*cell, ct=base-c.rows*cell;
+    out+=t(left,pt-46,'$'+(a.profit/1000).toFixed(1)+' billion',{fs:38,fw:700});
+    out+=t(left,pt-16,'operating profit',{fs:21,c:MUTE});
+    out+=t(right,ct-46,'$'+(a.card/1000).toFixed(1)+' billion',{fs:38,fw:700,c:G});
+    out+=t(right,ct-16,'from card partners, '+a.x+'× its profit',{fs:21,c:MUTE});
+    out+=p.svg+c.svg;
+    out+='<line x1="'+(left-8)+'" x2="'+(right+bw+8)+'" y1="'+(base+4)+'" y2="'+(base+4)+'" stroke="'+INK+'" stroke-width="3"/>';
+  });
+  out+=t(W/2,1262,'American and Delta are the only U.S. airlines that report the total cash their card partners pay.',{fs:20,c:MUTE,a:'middle'});
+  out+=t(W/2,1300,'Data: 2025 annual reports (Form 10-K) and Delta’s full-year 2025 earnings release  •  thenewsindata.com',{fs:18,c:MUTE,a:'middle'});
+}else{
+  var W=1200,H=630;svg.setAttribute('width',W);svg.setAttribute('height',H);svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  out+='<rect width="'+W+'" height="'+H+'" fill="#fff"/><rect width="'+W+'" height="10" fill="'+G+'"/>';
+  ['Credit Card Partners','Paid American Airlines','Four Times Its','Operating Profit'].forEach(function(l,i){out+=t(64,140+i*66,l,{fs:56,fw:700})});
+  out+=t(64,440,'2025. Each square is $100 million.',{fs:26,c:MUTE});
+  out+='<rect x="64" y="478" width="22" height="22" rx="3" fill="'+INK+'"/>'+t(96,497,'Operating profit',{fs:24});
+  out+='<rect x="64" y="516" width="22" height="22" rx="3" fill="'+G+'"/>'+t(96,535,'Paid by card partners',{fs:24});
+  var cell=38,gap=6,cols=10,bw=cols*cell-gap,a=A[0],base=560,px=640,cx=px;
+  var c=block(cx,base,a.card,G,cell,gap,cols),p=block(cx,base-c.rows*cell-96,a.profit,INK,cell,gap,cols);
+  out+=t(cx,base-c.rows*cell-16,'$6.2B from card partners',{fs:30,fw:700,c:G});
+  out+=t(cx,base-c.rows*cell-96-p.rows*cell-14,'$1.5B operating profit',{fs:30,fw:700});
+  out+=c.svg+p.svg;
+  out+=t(W-48,600,'thenewsindata.com',{fs:20,c:MUTE,a:'end'});
+}
+svg.innerHTML=out;
+</script></body></html>

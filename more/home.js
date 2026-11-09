@@ -72,6 +72,6 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 (function(){
   if(window.top!==window.self)return;
   if(!/^\/stories\/[^\/]+/.test(location.pathname))return;
-  var s=document.createElement('script');s.src='https://stories.thenewsindata.com/play/story-card.js?v=1';s.defer=true;
+  var s=document.createElement('script');s.src='https://stories.thenewsindata.com/play/story-card.js?v=2';s.defer=true;
   (document.body||document.head).appendChild(s);
 })();
