@@ -14,31 +14,29 @@ var css='#nid-hate-map{max-width:680px;margin:2.2em auto;font-family:Georgia,"Ti
 '#nid-hate-map .tg button{font:inherit;font-size:13px;padding:6px 14px;border-radius:999px;border:1px solid #cfd9d3;background:#fff;color:'+INK+';cursor:pointer}'+
 '#nid-hate-map .tg button.on{background:'+G+';border-color:'+G+';color:#fff}'+
 '#nid-hate-map svg{width:100%;height:auto;display:block;overflow:visible}'+
-'#nid-hate-map .s{cursor:pointer}#nid-hate-map .s .d{transition:r .9s cubic-bezier(.3,1.4,.5,1),fill .5s}'+
-'#nid-hate-map .s .rg{fill:none;stroke:'+INK+';stroke-opacity:.5;stroke-width:.012;stroke-dasharray:.035 .03}'+
-'#nid-hate-map .s.sel .rg,#nid-hate-map .s:hover .rg{stroke-opacity:1;stroke-width:.03;stroke-dasharray:none}'+
+'#nid-hate-map .s{cursor:pointer}#nid-hate-map .s .d{transition:fill 1s}'+
+'#nid-hate-map .s .rg{fill:none;stroke:'+INK+';stroke-opacity:0;stroke-width:.035}'+
+'#nid-hate-map .s.sel .rg,#nid-hate-map .s:hover .rg{stroke-opacity:1}'+
 '#nid-hate-map .s text{font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;text-anchor:middle;pointer-events:none;letter-spacing:0!important;word-spacing:0!important}'+
-'#nid-hate-map .s .ab{font-size:.26px;font-weight:700;paint-order:stroke;stroke-linejoin:round}#nid-hate-map .s .vl{font-size:.2px;font-weight:700;paint-order:stroke;stroke:#fff;stroke-width:.06px;stroke-linejoin:round}'+
+'#nid-hate-map .s .ab{font-size:.26px;font-weight:700;paint-order:stroke;stroke-linejoin:round}#nid-hate-map .s .vl{font-size:.2px;font-weight:700;paint-order:stroke;}'+
 '#nid-hate-map .card{margin-top:10px;padding:14px 16px;border:1px solid #e3eee7;border-radius:10px;background:#f7faf8;min-height:92px}'+
 '#nid-hate-map .card h4{margin:0 0 6px;font-size:1.15em}#nid-hate-map .card .row{display:flex;flex-wrap:wrap;gap:18px;font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;font-size:13px;color:'+SUB+'}'+
 '#nid-hate-map .card .row div b{display:block;font-family:Georgia,serif;font-size:22px;color:'+INK+'}'+
-'#nid-hate-map .lg{text-align:center;margin-top:4px;font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;font-size:12px;color:'+SUB+'}'+
+'#nid-hate-map .lg{max-width:420px;margin:10px auto 0;font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;font-size:11.5px;color:'+SUB+'}#nid-hate-map .lg i{display:block;height:12px;border-radius:3px;background:linear-gradient(90deg,#0b4a33,#2e8b62,#9fd1b8,#f1ede4,#dcc29a,#b98a4e,#8a5a22)}#nid-hate-map .lg div{display:flex;justify-content:space-between;margin-top:4px}'+
 '#nid-hate-map .nt{font-size:12px;color:'+SUB+';margin-top:8px;font-family:-apple-system,"Helvetica Neue",Arial,sans-serif}';
 var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
-b.innerHTML='<div class="hd"><b>Find your state</b><span>Circle size is the 2025 rate per 100,000 residents; the dashed ring is 2024. Tap a state.</span></div><svg viewBox="-0.2 -0.2 12.4 10.1"></svg><div class="lg"></div><div class="card"></div><div class="nt">Incidents reported by law enforcement agencies to the FBI. Rates use the population those agencies cover. Rates above 10 per 100,000 (Washington, D.C.) are drawn at a capped size. Big swings in small states can reflect a handful of incidents or changes in reporting.</div>';
+b.innerHTML='<div class="hd"><b>Find your state</b><span>Change in reported hate crimes, 2024 to 2025. Tap a state for its numbers.</span></div><svg viewBox="-0.05 -0.05 12.1 8.1"></svg><div class="lg"><i></i><div><span>\u221250% or more</span><span>\u221225%</span><span>No change</span><span>+25%</span><span>+50% or more</span></div></div><div class="card"></div><div class="nt">Incidents reported by law enforcement agencies to the FBI. Rates use the population those agencies cover. Big swings in small states can reflect a handful of incidents or changes in reporting.</div>';
 var svg=b.querySelector('svg'),card=b.querySelector('.card'),lg=b.querySelector('.lg'),mode='ch',sel=null,grown=false;
 function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e}
-var N={},K=0.5/Math.sqrt(6.5),CAP=0.62;function rad(v){return Math.min(CAP,K*Math.sqrt(v))}
-S.slice().sort(function(a,c){return c[7]-a[7]}).forEach(function(s){var x=s[3]+0.5,y=s[2]*PY+0.5,rb=rad(s[10]);var g=el('g',{'class':'s'},svg);
-var d=el('circle',{'class':'d',cx:x,cy:y,r:rb},g);el('circle',{'class':'rg',cx:x,cy:y,r:rb},g);
-var ab=el('text',{'class':'ab',x:x,y:y+0.09},g);ab.textContent=s[0];var vl=el('text',{'class':'vl',x:x,y:y},g);
-N[s[0]]={g:g,d:d,ab:ab,vl:vl,y:y,rb:rb};
+var N={},R=0.45,ST=[[-50,[11,74,51]],[-33,[46,139,98]],[-17,[159,209,184]],[0,[241,237,228]],[17,[220,194,154]],[33,[185,138,78]],[50,[138,90,34]]];
+function dv(v){v=Math.max(-50,Math.min(50,v));for(var i=1;i<ST.length;i++){if(v<=ST[i][0]){var a=ST[i-1],c=ST[i],t=(v-a[0])/(c[0]-a[0]);return 'rgb('+[0,1,2].map(function(k){return Math.round(a[1][k]+(c[1][k]-a[1][k])*t)}).join(',')+')'}}return 'rgb(138,90,34)'}
+S.forEach(function(s){var x=s[3]+0.5,y=s[2]+0.5;var g=el('g',{'class':'s'},svg);
+var d=el('circle',{'class':'d',cx:x,cy:y,r:R,fill:'#f1ede4'},g);el('circle',{'class':'rg',cx:x,cy:y,r:R},g);
+var ab=el('text',{'class':'ab',x:x,y:y-0.03},g);ab.textContent=s[0];var vl=el('text',{'class':'vl',x:x,y:y+0.25},g);
+N[s[0]]={g:g,d:d,ab:ab,vl:vl};
 g.addEventListener('mouseenter',function(){show(s)});g.addEventListener('click',function(){if(sel)N[sel].g.classList.remove('sel');sel=s[0];g.classList.add('sel');show(s)});});
-function paint(){S.forEach(function(s){var n=N[s[0]],v=pct(s[5],s[6]),c=chCol(v),ra=rad(s[7]),r=grown?ra:n.rb,big=ra>=0.27,base=n.y+Math.max(ra,n.rb);
-n.vl.textContent=sg(v);n.vl.setAttribute('fill',v<0?G:'#8a6a3c');n.d.setAttribute('r',r);n.d.style.r=r+'px';n.d.setAttribute('fill',c);
-if(big){n.ab.setAttribute('y',n.y+0.09);n.ab.setAttribute('fill',v<=-10?'#fff':INK);n.ab.setAttribute('stroke','none');n.vl.setAttribute('y',base+0.24)}
-else{n.ab.setAttribute('y',base+0.27);n.ab.setAttribute('fill',INK);n.ab.setAttribute('stroke','#fff');n.ab.setAttribute('stroke-width','.07');n.vl.setAttribute('y',base+0.5)}});
-lg.textContent='Bigger circles mean more reported hate crimes per person. Green fell from 2024, tan rose. Labels show the change in incidents.'}
+function paint(){S.forEach(function(s){var n=N[s[0]],v=pct(s[5],s[6]),dk=grown&&(v<=-17||v>=38),t=sg(v);
+n.d.setAttribute('fill',grown?dv(v):'#f1ede4');n.vl.textContent=t;n.vl.style.fontSize=t.length>=5?'.17px':'.2px';n.ab.setAttribute('fill',dk?'#fff':INK);n.vl.setAttribute('fill',dk?'#fff':INK)});}
 function show(s){var v=pct(s[5],s[6]);card.innerHTML='<h4>'+s[1]+'</h4><div class="row"><div><b>'+fmt(s[6])+'</b>incidents in 2025</div><div><b style="color:'+(v<0?G:'#9a6f3a')+'">'+sg(v)+'</b>vs. 2024 ('+fmt(s[5])+')</div><div><b>'+s[7].toFixed(1)+'</b>per 100,000, was '+s[10].toFixed(1)+' (rank '+s[8]+' of 51)</div><div><b>'+fmt(s[4])+'</b>in 2015</div></div>'}
 paint();show(S.filter(function(s){return s[0]==='NJ'})[0]);
 function grow(){if(grown)return;grown=true;paint()}
