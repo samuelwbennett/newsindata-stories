@@ -17,7 +17,7 @@ var css='#nid-hate-map{max-width:680px;margin:2.2em auto;font-family:Georgia,"Ti
 '#nid-hate-map .s{cursor:pointer}#nid-hate-map .s .d{transition:r .9s cubic-bezier(.3,1.4,.5,1),fill .5s}'+
 '#nid-hate-map .s .rg{fill:none;stroke:'+INK+';stroke-opacity:.5;stroke-width:.012;stroke-dasharray:.035 .03}'+
 '#nid-hate-map .s.sel .rg,#nid-hate-map .s:hover .rg{stroke-opacity:1;stroke-width:.03;stroke-dasharray:none}'+
-'#nid-hate-map .s text{font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;text-anchor:middle;pointer-events:none}'+
+'#nid-hate-map .s text{font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;text-anchor:middle;pointer-events:none;letter-spacing:0!important;word-spacing:0!important}'+
 '#nid-hate-map .s .ab{font-size:.26px;font-weight:700;paint-order:stroke;stroke-linejoin:round}#nid-hate-map .s .vl{font-size:.2px;font-weight:700;paint-order:stroke;stroke:#fff;stroke-width:.06px;stroke-linejoin:round}'+
 '#nid-hate-map .card{margin-top:10px;padding:14px 16px;border:1px solid #e3eee7;border-radius:10px;background:#f7faf8;min-height:92px}'+
 '#nid-hate-map .card h4{margin:0 0 6px;font-size:1.15em}#nid-hate-map .card .row{display:flex;flex-wrap:wrap;gap:18px;font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;font-size:13px;color:'+SUB+'}'+
