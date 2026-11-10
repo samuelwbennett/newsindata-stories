@@ -21,7 +21,7 @@ ID+' .card h4{margin:0 0 6px;font-size:1.15em}'+ID+' .card .row{display:flex;fle
 ID+' .card .row div b{display:block;font-family:Georgia,serif;font-size:22px;color:'+INK+'}'+
 ID+' .nt{font-size:12px;color:'+SUB+';margin-top:8px;font-family:-apple-system,"Helvetica Neue",Arial,sans-serif}';
 var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
-b.innerHTML='<div class="hd"><b>Find your state</b><span>Flock license plate cameras mapped on OpenStreetMap, September 2026. Tap a state.</span></div><div class="tg"><button data-m="r" class="on">Per 100,000 residents</button><button data-m="c">Total cameras</button></div><div class="key"></div><svg viewBox="0 -0.75 12 11.25"></svg><div class="card"></div><div class="nt">Counts come from a volunteer-built map and are likely an undercount. Flock says it has more than 120,000 cameras; this count found 109,577.</div>';
+b.innerHTML='<div class="hd"><b>Flock Cameras Per 100,000 Residents</b><span>Flock license plate cameras mapped on OpenStreetMap, September 2026. Tap a state.</span></div><div class="tg"><button data-m="r" class="on">Per 100,000 residents</button><button data-m="c">Total cameras</button></div><div class="key"></div><svg viewBox="0 -0.75 12 11.25"></svg><div class="card"></div><div class="nt">Counts come from a volunteer-built map and are likely an undercount. Flock says it has more than 120,000 cameras; this count found 109,577.</div>';
 var svg=b.querySelector('svg'),card=b.querySelector('.card'),key=b.querySelector('.key'),mode='r',sel=null,shown=false;
 function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e}
 var N={};
