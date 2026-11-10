@@ -7,6 +7,9 @@
 (function(){
 if(window.__nidVideos)return; window.__nidVideos=1;
 var root=document.getElementById('nid-videos'); if(!root)return;
+/* Lift the grid out of Squarespace's block grid so it can use the full page width. */
+(function(){var sec=root.closest('section'),fe=root.closest('.fluid-engine');
+  if(sec&&fe){var host=document.createElement('div');host.className='nvid-host';fe.parentNode.insertBefore(host,fe);host.appendChild(root);fe.style.display='none';}})();
 var REELS=window.NID_REELS||{}, IG=window.NID_IG||'https://www.instagram.com/thenewsindata/';
 var BASE=window.NID_BASE||'https://stories.thenewsindata.com/social/web/';
 var SITE='https://www.thenewsindata.com';
@@ -27,6 +30,7 @@ var PLAY='<svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><pa
 var CSS=[
 '.nvid{--g:#007a55;--ink:#1d1d1f;--sub:#6e6e73;--tile:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);max-width:1080px;margin:0 auto;padding:8px 0 40px}',
 '.nvid *{box-sizing:border-box}',
+'.nvid-host{width:100%;padding:0 max(20px,env(safe-area-inset-left,0px))}',
 '.nvid-top{text-align:center;max-width:720px;margin:24px auto 40px}',
 '.nvid-top .k{font-size:14px;font-weight:600;color:var(--g);margin:0 0 8px}',
 '.nvid h1.nvid-h{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif!important;font-size:clamp(32px,4vw,48px)!important;line-height:1.08!important;font-weight:600!important;letter-spacing:-.022em!important;margin:0 0 14px!important;color:var(--ink)!important}',
