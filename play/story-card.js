@@ -91,7 +91,7 @@ function place(){
   if(document.querySelector('.npc'))return true;
   var body=document.querySelector('.blog-item-content');if(!body)return false;
   var root=body.querySelector('.nid-a')||body;
-  var fig=root.querySelector('[data-npc-after]')||root.querySelector('figure, .nid-fig');
+  var figs=root.querySelectorAll('figure, .nid-fig');var fig=root.querySelector('[data-npc-after]')||figs[Math.min(2,figs.length-1)];
   var d=build();if(!d)return false;css();
   if(fig&&fig.parentNode){fig.parentNode.insertBefore(d,fig.nextSibling)}
   else{var ps=root.querySelectorAll('p');if(ps.length>2)ps[1].parentNode.insertBefore(d,ps[1].nextSibling);else root.appendChild(d)}
