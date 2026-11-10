@@ -152,7 +152,7 @@ function storyCard(){
 
 function videosPage(){
   if(!document.getElementById('nid-videos'))return false;
-  if(!document.getElementById('nid-videos-js')){var sc=document.createElement('script');sc.id='nid-videos-js';sc.src='https://stories.thenewsindata.com/social/videos.js?v=2';sc.defer=true;document.head.appendChild(sc);}
+  if(!document.getElementById('nid-videos-js')){var sc=document.createElement('script');sc.id='nid-videos-js';sc.src='https://stories.thenewsindata.com/social/videos.js?v=3';sc.defer=true;document.head.appendChild(sc);}
   return true;
 }
 function run(){

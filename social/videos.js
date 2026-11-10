@@ -30,7 +30,7 @@ var PLAY='<svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><pa
 var CSS=[
 '.nvid{--g:#007a55;--ink:#1d1d1f;--sub:#6e6e73;--tile:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);max-width:1080px;margin:0 auto;padding:8px 0 40px}',
 '.nvid *{box-sizing:border-box}',
-'.nvid-host{width:100%;padding:0 max(20px,env(safe-area-inset-left,0px))}',
+'.nvid-host{width:100%;box-sizing:border-box;padding:0 max(20px,env(safe-area-inset-left,0px));overflow-x:clip}',
 '.nvid-top{text-align:center;max-width:720px;margin:24px auto 40px}',
 '.nvid-top .k{font-size:14px;font-weight:600;color:var(--g);margin:0 0 8px}',
 '.nvid h1.nvid-h{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif!important;font-size:clamp(32px,4vw,48px)!important;line-height:1.08!important;font-weight:600!important;letter-spacing:-.022em!important;margin:0 0 14px!important;color:var(--ink)!important}',
@@ -52,6 +52,7 @@ var CSS=[
 '.nvid-b button.s{background:var(--g);border-color:var(--g);color:#fff!important}',
 '.nvid-b button.s:hover{background:#00684a}',
 '.nvid-b a:hover{border-color:#86868b}',
+'.nvid-b a.i{padding:8px 10px}',
 '.nvid-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#1d1d1f;color:#fff;border-radius:980px;padding:10px 18px;font-size:14px;z-index:9999;opacity:0;transition:opacity .2s ease;pointer-events:none}',
 '.nvid-toast.on{opacity:1}',
 '@media(max-width:900px){.nvid-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}}',
@@ -100,7 +101,7 @@ function card(k,line,story){
     '<h2 class="t">'+esc(t)+'</h2>'+(line?'<p class="l">'+esc(line)+'</p>':'')+
     '<div class="nvid-b"><button class="s" type="button">'+SHI+'Share</button>'+
     (has?'<a class="r" href="/stories/'+esc(r.s)+'">Read the story</a>':'')+
-    '<a class="i" href="'+IG+'" target="_blank" rel="noopener" aria-label="Watch on Instagram">'+IGI+'<span class="x">Instagram</span></a></div></article>';
+    '<a class="i" href="'+IG+'" target="_blank" rel="noopener" aria-label="Watch on Instagram" title="Watch on Instagram">'+IGI+'</a></div></article>';
 }
 
 function render(byslug){
