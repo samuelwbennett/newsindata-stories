@@ -23,6 +23,8 @@ var REELS={
   senate:{t:'The Senate is about to get younger',s:'-'},
   youth:{t:'Young voters swung back to Democrats by 35 points',s:'-'}
 };
+/* Shared with the Videos page (social/videos.js): every Reel listed here shows up there, newest first. */
+window.NID_REELS=REELS; window.NID_IG=IG; window.NID_BASE=BASE;
 var HOME_ORDER=['senate','primetime','youth','luka','candy','canada'];
 var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 var GLYPH='<svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="5.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.25" fill="currentColor"/></svg>';
@@ -148,7 +150,13 @@ function storyCard(){
   return true;
 }
 
+function videosPage(){
+  if(!document.getElementById('nid-videos'))return false;
+  if(!document.getElementById('nid-videos-js')){var sc=document.createElement('script');sc.id='nid-videos-js';sc.src='https://stories.thenewsindata.com/social/videos.js?v=1';sc.defer=true;document.head.appendChild(sc);}
+  return true;
+}
 function run(){
+  if(videosPage())return true;
   var done=(location.pathname==='/'||location.pathname==='')?homeBand():storyCard();
   return done;
 }
