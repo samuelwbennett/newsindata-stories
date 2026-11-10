@@ -545,6 +545,27 @@ def senate():
 POSTS.update({"primetime": primetime, "candy": candy, "canada": canada, "youth": youth, "senate": senate})
 
 
+def nbalead():
+    rows = list(csv.DictReader(open("/home/claude/research/nbalead/lead.csv")))
+    xs = [int(r["lead"]) for r in rows]
+    ys = [100 * int(r["wins"]) / int(r["games"]) for r in rows]
+    assert xs == list(range(1, 31)) and round(ys[5], 1) == 63.0 and round(ys[9], 1) == 74.4 and round(ys[19], 1) == 94.8
+    lines = [dict(name="Won", ys=ys, color=GREEN, lw=8, dots=True, label_dy=-4)]
+    return line_race(xs, lines, kicker="Sports \u00b7 NBA",
+                     title=["How Safe Is An", "NBA Lead?"],
+                     subtitle=["How often the first team to reach each lead", "won the game, 2021-22 through 2025-26"],
+                     source="Source: NBA play-by-play, 6,150 games",
+                     y_fmt=lambda v, tip=False: (f"{v:.1f}%" if tip and v > 99 else f"{v:.0f}%"),
+                     x_label_fmt=lambda v: f"{v} points" if v == 30 else str(v), ymax=100, y_step=25, anim=9.0,
+                     ticks_x=[1, 6, 10, 15, 20, 25, 30],
+                     scrub_label=lambda v: f"{int(round(v))}-point lead",
+                     events=[(6, "63%"), (10, "74%"), (15, "87%"), (20, "95%")],
+                     end_note=["The first team to lead by 10", "wins 3 games out of 4", "By 20, it wins 19 of 20"],
+                     note_xy=(830, 1215))
+
+POSTS.update({"nbalead": nbalead})
+
+
 if __name__ == "__main__":
     name = sys.argv[1]
     draw, dur = POSTS[name]()

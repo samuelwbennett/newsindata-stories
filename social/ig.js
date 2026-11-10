@@ -7,6 +7,7 @@ if(window.__nidIG)return; window.__nidIG=1;
 var IG='https://www.instagram.com/thenewsindata/';
 var BASE='https://stories.thenewsindata.com/social/web/';
 var REELS={
+  nbalead:{t:'How safe is an NBA lead?',s:'the-first-nba-team-to-lead-by-10-points-wins-three-games-out-of-four'},
   luka:{t:'The 10 highest-scoring seasons in NBA history',s:'luka-doncic-is-scoring-401-points-a-game-a-pace-only-wilt-chamberlain-has-topped'},
   midterms:{t:"The president's party lost House seats in 18 of 20 midterms",s:'the-presidents-party-has-lost-house-seats-in-18-of-the-20-midterms-since-world-war-ii'},
   solar:{t:'Which countries make the most solar power?',s:'renewables-now-generate-more-than-three-times-as-much-of-the-worlds-electricity-as-nuclear-power-does'},
