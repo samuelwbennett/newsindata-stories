@@ -1,0 +1,60 @@
+abbr,state,fips,cameras_per_100k_pew,cameras,population_2025,cameras_per_100k_calc
+GA,Georgia,13,80,8944,11180878,80.0
+OH,Ohio,39,51,6024,11883304,50.7
+TX,Texas,48,49,15318,31290831,49.0
+IN,Indiana,18,48,3328,6924275,48.1
+AL,Alabama,01,47,2448,5157699,47.5
+KS,Kansas,20,43,1272,2970606,42.8
+TN,Tennessee,47,43,3083,7227750,42.7
+IL,Illinois,17,42,5320,12710158,41.9
+MO,Missouri,29,40,2481,6245466,39.7
+CA,California,06,39,15450,39431263,39.2
+CO,Colorado,08,36,2124,5957493,35.7
+KY,Kentucky,21,35,1607,4588372,35.0
+SC,South Carolina,45,35,1893,5478831,34.6
+LA,Louisiana,22,34,1553,4597740,33.8
+NM,New Mexico,35,33,705,2130256,33.1
+MS,Mississippi,28,33,968,2943045,32.9
+FL,Florida,12,32,7520,23372215,32.2
+DE,Delaware,10,31,327,1051917,31.1
+AR,Arkansas,05,31,943,3088354,30.5
+NC,North Carolina,37,30,3281,11046024,29.7
+MI,Michigan,26,30,3001,10140459,29.6
+AZ,Arizona,04,29,2231,7582384,29.4
+OK,Oklahoma,40,28,1133,4095393,27.7
+VA,Virginia,51,28,2433,8811195,27.6
+WI,Wisconsin,55,27,1618,5960975,27.1
+RI,Rhode Island,44,26,294,1112308,26.4
+WA,Washington,53,25,1959,7958180,24.6
+IA,Iowa,19,25,796,3241488,24.6
+UT,Utah,49,22,787,3503613,22.5
+NV,Nevada,32,22,725,3267467,22.2
+MN,Minnesota,27,22,1249,5793151,21.6
+NE,Nebraska,31,19,380,2005465,18.9
+CT,Connecticut,09,17,640,3675069,17.4
+ID,Idaho,16,17,337,2001619,16.8
+ND,North Dakota,38,15,123,796568,15.4
+SD,South Dakota,46,14,133,924669,14.4
+MA,Massachusetts,25,14,987,7136171,13.8
+DC,District of Columbia,11,13,90,702250,12.8
+NJ,New Jersey,34,12,1151,9500851,12.1
+MD,Maryland,24,11,718,6263220,11.5
+WY,Wyoming,56,11,66,587618,11.2
+WV,West Virginia,54,11,189,1769979,10.7
+PA,Pennsylvania,42,11,1389,13078751,10.6
+NY,New York,36,10,2033,19867248,10.2
+OR,Oregon,41,8,324,4272371,7.6
+MT,Montana,30,5,58,1137233,5.1
+HI,Hawaii,15,4,65,1446146,4.5
+ME,Maine,23,3,46,1405012,3.3
+VT,Vermont,50,3,19,648493,2.9
+NH,New Hampshire,33,1,13,1409032,0.9
+AK,Alaska,02,0.1,1,740133,0.1
+
+
+portal_disclosure_item,percent_of_1517_agencies
+How long they retain their data,96
+How many cameras they have,93
+How many searches they have made,90
+Whether they share their data with other organizations,66
+Information about individual searches,50

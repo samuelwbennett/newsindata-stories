@@ -3,6 +3,12 @@
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
   {
+   "slug": "georgia-has-80-flock-license-plate-cameras-per-100000-residents-the-most-of-any-state",
+   "title": "Georgia Has 80 Flock License Plate Cameras Per 100,000 Residents, The Most Of Any State",
+   "section": "Trending",
+   "image": "https://stories.thenewsindata.com/flock/flock-lead.png"
+  },
+  {
    "slug": "the-first-nba-team-to-lead-by-10-points-wins-three-games-out-of-four",
    "title": "The First NBA Team To Lead By 10 Points Wins Three Games Out Of Four",
    "section": "Sports",
