@@ -3,6 +3,12 @@
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
   {
+   "slug": "the-first-nba-team-to-lead-by-10-points-wins-three-games-out-of-four",
+   "title": "The First NBA Team To Lead By 10 Points Wins Three Games Out Of Four",
+   "section": "Sports",
+   "image": "https://stories.thenewsindata.com/nbalead/nba-lead.png"
+  },
+  {
    "slug": "reported-hate-crimes-fell-for-a-second-straight-year-and-33-states-saw-declines-in-2025",
    "title": "Reported Hate Crimes Fell For A Second Straight Year, And 33 States Saw Declines In 2025",
    "section": "Trending",

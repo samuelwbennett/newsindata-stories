@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+ ['nbalead','Sports',"How Safe Is An NBA Lead?",'the-first-nba-team-to-lead-by-10-points-wins-three-games-out-of-four'],
  ['hate26','Trending',"Reported Hate Crimes Fell Again",'reported-hate-crimes-fell-for-a-second-straight-year-and-33-states-saw-declines-in-2025'],
  ['sinking1126','Science',"The Ground Under Medan, Indonesia, Dropped Nearly A Foot",'medan-indonesia-sank-about-a-foot-in-nine-years-seven-times-faster-than-the-sea-is-rising'],
  ['fly26','Trending',"Flying Home For The Holidays Is Safer",'the-drive-to-the-airport-is-the-riskiest-part-of-a-holiday-flight'],
