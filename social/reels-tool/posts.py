@@ -566,6 +566,57 @@ def nbalead():
 POSTS.update({"nbalead": nbalead})
 
 
+def flock():
+    rows = list(csv.DictReader(open(R + "georgia-has-80-flock-license-plate-cameras-per-100000-residents-the-most-of-any-state.csv")))[:51]
+    assert rows[0]["abbr"] == "GA" and rows[0]["cameras_per_100k_pew"] == "80" and rows[-1]["abbr"] == "AK"
+    st = [(r["abbr"], float(r["cameras_per_100k_pew"])) for r in rows]
+    GA_ = 2.399963
+    CELL, X0, Y0, PITCH = 80, 60, 770, 108
+    C, RD = 0.056 * CELL, 3.1
+    intro, anim, hold = 0.9, 8.5, 4.0
+    pos = {}
+    for ab, v in st:
+        col, row = TILES[ab]
+        cx, cy = X0 + (col + 0.5) * CELL, Y0 + row * PITCH
+        n = int(v)
+        pts = [(cx + C * math.sqrt(k + 0.5) * math.cos(k * GA_), cy - C * math.sqrt(k + 0.5) * math.sin(k * GA_)) for k in range(n)]
+        pos[ab] = (cx, cy, n, v, pts)
+    top = {"GA", "OH", "TX", "IN", "AL"}
+
+    def draw(c, t):
+        brand_block(c)
+        header(c, "Trending \u00b7 Privacy", ["Which States Have The", "Most Flock Cameras?"],
+               ["License plate readers per 100,000 residents,", "mapped on OpenStreetMap, September 2026"])
+        p = min(max((t - intro) / anim, 0), 1)
+        cur = 80 * (p ** 1.25)
+        scrubber(c, 660, 0, 80, cur, label=f"{int(cur)} per 100,000", ticks=[0, 20, 40, 60, 80])
+        xs, ys = [], []
+        for ab, (cx, cy, n, v, pts) in pos.items():
+            k = min(n, int(cur))
+            xs += [a for a, _ in pts[:k]]; ys += [b for _, b in pts[:k]]
+            done = cur >= n and t > intro
+            if n == 0:
+                c.circle(cx, cy, RD, BG, ec=GREEN, lw=1.5)
+            c.text(cx - 3, cy + 58, ab, size=19, weight="bold", ha="right", color=INK if done else FAINT)
+            if done:
+                lab = "0.1" if ab == "AK" else str(n)
+                c.text(cx + 3, cy + 58, lab, size=19, ha="left", color=GREEN if ab in top else MUTED,
+                       weight="bold" if ab in top else "normal")
+        if xs:
+            c.ax.scatter(xs, ys, s=(2 * RD * PT) ** 2, c=GREEN, linewidths=0, zorder=4)
+        c.circle(330, 762, 7, GREEN)
+        c.text(350, 771, "= 1 camera per 100,000 residents", size=25, color=INK)
+        a = ease((t - intro - anim - 0.3) / 0.8)
+        if a > 0:
+            note_card(c, ["Georgia: 80 per 100,000", "New Hampshire: 1", "U.S. overall: 32"], 800, a, x_right=520, size=24)
+        footer(c, "Source: Pew Research Center, OpenStreetMap")
+        bottom_band(c)
+
+    return draw, intro + anim + hold
+
+POSTS.update({"flock": flock})
+
+
 if __name__ == "__main__":
     name = sys.argv[1]
     draw, dur = POSTS[name]()
