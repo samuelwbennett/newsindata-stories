@@ -1,7 +1,13 @@
 {
- "updated": "2026-11-07",
+ "updated": "2026-11-09",
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
+  {
+   "slug": "reported-hate-crimes-fell-for-a-second-straight-year-and-33-states-saw-declines-in-2025",
+   "title": "Reported Hate Crimes Fell For A Second Straight Year, And 33 States Saw Declines In 2025",
+   "section": "Trending",
+   "image": "https://stories.thenewsindata.com/hate/hate-lead.png"
+  },
   {
    "slug": "medan-indonesia-sank-about-a-foot-in-nine-years-seven-times-faster-than-the-sea-is-rising",
    "title": "Medan, Indonesia, Sank About A Foot In Nine Years, Seven Times Faster Than The Sea Is Rising",
