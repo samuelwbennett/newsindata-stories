@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+['dp','Trending',"Death Penalty Support Fell Below Half For The First Time Since 1971",'support-for-the-death-penalty-fell-to-49-the-first-reading-below-half-since-1971'],
 ['flock','Trending',"Georgia Has The Most Flock Cameras Per Resident",'georgia-has-80-flock-license-plate-cameras-per-100000-residents-the-most-of-any-state'],
  ['nbalead','Sports',"How Safe Is An NBA Lead?",'the-first-nba-team-to-lead-by-10-points-wins-three-games-out-of-four'],
  ['hate26','Trending',"Reported Hate Crimes Fell Again",'reported-hate-crimes-fell-for-a-second-straight-year-and-33-states-saw-declines-in-2025'],

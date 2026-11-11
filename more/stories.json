@@ -3,6 +3,12 @@
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
   {
+   "slug": "support-for-the-death-penalty-fell-to-49-the-first-reading-below-half-since-1971",
+   "title": "Support For The Death Penalty Fell To 49%, The First Reading Below Half Since 1971",
+   "section": "Trending",
+   "image": "https://stories.thenewsindata.com/dp/dp-lead.png"
+  },
+  {
    "slug": "georgia-has-80-flock-license-plate-cameras-per-100000-residents-the-most-of-any-state",
    "title": "Georgia Has 80 Flock License Plate Cameras Per 100,000 Residents, The Most Of Any State",
    "section": "Trending",
