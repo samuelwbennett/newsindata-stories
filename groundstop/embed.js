@@ -43,7 +43,7 @@ var EV={
    [16.9,"4:54 p.m.","The FAA advisory now runs to 11:30 p.m. Eastern, and no end time is confirmed."],
    [17.25,"About 5:15 p.m.","The FAA says a temporary telecommunications outage caused the stop, and officials say they see no sign of an attack."]],
   unknown:"<b>What is not known.</b> The FAA blames a temporary telecommunications outage but has not said what caused the outage or when departures will resume. This replay ends at "+NOW.label+" Eastern on Nov. 13, the last time we checked, with the stop still in effect. Three days earlier, on Nov. 10, the agency expanded SMART, an AI tool that suggests flight reroutes, to all 22 centers. No official has connected the tool to the stop, and no reporting so far shows a link.",
-  facts:[["3:54 p.m.","Eastern start time, the only one of the three stops to begin after noon"],["3,100+","flights in the air when the stop began, allowed to finish their trips"],["9,000+","flights delayed by about "+NOW.label+" Eastern, with more than 700 canceled, according to FlightAware"]]}
+  facts:[["3:54 p.m.","Eastern start time, the only one of the three stops to begin after noon"],["3,100+","flights in the air when the stop began, allowed to finish their trips"],["9,000+","flights delayed by about "+NOW.label+" Eastern, according to FlightAware; reported cancellations ranged from about 450 to more than 700"]]}
 };
 var ORDER=["e2001","e2023","e2026"];
 function build(ev){
