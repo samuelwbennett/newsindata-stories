@@ -2,11 +2,11 @@
    Data: Wang et al., Nature Cities 2026 (github.com/LandSinking/GlobalUrbanSubsidence). */
 (function(){
   var BASE='https://stories.thenewsindata.com/sinking/';
-  var V='?v=1';
-  var INK='#14211b',SUB='#5f6b66',LINE='#e6e3dd',GRID='#efeee9',LAND='#d9dbd6',OCEAN='#f4f5f2',
-      GREEN='#1f7a5c',SEA='#2a6fb0',SOIL='#ece4d6',SOILEDGE='#9c8566',F='"Times New Roman",Times,serif';
+  var V='?v=2';
+  var INK='#13241b',SUB='#4a5550',LINE='#dde6e1',GRID='#eef3f0',LAND='#e3eae6',OCEAN='#ffffff',
+      GREEN='#007a55',SEA='#4a5550',SOIL='#f1f8f4',SOILEDGE='#13241b',F='"Times New Roman",Times,serif';
   var SEA_RATE=4.5, START=2014, END=2023;
-  var RAMP=['#f6d46b','#f09a3e','#d8492b','#8c1d1d'];
+  var RAMP=['#bfe3d1','#5fb48d','#007a55','#0b3d2a'];
   function heat(v){ // 1..33 mm/yr, linear across four stops
     var t=Math.max(0,Math.min(1,(v-1)/32))*3,i=Math.min(2,Math.floor(t)),f=t-i;
     var a=hex(RAMP[i]),b=hex(RAMP[i+1]);
@@ -22,15 +22,15 @@
     s.textContent=
     '.nid-sk{font-family:'+F+';color:'+INK+';margin:2.4em auto;max-width:860px}'+
     '.nid-sk h3{text-align:center;font-size:1.35em;line-height:1.2;margin:0 0 .2em;text-wrap:balance}'+
-    '.nid-sk .sub{text-align:center;color:'+SUB+';font-size:.95em;margin:0 0 .9em;text-wrap:balance}'+
+    '.nid-sk .sub{text-align:center;color:'+SUB+';font-style:italic;font-size:.95em;margin:0 0 .9em;text-wrap:balance}'+
     '.nid-sk .gw{position:relative;width:min(560px,100%);aspect-ratio:1/1;margin:0 auto;touch-action:none;cursor:grab;-webkit-user-select:none;user-select:none}'+
     '.nid-sk .gw:active{cursor:grabbing}.nid-sk canvas{position:absolute;inset:0;width:100%;height:100%}'+
-    '.nid-sk .hint{position:absolute;left:50%;bottom:7%;transform:translateX(-50%);background:'+INK+';color:#fff;font-size:15px;font-weight:bold;padding:7px 14px 7px 12px;border-radius:20px;white-space:nowrap;pointer-events:none;display:flex;align-items:center;gap:8px;box-shadow:0 2px 10px rgba(0,0,0,.18);animation:nidskp 2.2s ease-in-out infinite;transition:opacity .4s}'+
+    '.nid-sk .hint{position:absolute;left:50%;bottom:7%;transform:translateX(-50%);background:'+GREEN+';color:#fff;font-size:15px;font-weight:bold;padding:7px 14px 7px 12px;border-radius:20px;white-space:nowrap;pointer-events:none;display:flex;align-items:center;gap:8px;box-shadow:0 2px 10px rgba(0,0,0,.18);animation:nidskp 2.2s ease-in-out infinite;transition:opacity .4s}'+
     '.nid-sk .hint.off{opacity:0;animation:none}'+
     '@keyframes nidskp{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.05)}}'+
     '.nid-sk .gtip{position:absolute;z-index:3;background:#fff;border:1px solid #bdb8ad;border-radius:6px;padding:6px 9px;font-size:14px;line-height:1.35;box-shadow:0 2px 8px rgba(0,0,0,.12);pointer-events:none;white-space:nowrap;transform:translate(-50%,calc(-100% - 12px))}'+
     '.nid-sk .leg{width:min(380px,100%);margin:.6em auto 0}.nid-sk .leg .cap{font-size:11px;font-weight:bold;letter-spacing:.06em;text-align:center;margin-bottom:3px}'+
-    '.nid-sk .leg .bar{height:11px;border:1.5px solid '+INK+';background:linear-gradient(90deg,'+RAMP.join(',')+')}'+
+    '.nid-sk .leg .bar{height:10px;border:0;border-radius:5px;background:linear-gradient(90deg,'+RAMP.join(',')+')}'+
     '.nid-sk .leg .tk{position:relative;height:16px}.nid-sk .leg .tk span{position:absolute;transform:translateX(-50%);font-size:12px;font-weight:bold}'+
     '.nid-sk .note{font-size:13px;color:'+SUB+';text-align:center;margin-top:.4em}'+
     '.nid-sk .ctl{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:center;margin:0 0 .6em}'+
@@ -82,10 +82,9 @@
       g.beginPath();path(borders);g.strokeStyle='#fff';g.lineWidth=.6;g.stroke();
       g.beginPath();path({type:'Sphere'});g.strokeStyle=INK;g.lineWidth=2;g.stroke();
       var on=pts.filter(function(p){return vis(p,c);});
-      on.forEach(function(p){if(p.v>=1)return;var xy=proj([p.lon,p.lat]);g.beginPath();g.arc(xy[0],xy[1],2.1*k,0,7);g.fillStyle='rgba(95,107,102,.55)';g.fill();});
+      on.forEach(function(p){if(p.v>=1)return;var xy=proj([p.lon,p.lat]);g.beginPath();g.arc(xy[0],xy[1],2.1*k,0,7);g.fillStyle='rgba(74,85,80,.45)';g.fill();});
       on.forEach(function(p){if(p.v<1)return;var xy=proj([p.lon,p.lat]),x=xy[0],y=xy[1],rad=(5+Math.sqrt(p.v)*5.2)*k,col=heat(p.v);
-        var gr=g.createRadialGradient(x,y,0,x,y,rad);gr.addColorStop(0,rgba(col,.95));gr.addColorStop(.35,rgba(col,.6));gr.addColorStop(1,rgba(col,0));
-        g.fillStyle=gr;g.beginPath();g.arc(x,y,rad,0,7);g.fill();g.beginPath();g.arc(x,y,Math.max(2,1.4*Math.sqrt(p.v))*k,0,7);g.fillStyle=col;g.fill();});
+        var rr=Math.max(2.6,2.1*Math.sqrt(p.v))*k;g.beginPath();g.arc(x,y,rr,0,7);g.fillStyle=col;g.fill();g.lineWidth=1;g.strokeStyle='#fff';g.stroke();});
       g.font='bold '+Math.max(11,13*k)+'px '+F;g.textAlign='left';g.lineJoin='round';
       on.forEach(function(p){var f=STATE.focus===p.r;if(!LAB[p.r[0]]&&!f)return;var xy=proj([p.lon,p.lat]),t=place(p.r);
         g.lineWidth=3.5;g.strokeStyle='#fff';g.strokeText(t,xy[0]+9,xy[1]-7);g.fillStyle=INK;g.fillText(t,xy[0]+9,xy[1]-7);
@@ -132,7 +131,7 @@
     var cols=cs.map(function(r,i){
       var x=L+i*cw+5,g=sv('g',{},svg),seed=0;for(var j=0;j<r[0].length;j++)seed=(seed*31+r[0].charCodeAt(j))>>>0;
       function rnd(){seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;}
-      var lost=sv('rect',{x:x,y:TOP,width:bw,height:0,fill:heat(Math.max(1,r[2])),opacity:.9},svg);
+      var lost=sv('rect',{x:x,y:TOP,width:bw,height:0,fill:heat(Math.max(1,r[2])),opacity:.95},svg);
       var mov=sv('g',{},svg);
       var soil=sv('rect',{x:x,y:0,width:bw,height:BOT-TOP,fill:SOIL},mov);
       sv('line',{x1:x,x2:x+bw,y1:0,y2:0,stroke:SOILEDGE,'stroke-width':2.5},mov);
@@ -193,7 +192,7 @@
       function yy(i){return top+8+jit[i]*(H-top-16);}
       g.strokeStyle=SEA;g.lineWidth=2;g.beginPath();g.moveTo(xp(SEA_RATE)*W,top-6);g.lineTo(xp(SEA_RATE)*W,H);g.stroke();
       g.fillStyle=SEA;g.font='bold 12px '+F;g.textAlign='left';g.fillText('Faster than the sea is rising →',xp(SEA_RATE)*W+5,top-10);
-      rows.forEach(function(r,i){g.beginPath();g.arc(xp(r[2])*W,yy(i),3.3,0,7);g.fillStyle=r[2]>=1?heat(r[2]):'#c4c8c3';g.fill();});
+      rows.forEach(function(r,i){g.beginPath();g.arc(xp(r[2])*W,yy(i),3.3,0,7);g.fillStyle=r[2]>=1?heat(r[2]):'#cfd9d3';g.fill();});
       strip.querySelectorAll('.lab').forEach(function(e){e.remove();});
       var m=find('Medan'),mi=rows.indexOf(m);g.fillStyle=INK;g.textAlign='right';g.fillText('Medan, Indonesia',xp(m[2])*W-7,yy(mi)+4);
       if(sel){var i=rows.indexOf(sel),x=xp(sel[2])*W,y=yy(i);g.beginPath();g.arc(x,y,7.5,0,7);g.strokeStyle=GREEN;g.lineWidth=3;g.stroke();
