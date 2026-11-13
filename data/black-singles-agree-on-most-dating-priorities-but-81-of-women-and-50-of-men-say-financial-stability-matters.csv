@@ -1,0 +1,67 @@
+pct_extremely_or_very_important_in_a_partner (single-and-looking Black adults),men,women,all
+Is caring and compassionate,82,93,88
+Is romantic,68,82,75
+Helps with household chores,62,78,71
+Believes in God,62,76,69
+Is financially stable,50,81,66
+Has a close relationship with their family,42,59,51
+Wants to have children,32,36,34
+Has a college degree,16,22,19
+
+"pct_would_not_consider_a_relationship_with_someone_who (single-and-looking, not widowed)",men,women,all
+Has a significant amount of debt,48,64,56
+Lives far away,40,46,43
+Is raising children from another relationship,40,36,38
+Has different religious views,30,45,38
+Does not vote,26,42,34
+Makes significantly less money,18,42,31
+Is of a different race or ethnicity,11,19,15
+Makes significantly more money,12,10,11
+
+"pct_major_reason_not_in_a_relationship (single-and-looking, not widowed)",men,women,all
+Haven't had luck with dating or relationships,30,40,35
+Just like being single,25,23,24
+Not financially stable enough,30,19,24
+Feel like no one would be interested in them,22,17,20
+Too busy,20,15,18
+Not ready after ending a relationship,20,15,18
+Just like dating without commitment,14,15,14
+Feel like they are too old,7,7,7
+
+single Black adults: looking for relationship or dates,looking,not_looking
+All,53,47
+Men,60,40
+Women,47,52
+
+single-and-looking Black adults seeking,committed_relationship_only,casual_dates_only,either
+Men,24,27,49
+Women,45,18,37
+
+pct_of_Black_adults_who_are_single,pct
+All Black adults,42
+Men,40
+Women,44
+Ages 18 to 29,50
+30 to 49,34
+50 to 64,40
+65 and older,56
+High school or less,50
+Some college,41
+Bachelor's degree or more,33
+Lower income,50
+Middle income,36
+Upper income,22
+Working full time,32
+Working part time,48
+Not currently working,54
+Parent,36
+Not a parent,56
+U.S. born,43
+Immigrant,36
+
+comparison,pct
+Black adults who are single,42
+Other U.S. adults who are single,29
+Single Black adults looking,53
+Single White adults looking,36
+Single Hispanic adults looking,49
