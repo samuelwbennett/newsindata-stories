@@ -5,7 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
-['groundstop','Trending',"The Three Times The U.S. Grounded Every Flight",'the-faa-has-halted-every-us-departure-only-three-times-and-the-nov-13-stop-is-the-first-to-start-after-noon'],
+['groundstop','Trending',"FAA Grounds Flights For Third Time In History",'the-faa-has-halted-every-us-departure-only-three-times-and-the-nov-13-stop-is-the-first-to-start-after-noon'],
 ['dating','Culture',"What Black Singles Want In A Partner, And What Rules One Out",'black-singles-agree-on-most-dating-priorities-but-81-of-women-and-50-of-men-say-financial-stability-matters'],
 ['glp1','Science',"One In 10 U.S. Adults Took A GLP-1 Drug In The Past Year",'one-in-10-us-adults-took-a-glp-1-drug-in-the-past-year-and-nearly-half-of-those-with-diabetes-did'],
 ['dp','Trending',"Death Penalty Support Fell Below Half For The First Time Since 1971",'support-for-the-death-penalty-fell-to-49-the-first-reading-below-half-since-1971'],

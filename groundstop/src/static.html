@@ -18,7 +18,14 @@ body.tall .wrap{padding:36px 44px 0}body.tall h1{font-size:43px}body.tall .sub{f
 body.tall #nid-gs{font-size:24px}body.tall #nid-gs .track{height:44px}body.tall #nid-gs .bar{height:28px;top:7px}body.tall #nid-gs .row{grid-template-columns:270px 1fr;padding:10px 16px}body.tall #nid-gs .axis{grid-template-columns:270px 1fr}
 body.tall #nid-gs .clock{font-size:60px}body.tall #nid-gs .pill{font-size:17px;padding:8px 16px}body.tall #nid-gs .stat{font-size:22px}body.tall #nid-gs .cap,body.tall #nid-gs .facts{display:none}body.tall #nid-gs .stage{margin-top:10px}
 body.tall #nid-gs .facts{grid-template-columns:repeat(3,1fr);margin-top:24px}
+body.map #nid-gs .rows,body.map #nid-gs .axis,body.map #nid-gs .facts,body.map #nid-gs .cap,body.map #nid-gs .hud,body.mapwide #nid-gs .rows,body.mapwide #nid-gs .axis,body.mapwide #nid-gs .facts,body.mapwide #nid-gs .cap,body.mapwide #nid-gs .hud{display:none!important}
+body.map #nid-gs .leg,body.mapwide #nid-gs .leg{display:flex!important;font-size:19px;padding-top:6px}
+body.map #nid-gs .leg span:last-child,body.mapwide #nid-gs .leg span:last-child{display:none}
+body.map #nid-gs .stage,body.mapwide #nid-gs .stage{border:0;margin-top:0}
+body.map .wrap{padding:30px 40px 0}body.map h1{font-size:43px}body.map .sub{font-size:23px;margin-bottom:6px;max-width:940px;margin-left:auto;margin-right:auto}
+body.mapwide .wrap{padding:16px 40px 0}body.mapwide h1{font-size:40px;margin-bottom:4px}body.mapwide .sub{font-size:19px;margin-bottom:0}
+body.mapwide #nid-gs{width:800px;margin:0 auto!important}body.mapwide #nid-gs .leg{font-size:15px;padding-top:0}
 </style>
-<body><div class="wrap"><h1>The Three Times The U.S. Grounded Every Flight</h1>
-<p class="sub">When each nationwide ground stop began and how long it ran on its first day, Eastern time. The map shows Nov. 13, 2026 at 5 p.m.</p>
-<div id="nid-gs"></div></div><script>document.body.className=location.hash.slice(1)||"lead"</script><script src="../embed.js"></script>
+<body><div class="wrap"><h1>FAA Grounds Flights For Third Time In History</h1>
+<p class="sub" id="sub">When each nationwide ground stop began and how long it ran on its first day, Eastern time. The map shows Nov. 13, 2026 at 5 p.m.</p>
+<div id="nid-gs"></div></div><script>document.body.className=location.hash.slice(1)||"lead";if(/map/.test(document.body.className))document.getElementById("sub").textContent="Flights in the air and airports holding departures at 5 p.m. Eastern on Nov. 13, 2026, about an hour into the nationwide ground stop. Each plane is about 25 aircraft, placed for illustration.";</script><script src="../embed.js"></script>
