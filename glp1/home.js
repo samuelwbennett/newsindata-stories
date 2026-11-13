@@ -6,7 +6,7 @@ var D=[['All adults','U.S. adults',9.8],['Women','women',11.9],['Men','men',7.6]
 var G='#007a55',PALE='#d9e2dd',ID='#nid-glp1-home';
 function go(){var b=document.getElementById('nid-glp1-home');if(!b||b.getAttribute('data-on'))return;b.setAttribute('data-on','1');
 var NS='http://www.w3.org/2000/svg',GA=2.399963;
-var css=ID+'{text-align:center;padding:clamp(16px,2.6vw,28px)!important}'+
+var css=ID+'{text-align:center;padding:clamp(16px,2.6vw,28px)!important;margin-top:clamp(20px,3vw,32px)}'+
 ID+' .ey{font-size:13px;font-weight:600;color:'+G+';letter-spacing:.02em;margin:0 0 2px}'+
 ID+' svg{width:min(100%,360px);height:auto;display:block;margin:0 auto;overflow:visible}'+
 ID+' svg circle{transition:fill .45s}'+
