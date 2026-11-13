@@ -1,7 +1,13 @@
 {
- "updated": "2026-11-09",
+ "updated": "2026-11-13",
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
+  {
+   "slug": "the-faa-has-halted-every-us-departure-only-three-times-and-the-nov-13-stop-is-the-first-to-start-after-noon",
+   "title": "The FAA Has Halted Every U.S. Departure Only Three Times, And The Nov. 13 Stop Is The First To Start After Noon",
+   "section": "Trending",
+   "image": "https://stories.thenewsindata.com/groundstop/groundstop-lead.png"
+  },
   {
    "slug": "black-singles-agree-on-most-dating-priorities-but-81-of-women-and-50-of-men-say-financial-stability-matters",
    "title": "Black Singles Agree On Most Dating Priorities, But 81% Of Women And 50% Of Men Say Financial Stability Matters",
