@@ -1,10 +1,11 @@
 /* The News in Data: "The three times the U.S. grounded every flight".
    Fills <div id="nid-gs"> (story replay), <div id="nid-gs-2020"> (TSA chart) and <div id="nid-gs-home"> (home page hero).
    Plane positions are illustrative; only the Sept. 11, 2001 count follows FAA figures.
-   TO UPDATE WHEN THE NOV. 13, 2026 STOP ENDS: edit NOW below and the e2026 moments/facts, then bump ?v= on the script tags. */
+   TO UPDATE: edit groundstop/status.json, run node groundstop/src/build.js, push. The page fetches status.json on every load. */
 (function(){
 "use strict";
-var NOW={t:17+20/60,label:"5:20 p.m."};           /* last time checked, hours Eastern on Nov. 13, 2026; stop still in effect */
+var STATUS=__STATUS__;                          /* built-in copy of status.json; the live file is fetched on load */
+var NOW={t:STATUS.now,label:STATUS.now_label};
 var MAP=__MAP__;
 var G="#007a55",INK="#13241b",SUB="#4a5550",PALE="#dde6e1",SANS='-apple-system,"Helvetica Neue",Arial,sans-serif';
 var NS="http://www.w3.org/2000/svg";
@@ -27,7 +28,7 @@ var EV={
    [10.65,"10:39 a.m.","A notice halts takeoffs and landings at all airports, with 1,693 aircraft still airborne."],
    [12.267,"12:16 p.m.","The sky over the lower 48 states is clear of commercial and private flights."]],
   facts:[["4,546","aircraft in the air when the FAA ordered all of them to land at 9:45 a.m."],["2 hr 31 min","from that order until the lower-48 sky was clear at 12:16 p.m."],["About 2 days","until commercial flights were allowed again, at 11 a.m. on Sept. 13"]]},
- e2023:{name:"Jan. 11, 2023",short:"2023",cause:"Pilot-alert (NOTAM) system failure",t0:6,t1:11.5,stop:7.5,lift:9,n:120,seed:23,
+ e2023:{name:"Jan. 11, 2023",short:"2023",lasted:"about 90 min",cause:"Pilot-alert (NOTAM) system failure",t0:6,t1:11.5,stop:7.5,lift:9,n:120,seed:23,
   bar:[7.5,9],barLab:"About 7:30 to 9 a.m.",
   moments:[[6,"6:00 a.m.","The FAA system that sends safety notices to pilots has been failing since Tuesday night."],
    [7.5,"About 7:30 a.m.","The FAA pauses all domestic departures, and flights already in the air continue to their destinations."],
@@ -46,6 +47,14 @@ var EV={
   facts:[["3:54 p.m.","Eastern start time, the only one of the three stops to begin after noon"],["3,100+","flights in the air when the stop began, allowed to finish their trips"],["9,000+","flights delayed by about "+NOW.label+" Eastern, according to FlightAware; reported cancellations ranged from about 450 to more than 700"]]}
 };
 var ORDER=["e2001","e2023","e2026"];
+function applyStatus(S){var e=EV.e2026,L=S.lift==null?null:+S.lift;NOW.t=+S.now;NOW.label=S.now_label;
+  e.lift=L==null?Infinity:L;e.t1=L==null?NOW.t:Math.min(24,Math.max(L+1.5,NOW.t));e.bar=[15.9,Math.min(24,L==null?NOW.t:L)];e.open=L==null?[NOW.t,23.5]:null;
+  if(S.cause)e.cause=S.cause;if(S.moments&&S.moments.length)e.moments=S.moments;if(S.facts&&S.facts.length)e.facts=S.facts;e.unknown=S.unknown||"";STATUS=S}
+applyStatus(STATUS);
+function article(){var S=STATUS,set=function(id,h){var el=document.getElementById(id);if(el&&h)el.innerHTML=h};
+  set("nid-gs-updated-t","Updated "+S.updated);set("nid-gs-updated-s",S.headline_status);set("nid-gs-status",S.status_html);set("nid-gs-compare",S.compare_html);set("nid-gs-notknown",S.notknown_html);
+  var hm=document.getElementById("nid-gs-home"),ld=hm&&hm.closest&&hm.closest(".lead");
+  if(ld){var st=ld.querySelectorAll(".stats > div")[2];if(st&&S.home_stat){st.querySelector("b").textContent=S.home_stat[0];st.querySelector("span").textContent=S.home_stat[1]}var dk=ld.querySelector(".dek");if(dk&&S.home_dek)dk.innerHTML=S.home_dek}}
 function build(ev){
   var r=rng(ev.seed),tot=0,i;for(i=0;i<H.length;i++)tot+=H[i].w;
   function pick(){var x=r()*tot;for(var i=0;i<H.length;i++){x-=H[i].w;if(x<=0)return i}return 0}
@@ -137,14 +146,14 @@ function mount(root,mini){
     hud()}
   function hud(){var e=cur,pill=q(".pill"),stopped=t>=e.stop&&t<e.lift;q(".clock").innerHTML=fmt(t)+"<small>Eastern"+(mini?", "+e.name:"")+"</small>";pill.className="pill";
     if(e.landAll&&t>=12.267){pill.textContent="SKY CLEAR";pill.className="pill clear"}else if(e.landAll&&t>=e.landAll){pill.textContent="ALL AIRCRAFT ORDERED TO LAND";pill.className="pill stop"}
-    else if(stopped){pill.textContent="NO TAKEOFFS NATIONWIDE";pill.className="pill stop"}else if(e.chi&&t>=e.chi){pill.textContent="CHICAGO ARRIVALS STOPPED";pill.className="pill stop"}
-    else if(t>=e.lift)pill.textContent="DEPARTURES RESUMING";else pill.textContent="FLYING NORMALLY";
+    else if(stopped){pill.textContent="NO TAKEOFFS NATIONWIDE";pill.className="pill stop"}else if(t>=e.lift)pill.textContent="DEPARTURES RESUMING";
+    else if(e.chi&&t>=e.chi){pill.textContent="CHICAGO ARRIVALS STOPPED";pill.className="pill stop"}else pill.textContent="FLYING NORMALLY";
     var m=e.moments,idx=0,i;for(i=0;i<m.length;i++)if(t>=m[i][0]-1e-6)idx=i;
     if(idx!==e["_i"+root.id]){e["_i"+root.id]=idx;q(".cap").innerHTML="<b>"+m[idx][1]+"</b> &nbsp;"+m[idx][2];if(!mini)[].forEach.call(q(".chips").children,function(c,ci){c.setAttribute("aria-current",ci===idx?"true":"false")})}
     if(!mini){var s=q(".stat");if(e.landAll)s.innerHTML=t>=C01[0][0]?"<b>"+Math.round(interp(C01,t)).toLocaleString("en-US")+"</b> aircraft in the air (FAA count)":"FAA count begins at 9:29 a.m.";
-      else if(stopped)s.innerHTML="Stopped for <b>"+dur(t-e.stop)+"</b>"+(e.now?" and counting":"");else if(t>=e.lift)s.innerHTML="Stop lasted <b>about 90 min</b>";else s.innerHTML="Stop begins in <b>"+dur(e.stop-t)+"</b>";
+      else if(stopped)s.innerHTML="Stopped for <b>"+dur(t-e.stop)+"</b>"+(e.now&&e.lift===Infinity?" and counting":"");else if(t>=e.lift)s.innerHTML="Stop lasted <b>"+(e.lasted||dur(e.lift-e.stop))+"</b>";else s.innerHTML="Stop begins in <b>"+dur(e.stop-t)+"</b>";
       var inp=q(".scr input");inp.value=Math.round((t-e.t0)/(e.t1-e.t0)*1000);inp.setAttribute("aria-valuetext",fmt(t)+" Eastern")}
-    cel.forEach(function(el,ci){var on=!!e.chi&&(t>=e.stop||(t>=e.chi&&C[ci].n==="Chicago"));if(el._on!==on){el._on=on;el.setAttribute("class","ctr"+(on?" on":""))}})}
+    cel.forEach(function(el,ci){var on=!!e.chi&&t<e.lift&&(t>=e.stop||(t>=e.chi&&C[ci].n==="Chicago"));if(el._on!==on){el._on=on;el.setAttribute("class","ctr"+(on?" on":""))}})}
   function select(k){cur=EV[k];cur["_i"+root.id]=-1;var ch=q(".chips");ch.innerHTML="";
     if(mini){ORDER.forEach(function(o){var b=document.createElement("button");b.type="button";b.textContent=EV[o].name;b.setAttribute("aria-current",o===k?"true":"false");b.addEventListener("click",function(){auto=false;select(o);t=cur.t0;start()});ch.appendChild(b)});return}
     ORDER.forEach(function(o){btn[o].setAttribute("aria-pressed",o===k?"true":"false")});
@@ -192,7 +201,10 @@ function tsa(root){var id="#"+root.id,st=document.createElement("style");
     ct.textContent=d.toLocaleDateString("en-US",{month:"long",day:"numeric"})+": "+TSA[i].toLocaleString("en-US")+" screened";ct.style.left=Math.min(Math.max(ev.clientX-r.left,90),r.width-90)+"px";ct.style.top=(ev.clientY-r.top)+"px";ct.style.display="block"});
   el.addEventListener("pointerleave",function(){ct.style.display="none"})}
 
-function go(){[["nid-gs",0],["nid-gs-home",1]].forEach(function(x){var b=document.getElementById(x[0]);if(b&&!b.getAttribute("data-on")){b.setAttribute("data-on","1");mount(b,!!x[1])}});
+function go(){var done=false;function run(S){if(done)return;done=true;if(S&&S.now)try{applyStatus(S)}catch(e){}try{article()}catch(e){}paint()}
+  var t=setTimeout(function(){run()},2500);
+  try{fetch("https://stories.thenewsindata.com/groundstop/status.json?t="+Math.floor(Date.now()/120000)).then(function(r){return r.json()}).then(function(S){clearTimeout(t);run(S)}).catch(function(){clearTimeout(t);run()})}catch(e){clearTimeout(t);run()}}
+function paint(){[["nid-gs",0],["nid-gs-home",1]].forEach(function(x){var b=document.getElementById(x[0]);if(b&&!b.getAttribute("data-on")){b.setAttribute("data-on","1");mount(b,!!x[1])}});
   var c=document.getElementById("nid-gs-2020");if(c&&!c.getAttribute("data-on")){c.setAttribute("data-on","1");tsa(c)}}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();
 })();
