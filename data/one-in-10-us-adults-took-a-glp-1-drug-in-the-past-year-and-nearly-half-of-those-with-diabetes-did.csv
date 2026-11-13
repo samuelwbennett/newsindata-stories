@@ -1,0 +1,44 @@
+group,category,users_unweighted,pct_used_glp1_past_year,ci_low,ci_high,compounded_users_unweighted,pct_of_users_compounded,comp_ci_low,comp_ci_high
+All adults,Total,976,9.8,9.0,10.7,213,22.6,18.9,26.8
+Women,Sex,574,11.9,10.7,13.3,144,27.3,21.9,33.5
+Men,Sex,402,7.6,6.7,8.7,69,14.8,11.1,19.4
+Ages 18 to 39,Age,198,4.8,3.8,5.9,56,28.0,19.9,37.8
+Ages 40 to 64,Age,543,13.7,12.3,15.2,125,22.8,18.5,27.7
+Ages 65 and older,Age,235,11.1,9.2,13.3,32,18.6,10.5,30.6
+Black,Race and ethnicity,148,11.9,9.5,14.7,31,23.1,14.4,35.0
+White,Race and ethnicity,578,9.6,8.6,10.7,132,24.6,19.4,30.6
+Hispanic,Race and ethnicity,115,9.8,7.9,12.1,23,21.8,13.3,32.7
+Other or multiple races,Race and ethnicity,124,9.1,6.8,11.9,25,13.5,7.3,22.3
+Healthy weight,Weight (BMI),115,4.7,3.6,6.0,36,26.9,18.3,37.6
+Overweight,Weight (BMI),227,8.1,6.8,9.5,55,28.8,19.5,40.4
+Obesity (class 1-2),Weight (BMI),382,15.6,13.8,17.6,82,20.1,15.9,25.1
+Severe obesity (class 3),Weight (BMI),180,24.1,20.0,28.6,21,13.7,7.6,23.6
+Private insurance,Insurance,695,10.6,9.6,11.6,178,25.9,21.3,31.1
+Public insurance,Insurance,245,10.6,8.7,12.7,31,12.5,7.8,19.6
+Uninsured,Insurance,32,2.7,1.7,4.1,4,,,
+Income below poverty line,Household income,142,8.9,6.8,11.7,17,,,
+Income 1 to 2 times poverty,Household income,169,9.1,7.2,11.5,33,15.3,9.0,24.9
+Income 2 to 4 times poverty,Household income,248,8.1,6.9,9.5,52,21.2,15.3,28.6
+Income 4+ times poverty,Household income,417,11.3,10.1,12.6,111,26.9,21.0,33.8
+Metropolitan area,Urbanicity,810,9.6,8.7,10.5,173,23.6,19.3,28.4
+Nonmetropolitan area,Urbanicity,166,11.6,9.2,14.5,40,17.6,11.6,25.7
+Midwest,Region,230,10.1,8.7,11.7,43,23.6,17.3,31.2
+Northeast,Region,125,8.0,6.3,10.1,23,18.0,10.4,28.0
+South,Region,408,11.4,10.1,12.9,93,22.8,17.9,28.4
+West,Region,189,8.5,6.7,10.6,46,24.0,13.3,39.2
+Ever had diabetes,Diabetes,483,47.4,42.8,52.0,59,9.4,6.6,13.2
+Never had diabetes,Diabetes,487,5.7,5.1,6.4,153,34.9,28.7,41.6
+Ever had sleep apnea,Sleep apnea,334,23.3,20.7,26.3,63,16.4,12.2,21.7
+No sleep apnea,Sleep apnea,637,8.1,7.3,9.0,148,24.9,19.9,30.6
+Ever had cardiovascular disease,Cardiovascular disease,173,21.4,17.9,25.4,29,12.0,7.2,19.5
+No cardiovascular disease,Cardiovascular disease,800,9.0,8.2,9.9,183,24.3,20.0,29.1
+
+
+modified_use_among_users,all_users,ages_18_39,ages_65_plus
+Any modification,44,54,30
+Skipped doses,28,,
+Delayed filling prescription,,37,6
+Cited cost (among those who modified),38,58,20
+Cited availability (among those who modified),36,,
+Compounded users who modified,62,,
+Non-compounded users who modified,36,,

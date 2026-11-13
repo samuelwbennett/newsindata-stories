@@ -3,6 +3,12 @@
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
   {
+   "slug": "one-in-10-us-adults-took-a-glp-1-drug-in-the-past-year-and-nearly-half-of-those-with-diabetes-did",
+   "title": "One In 10 U.S. Adults Took A GLP-1 Drug In The Past Year, And Nearly Half Of Those With Diabetes Did",
+   "section": "Science",
+   "image": "https://stories.thenewsindata.com/glp1/glp1-lead.png"
+  },
+  {
    "slug": "support-for-the-death-penalty-fell-to-49-the-first-reading-below-half-since-1971",
    "title": "Support For The Death Penalty Fell To 49%, The First Reading Below Half Since 1971",
    "section": "Trending",
