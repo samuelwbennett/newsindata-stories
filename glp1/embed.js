@@ -28,3 +28,41 @@ cats.forEach(function(cn){var bt=document.createElement('button');bt.textContent
 cat(cats[0]);
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();})();
+
+(function(){
+var ROWS=[[['All adults',9.8],['Women',11.9],['Men',7.6]],[['18 to 39',4.8],['40 to 64',13.7],['65 and older',11.1]],[['Healthy weight',4.7],['Overweight',8.1],['Obesity',15.6],['Severe obesity',24.1]],[['Have had diabetes',47.4],['Never had diabetes',5.7]]];
+var G='#007a55',INK='#13241b',SUB='#4a5550',PALE='#dde6e1',ID='#nid-glp1-top';
+function go(){var b=document.getElementById('nid-glp1-top');if(!b||b.getAttribute('data-on'))return;b.setAttribute('data-on','1');
+var NS='http://www.w3.org/2000/svg',GA=2.399963;
+var css=ID+'{max-width:760px;margin:2em auto;font-family:"Times New Roman",Times,Georgia,serif;color:'+INK+';text-align:center}'+
+ID+' .ti{font-size:clamp(1.35em,4.6vw,2em);font-weight:700;line-height:1.12;margin:0 0 .35em}'+
+ID+' .su{font-size:clamp(.92em,2.6vw,1.08em);color:'+SUB+';font-style:italic;line-height:1.3;margin:0 auto .3em;max-width:620px}'+
+ID+' .rw{display:flex;justify-content:center;gap:clamp(2px,2vw,26px);margin-top:clamp(14px,3vw,26px)}'+
+ID+' .cl{flex:0 1 165px;min-width:0}'+ID+' .cl svg{width:100%;height:auto;display:block;overflow:visible}'+
+ID+' .cl circle{fill:'+PALE+';opacity:0;transform:scale(.2);transform-box:fill-box;transform-origin:center;transition:opacity .35s,transform .35s,fill .4s}'+
+ID+' .cl.in circle{opacity:1;transform:scale(1)}'+ID+' .cl.fill circle.u{fill:'+G+'}'+
+ID+' .cl .lb{font-size:clamp(.72em,2.5vw,1.05em);line-height:1.15;margin-top:4px;opacity:0;transition:opacity .5s .3s}'+
+ID+' .cl .pc{font-size:clamp(1em,3.6vw,1.5em);font-weight:700;color:'+G+';opacity:0;transition:opacity .5s .3s}'+
+ID+' .cl.in .lb,'+ID+' .cl.fill .pc{opacity:1}'+
+ID+' .nt{font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;font-size:12px;color:'+SUB+';margin-top:16px}'+
+'@media(prefers-reduced-motion:reduce){'+ID+' .cl circle,'+ID+' .cl .lb,'+ID+' .cl .pc{transition:none}}';
+var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
+var fig=b.querySelector('figure');if(fig)fig.style.display='none';
+var w=document.createElement('div');b.insertBefore(w,b.firstChild);
+w.innerHTML='<div class="ti">One In 10 U.S. Adults Took A GLP-1 Drug In The Past Year</div><div class="su">Share of adults who took a GLP-1 medication such as Ozempic, Wegovy, Mounjaro or Zepbound in the past 12 months. Each cluster is 100 adults.</div><div class="su">Data: CDC survey of 8,118 adults, July to August 2025, published Nov. 12, 2026</div>';
+var cls=[];
+ROWS.forEach(function(row){var r=document.createElement('div');r.className='rw';w.appendChild(r);
+row.forEach(function(it){var c=document.createElement('div');c.className='cl';var n=Math.round(it[1]);
+var svg=document.createElementNS(NS,'svg');svg.setAttribute('viewBox','-1.1 -1.1 2.2 2.2');svg.setAttribute('role','img');svg.setAttribute('aria-label',it[0]+': '+it[1]+' percent');
+for(var k=0;k<100;k++){var rr=0.1*Math.sqrt(k+0.5),t=k*GA,d=document.createElementNS(NS,'circle');d.setAttribute('cx',(rr*Math.cos(t)).toFixed(3));d.setAttribute('cy',(-rr*Math.sin(t)).toFixed(3));d.setAttribute('r',0.06);
+if(k<n){d.setAttribute('class','u');d.style.transitionDelay=(k*7)+'ms,'+(k*7)+'ms,'+(750+k*45)+'ms'}else d.style.transitionDelay=(k*7)+'ms';svg.appendChild(d)}
+c.appendChild(svg);var lb=document.createElement('div');lb.className='lb';lb.textContent=it[0];c.appendChild(lb);var pc=document.createElement('div');pc.className='pc';pc.textContent='0%';c.appendChild(pc);
+c._v=it[1];c._n=n;r.appendChild(c);cls.push(c)})});
+var nt=document.createElement('div');nt.className='nt';nt.textContent='Source: CDC, MMWR, Nov. 12, 2026. Filled dots are the share rounded to whole people.';w.appendChild(nt);
+function run(c){if(c._ran)return;c._ran=true;c.classList.add('in');c.classList.add('fill');var pc=c.querySelector('.pc'),t0=null,dur=750+c._n*45+300;
+function step(ts){if(!t0)t0=ts;var p=Math.min(1,Math.max(0,(ts-t0-600)/(dur-600)));pc.textContent=(c._v*p).toFixed(1)+'%';if(p<1)requestAnimationFrame(step)}
+requestAnimationFrame(step)}
+if('IntersectionObserver' in window&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches)){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){run(e.target);io.unobserve(e.target)}})},{threshold:.55});cls.forEach(function(c){io.observe(c)})}
+else cls.forEach(function(c){c._ran=true;c.classList.add('in');c.classList.add('fill');c.querySelector('.pc').textContent=c._v.toFixed(1)+'%'});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();})();
