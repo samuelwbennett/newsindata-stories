@@ -1,0 +1,49 @@
+<!doctype html><meta charset="utf-8"><title>reel</title>
+<style>
+html,body{margin:0;background:#FBFCFA}
+body{width:1080px;height:1920px;position:relative;overflow:hidden;font-family:"Times New Roman",Times,"Liberation Serif",serif;color:#13241B}
+.abs{position:absolute;left:0;width:1080px;text-align:center}
+.brand{top:125px}.brand span{display:inline-block;background:#007A55;color:#fff;font-weight:700;font-size:30px;line-height:50px;padding:0 18px}
+.kick{top:276px;font-size:24px;font-weight:700;color:#007A55;letter-spacing:.02em}
+.title{top:322px;font-size:62px;font-weight:700;line-height:1.12}
+.sub{top:472px;font-size:29px;color:#5F7268}
+#wrap{position:absolute;left:40px;top:540px;width:1000px}
+#nid-gs-home{margin:0!important;padding:0!important;background:transparent!important;font-size:34px}
+#nid-gs-home .stage{background:transparent!important}
+#nid-gs-home .hud{padding:0 6px 14px!important;align-items:center;flex-wrap:nowrap!important}
+#nid-gs-home .clock{font-size:92px!important}#nid-gs-home .clock small{display:none!important}
+#nid-gs-home .pill{font-size:23px!important;padding:10px 20px!important;border-width:2px!important;}
+#nid-gs-home .cap{font-size:37px!important;line-height:1.25!important;min-height:124px!important;padding:14px 8px 0!important;text-align:center!important}
+#nid-gs-home .chips{gap:12px!important;margin-top:84px}
+#nid-gs-home .chips button{font-size:27px!important;padding:10px 22px!important;border-width:2px!important}
+#nid-gs-home .sr{display:none}
+#stat{top:1396px;font-size:40px;color:#5F7268}#stat b{color:#007A55;font-size:58px}
+.rule{position:absolute;left:60px;right:60px;top:1596px;height:2px;background:#DCE5E0}
+.src{position:absolute;left:60px;top:1616px;font-size:21px;color:#5F7268}
+.site{position:absolute;right:60px;top:1615px;font-size:22px;color:#007A55;font-weight:700}
+.band{top:1748px;font-size:26px;color:#9AA9A1;font-style:italic}
+</style>
+<body>
+<div class="abs brand"><span>The News in Data</span></div>
+<div class="abs kick">TRENDING · AVIATION</div>
+<div class="abs title">The Three Times The U.S.<br>Grounded Every Flight</div>
+<div class="abs sub">Each plane is about 25 aircraft, placed for illustration. Times are Eastern.</div>
+<div id="wrap"><div class="poster" id="nid-gs-home"><a href="#"></a></div></div>
+<div class="abs" id="stat"></div>
+<div class="rule"></div><div class="src">Sources: FAA, FlightAware, TheStreet. As of 5 p.m. ET, Nov. 13, 2026</div><div class="site">thenewsindata.com</div>
+<div class="abs band">Charts that explain the news, since 2016</div>
+<script src="../embed.js"></script>
+<script>
+var C01=[[9.483,5102],[9.75,4546],[10.25,2803],[10.65,1693],[11.1,1305],[12.267,0]];
+function ip(t){if(t<=C01[0][0])return C01[0][1];for(var i=1;i<C01.length;i++)if(t<=C01[i][0]){var a=C01[i-1],b=C01[i];return a[1]+(b[1]-a[1])*(t-a[0])/(b[0]-a[0])}return 0}
+function dur(h){var m=Math.round(h*60);return (m>=60?Math.floor(m/60)+" hr ":"")+(m%60)+" min"}
+function ease(x){return x<0?0:x>1?1:x}
+/* scenes: [key,t0,t1,play seconds,hold seconds] */
+var SC=[["e2001",9.0,12.45,7.5,1.2],["e2023",6.9,10.3,4.5,0.6],["e2026",14.7,17.0,6.0,2.6]];
+window.sceneLen=function(i){return SC[i][3]+SC[i][4]};
+window.frame=function(i,sec){var s=SC[i],u=ease(sec/s[3]),t=s[1]+(s[2]-s[1])*u,el=document.getElementById("nid-gs-home"),st=document.getElementById("stat");
+  el._nidgs.go(s[0],t);
+  if(s[0]==="e2001")st.innerHTML=t>=9.483?"<b>"+Math.round(ip(t)).toLocaleString("en-US")+"</b> aircraft in the air":"A normal Tuesday morning";
+  else if(s[0]==="e2023")st.innerHTML=t<7.5?"A system failure overnight":t<9?"Departures paused for <b>"+dur(t-7.5)+"</b>":"The stop lasted <b>about 90 min</b>";
+  else st.innerHTML=t<15.9?"A Friday afternoon":(sec>s[3]+0.5?"The only one of the three to <b>begin after noon</b>":"Stopped for <b>"+dur(t-15.9)+"</b> and counting")};
+</script>
