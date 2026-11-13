@@ -1,0 +1,17 @@
+const fs=require('fs');const topo=require('topojson-client');const simp=require('topojson-simplify');
+const {geoPath,geoAlbersUsa}=require('d3-geo');
+let us=JSON.parse(fs.readFileSync(require.resolve('us-atlas/states-albers-10m.json')));
+us=simp.simplify(simp.presimplify(us),1.2);
+const keep=g=>+g.id<=56;
+us.objects.states.geometries=us.objects.states.geometries.filter(keep);
+const p=geoPath().digits(1);
+const nation=p(topo.merge(us,us.objects.states.geometries));
+const borders=p(topo.mesh(us,us.objects.states,(a,b)=>a!==b));
+const proj=geoAlbersUsa().scale(1300).translate([487.5,305]);
+const hubs=[["ATL","Atlanta",-84.43,33.64,10],["ORD","Chicago O'Hare",-87.90,41.98,9],["DFW","Dallas-Fort Worth",-97.04,32.90,9],["DEN","Denver",-104.67,39.86,8],["LAX","Los Angeles",-118.41,33.94,8],["JFK","New York JFK",-73.78,40.64,7],["SFO","San Francisco",-122.38,37.62,6],["SEA","Seattle",-122.31,47.45,6],["MIA","Miami",-80.29,25.79,6],["CLT","Charlotte",-80.94,35.21,7],["PHX","Phoenix",-112.01,33.43,6],["IAH","Houston",-95.34,29.98,6],["MCO","Orlando",-81.31,28.43,6],["EWR","Newark",-74.17,40.69,6],["BOS","Boston",-71.01,42.36,5],["MSP","Minneapolis-St. Paul",-93.22,44.88,5],["DTW","Detroit",-83.35,42.21,5],["PHL","Philadelphia",-75.24,39.87,4],["LAS","Las Vegas",-115.15,36.08,6],["SLC","Salt Lake City",-111.98,40.79,4],["BWI","Baltimore",-76.67,39.18,3],["DCA","Washington National",-77.04,38.85,4],["SAN","San Diego",-117.19,32.73,3],["TPA","Tampa",-82.53,27.98,3],["PDX","Portland",-122.60,45.59,3],["STL","St. Louis",-90.37,38.75,2],["BNA","Nashville",-86.68,36.12,3],["AUS","Austin",-97.67,30.19,3],["MCI","Kansas City",-94.71,39.30,2],["RDU","Raleigh-Durham",-78.79,35.88,2],["MSY","New Orleans",-90.26,29.99,2],["MDW","Chicago Midway",-87.75,41.79,3],["CVG","Cincinnati",-84.66,39.05,2],["IND","Indianapolis",-86.29,39.72,2],["SAT","San Antonio",-98.47,29.53,2],["ABQ","Albuquerque",-106.61,35.04,1],["BOI","Boise",-116.22,43.56,1],["OMA","Omaha",-95.89,41.30,1],["OKC","Oklahoma City",-97.60,35.39,1],["PIT","Pittsburgh",-80.23,40.49,2],["CLE","Cleveland",-81.85,41.41,2],["MEM","Memphis",-89.98,35.04,2]];
+const ctrs=[["Seattle",-122.19,47.29],["Oakland",-122.02,37.54],["Los Angeles",-118.08,34.60],["Salt Lake City",-111.95,40.79],["Denver",-105.13,40.19],["Albuquerque",-106.57,35.17],["Minneapolis",-93.15,44.64],["Kansas City",-94.79,38.88],["Fort Worth",-97.07,32.83],["Houston",-95.33,29.96],["Chicago",-88.33,41.78],["Indianapolis",-86.30,39.70],["Memphis",-89.96,35.07],["Cleveland",-82.21,41.30],["Atlanta",-84.30,33.38],["Jacksonville",-81.91,30.70],["Miami",-80.32,25.82],["Washington",-77.54,39.10],["New York",-73.10,40.78],["Boston",-71.48,42.74],["Anchorage",-149.78,61.23],["Honolulu",-157.92,21.32]];
+const r=v=>Math.round(v*10)/10;
+const H=hubs.map(([c,n,lo,la,w])=>{const [x,y]=proj([lo,la]);return {c,n,x:r(x),y:r(y),lo,la,w}});
+const C=ctrs.map(([n,lo,la])=>{const [x,y]=proj([lo,la]);return {n,x:r(x),y:r(y)}});
+fs.writeFileSync('map.json',JSON.stringify({nation,borders,H,C}));
+console.log(nation.length,borders.length);
