@@ -106,7 +106,7 @@ id+' button:focus-visible,'+id+' input:focus-visible{outline:3px solid '+G+';out
 
 function mount(root,mini){
   ensure();var id="#"+root.id,st=document.createElement("style");
-  st.textContent=css(id)+(mini?id+'{margin:clamp(20px,3vw,32px) 0 0;max-width:none;padding:clamp(12px,2vw,20px)!important;background:#fff}'+id+' .stage{margin-top:0;border:0}'+id+' .hud{padding:0 2px 6px}'+id+' .clock{font-size:clamp(26px,3.6vw,40px)}'+id+' .cap{border:0;padding:6px 2px 8px;min-height:4em;font-size:.98em}'+id+' .chips{padding:0 2px;justify-content:center}'+id+' .sr{font-family:'+SANS+';font-size:12px;color:'+SUB+';margin:10px 0 0;text-align:center}'+id+' .sr a{color:'+G+';font-weight:600}':"");
+  st.textContent=css(id)+(mini?id+'{margin:clamp(20px,3vw,32px) 0 0;max-width:none;padding:clamp(12px,2vw,20px)!important;background:#fff}'+id+' .stage{margin-top:0;border:0}'+id+' .hud{padding:0 2px 6px}'+id+' .clock{font-size:clamp(26px,3.6vw,40px)}'+id+' .cap{border:0;padding:6px 2px 8px;min-height:4em;font-size:.98em;display:block!important;text-align:left!important;max-width:none!important;margin:0!important;font-family:inherit!important;color:'+INK+'!important}'+id+' .chips{padding:0 2px;justify-content:center}'+id+' .sr{font-family:'+SANS+';font-size:12px;color:'+SUB+';margin:10px 0 0;text-align:center}'+id+' .sr a{color:'+G+';font-weight:600}':"");
   document.head.appendChild(st);
   var href=(root.querySelector("a")||{}).href||"#";
   var stage='<div class="stage"><div class="hud"><div class="clock"></div><span class="pill"></span>'+(mini?'':'<div class="stat"></div>')+'</div>'+
