@@ -617,6 +617,51 @@ def flock():
 POSTS.update({"flock": flock})
 
 
+def glp1():
+    ROWS = [[("All adults", 9.8), ("Women", 11.9), ("Men", 7.6)],
+            [("Ages 18 to 39", 4.8), ("Ages 40 to 64", 13.7), ("Ages 65+", 11.1)],
+            [("Healthy weight", 4.7), ("Overweight", 8.1), ("Obesity", 15.6), ("Severe obesity", 24.1)],
+            [("Have had diabetes", 47.4), ("Never had diabetes", 5.7)]]
+    GA_ = 2.399963
+    RAD, RD, PALE = 68, 4.1, "#dde6e1"
+    Y0, PITCH = 668, 240
+    intro, step, hold = 0.8, 2.3, 3.6
+    items = []
+    for i, row in enumerate(ROWS):
+        n = len(row); xp = 250 if n == 4 else 300
+        for j, (lab, v) in enumerate(row):
+            cx = 540 + (j - (n - 1) / 2) * xp; cy = Y0 + i * PITCH
+            pts = [(cx + RAD / 10 * math.sqrt(k + 0.5) * math.cos(k * GA_), cy - RAD / 10 * math.sqrt(k + 0.5) * math.sin(k * GA_)) for k in range(100)]
+            items.append((i, lab, v, cx, cy, pts))
+
+    def draw(c, t):
+        brand_block(c)
+        header(c, "Science \u00b7 Health", ["One In 10 U.S. Adults Took A", "GLP-1 Drug In The Past Year"],
+               ["Ozempic, Wegovy, Mounjaro, Zepbound and similar", "drugs. Each cluster is 100 adults."])
+        px, py, gx, gy = [], [], [], []
+        for i, lab, v, cx, cy, pts in items:
+            t0 = intro + i * step
+            a = min(max((t - t0) / 0.7, 0), 1)          # dots appear
+            f = ease(min(max((t - t0 - 0.8) / 1.1, 0), 1))  # fill
+            shown = int(round(100 * a)); n = int(round(v)); filled = int(round(n * f))
+            for k in range(shown):
+                (gx if k < filled else px).append(pts[k][0]); (gy if k < filled else py).append(pts[k][1])
+            if a > 0:
+                c.text(cx, cy + 100, lab, size=24, ha="center", color=INK)
+            if t > t0 + 0.8:
+                c.text(cx, cy + 137, f"{v * f:.1f}%", size=31, weight="bold", ha="center", color=GREEN)
+        if px:
+            c.ax.scatter(px, py, s=(2 * RD * PT) ** 2, c=PALE, linewidths=0, zorder=3)
+        if gx:
+            c.ax.scatter(gx, gy, s=(2 * RD * PT) ** 2, c=GREEN, linewidths=0, zorder=4)
+        footer(c, "Source: CDC survey of 8,118 adults, 2025")
+        bottom_band(c)
+
+    return draw, intro + 4 * step + hold
+
+POSTS.update({"glp1": glp1})
+
+
 if __name__ == "__main__":
     name = sys.argv[1]
     draw, dur = POSTS[name]()
