@@ -4,7 +4,7 @@
    TO UPDATE WHEN THE NOV. 13, 2026 STOP ENDS: edit NOW below and the e2026 moments/facts, then bump ?v= on the script tags. */
 (function(){
 "use strict";
-var NOW={t:17.0,label:"5:00 p.m."};           /* last time checked, hours Eastern on Nov. 13, 2026; stop still in effect */
+var NOW={t:17+20/60,label:"5:20 p.m."};           /* last time checked, hours Eastern on Nov. 13, 2026; stop still in effect */
 var MAP=__MAP__;
 var G="#007a55",INK="#13241b",SUB="#4a5550",PALE="#dde6e1",SANS='-apple-system,"Helvetica Neue",Arial,sans-serif';
 var NS="http://www.w3.org/2000/svg";
@@ -34,15 +34,16 @@ var EV={
    [9,"About 9:00 a.m.","The stop is lifted after about 90 minutes and departures resume gradually."],
    [10.5,"10:30 a.m.","Airports work through the backlog while delays keep growing for the rest of the day."]],
   facts:[["About 90 min","length of the stop, on a Wednesday morning"],["1,300+","flights canceled that day, according to FlightAware"],["About 10,000","flights delayed that day, according to FlightAware"]]},
- e2026:{name:"Nov. 13, 2026",short:"2026",cause:"Air traffic control communication failure",t0:14,t1:NOW.t,stop:15.9,lift:Infinity,chi:15+10/60,n:124,seed:26,now:true,
+ e2026:{name:"Nov. 13, 2026",short:"2026",cause:"Telecommunications outage at air traffic control",t0:14,t1:NOW.t,stop:15.9,lift:Infinity,chi:15+10/60,n:124,seed:26,now:true,
   bar:[15.9,NOW.t],barLab:"Began 3:54 p.m.",open:[NOW.t,23.5],
   moments:[[14,"2:00 p.m.","A Friday afternoon, with flights departing on schedule across the country."],
    [15+10/60,"About 3:10 p.m.","Flights bound for Chicago O’Hare are stopped over communications problems, and Midway follows three minutes later."],
    [15.9,"3:54 p.m.","Nationwide ground stop. More than 3,100 flights already in the air are allowed to continue to their destinations."],
    [16+16/60,"4:16 p.m.","The transportation secretary says a communication issue is affecting air route traffic control centers."],
-   [16.9,"4:54 p.m.","The FAA advisory now runs to 11:30 p.m. Eastern, and no end time is confirmed."]],
-  unknown:"<b>What is not known.</b> The FAA has not named a cause or said when departures will resume. This replay ends at "+NOW.label+" Eastern on Nov. 13, the last time we checked, with the stop still in effect. Three days earlier, on Nov. 10, the agency expanded SMART, an AI tool that suggests flight reroutes, to all 22 centers. Neither the FAA nor the transportation secretary has connected the tool to the stop, and no reporting so far shows a link.",
-  facts:[["3:54 p.m.","Eastern start time, the only one of the three stops to begin after noon"],["3,100+","flights in the air when the stop began, allowed to finish their trips"],["11:30 p.m.","end of the FAA advisory period, with no confirmed end to the stop as of "+NOW.label+" Eastern"]]}
+   [16.9,"4:54 p.m.","The FAA advisory now runs to 11:30 p.m. Eastern, and no end time is confirmed."],
+   [17.25,"About 5:15 p.m.","The FAA says a temporary telecommunications outage caused the stop, and officials say they see no sign of an attack."]],
+  unknown:"<b>What is not known.</b> The FAA blames a temporary telecommunications outage but has not said what caused the outage or when departures will resume. This replay ends at "+NOW.label+" Eastern on Nov. 13, the last time we checked, with the stop still in effect. Three days earlier, on Nov. 10, the agency expanded SMART, an AI tool that suggests flight reroutes, to all 22 centers. No official has connected the tool to the stop, and no reporting so far shows a link.",
+  facts:[["3:54 p.m.","Eastern start time, the only one of the three stops to begin after noon"],["3,100+","flights in the air when the stop began, allowed to finish their trips"],["9,000+","flights delayed by about "+NOW.label+" Eastern, with more than 700 canceled, according to FlightAware"]]}
 };
 var ORDER=["e2001","e2023","e2026"];
 function build(ev){
