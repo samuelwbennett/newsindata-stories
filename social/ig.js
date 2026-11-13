@@ -7,7 +7,7 @@ if(window.__nidIG)return; window.__nidIG=1;
 var IG='https://www.instagram.com/thenewsindata/';
 var BASE='https://stories.thenewsindata.com/social/web/';
 var REELS={
-  groundstop:{t:'The three times the U.S. grounded every flight',s:'the-faa-has-halted-every-us-departure-only-three-times-and-the-nov-13-stop-is-the-first-to-start-after-noon'},
+  groundstop:{t:'FAA grounds flights for third time in history',s:'the-faa-has-halted-every-us-departure-only-three-times-and-the-nov-13-stop-is-the-first-to-start-after-noon'},
   glp1:{t:'One in 10 U.S. adults took a GLP-1 drug',s:'one-in-10-us-adults-took-a-glp-1-drug-in-the-past-year-and-nearly-half-of-those-with-diabetes-did'},
   flock:{t:'Which states have the most Flock cameras?',s:'georgia-has-80-flock-license-plate-cameras-per-100000-residents-the-most-of-any-state'},
   nbalead:{t:'How safe is an NBA lead?',s:'the-first-nba-team-to-lead-by-10-points-wins-three-games-out-of-four'},
