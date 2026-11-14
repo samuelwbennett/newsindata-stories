@@ -54,3 +54,57 @@ function grow(){if(shown)return;shown=true;paint()}
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){setTimeout(grow,300);io.disconnect()}},{threshold:.3});io.observe(svg)}else grow();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();})();
+
+(function(){
+var Y=[[2000,85],[2001,116],[2002,44],[2003,56],[2004,37],[2005,66],[2006,55],[2007,43],[2008,140],[2009,72],[2010,63],[2011,220],[2012,55],[2013,187],[2014,667],[2015,191],[2016,86],[2017,120],[2018,381],[2019,1274],[2020,13],[2021,49],[2022,121],[2023,59],[2024,285],[2025,2289],[2026,5412]];
+var G='#007a55',LT='#9fd1b8',INK='#13241b',SUB='#4a5550',ID='#nid-measles-top';
+function fmt(n){return n.toLocaleString('en-US')}
+function go(){var b=document.getElementById('nid-measles-top');if(!b||b.getAttribute('data-on'))return;b.setAttribute('data-on','1');
+var NS='http://www.w3.org/2000/svg',SF='-apple-system,"Helvetica Neue",Arial,sans-serif',SE='Georgia,"Times New Roman",serif';
+var css=ID+'{max-width:760px;margin:1.6em auto 2.2em;font-family:'+SE+';color:'+INK+'}'+ID+'>figure{display:none}'+
+ID+' .hd{text-align:center;margin-bottom:4px}'+ID+' .hd b{display:block;font-size:1.5em;line-height:1.2}'+ID+' .hd span{display:block;font-size:.95em;color:'+SUB+';font-style:italic;margin-top:4px}'+
+ID+' svg{width:100%;height:auto;display:block;overflow:visible}'+ID+' svg text{letter-spacing:0!important;word-spacing:0!important}'+
+ID+' .bar{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0);transition:transform .7s cubic-bezier(.2,.7,.2,1)}'+ID+'.go .bar{transform:scaleY(1)}'+
+ID+' .hit{fill:#000;fill-opacity:0;cursor:pointer}'+ID+' .an{opacity:0;transition:opacity .6s}'+ID+'.done .an{opacity:1}'+
+ID+' .ax{font-family:'+SF+';font-size:13px;fill:'+SUB+'}'+ID+' .axt{font-family:'+SF+';font-size:13px;font-weight:700;fill:'+INK+'}'+
+ID+' .nt{font-family:'+SE+';font-size:15px;font-style:italic;fill:'+SUB+'}'+ID+' .lb{font-family:'+SE+';font-size:15px;font-weight:700;fill:'+INK+'}'+
+ID+' .big{font-family:'+SE+';font-size:38px;font-weight:700;fill:'+G+'}'+
+ID+' .ft{display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:'+SF+';font-size:13px;color:'+SUB+';margin-top:6px;min-height:30px}'+
+ID+' .ft b{color:'+INK+'}'+ID+' .ft button{font:inherit;padding:5px 13px;border-radius:999px;border:1px solid #cfd9d3;background:#fff;color:'+INK+';cursor:pointer;white-space:nowrap}';
+var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
+var w=document.createElement('div');w.innerHTML='<div class="hd"><b>U.S. Measles Cases Per Year, 2000 To 2026</b><span>Confirmed cases reported to the CDC. The 2026 count is already the most since 1991. Data: CDC, updated Nov. 12, 2026</span></div><svg viewBox="0 0 700 640" role="img" aria-label="Column chart of confirmed U.S. measles cases per year from 2000 to 2026, rising to 5,412 in 2026 through Nov. 12."></svg><div class="ft"><span class="rd">Tap or hover over a bar for that year.</span><button type="button">Replay</button></div>';
+while(w.firstChild)b.appendChild(w.firstChild);
+var svg=b.querySelector('svg'),rd=b.querySelector('.rd'),L=62,R=690,T=20,B=585,MAX=6000,n=Y.length,bw=(R-L)/n;
+function el(t,a,txt){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;svg.appendChild(e);return e}
+function y(v){return B-(B-T)*v/MAX}
+for(var v=0;v<=MAX;v+=1000){el('line',{x1:L,x2:R,y1:y(v),y2:y(v),stroke:v?'#e6ebe8':INK,'stroke-width':1});el('text',{'class':'ax',x:L-8,y:y(v)+4,'text-anchor':'end'},fmt(v))}
+var lab=el('text',{'class':'axt',x:16,y:(T+B)/2,'text-anchor':'middle',transform:'rotate(-90 16 '+(T+B)/2+')'},'Confirmed measles cases');
+el('text',{'class':'axt',x:(L+R)/2,y:632,'text-anchor':'middle'},'Year');
+var bars=[];
+Y.forEach(function(d,i){var x=L+i*bw,h=Math.max(1.5,B-y(d[1]));
+if(d[0]%5===0)el('text',{'class':'ax',x:x+bw/2,y:B+18,'text-anchor':'middle'},d[0]);
+var r=el('rect',{'class':'bar',x:x+bw*.12,y:B-h,width:bw*.76,height:h,fill:d[0]===2026?G:LT});bars.push(r);
+var hit=el('rect',{'class':'hit',x:x,y:T,width:bw,height:B-T});
+function show(){bars.forEach(function(o,k){o.setAttribute('fill-opacity',k===i?1:.45)});rd.innerHTML='<b>'+d[0]+':</b> '+fmt(d[1])+' confirmed '+(d[1]===1?'case':'cases')+(d[0]===2026?' through Nov. 12':'')}
+hit.addEventListener('mouseenter',show);hit.addEventListener('click',show);hit.addEventListener('mouseleave',function(){bars.forEach(function(o){o.setAttribute('fill-opacity',1)})})});
+function cx(yr){return L+(yr-2000+.5)*bw}
+var A=[];function an(e){e.setAttribute('class',e.getAttribute('class')+' an');A.push(e);return e}
+an(el('text',{'class':'nt',x:L+12,y:T+22},'Measles was declared eliminated'));an(el('text',{'class':'nt',x:L+12,y:T+41},'in the U.S. in 2000'));
+an(el('text',{'class':'nt',x:cx(2008.5),y:y(2380),'text-anchor':'middle'},'2000 to 2018:'));an(el('text',{'class':'nt',x:cx(2008.5),y:y(2380)+19,'text-anchor':'middle'},'about 140 cases'));an(el('text',{'class':'nt',x:cx(2008.5),y:y(2380)+38,'text-anchor':'middle'},'a year on average'));
+an(el('line',{x1:cx(2008.5),x2:cx(2008.5),y1:y(2380)+48,y2:y(330),stroke:'#8a958f','stroke-width':1}));
+an(el('text',{'class':'lb',x:cx(2019),y:y(1274)-28,'text-anchor':'middle'},'1,274'));an(el('text',{'class':'lb',x:cx(2019),y:y(1274)-9,'text-anchor':'middle'},'in 2019'));
+an(el('text',{'class':'lb',x:cx(2025),y:y(2289)-9,'text-anchor':'middle'},'2,289'));
+an(el('text',{'class':'lb',x:cx(2026)-bw*.6,y:y(5412)+16,'text-anchor':'end'},'2026, through Nov. 12'));
+var big=el('text',{'class':'big',x:R,y:y(5412)-12,'text-anchor':'end'},'0');big.style.opacity=0;big.style.transition='opacity .3s';
+var raf=null,tm=[];
+function play(){tm.forEach(clearTimeout);tm=[];if(raf)cancelAnimationFrame(raf);b.classList.remove('go');b.classList.remove('done');big.style.opacity=0;
+bars.forEach(function(r,i){r.style.transition='none';r.style.transitionDelay='0ms'});void svg.getBoundingClientRect();
+bars.forEach(function(r,i){r.style.transition='';r.style.transitionDelay=(i*95)+'ms';if(i===n-1)r.style.transitionDuration='1.6s'});
+b.classList.add('go');var t0=(n-1)*95,dur=1600;
+tm.push(setTimeout(function(){big.style.opacity=1;var s=null;function step(ts){if(!s)s=ts;var p=Math.min(1,(ts-s)/dur),e=1-Math.pow(1-p,3);big.textContent=fmt(Math.round(5412*e));if(p<1)raf=requestAnimationFrame(step)}raf=requestAnimationFrame(step)},t0));
+tm.push(setTimeout(function(){b.classList.add('done')},t0+dur-300))}
+b.querySelector('button').addEventListener('click',play);
+if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){b.classList.add('go');b.classList.add('done');big.textContent='5,412';big.style.opacity=1;bars.forEach(function(r){r.style.transition='none'})}
+else if('IntersectionObserver' in window){var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){play();io.disconnect()}},{threshold:.45});io.observe(svg)}else play();
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();})();
