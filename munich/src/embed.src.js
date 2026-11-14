@@ -50,7 +50,7 @@ window.NIDMU={field:field,board:board,rec:rec,GAMES:GAMES,PLAYED:PLAYED,NAMES:NA
 if(window.NIDMU_STATIC)return;
 
 /* ---------- page ---------- */
-var CSS='.nid-mu{font-family:'+SERIF+';color:'+INK+';max-width:760px;margin:2.2em auto;position:relative}'+
+var CSS='.nid-mu p.ti{font-family:'+SERIF+'!important;font-size:clamp(1.3em,4.4vw,1.75em)!important;font-weight:700!important;line-height:1.12!important;color:'+INK+'!important;margin:0 0 .3em!important}.nid-mu p.su{font-family:'+SERIF+'!important;font-style:italic!important;font-size:clamp(.95em,2.6vw,1.08em)!important;line-height:1.3!important;color:'+SUB+'!important}'+'.nid-mu p.q{font-family:'+SERIF+'!important;font-size:1.35em!important;font-weight:700!important;line-height:1.22!important;color:'+INK+'!important;margin:0 0 10px!important}.nid-mu .ans p{font-family:'+SERIF+'!important}'+'.nid-mu{font-family:'+SERIF+';color:'+INK+';max-width:760px;margin:2.2em auto;position:relative}'+
 '.nid-mu .ti{font-size:clamp(1.25em,4.2vw,1.7em);font-weight:700;line-height:1.12;margin:0 0 .3em;text-align:center}'+
 '.nid-mu .su{font-size:clamp(.92em,2.6vw,1.05em);color:'+SUB+';font-style:italic;margin:0 auto .9em;text-align:center;max-width:600px;line-height:1.3}'+
 '.nid-mu svg{display:block;width:100%;height:auto;overflow:visible}.nid-mu text{font-family:'+SERIF+'}'+

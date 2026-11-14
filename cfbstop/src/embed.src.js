@@ -89,7 +89,7 @@ window.NIDCFBS={timeline:timeline,map:mapSVG,GAMES:GAMES};
 if(window.NIDCFBS_STATIC)return;
 
 /* ---------- page ---------- */
-var CSS='.nid-cfbs{font-family:'+SERIF+';color:'+INK+';max-width:760px;margin:2.2em auto;position:relative}'+
+var CSS='.nid-cfbs p.ti{font-family:'+SERIF+'!important;font-size:clamp(1.3em,4.4vw,1.75em)!important;font-weight:700!important;line-height:1.12!important;color:'+INK+'!important;margin:0 0 .3em!important}.nid-cfbs p.su{font-family:'+SERIF+'!important;font-style:italic!important;font-size:clamp(.95em,2.6vw,1.08em)!important;line-height:1.3!important;color:'+SUB+'!important}'+'.nid-cfbs{font-family:'+SERIF+';color:'+INK+';max-width:760px;margin:2.2em auto;position:relative}'+
 '.nid-cfbs .ti{font-size:clamp(1.25em,4.2vw,1.7em);font-weight:700;line-height:1.12;margin:0 0 .3em;text-align:center}'+
 '.nid-cfbs .su{font-size:clamp(.92em,2.6vw,1.05em);color:'+SUB+';font-style:italic;margin:0 auto .9em;text-align:center;max-width:600px;line-height:1.3}'+
 '.nid-cfbs .tg{display:flex;justify-content:center;gap:8px;margin:0 0 10px;flex-wrap:wrap}'+
