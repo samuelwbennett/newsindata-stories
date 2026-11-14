@@ -1,0 +1,121 @@
+/* The News in Data: NFL designated home teams abroad. Built by munich/src/build.js (inlines games.json). */
+(function(){
+var GAMES=__GAMES__; /* [date, city, homeAbbr, awayAbbr, homeScore, awayScore, homeName, awayName, stadium, series, ot] */
+var G='#007A55',GD='#005C40',INK='#13241B',SUB='#5F7268',GOLD='#C8962E',ROAD='#93A39A',SERIF='"Times New Roman",Times,serif',SANS='-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif';
+var NAMES={ARI:'Arizona Cardinals',ATL:'Atlanta Falcons',BAL:'Baltimore Ravens',BUF:'Buffalo Bills',CAR:'Carolina Panthers',CHI:'Chicago Bears',CIN:'Cincinnati Bengals',CLE:'Cleveland Browns',DAL:'Dallas Cowboys',DEN:'Denver Broncos',DET:'Detroit Lions',GB:'Green Bay Packers',HOU:'Houston Texans',IND:'Indianapolis Colts',JAX:'Jacksonville Jaguars',KC:'Kansas City Chiefs',LA:'Los Angeles Rams',LAC:'Los Angeles Chargers',LV:'Las Vegas Raiders',MIA:'Miami Dolphins',MIN:'Minnesota Vikings',NE:'New England Patriots',NO:'New Orleans Saints',NYG:'New York Giants',NYJ:'New York Jets',PHI:'Philadelphia Eagles',PIT:'Pittsburgh Steelers',SEA:'Seattle Seahawks',SF:'San Francisco 49ers',TB:'Tampa Bay Buccaneers',TEN:'Tennessee Titans',WAS:'Washington Commanders'};
+var PLAYED=GAMES.filter(function(g){return g[4]!==null});
+var MON=['Jan.','Feb.','March','April','May','June','July','Aug.','Sept.','Oct.','Nov.','Dec.'];
+function fdate(d){var p=d.split('-');return MON[+p[1]-1]+' '+(+p[2])+', '+p[0]}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function region(g){return g[9]==='London'?'London':g[9]==='Germany'?'Germany':g[9]==='Toronto'?'Toronto':'Other'}
+function rec(list){var w=0,l=0,t=0;list.forEach(function(g){var m=g[4]-g[5];if(m>0)w++;else if(m<0)l++;else t++});return {w:w,l:l,t:t,pct:list.length?(w+t/2)/list.length:0,s:w+'-'+l+(t?'-'+t:'')}}
+
+/* ---------- the field: every game, placed by the home team's margin ---------- */
+function field(o){
+  o=o||{};var W=o.W||760,fs=o.fs||1,FH=(o.FH||250)*fs,top=(o.top||34)*fs,EZ=W*.075,x0=EZ,x1=W-EZ,R=(o.r||7.2)*fs,H=top+FH+(o.bottom||58)*fs;
+  var X=function(m){return x0+(m+50)/100*(x1-x0)},s='';
+  /* turf, end zones, yard lines */
+  s+='<rect x="0" y="'+top+'" width="'+W+'" height="'+FH+'" rx="'+(6*fs)+'" fill="#E7F1EB"/>';
+  s+='<rect x="0" y="'+top+'" width="'+EZ+'" height="'+FH+'" rx="'+(6*fs)+'" fill="#DCE6E0"/><rect x="'+x1+'" y="'+top+'" width="'+EZ+'" height="'+FH+'" rx="'+(6*fs)+'" fill="#D3E8DC"/>';
+  for(var y=-50;y<=50;y+=5){var xx=X(y);s+='<line x1="'+xx+'" x2="'+xx+'" y1="'+top+'" y2="'+(top+FH)+'" stroke="#fff" stroke-width="'+(y%10===0?2*fs:1*fs)+'"'+(y%10===0?'':' opacity=".7"')+'/>'}
+  [-40,-30,-20,-10,10,20,30,40].forEach(function(y){var t=50-Math.abs(y);s+='<text x="'+X(y)+'" y="'+(top+FH-14*fs)+'" text-anchor="middle" font-size="'+(15*fs)+'" font-weight="700" fill="#9DB5A8">'+Math.abs(y)+'</text>'});
+  s+='<text transform="translate('+(EZ/2)+','+(top+FH/2)+') rotate(-90)" text-anchor="middle" font-size="'+(12*fs)+'" font-weight="700" letter-spacing=".08em" fill="'+SUB+'">ROAD TEAM WON</text>';
+  s+='<text transform="translate('+(W-EZ/2)+','+(top+FH/2)+') rotate(90)" text-anchor="middle" font-size="'+(12*fs)+'" font-weight="700" letter-spacing=".08em" fill="'+GD+'">HOME TEAM WON</text>';
+  /* dots: beeswarm around the field's middle */
+  var pts=PLAYED.map(function(g,i){return {g:g,i:GAMES.indexOf(g),x:X(g[4]-g[5]),y:0}}).sort(function(a,b){return a.x-b.x}),placed=[],d=2*R+1.2*fs,cy=top+FH/2-6*fs,lim=FH/2-R-4*fs;
+  pts.forEach(function(q){for(var k=0;k<200;k++){var off=(k%2?1:-1)*Math.ceil(k/2)*d*.5;if(Math.abs(off)>lim)off=Math.sign(off)*lim;var ok=placed.every(function(p){var dx=p.x-q.x,dy=p.y-off;return dx*dx+dy*dy>=d*d*.98});if(ok||Math.abs(off)>=lim){q.y=off;break}}placed.push(q)});
+  var hl=o.hl||function(){return true};
+  pts.forEach(function(q){var m=q.g[4]-q.g[5],c=m>0?G:m<0?ROAD:GOLD,on=hl(q.g);
+    s+='<circle class="gm" data-i="'+q.i+'" cx="'+q.x.toFixed(1)+'" cy="'+(cy+q.y).toFixed(1)+'" r="'+R+'" fill="'+c+'" stroke="#fff" stroke-width="'+(1.5*fs)+'" opacity="'+(on?1:.13)+'"/>'});
+  /* midfield and averages */
+  var on=PLAYED.filter(hl),r=rec(on),avg=on.reduce(function(a,g){return a+g[4]-g[5]},0)/(on.length||1);
+  s+='<line x1="'+X(0)+'" x2="'+X(0)+'" y1="'+(top-6*fs)+'" y2="'+(top+FH+6*fs)+'" stroke="'+INK+'" stroke-width="'+(2*fs)+'"/>';
+  s+='<text x="'+X(0)+'" y="'+(top-11*fs)+'" text-anchor="middle" font-size="'+(12*fs)+'" font-weight="700" fill="'+INK+'" letter-spacing=".04em">TIE</text>';
+  if(!o.noAvg){var ax=X(avg);s+='<path d="M'+ax+' '+(top+FH+6*fs)+'l'+(-6*fs)+' '+(10*fs)+'h'+(12*fs)+'z" fill="'+INK+'"/><text x="'+ax+'" y="'+(top+FH+31*fs)+'" text-anchor="middle" font-size="'+(13.5*fs)+'" font-weight="700" fill="'+INK+'">Average: home team '+(avg<0?'lost':'won')+' by '+Math.abs(avg).toFixed(1)+'</text>'}
+  s+='<text x="'+x0+'" y="'+(top+FH+52*fs)+'" font-size="'+(12.5*fs)+'" fill="'+SUB+'">← Bigger road-team win</text><text x="'+x1+'" y="'+(top+FH+52*fs)+'" text-anchor="end" font-size="'+(12.5*fs)+'" fill="'+SUB+'">Bigger home-team win →</text>';
+  return {W:W,H:H,rec:r,n:on.length,svg:'<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Every NFL regular-season game played outside the U.S., 2005 to 2026, placed on a football field by the designated home team\'s margin. The home team is '+rec(PLAYED).s+' and loses by 3.1 points on average.">'+s+'</svg>'};
+}
+
+/* ---------- scoreboard: home win rate at home vs. abroad ---------- */
+function board(o){
+  o=o||{};var W=o.W||640,fs=o.fs||1,rows=[['At their own stadiums, 2005–2025',.559,'#B9C7BF'],['As the home team abroad, 2005–2026',rec(PLAYED).pct,G]],RH=64*fs,top=10*fs,LW=0,x0=0,x1=W-70*fs,H=top+rows.length*RH+24*fs,s='';
+  var hx=x1*.5,cf='<line x1="'+hx+'" x2="'+hx+'" y1="'+(top+18*fs)+'" y2="'+(top+rows.length*RH)+'" stroke="'+INK+'" stroke-dasharray="'+(3*fs)+' '+(3*fs)+'" stroke-width="'+fs+'"/>';
+  rows.forEach(function(r,i){var y=top+i*RH;s+='<text x="0" y="'+(y+16*fs)+'" font-size="'+(15*fs)+'" font-weight="700" fill="'+INK+'">'+r[0]+'</text>';
+    s+='<rect x="0" y="'+(y+24*fs)+'" width="'+(x1)+'" height="'+(22*fs)+'" rx="'+(4*fs)+'" fill="#F0F3F1"/><rect class="bar" x="0" y="'+(y+24*fs)+'" width="'+(x1*r[1])+'" height="'+(22*fs)+'" rx="'+(4*fs)+'" fill="'+r[2]+'"/>';
+    s+='<text x="'+(x1*r[1]+8*fs)+'" y="'+(y+41*fs)+'" font-size="'+(19*fs)+'" font-weight="700" stroke="#fff" stroke-width="'+(5*fs)+'" paint-order="stroke" fill="'+(i?G:INK)+'">'+Math.round(r[1]*100)+'%</text>'});
+  var hx=x1*.5;s=cf+s;s+='<text x="'+hx+'" y="'+(top+rows.length*RH+16*fs)+'" text-anchor="middle" font-size="'+(12*fs)+'" fill="'+SUB+'">50%, a coin flip</text>';
+  return {W:W,H:H,svg:'<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="NFL home teams won 56% of games at their own stadiums from 2005 to 2025, but designated home teams have won 43% of games played abroad.">'+s+'</svg>'};
+}
+window.NIDMU={field:field,board:board,rec:rec,GAMES:GAMES,PLAYED:PLAYED,NAMES:NAMES};
+if(window.NIDMU_STATIC)return;
+
+/* ---------- page ---------- */
+var CSS='.nid-mu{font-family:'+SERIF+';color:'+INK+';max-width:760px;margin:2.2em auto;position:relative}'+
+'.nid-mu .ti{font-size:clamp(1.25em,4.2vw,1.7em);font-weight:700;line-height:1.12;margin:0 0 .3em;text-align:center}'+
+'.nid-mu .su{font-size:clamp(.92em,2.6vw,1.05em);color:'+SUB+';font-style:italic;margin:0 auto .9em;text-align:center;max-width:600px;line-height:1.3}'+
+'.nid-mu svg{display:block;width:100%;height:auto;overflow:visible}.nid-mu text{font-family:'+SERIF+'}'+
+'.nid-mu .tg{display:flex;justify-content:center;gap:8px;margin:0 0 8px;flex-wrap:wrap}'+
+'.nid-mu .tg button{font:600 14px/1 '+SANS+';border:1.5px solid '+G+';background:#fff;color:'+G+';border-radius:999px;padding:9px 14px;cursor:pointer;min-height:40px}'+
+'.nid-mu .tg button[aria-pressed=true]{background:'+G+';color:#fff}'+
+'.nid-mu .rc{text-align:center;font:600 15px/1.4 '+SANS+';color:'+INK+';margin:2px 0 6px}.nid-mu .rc b{color:'+G+';font-size:1.15em}'+
+'.nid-mu .gm{cursor:pointer;transition:opacity .25s,r .15s}.nid-mu .gm:hover,.nid-mu .gm.on{stroke:'+INK+';stroke-width:2.5}'+
+'.nid-mu .det{min-height:70px;margin:8px auto 0;max-width:640px;border-left:3px solid '+G+';background:#F4F8F5;border-radius:0 8px 8px 0;padding:10px 14px;font-size:1em;line-height:1.4}'+
+'.nid-mu .det .k{font:700 12px/1.3 '+SANS+';color:'+G+';letter-spacing:.05em;text-transform:uppercase;display:block;margin-bottom:3px}'+
+'.nid-mu .gs{background:#fff;border:1px solid #DCE7E0;border-radius:16px;padding:20px;box-shadow:0 10px 28px rgba(19,36,27,.07);max-width:620px;margin:0 auto}'+
+'.nid-mu .gs .q{font-size:1.3em;font-weight:700;line-height:1.22;margin:0 0 10px}'+
+'.nid-mu .row{display:flex;align-items:center;gap:14px}.nid-mu .val{font-size:44px;font-weight:700;color:'+G+';min-width:2.4em;font-variant-numeric:tabular-nums;line-height:1}'+
+'.nid-mu input[type=range]{flex:1;min-width:0;accent-color:'+G+';height:36px}'+
+'.nid-mu .go{font:700 15px/1.2 '+SANS+';background:'+G+';color:#fff;border:0;border-radius:999px;padding:12px 20px;cursor:pointer;margin-top:10px}.nid-mu .go:hover{background:'+GD+'}'+
+'.nid-mu .ans{margin-top:14px}.nid-mu .ans p{font-size:1.05em;line-height:1.45;margin:.6em 0 0}'+
+'.nid-mu select{font:600 16px/1.2 '+SANS+';padding:10px 12px;border:1.5px solid '+G+';border-radius:10px;background:#fff;color:'+INK+';max-width:100%;display:block;margin:0 auto 12px}'+
+'.nid-mu .tl{list-style:none;padding:0;margin:0 auto;max-width:620px}.nid-mu .tl li{display:grid;grid-template-columns:3.2em 1fr auto;gap:10px;align-items:baseline;padding:9px 4px;border-bottom:1px solid #E6ECE8;font-size:1em;line-height:1.3}'+
+'.nid-mu .tl .wl{font:700 13px/1 '+SANS+';border-radius:6px;padding:5px 0;text-align:center;color:#fff}.nid-mu .tl small{display:block;color:'+SUB+';font-size:.85em}.nid-mu .tl .sc{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}'+
+'.nid-mu .bar{transform-origin:left;transform:scaleX(var(--s,1));transition:transform 1s ease}'+
+'.nid-mu button:focus-visible,.nid-mu select:focus-visible,.nid-mu input:focus-visible,.nid-mu .gm:focus-visible{outline:3px solid #7FC4A6;outline-offset:2px}';
+function css(){if(document.getElementById('nid-mu-css'))return;var st=document.createElement('style');st.id='nid-mu-css';st.textContent=CSS;document.head.appendChild(st)}
+function line(g){var m=g[4]-g[5],k=m>0?'Home team won':m<0?'Road team won':'Tie';return '<span class="k">'+k+' · '+esc(fdate(g[0]))+' · '+esc(g[1])+'</span><b>'+esc(g[6])+'</b> (home) '+g[4]+', <b>'+esc(g[7])+'</b> '+g[5]+(g[10]==='yes'?' (OT)':'')+' <span style="color:'+SUB+'">at '+esc(g[8])+'</span>'}
+
+function guess(root){
+  css();root.classList.add('nid-mu');
+  root.innerHTML='<div class="gs"><p class="q">In NFL games played outside the U.S., how often does the designated home team win?</p><div class="row"><span class="val" aria-live="polite">50%</span><label style="position:absolute;left:-9999px" for="nid-mu-r">Your guess</label><input id="nid-mu-r" type="range" min="0" max="100" value="50"></div><button type="button" class="go">Lock in my guess</button><div class="ans" hidden></div></div>';
+  var r=root.querySelector('input'),v=root.querySelector('.val'),b=root.querySelector('.go'),a=root.querySelector('.ans');
+  r.oninput=function(){v.textContent=r.value+'%'};
+  b.onclick=function(){var gv=+r.value,t=Math.round(rec(PLAYED).pct*100),bd=board({W:620});
+    a.hidden=false;a.innerHTML=bd.svg+'<p>You guessed <b>'+gv+'%</b>. The answer is <b style="color:'+G+'">'+t+'%</b>: '+rec(PLAYED).s+' in '+PLAYED.length+' games. '+(Math.abs(gv-t)<=5?'That’s close.':gv>t?'If you expected the home-field edge to survive the trip, the record says otherwise.':'You were more skeptical than the record.')+'</p>';
+    b.disabled=true;b.textContent='Locked in';b.style.opacity=.6;r.disabled=true;
+    var bars=a.querySelectorAll('.bar');[].forEach.call(bars,function(x){x.style.setProperty('--s',0)});requestAnimationFrame(function(){requestAnimationFrame(function(){[].forEach.call(bars,function(x){x.style.setProperty('--s',1)})})});
+    try{window.dispatchEvent(new CustomEvent('nid:act',{detail:'guess'}))}catch(e){}};
+}
+
+function fieldBlock(root){
+  css();root.classList.add('nid-mu');var F='all',sel=null;
+  var FL={all:['Every game',function(){return true}],London:['London',function(g){return region(g)==='London'}],Germany:['Germany',function(g){return region(g)==='Germany'}],Other:['Mexico, Brazil, Spain and more',function(g){return region(g)==='Other'}],Toronto:['Bills in Toronto',function(g){return region(g)==='Toronto'}],y26:['2026',function(g){return g[0].slice(0,4)==='2026'}]};
+  root.innerHTML='<p class="ti">Every NFL Game Abroad, On One Field</p><p class="su">Each dot is a regular-season game played outside the U.S., 2005 to 2026, placed by how many points the designated home team won or lost by. Tap a dot.</p>'+
+   '<div class="tg" role="group" aria-label="Filter games">'+Object.keys(FL).map(function(k){return '<button type="button" data-f="'+k+'" aria-pressed="'+(k==='all')+'">'+FL[k][0]+'</button>'}).join('')+'</div><div class="rc" aria-live="polite"></div><div class="cv"></div><div class="det" aria-live="polite"></div>';
+  var cv=root.querySelector('.cv'),det=root.querySelector('.det'),rc=root.querySelector('.rc');
+  function draw(){var narrow=(root.clientWidth||700)<520,ff=field(narrow?{W:520,fs:1.12,FH:330,r:7.6,hl:FL[F][1]}:{W:760,hl:FL[F][1]});
+    cv.innerHTML=ff.svg;rc.innerHTML=FL[F][0]+': home teams went <b>'+ff.rec.s+'</b> ('+Math.round(ff.rec.pct*100)+'% wins)';
+    [].forEach.call(cv.querySelectorAll('.gm'),function(c){c.setAttribute('tabindex','0');c.setAttribute('role','button');var g=GAMES[+c.getAttribute('data-i')];c.setAttribute('aria-label',g[6]+' '+g[4]+', '+g[7]+' '+g[5]+', '+g[1]+' '+g[0].slice(0,4));
+      function pick(){sel=+c.getAttribute('data-i');[].forEach.call(cv.querySelectorAll('.gm'),function(x){x.classList.remove('on')});c.classList.add('on');det.innerHTML=line(g)}
+      c.addEventListener('click',pick);c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pick()}});if(sel===+c.getAttribute('data-i'))c.classList.add('on')});
+    if(sel===null){var lo=PLAYED.slice().sort(function(a,b){return (a[4]-a[5])-(b[4]-b[5])})[0];det.innerHTML=line(lo)+' <span style="color:'+SUB+'">The most lopsided loss for a home team abroad. Tap any dot for another game.</span>'}}
+  [].forEach.call(root.querySelectorAll('.tg button'),function(b){b.addEventListener('click',function(){F=b.getAttribute('data-f');[].forEach.call(root.querySelectorAll('.tg button'),function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});draw()})});
+  draw();var lw=root.clientWidth;window.addEventListener('resize',function(){if(Math.abs(root.clientWidth-lw)>40){lw=root.clientWidth;draw()}});
+}
+
+function teamBlock(root){
+  css();root.classList.add('nid-mu');
+  var ks=Object.keys(NAMES).sort(function(a,b){return NAMES[a]<NAMES[b]?-1:1});
+  root.innerHTML='<p class="ti">Find Your Team Abroad</p><p class="su">Every regular-season game your team has played outside the U.S.</p><label style="position:absolute;left:-9999px" for="nid-mu-t">Team</label><select id="nid-mu-t">'+ks.map(function(k){return '<option value="'+k+'"'+(k==='NE'?' selected':'')+'>'+NAMES[k]+'</option>'}).join('')+'</select><div class="rc" aria-live="polite"></div><ul class="tl"></ul>';
+  var s=root.querySelector('select'),ul=root.querySelector('.tl'),rc=root.querySelector('.rc');
+  function show(){var k=s.value,L=GAMES.filter(function(g){return g[2]===k||g[3]===k}),w=0,l=0,t=0,h=0;
+    ul.innerHTML=L.map(function(g){var home=g[2]===k,me=home?g[4]:g[5],op=home?g[5]:g[4],opp=home?g[7]:g[6];
+      if(g[4]===null)return '<li><span class="wl" style="background:'+GOLD+'">Next</span><span>'+(home?'vs. ':'at ')+esc(opp)+'<small>'+esc(fdate(g[0]))+' · '+esc(g[1])+(home?' · designated home team':'')+'</small></span><span class="sc">—</span></li>';
+      if(home)h++;var r=me>op?'W':me<op?'L':'T';if(r==='W')w++;else if(r==='L')l++;else t++;
+      return '<li><span class="wl" style="background:'+(r==='W'?G:r==='L'?ROAD:GOLD)+'">'+r+'</span><span>'+(home?'vs. ':'at ')+esc(opp)+'<small>'+esc(fdate(g[0]))+' · '+esc(g[1])+(home?' · designated home team':'')+'</small></span><span class="sc">'+me+'–'+op+'</span></li>'}).join('');
+    rc.innerHTML=NAMES[k]+' abroad: <b>'+w+'-'+l+(t?'-'+t:'')+'</b>'+(h?' · home team in '+h:'')}
+  s.onchange=show;show();
+}
+function boot(){var m={'nid-mu-guess':guess,'nid-mu-field':fieldBlock,'nid-mu-team':teamBlock};Object.keys(m).forEach(function(id){var el=document.getElementById(id);if(el&&!el.__d){el.__d=1;m[id](el)}})}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
