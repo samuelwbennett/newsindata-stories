@@ -6,7 +6,7 @@ var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
 ['measles','Science',"U.S. Measles Cases Pass 5,400, The Most Since 1991",'us-measles-cases-passed-5400-in-2026-the-most-since-1991-and-four-times-the-2019-outbreak'],
-['influencers','Culture',"What Health Influencers Promote: Guides First, Then Supplements",'health-influencers-promote-something-in-38-of-their-posts-and-how-to-guides-are-the-most-common-pitch'],
+['influencers','Culture',"The Power Of Influence: What Followers Of Health Influencers Do",'health-influencers-promote-something-in-38-of-their-posts-and-how-to-guides-are-the-most-common-pitch'],
 ['groundstop','Trending',"FAA Grounds Flights For Third Time In History",'the-faa-has-halted-every-us-departure-only-three-times-and-the-nov-13-stop-is-the-first-to-start-after-noon'],
 ['dating','Culture',"What Black Singles Want In A Partner, And What Rules One Out",'black-singles-agree-on-most-dating-priorities-but-81-of-women-and-50-of-men-say-financial-stability-matters'],
 ['glp1','Science',"One In 10 U.S. Adults Took A GLP-1 Drug In The Past Year",'one-in-10-us-adults-took-a-glp-1-drug-in-the-past-year-and-nearly-half-of-those-with-diabetes-did'],
