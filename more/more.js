@@ -97,6 +97,23 @@ function chartUrl(){
   return s.replace(/^http:/,'https:').replace(/^\/\//,'https://').split('?')[0];
 }
 
+/* Click log for the Use This Chart box (GoatCounter events). Set GC to the site code from
+   <code>.goatcounter.com; while it is empty nothing is sent. Events appear in the dashboard as
+   share/<button>/<story-slug>. No cookies, and nothing about the visitor is stored here. */
+var GC='';
+function nidLog(path,title,ev){
+  if(!GC||/bot|crawl|spider|preview/i.test(navigator.userAgent))return;
+  try{var q='https://'+GC+'.goatcounter.com/count?p='+encodeURIComponent(path)+'&t='+encodeURIComponent(title||'')+
+      (ev?'&e=true':'')+'&r='+encodeURIComponent(document.referrer||'')+'&s='+[screen.width,screen.height,window.devicePixelRatio||1].join(',')+'&rnd='+Math.random().toString(36).slice(2,7);
+    if(navigator.sendBeacon)navigator.sendBeacon(q);else(new Image()).src=q;}catch(e){}
+}
+function nidKey(el){
+  var c=el.classList,h=el.getAttribute('href')||'';
+  return c.contains('nat')?'share-chart':c.contains('cl')?'copy-link':c.contains('dl')?'download-chart':c.contains('csv')?'download-data':
+    c.contains('em')?'copy-embed':c.contains('cc')?'copy-credit':/reddit\.com/.test(h)?'reddit':/x\.com/.test(h)?'x':
+    /facebook\.com/.test(h)?'facebook':/linkedin\.com/.test(h)?'linkedin':/^mailto:/.test(h)?'email':'';
+}
+
 function copy(btn,text,done){
   var reset=btn.textContent;
   (navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).then(function(){btn.textContent=done;},function(){prompt('Copy this',text);});
@@ -130,6 +147,7 @@ function useBox(){
     '<button class="cc" type="button">Copy credit line</button></div>'+
    '<div class="cr">'+esc(credit)+'</div>';
 
+  d.addEventListener('click',function(ev){var el=ev.target.closest?ev.target.closest('a,button'):null;if(!el)return;var k=nidKey(el);if(k)nidLog('share/'+k+'/'+slug,k+': '+t,true);},true);
   d.querySelector('.cl').onclick=function(){copy(this,url,'Link copied');};
   d.querySelector('.cc').onclick=function(){copy(this,credit,'Credit copied');};
   var em=d.querySelector('.em'); if(em)em.onclick=function(){copy(this,embed,'Embed copied');};
