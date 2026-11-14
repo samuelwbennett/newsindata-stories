@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex"><style>html,body{margin:0;background:#fff}svg{display:block}text{font-family:"Times New Roman","Liberation Serif",Times,serif}</style></head><body>
+<!-- Static exports: ?m=tall (1080x1350), ?m=lead (1200x630), ?m=map (1080x1350) -->
+<div id="o"></div><script>window.NIDCFBS_STATIC=1</script><script src="../embed.js"></script><script>
+var m=new URLSearchParams(location.search).get('m')||'tall',N=window.NIDCFBS,INK='#13241B',SUB='#5F7268',G='#007A55',GOLD='#C9962B';
+function t(x,y,s,o){o=o||{};return '<text x="'+x+'" y="'+y+'" font-size="'+(o.fs||20)+'" font-weight="'+(o.fw||400)+'" fill="'+(o.c||INK)+'" text-anchor="'+(o.a||'middle')+'"'+(o.it?' font-style="italic"':'')+'>'+s+'</text>'}
+function key(x,y,fs){return '<circle cx="'+x+'" cy="'+y+'" r="'+(8*fs/20)+'" fill="#fff" stroke="'+SUB+'" stroke-width="2"/>'+t(x+16,y+7,'Original kickoff',{fs:fs,a:'start'})+'<circle cx="'+(x+200*fs/20)+'" cy="'+y+'" r="'+(8*fs/20)+'" fill="'+G+'"/>'+t(x+216*fs/20,y+7,'New kickoff',{fs:fs,a:'start'})+'<circle cx="'+(x+350*fs/20)+'" cy="'+y+'" r="'+(8*fs/20)+'" fill="'+GOLD+'"/>'+t(x+366*fs/20,y+7,'Moved earlier',{fs:fs,a:'start'})}
+var W,H,o='';
+if(m==='tall'){W=1080;H=1350;var tl=N.timeline({W:1000,fs:1.5,LW:330,top:56,sunW:130,rh:1.36});
+  o='<rect width="'+W+'" height="'+H+'" fill="#fff"/>'+t(W/2,92,'The FAA Ground Stop Moved Nine College',{fs:50,fw:700})+t(W/2,150,'Football Games, One All The Way To Sunday',{fs:50,fw:700})+
+  t(W/2,202,'FBS kickoffs on Saturday, Nov. 14, 2026, before and after Friday’s nationwide ground stop, Eastern time',{fs:23,c:SUB,it:1})+key(250,254,22)+
+  '<g transform="translate(40,310)">'+tl.svg.replace('<svg ','<svg width="'+tl.W+'" height="'+tl.H+'" ')+'</g>';}
+if(m==='lead'){W=1200;H=630;var tl=N.timeline({W:720,fs:.86,LW:215,top:36,sunW:120,rh:1.05});
+  o='<rect width="'+W+'" height="'+H+'" fill="#fff"/><rect width="'+W+'" height="10" fill="'+G+'"/>'+t(60,120,'The Ground Stop',{fs:54,fw:700,a:'start'})+t(60,182,'Moved Nine',{fs:54,fw:700,a:'start'})+t(60,244,'Saturday Games',{fs:54,fw:700,a:'start'})+
+  t(60,300,'And pushed Ole Miss–Oklahoma',{fs:26,c:SUB,a:'start'})+t(60,334,'to Sunday at 1 p.m. ET',{fs:26,c:SUB,a:'start'})+
+  '<g transform="translate(452,'+((630-tl.H)/2+10)+')">'+tl.svg.replace('<svg ','<svg width="'+tl.W+'" height="'+tl.H+'" ')+'</g>';}
+if(m==='map'){W=1080;H=1350;
+  o='<rect width="'+W+'" height="'+H+'" fill="#fff"/>'+t(W/2,96,'The Road Trips Behind',{fs:54,fw:700})+t(W/2,158,'Saturday’s Moved Games',{fs:54,fw:700})+
+  t(W/2,212,'Straight-line miles from campus to campus, Nov. 14, 2026',{fs:24,c:SUB,it:1})+
+  '<line x1="250" x2="290" y1="262" y2="262" stroke="'+G+'" stroke-width="5"/>'+t(300,270,'Game moved',{fs:22,a:'start'})+'<line x1="470" x2="510" y1="262" y2="262" stroke="'+GOLD+'" stroke-width="4" stroke-dasharray="8 6"/>'+t(520,270,'Bus or car, kickoff kept',{fs:22,a:'start'})+
+  '<g transform="translate(10,330) scale(1.087)">'+N.map({fs:17}).replace(/<svg[^>]*>/,'').replace('</svg>','')+'</g>'+
+  t(W/2,1040,'Longest: Washington to Michigan State, 1,854 miles',{fs:26,fw:700})+t(W/2,1078,'Shortest moved: Auburn to Mississippi State, 200 miles',{fs:24,c:SUB})+
+  t(W/2,1140,'Kansas landed four minutes before the stop, and its game still moved,',{fs:23,c:SUB,it:1})+t(W/2,1172,'two hours earlier, to fill a TV window',{fs:23,c:SUB,it:1});}
+document.getElementById('o').innerHTML='<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'">'+o+'</svg>';
+</script></body></html>

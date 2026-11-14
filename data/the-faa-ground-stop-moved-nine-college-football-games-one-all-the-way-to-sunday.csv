@@ -1,0 +1,57 @@
+conference,away,home,original_kickoff_et,new_kickoff_et,moved,change_minutes
+ACC,Duke,Miami,Sat 12:00,Sat 12:00,no,0
+ACC,Wake Forest,SMU,Sat 12:00,Sat 12:00,no,0
+ACC,Syracuse,NC State,Sat 12:00,Sat 12:00,no,0
+ACC,Georgia Tech,Clemson,Sat 12:30,Sat 12:30,no,0
+ACC,California,Virginia,Sat 15:30,Sat 15:30,no,0
+ACC,Boston College,Notre Dame,Sat 15:30,Sat 15:30,no,0
+ACC,Louisville,North Carolina,Sat 19:00,Sat 19:00,no,0
+ACC,Stanford,Virginia Tech,Sat 19:30,Sat 19:30,no,0
+American,East Carolina,Charlotte,Sat 13:00,Sat 13:00,no,0
+American,UAB,Temple,Sat 13:00,Sat 13:00,no,0
+American,Tulane,Rice,Sat 14:00,Sat 16:30,yes,150
+American,FAU,Tulsa,Sat 15:30,Sat 19:15,yes,225
+American,North Texas,UTSA,Sat 21:00,Sat 21:00,no,0
+Big 12,Cincinnati,Iowa State,Sat 12:00,Sat 12:00,no,0
+Big 12,Kansas State,TCU,Sat 14:00,Sat 14:00,no,0
+Big 12,Kansas,West Virginia,Sat 17:30,Sat 15:30,yes,-120
+Big 12,Arizona State,UCF,Sat 15:30,Sat 17:30,yes,120
+Big 12,Baylor,BYU,Sat 15:30,Sat 19:00,yes,210
+Big 12,Texas Tech,Oklahoma State,Sat 21:30,Sat 21:30,no,0
+Big 12,Utah,Arizona,Sat 19:30,Sat 22:30,yes,180
+Big Ten,Northwestern,Ohio State,Sat 12:00,Sat 12:00,no,0
+Big Ten,Wisconsin,Maryland,Sat 12:00,Sat 12:00,no,0
+Big Ten,Nebraska,Rutgers,Sat 12:30,Sat 12:30,no,0
+Big Ten,Michigan,Oregon,Sat 15:30,Sat 15:30,no,0
+Big Ten,USC,Indiana,Sat 15:30,Sat 15:30,no,0
+Big Ten,Washington,Michigan State,Sat 16:15,Sat 17:30,yes,75
+Big Ten,Minnesota,Penn State,Sat 19:00,Sat 19:00,no,0
+Big Ten,Purdue,Iowa,Sat 19:30,Sat 19:30,no,0
+C-USA,Kennesaw State,Sam Houston,Sat 14:00,Sat 14:00,no,0
+C-USA,FIU,Delaware,Sat 15:00,Sat 15:00,no,0
+C-USA,New Mexico State,Missouri State,Sat 15:00,Sat 15:00,no,0
+C-USA,Jacksonville State,WKU,Sat 15:30,Sat 15:30,no,0
+C-USA,Middle Tennessee,Liberty,Sat 15:30,Sat 15:30,no,0
+Independent,James Madison,UConn,Sat 12:00,Sat 12:00,no,0
+Mountain West,Nevada,Northern Illinois,Sat 15:30,Sat 15:30,no,0
+Mountain West,San Jose State,Air Force,Sat 19:00,Sat 19:00,no,0
+Mountain West,UNLV,New Mexico,Sat 19:30,Sat 19:30,no,0
+Mountain West,Wyoming,UTEP,Sat 22:00,Sat 22:00,no,0
+Mountain West,North Dakota State,Hawaii,Sat 23:00,Sat 23:00,no,0
+Pac-12,Fresno State,Texas State,Sat 16:00,Sat 16:00,no,0
+Pac-12,Oregon State,Boise State,Sat 18:00,Sat 18:00,no,0
+Pac-12,Utah State,San Diego State,Sat 21:30,Sat 21:30,no,0
+Pac-12,Colorado State,Washington State,Sat 22:30,Sat 22:30,no,0
+SEC,Alabama,Vanderbilt,Sat 12:45,Sat 12:45,no,0
+SEC,Tennessee,Texas A&M,Sat 15:00,Sat 15:00,no,0
+SEC,Missouri,Georgia,Sat 15:30,Sat 15:30,no,0
+SEC,Auburn,Mississippi State,Sat 12:00,Sat 16:15,yes,255
+SEC,Florida,Kentucky,Sat 18:15,Sat 18:15,no,0
+SEC,Texas,LSU,Sat 19:30,Sat 19:30,no,0
+SEC,South Carolina,Arkansas,Sat 19:45,Sat 19:45,no,0
+SEC,Ole Miss,Oklahoma,Sat 16:15,Sun 13:00,yes,1245
+Sun Belt,Arkansas State,Coastal Carolina,Sat 13:00,Sat 13:00,no,0
+Sun Belt,Georgia Southern,Georgia State,Sat 15:30,Sat 15:30,no,0
+Sun Belt,Southern Miss,Louisiana Tech,Sat 17:00,Sat 17:00,no,0
+Sun Belt,App State,Marshall,Sat 18:00,Sat 18:00,no,0
+Sun Belt,Troy,South Alabama,Sat 19:00,Sat 19:00,no,0
