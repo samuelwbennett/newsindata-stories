@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+['cfbstop','Sports',"The Ground Stop Moved Nine Saturday Kickoffs",'the-faa-ground-stop-moved-nine-college-football-games-one-all-the-way-to-sunday'],
 ['measles','Science',"U.S. Measles Cases Pass 5,400, The Most Since 1991",'us-measles-cases-passed-5400-in-2026-the-most-since-1991-and-four-times-the-2019-outbreak'],
 ['influencers','Culture',"The Power Of Influence: What Followers Of Health Influencers Do",'health-influencers-promote-something-in-38-of-their-posts-and-how-to-guides-are-the-most-common-pitch'],
 ['groundstop','Trending',"FAA Grounds Flights For Third Time In History",'the-faa-has-halted-every-us-departure-only-three-times-and-the-nov-13-stop-is-the-first-to-start-after-noon'],

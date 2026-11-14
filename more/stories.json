@@ -1,402 +1,408 @@
 {
-  "updated": "2026-11-13",
-  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
-  "stories": [
-    {
-      "slug": "us-measles-cases-passed-5400-in-2026-the-most-since-1991-and-four-times-the-2019-outbreak",
-      "title": "U.S. Measles Cases Pass 5,400, The Most Since 1991",
-      "section": "Science",
-      "image": "https://stories.thenewsindata.com/measles/measles-lead.png"
-    },
-    {
-      "slug": "health-influencers-promote-something-in-38-of-their-posts-and-how-to-guides-are-the-most-common-pitch",
-      "title": "The Power Of Influence: What Followers Of Health Influencers Do",
-      "section": "Culture",
-      "image": "https://stories.thenewsindata.com/influencers/inf-dots-lead.png"
-    },
-    {
-      "slug": "the-faa-has-halted-every-us-departure-only-three-times-and-the-nov-13-stop-is-the-first-to-start-after-noon",
-      "title": "FAA Grounds Flights For Third Time In History",
-      "section": "Trending",
-      "image": "https://stories.thenewsindata.com/groundstop/groundstop-lead.png"
-    },
-    {
-      "slug": "black-singles-agree-on-most-dating-priorities-but-81-of-women-and-50-of-men-say-financial-stability-matters",
-      "title": "Black Singles Agree On Most Dating Priorities, But 81% Of Women And 50% Of Men Say Financial Stability Matters",
-      "section": "Culture",
-      "image": "https://stories.thenewsindata.com/dating/dating-lead.png"
-    },
-    {
-      "slug": "one-in-10-us-adults-took-a-glp-1-drug-in-the-past-year-and-nearly-half-of-those-with-diabetes-did",
-      "title": "One In 10 U.S. Adults Took A GLP-1 Drug In The Past Year, And Nearly Half Of Those With Diabetes Did",
-      "section": "Science",
-      "image": "https://stories.thenewsindata.com/glp1/glp1-lead.png"
-    },
-    {
-      "slug": "support-for-the-death-penalty-fell-to-49-the-first-reading-below-half-since-1971",
-      "title": "Support For The Death Penalty Fell To 49%, The First Reading Below Half Since 1971",
-      "section": "Trending",
-      "image": "https://stories.thenewsindata.com/dp/dp-lead.png"
-    },
-    {
-      "slug": "georgia-has-80-flock-license-plate-cameras-per-100000-residents-the-most-of-any-state",
-      "title": "Georgia Has 80 Flock License Plate Cameras Per 100,000 Residents, The Most Of Any State",
-      "section": "Trending",
-      "image": "https://stories.thenewsindata.com/flock/flock-lead.png"
-    },
-    {
-      "slug": "the-first-nba-team-to-lead-by-10-points-wins-three-games-out-of-four",
-      "title": "The First NBA Team To Lead By 10 Points Wins Three Games Out Of Four",
-      "section": "Sports",
-      "image": "https://stories.thenewsindata.com/nbalead/nba-lead.png"
-    },
-    {
-      "slug": "reported-hate-crimes-fell-for-a-second-straight-year-and-33-states-saw-declines-in-2025",
-      "title": "Reported Hate Crimes Fell For A Second Straight Year, And 33 States Saw Declines In 2025",
-      "section": "Trending",
-      "image": "https://stories.thenewsindata.com/hate/hate-lead.png"
-    },
-    {
-      "slug": "medan-indonesia-sank-about-a-foot-in-nine-years-seven-times-faster-than-the-sea-is-rising",
-      "title": "Medan, Indonesia, Sank About A Foot In Nine Years, Seven Times Faster Than The Sea Is Rising",
-      "section": "Science",
-      "image": "https://stories.thenewsindata.com/sinking/sinking-preview.png"
-    },
-    {
-      "slug": "the-drive-to-the-airport-is-the-riskiest-part-of-a-holiday-flight",
-      "title": "The Drive To The Airport Is The Riskiest Part Of A Holiday Flight",
-      "section": "Trending",
-      "image": "https://stories.thenewsindata.com/fly/fly-lead.png"
-    },
-    {
-      "slug": "luka-doncic-is-scoring-401-points-a-game-a-pace-only-wilt-chamberlain-has-topped",
-      "title": "Luka Dončić Is Scoring 40.1 Points A Game, A Pace Only Wilt Chamberlain Has Topped",
-      "section": "Sports",
-      "image": "https://stories.thenewsindata.com/luka/luka-lead.png"
-    },
-    {
-      "slug": "canadians-made-25-fewer-trips-to-the-us-this-year-than-in-2024-while-their-trips-elsewhere-rose-12",
-      "title": "Canadians Made 25% Fewer Trips To The U.S. This Year Than In 2024, While Their Trips Elsewhere Rose 12%",
-      "section": "Trending",
-      "image": "https://stories.thenewsindata.com/canada/canada-lead-paper.png"
-    },
-    {
-      "slug": "ship-crossings-through-the-strait-of-hormuz-have-fallen-94-since-the-iran-war-began",
-      "title": "Ship Crossings Through The Strait Of Hormuz Have Fallen 94% Since The Iran War Began",
-      "section": "Business",
-      "image": "https://stories.thenewsindata.com/hormuz/hormuz-lead-paper.png"
-    },
-    {
-      "slug": "chinas-emissions-have-been-flat-or-falling-since-march-2024-and-69-countries-now-emit-at-least-10-less-than-at-their-peak",
-      "title": "China's Emissions Have Been Flat Or Falling Since March 2024, And 69 Countries Now Emit At Least 10% Less Than At Their Peak",
-      "section": "Science",
-      "image": "https://stories.thenewsindata.com/coal/map-lead3.png"
-    },
-    {
-      "slug": "employers-added-165000-jobs-in-october-more-than-three-times-the-monthly-average-of-the-past-year",
-      "title": "Employers Added 165,000 Jobs In October, More Than Three Times The Monthly Average Of The Past Year",
-      "section": "Business",
-      "image": "https://stories.thenewsindata.com/jobs-oct26/jobs-preview.png"
-    },
-    {
-      "slug": "american-samoa-is-projected-to-lose-61-of-its-population-by-2100-the-steepest-drop-among-us-territories",
-      "title": "American Samoa Is Projected To Lose 61% Of Its Population By 2100, The Steepest Drop Among U.S. Territories",
-      "section": "Trending",
-      "image": "https://stories.thenewsindata.com/territories/territories-preview.png"
-    },
-    {
-      "slug": "voters-elected-the-first-black-woman-governor-the-first-muslim-senator-and-a-record-number-of-women-governors",
-      "title": "Voters Elected The First Black Woman Governor, The First Muslim Senator And A Record Number Of Women Governors",
-      "section": "Trending",
-      "image": "https://stories.thenewsindata.com/firsts/firsts-viz-preview.png"
-    },
-    {
-      "slug": "trust-in-national-news-rose-6-points-in-the-past-year-to-62-still-well-below-the-76-of-2016",
-      "title": "Trust In National News Rose 6 Points In The Past Year To 62%, Still Well Below The 76% Of 2016",
-      "section": "Trending",
-      "image": "https://stories.thenewsindata.com/trust/trust-preview.png"
-    },
-    {
-      "slug": "one-in-three-japanese-adults-say-theres-no-one-they-feel-very-close-to-more-than-twice-the-us-share",
-      "title": "One In Three Japanese Adults Say There's No One They Feel Very Close To, More Than Twice The U.S. Share",
-      "section": "Culture",
-      "image": "https://stories.thenewsindata.com/friends/friends-map-preview.png"
-    },
-    {
-      "slug": "in-the-worlds-largest-flourishing-study-8-of-the-10-richest-countries-rank-in-the-bottom-half",
-      "title": "In The World's Largest Flourishing Study, 8 Of The 10 Richest Countries Rank In The Bottom Half",
-      "section": "Science",
-      "image": "https://stories.thenewsindata.com/flourish/flourish-preview.png"
-    },
-    {
-      "slug": "carter-clinton-and-nixon-appeared-to-age-fastest-in-office-in-a-face-models-reading-of-7000-photos",
-      "title": "Carter, Clinton And Nixon Appeared To Age Fastest In Office, In A Face Model's Reading Of 7,000 Photos",
-      "section": "Trending",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793581109969-GT544XL66VK1IE1OOP6D/aging-preview.png"
-    },
-    {
-      "slug": "ai-already-covers-three-quarters-of-a-programmers-tasks-but-exposed-workers-arent-losing-jobs-yet",
-      "title": "AI Already Covers Three-Quarters Of A Programmer's Tasks, But Exposed Workers Aren't Losing Jobs Yet",
-      "section": "AI & Tech",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793548524909-YMRGEDD79PPL2VZLSKBQ/aijobs-preview.png"
-    },
-    {
-      "slug": "there-are-14-fewer-potential-trick-or-treaters-per-household-than-in-2010",
-      "title": "There Are 14% Fewer Potential Trick-Or-Treaters Per Household Than In 2010",
-      "section": "Culture",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793456411227-8HXU5A99MSLENJ7EOJDB/halloween-preview-v2.png"
-    },
-    {
-      "slug": "households-spent-8-more-on-shelter-in-2025-about-three-times-the-rise-in-consumer-prices",
-      "title": "Households Spent 8% More On Shelter In 2025, About Three Times The Rise In Consumer Prices",
-      "section": "Business",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793366419758-5C3H1BQ97YHJYQ9L0TMY/spend-preview.png"
-    },
-    {
-      "slug": "wages-rose-31-over-the-year-to-september-but-fell-06-after-inflation",
-      "title": "Wages Rose 3.1% Over The Year To September But Fell 0.6% After Inflation",
-      "section": "Business",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793366550598-H568K2JWMG1Y8HBIBVMM/wages-preview.png"
-    },
-    {
-      "slug": "a-record-56-of-americans-say-they-have-given-quite-a-lot-of-thought-to-the-midterm",
-      "title": "A Record 56% Of Americans Say They Have Given 'Quite A Lot' Of Thought To The Midterm",
-      "section": "Trending",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793366658936-8B7SF8T35OMQ3KG6K6NY/engage-preview.png"
-    },
-    {
-      "slug": "credit-card-partners-paid-american-airlines-62-billion-in-2025-four-times-its-operating-profit",
-      "title": "Credit Card Partners Paid American Airlines $6.2 Billion In 2025, Four Times Its Operating Profit",
-      "section": "Business",
-      "image": "https://stories.thenewsindata.com/air/air-waffle-preview.png?v=2"
-    },
-    {
-      "slug": "americans-are-living-on-two-different-dates-for-21-hours-of-every-day",
-      "title": "Americans Are Living On Two Different Dates For 21 Hours Of Every Day",
-      "section": "Trending",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793117795428-VYB5YVBS1QHP0M4VAP03/tz-sun-preview.png"
-    },
-    {
-      "slug": "americans-rate-the-national-park-service-highest-of-12-federal-agencies-and-ice-lowest",
-      "title": "Americans Rate The National Park Service Highest Of 12 Federal Agencies And ICE Lowest",
-      "section": "Trending",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793198393831-CZUX7KVUM8SN8W1J47XA/agency-party-share.png"
-    },
-    {
-      "slug": "americans-reported-19-fewer-property-crimes-and-25-fewer-serious-violent-crimes-to-a-federal-survey-in-2025-than-in-2024",
-      "title": "Americans Reported 19% Fewer Property Crimes And 25% Fewer Serious Violent Crimes To A Federal Survey In 2025 Than In 2024",
-      "section": "Trending",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793106145033-O7XTB4M3EC46SL0QU93E/crime-preview.png"
-    },
-    {
-      "slug": "one-mickey-mouse-club-cast-produced-five-major-award-winners-and-nearly-half-its-members-never-got-a-wikipedia-page",
-      "title": "One Mickey Mouse Club Cast Produced Five Major-Award Winners, And Nearly Half Its Members Never Got A Wikipedia Page",
-      "section": "Culture",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793025476118-L102LPGL2TMOXIDZY7QI/mmc-preview-v2.png"
-    },
-    {
-      "slug": "renewables-now-generate-more-than-three-times-as-much-of-the-worlds-electricity-as-nuclear-power-does",
-      "title": "Renewables Now Generate More Than Three Times As Much Of The World's Electricity As Nuclear Power Does",
-      "section": "Science",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793024844080-7XI725ND8116C1732SFG/renew-preview.png"
-    },
-    {
-      "slug": "rappers-have-named-manu-ginbili-in-at-least-1489-songs-and-most-came-after-he-retired",
-      "title": "Rappers Have Named Manu Ginóbili In At Least 1,489 Songs, And Most Came After He Retired",
-      "section": "Culture",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792783903814-97P5R46458H6VUQU6O7E/manu-preview.png"
-    },
-    {
-      "slug": "americans-say-honesty-is-the-value-the-country-needs-most-yet-only-13-think-most-americans-share-it",
-      "title": "Americans Say Honesty Is The Value The Country Needs Most, Yet Only 13% Think Most Americans Share It",
-      "section": "Culture",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793108167193-RLMI8XPY7DIIUWF10UTT/values-preview.png"
-    },
-    {
-      "slug": "women-earned-86-of-what-men-earned-in-2025-and-each-group-of-women-falls-further-behind-as-it-ages",
-      "title": "Women Earned 86% Of What Men Earned In 2025, And Each Group Of Women Falls Further Behind As It Ages",
-      "section": "Business",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792773265755-XMVM9WDC8Q4XGZ0DPWHY/paygap-preview.png"
-    },
-    {
-      "slug": "midterm-turnout-in-2022-ranged-from-31-in-tennessee-to-62-in-oregon",
-      "title": "Midterm Turnout In 2022 Ranged From 31% In Tennessee To 62% In Oregon",
-      "section": "Trending",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792683146044-MJ8WV7AKVWQNA53UK4UJ/turnout-preview.png"
-    },
-    {
-      "slug": "the-presidents-party-has-lost-house-seats-in-18-of-the-20-midterms-since-world-war-ii",
-      "title": "The President's Party Has Lost House Seats In 18 Of The 20 Midterms Since World War II",
-      "section": "Trending",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792683010426-MCNJRO2CB0MWA4TKI3E9/midterms-preview.png"
-    },
-    {
-      "slug": "nonprofits-that-dont-name-their-donors-supplied-28-of-the-money-behind-congresss-leadership-super-pacs",
-      "title": "Nonprofits That Don't Name Their Donors Supplied 28% Of The Money Behind Congress's Leadership Super PACs",
-      "section": "Trending",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792682878927-ISW46XA3PX1GONSU98DQ/darkmoney-preview.png"
-    },
-    {
-      "slug": "elon-musk-has-given-369-million-this-cycle-more-than-the-next-three-donors-combined",
-      "title": "Elon Musk Has Given $369 Million This Cycle, More Than The Next Three Donors Combined",
-      "section": "Trending",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792682726406-AXGIFLYM8IRZPRQPMJ7A/donors-preview.png"
-    },
-    {
-      "slug": "worry-about-gas-prices-jumped-from-43-to-74-this-year-as-the-price-rose-155-a-gallon",
-      "title": "Worry About Gas Prices Jumped From 43% To 74% This Year As The Price Rose $1.55 A Gallon",
-      "section": "Business",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792611072800-ZPE6G70Z6XT5LM0F08JY/gas-preview.png"
-    },
-    {
-      "slug": "42-of-americans-now-go-a-typical-week-without-paying-cash-up-from-24-in-2015",
-      "title": "42% Of Americans Now Go A Typical Week Without Paying Cash, Up From 24% In 2015",
-      "section": "Business",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792610877792-VNYVOI6BIMDLXVFNAF3X/cash-preview.png"
-    },
-    {
-      "slug": "amazon-deforestation-has-fallen-to-its-lowest-level-in-a-decade",
-      "title": "Amazon Deforestation Has Fallen To Its Lowest Level In A Decade",
-      "section": "Science",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792248017509-K0YAXMZUEA9EIS0KRXAP/chart-alerts.png"
-    },
-    {
-      "slug": "opioids-killed-44564-americans-in-2025-cannabis-alone-killed-almost-no-one",
-      "title": "Opioids Killed 44,564 Americans In 2025 While Cannabis Alone Killed Almost No One",
-      "section": "Science",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792238421649-BZS8FXOQ1MOTCXPCI19N/chart-trend.png"
-    },
-    {
-      "slug": "a-fleet-of-ai-agents-spent-11-days-looking-for-the-zoos-front-door",
-      "title": "A Fleet Of AI Agents Spent 11 Days Looking For The Zoo’s Front Door",
-      "section": "AI & Tech",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792163639746-834HOFQ6RW5QH8YZEKVW/image.png"
-    },
-    {
-      "slug": "russia-soldier-death-payout",
-      "title": "Russia pays $166,000 for a dead soldier. Men are leaving anyway.",
-      "section": "Trending",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792162478140-NWRS67GOW75MHWIEPLW6/military-death-gratuities.png"
-    },
-    {
-      "slug": "league-bowling-has-about-one-member-today-for-every-nine-it-had-in-1980",
-      "title": "League bowling has about one member today for every nine it had in 1980",
-      "section": "Trending",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791918785031-QS711GEETRSHSCJGQ28L/bowling-members-preview.png"
-    },
-    {
-      "slug": "about-a-quarter-fewer-americans-socialize-on-an-average-day-than-in-2003-but-those-who-do-still-spend-about-two-hours",
-      "title": "About a quarter fewer Americans socialize on an average day than in 2003, but those who do still spend about two hours",
-      "section": "Trending",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791918471890-36SXNUHR981047ZGD9AK/socializing-share-preview.png"
-    },
-    {
-      "slug": "winter-is-coming-when-the-first-snow-usually-falls-in-your-state",
-      "title": "Winter Is Coming: When The First Snow Usually Falls In Your State",
-      "section": "Science",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791840600262-B9II84KFY4ECAGUQ1VQV/snowmap-preview.png"
-    },
-    {
-      "slug": "three-ai-assistants-reached-a-billion-users-faster-than-any-social-app",
-      "title": "Three AI assistants reached a billion users faster than any social app",
-      "section": "AI & Tech",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791820220967-M40O4PMN63T8SMUVCRDY/onegraph-preview-colors.png"
-    },
-    {
-      "slug": "chatgpt-reached-a-billion-weekly-users-in-under-four-years-facebook-took-eight-and-a-half",
-      "title": "ChatGPT reached a billion weekly users in under four years. Facebook took eight and a half",
-      "section": "AI & Tech",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791812622284-0F5CTKZEN77XOGTH3KSU/race-preview.png"
-    },
-    {
-      "slug": "an-ai-agent-sent-a-fake-tip-to-a-police-homicide-form-police-were-told-82-days-later",
-      "title": "An AI agent sent a fake tip to a police homicide form. Police were told 82 days later",
-      "section": "AI & Tech",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791732685151-W1ZIQ9G0S5Z6UID8NR17/agents-preview.png"
-    },
-    {
-      "slug": "dak-prescott-ranks-fifth-among-nfl-quarterbacks-and-the-cowboys-defense-ranks-31st",
-      "title": "Dak Prescott ranks fifth among NFL quarterbacks, and the Cowboys’ defense ranks 31st",
-      "section": "Sports",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791732195576-N4UZNFUABTF1GDQLC25R/dak-preview.png"
-    },
-    {
-      "slug": "2026-tied-1905-for-the-latest-first-atlantic-hurricane-since-tracking-began-in-1851",
-      "title": "2026 tied 1905 for the latest first Atlantic hurricane since tracking began in 1851",
-      "section": "Science",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791658657465-B8OPZPUU2U4YFQIQ29NN/hurricane-preview.png"
-    },
-    {
-      "slug": "candy-prices-are-up-49-since-2020-while-overall-prices-rose-29-and-wages-28",
-      "title": "Have You Noticed What A Candy Bar Costs Lately?",
-      "section": "Trending",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791896828062-0YHTU0N9FPXPPS4SQ2YQ/candy4-preview.png"
-    },
-    {
-      "slug": "social-securitys-2027-raise-is-expected-to-be-about-35-the-largest-since-2023",
-      "title": "Social Security’s 2027 raise is expected to be about 3.5%, the largest since 2023",
-      "section": "Trending",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791658880142-10EE0295RGUSJRW0R93Z/cola-preview.png"
-    },
-    {
-      "slug": "us-measles-cases-in-2026-are-the-highest-since-1991-with-almost-three-months-left-in-the-year",
-      "title": "U.S. measles cases in 2026 are the highest since 1991, with almost three months left in the year",
-      "section": "Science",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791658769343-ZVO9TGOCO1CFMYYQINQA/measles-preview.png"
-    },
-    {
-      "slug": "six-of-the-seven-songs-with-the-most-weeks-at-no-1-on-the-hot-100-came-in-the-streaming-era",
-      "title": "Six of the seven songs with the most weeks at No. 1 on the Hot 100 came in the streaming era",
-      "section": "Culture",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791658547183-DP3DL3RNLV2ZM3JFWGDM/hot100-preview.png"
-    },
-    {
-      "slug": "re-releases-have-twice-decided-which-film-counts-as-the-highest-grossing-ever",
-      "title": "Re-releases have twice decided which film counts as the highest-grossing ever",
-      "section": "Culture",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791658436521-77OIHL1WIZEWDA44Y2W3/rereleases-preview.png"
-    },
-    {
-      "slug": "half-of-americans-now-use-ai-chatbots-and-about-half-remain-more-concerned-than-excited-about-ai",
-      "title": "Half of Americans now use AI chatbots, and about half remain more concerned than excited about AI",
-      "section": "AI & Tech",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791658322778-56QA4J1VWCJ7OLN3WMN6/pewai-preview.png"
-    },
-    {
-      "slug": "data-center-demand-does-little-to-explain-which-states-saw-the-biggest-home-electricity-price-increases",
-      "title": "Data-center demand does little to explain which states saw the biggest home electricity price increases",
-      "section": "AI & Tech",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791658207324-QGOSLYQOO1E90VPJV354/datacenters-preview.png"
-    },
-    {
-      "slug": "recent-college-graduates-unemployment-has-pulled-further-above-the-overall-rate-since-2024",
-      "title": "Recent college graduates’ unemployment has pulled further above the overall rate since 2024",
-      "section": "Business",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791658084795-9RRL4B16DN2NKRDXTFW3/grads-preview.png"
-    },
-    {
-      "slug": "every-monthly-jobs-estimate-in-2025-was-later-revised-down-while-2026-revisions-have-split-evenly",
-      "title": "Every monthly jobs estimate in 2025 was later revised down, while 2026 revisions have split evenly",
-      "section": "Business",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791657963025-5A6CHQT0HKRV8DUB8A4E/jobs-preview.png"
-    },
-    {
-      "slug": "y0zhgw45lo2spyxl4q3j7nf85y58zx",
-      "title": "Catchers win ball-strike challenges more often than hitters, and success falls late in games as teams spend challenges they would otherwise lose",
-      "section": "Sports",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791657697911-Q2DVM53MY7RYRJ9JMV8I/abs-preview.png"
-    },
-    {
-      "slug": "the-white-sox-are-the-first-team-to-reach-the-playoffs-after-back-to-back-100-loss-seasons",
-      "title": "The White Sox are the first team to reach the playoffs after back-to-back 100-loss seasons",
-      "section": "Sports",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791657510483-TX311X1913PXPY36P3YW/whitesox-preview.png"
-    },
-    {
-      "slug": "who-owns-prime-time-the-nfl-books-audiences-not-records",
-      "title": "Who owns prime time? The NFL books audiences, not records",
-      "section": "Sports",
-      "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791648963697-RPBWS34PUSABUZNAPWYU/image.png"
-    }
-  ]
+ "updated": "2026-11-14",
+ "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
+ "stories": [
+  {
+   "slug": "the-faa-ground-stop-moved-nine-college-football-games-one-all-the-way-to-sunday",
+   "title": "The Ground Stop Moved Nine Saturday Kickoffs",
+   "section": "Sports",
+   "image": "https://stories.thenewsindata.com/cfbstop/cfbstop-preview.png"
+  },
+  {
+   "slug": "us-measles-cases-passed-5400-in-2026-the-most-since-1991-and-four-times-the-2019-outbreak",
+   "title": "U.S. Measles Cases Pass 5,400, The Most Since 1991",
+   "section": "Science",
+   "image": "https://stories.thenewsindata.com/measles/measles-lead.png"
+  },
+  {
+   "slug": "health-influencers-promote-something-in-38-of-their-posts-and-how-to-guides-are-the-most-common-pitch",
+   "title": "The Power Of Influence: What Followers Of Health Influencers Do",
+   "section": "Culture",
+   "image": "https://stories.thenewsindata.com/influencers/inf-dots-lead.png"
+  },
+  {
+   "slug": "the-faa-has-halted-every-us-departure-only-three-times-and-the-nov-13-stop-is-the-first-to-start-after-noon",
+   "title": "FAA Grounds Flights For Third Time In History",
+   "section": "Trending",
+   "image": "https://stories.thenewsindata.com/groundstop/groundstop-lead.png"
+  },
+  {
+   "slug": "black-singles-agree-on-most-dating-priorities-but-81-of-women-and-50-of-men-say-financial-stability-matters",
+   "title": "Black Singles Agree On Most Dating Priorities, But 81% Of Women And 50% Of Men Say Financial Stability Matters",
+   "section": "Culture",
+   "image": "https://stories.thenewsindata.com/dating/dating-lead.png"
+  },
+  {
+   "slug": "one-in-10-us-adults-took-a-glp-1-drug-in-the-past-year-and-nearly-half-of-those-with-diabetes-did",
+   "title": "One In 10 U.S. Adults Took A GLP-1 Drug In The Past Year, And Nearly Half Of Those With Diabetes Did",
+   "section": "Science",
+   "image": "https://stories.thenewsindata.com/glp1/glp1-lead.png"
+  },
+  {
+   "slug": "support-for-the-death-penalty-fell-to-49-the-first-reading-below-half-since-1971",
+   "title": "Support For The Death Penalty Fell To 49%, The First Reading Below Half Since 1971",
+   "section": "Trending",
+   "image": "https://stories.thenewsindata.com/dp/dp-lead.png"
+  },
+  {
+   "slug": "georgia-has-80-flock-license-plate-cameras-per-100000-residents-the-most-of-any-state",
+   "title": "Georgia Has 80 Flock License Plate Cameras Per 100,000 Residents, The Most Of Any State",
+   "section": "Trending",
+   "image": "https://stories.thenewsindata.com/flock/flock-lead.png"
+  },
+  {
+   "slug": "the-first-nba-team-to-lead-by-10-points-wins-three-games-out-of-four",
+   "title": "The First NBA Team To Lead By 10 Points Wins Three Games Out Of Four",
+   "section": "Sports",
+   "image": "https://stories.thenewsindata.com/nbalead/nba-lead.png"
+  },
+  {
+   "slug": "reported-hate-crimes-fell-for-a-second-straight-year-and-33-states-saw-declines-in-2025",
+   "title": "Reported Hate Crimes Fell For A Second Straight Year, And 33 States Saw Declines In 2025",
+   "section": "Trending",
+   "image": "https://stories.thenewsindata.com/hate/hate-lead.png"
+  },
+  {
+   "slug": "medan-indonesia-sank-about-a-foot-in-nine-years-seven-times-faster-than-the-sea-is-rising",
+   "title": "Medan, Indonesia, Sank About A Foot In Nine Years, Seven Times Faster Than The Sea Is Rising",
+   "section": "Science",
+   "image": "https://stories.thenewsindata.com/sinking/sinking-preview.png"
+  },
+  {
+   "slug": "the-drive-to-the-airport-is-the-riskiest-part-of-a-holiday-flight",
+   "title": "The Drive To The Airport Is The Riskiest Part Of A Holiday Flight",
+   "section": "Trending",
+   "image": "https://stories.thenewsindata.com/fly/fly-lead.png"
+  },
+  {
+   "slug": "luka-doncic-is-scoring-401-points-a-game-a-pace-only-wilt-chamberlain-has-topped",
+   "title": "Luka Dončić Is Scoring 40.1 Points A Game, A Pace Only Wilt Chamberlain Has Topped",
+   "section": "Sports",
+   "image": "https://stories.thenewsindata.com/luka/luka-lead.png"
+  },
+  {
+   "slug": "canadians-made-25-fewer-trips-to-the-us-this-year-than-in-2024-while-their-trips-elsewhere-rose-12",
+   "title": "Canadians Made 25% Fewer Trips To The U.S. This Year Than In 2024, While Their Trips Elsewhere Rose 12%",
+   "section": "Trending",
+   "image": "https://stories.thenewsindata.com/canada/canada-lead-paper.png"
+  },
+  {
+   "slug": "ship-crossings-through-the-strait-of-hormuz-have-fallen-94-since-the-iran-war-began",
+   "title": "Ship Crossings Through The Strait Of Hormuz Have Fallen 94% Since The Iran War Began",
+   "section": "Business",
+   "image": "https://stories.thenewsindata.com/hormuz/hormuz-lead-paper.png"
+  },
+  {
+   "slug": "chinas-emissions-have-been-flat-or-falling-since-march-2024-and-69-countries-now-emit-at-least-10-less-than-at-their-peak",
+   "title": "China's Emissions Have Been Flat Or Falling Since March 2024, And 69 Countries Now Emit At Least 10% Less Than At Their Peak",
+   "section": "Science",
+   "image": "https://stories.thenewsindata.com/coal/map-lead3.png"
+  },
+  {
+   "slug": "employers-added-165000-jobs-in-october-more-than-three-times-the-monthly-average-of-the-past-year",
+   "title": "Employers Added 165,000 Jobs In October, More Than Three Times The Monthly Average Of The Past Year",
+   "section": "Business",
+   "image": "https://stories.thenewsindata.com/jobs-oct26/jobs-preview.png"
+  },
+  {
+   "slug": "american-samoa-is-projected-to-lose-61-of-its-population-by-2100-the-steepest-drop-among-us-territories",
+   "title": "American Samoa Is Projected To Lose 61% Of Its Population By 2100, The Steepest Drop Among U.S. Territories",
+   "section": "Trending",
+   "image": "https://stories.thenewsindata.com/territories/territories-preview.png"
+  },
+  {
+   "slug": "voters-elected-the-first-black-woman-governor-the-first-muslim-senator-and-a-record-number-of-women-governors",
+   "title": "Voters Elected The First Black Woman Governor, The First Muslim Senator And A Record Number Of Women Governors",
+   "section": "Trending",
+   "image": "https://stories.thenewsindata.com/firsts/firsts-viz-preview.png"
+  },
+  {
+   "slug": "trust-in-national-news-rose-6-points-in-the-past-year-to-62-still-well-below-the-76-of-2016",
+   "title": "Trust In National News Rose 6 Points In The Past Year To 62%, Still Well Below The 76% Of 2016",
+   "section": "Trending",
+   "image": "https://stories.thenewsindata.com/trust/trust-preview.png"
+  },
+  {
+   "slug": "one-in-three-japanese-adults-say-theres-no-one-they-feel-very-close-to-more-than-twice-the-us-share",
+   "title": "One In Three Japanese Adults Say There's No One They Feel Very Close To, More Than Twice The U.S. Share",
+   "section": "Culture",
+   "image": "https://stories.thenewsindata.com/friends/friends-map-preview.png"
+  },
+  {
+   "slug": "in-the-worlds-largest-flourishing-study-8-of-the-10-richest-countries-rank-in-the-bottom-half",
+   "title": "In The World's Largest Flourishing Study, 8 Of The 10 Richest Countries Rank In The Bottom Half",
+   "section": "Science",
+   "image": "https://stories.thenewsindata.com/flourish/flourish-preview.png"
+  },
+  {
+   "slug": "carter-clinton-and-nixon-appeared-to-age-fastest-in-office-in-a-face-models-reading-of-7000-photos",
+   "title": "Carter, Clinton And Nixon Appeared To Age Fastest In Office, In A Face Model's Reading Of 7,000 Photos",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793581109969-GT544XL66VK1IE1OOP6D/aging-preview.png"
+  },
+  {
+   "slug": "ai-already-covers-three-quarters-of-a-programmers-tasks-but-exposed-workers-arent-losing-jobs-yet",
+   "title": "AI Already Covers Three-Quarters Of A Programmer's Tasks, But Exposed Workers Aren't Losing Jobs Yet",
+   "section": "AI & Tech",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793548524909-YMRGEDD79PPL2VZLSKBQ/aijobs-preview.png"
+  },
+  {
+   "slug": "there-are-14-fewer-potential-trick-or-treaters-per-household-than-in-2010",
+   "title": "There Are 14% Fewer Potential Trick-Or-Treaters Per Household Than In 2010",
+   "section": "Culture",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793456411227-8HXU5A99MSLENJ7EOJDB/halloween-preview-v2.png"
+  },
+  {
+   "slug": "households-spent-8-more-on-shelter-in-2025-about-three-times-the-rise-in-consumer-prices",
+   "title": "Households Spent 8% More On Shelter In 2025, About Three Times The Rise In Consumer Prices",
+   "section": "Business",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793366419758-5C3H1BQ97YHJYQ9L0TMY/spend-preview.png"
+  },
+  {
+   "slug": "wages-rose-31-over-the-year-to-september-but-fell-06-after-inflation",
+   "title": "Wages Rose 3.1% Over The Year To September But Fell 0.6% After Inflation",
+   "section": "Business",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793366550598-H568K2JWMG1Y8HBIBVMM/wages-preview.png"
+  },
+  {
+   "slug": "a-record-56-of-americans-say-they-have-given-quite-a-lot-of-thought-to-the-midterm",
+   "title": "A Record 56% Of Americans Say They Have Given 'Quite A Lot' Of Thought To The Midterm",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793366658936-8B7SF8T35OMQ3KG6K6NY/engage-preview.png"
+  },
+  {
+   "slug": "credit-card-partners-paid-american-airlines-62-billion-in-2025-four-times-its-operating-profit",
+   "title": "Credit Card Partners Paid American Airlines $6.2 Billion In 2025, Four Times Its Operating Profit",
+   "section": "Business",
+   "image": "https://stories.thenewsindata.com/air/air-waffle-preview.png?v=2"
+  },
+  {
+   "slug": "americans-are-living-on-two-different-dates-for-21-hours-of-every-day",
+   "title": "Americans Are Living On Two Different Dates For 21 Hours Of Every Day",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793117795428-VYB5YVBS1QHP0M4VAP03/tz-sun-preview.png"
+  },
+  {
+   "slug": "americans-rate-the-national-park-service-highest-of-12-federal-agencies-and-ice-lowest",
+   "title": "Americans Rate The National Park Service Highest Of 12 Federal Agencies And ICE Lowest",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793198393831-CZUX7KVUM8SN8W1J47XA/agency-party-share.png"
+  },
+  {
+   "slug": "americans-reported-19-fewer-property-crimes-and-25-fewer-serious-violent-crimes-to-a-federal-survey-in-2025-than-in-2024",
+   "title": "Americans Reported 19% Fewer Property Crimes And 25% Fewer Serious Violent Crimes To A Federal Survey In 2025 Than In 2024",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793106145033-O7XTB4M3EC46SL0QU93E/crime-preview.png"
+  },
+  {
+   "slug": "one-mickey-mouse-club-cast-produced-five-major-award-winners-and-nearly-half-its-members-never-got-a-wikipedia-page",
+   "title": "One Mickey Mouse Club Cast Produced Five Major-Award Winners, And Nearly Half Its Members Never Got A Wikipedia Page",
+   "section": "Culture",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793025476118-L102LPGL2TMOXIDZY7QI/mmc-preview-v2.png"
+  },
+  {
+   "slug": "renewables-now-generate-more-than-three-times-as-much-of-the-worlds-electricity-as-nuclear-power-does",
+   "title": "Renewables Now Generate More Than Three Times As Much Of The World's Electricity As Nuclear Power Does",
+   "section": "Science",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793024844080-7XI725ND8116C1732SFG/renew-preview.png"
+  },
+  {
+   "slug": "rappers-have-named-manu-ginbili-in-at-least-1489-songs-and-most-came-after-he-retired",
+   "title": "Rappers Have Named Manu Ginóbili In At Least 1,489 Songs, And Most Came After He Retired",
+   "section": "Culture",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792783903814-97P5R46458H6VUQU6O7E/manu-preview.png"
+  },
+  {
+   "slug": "americans-say-honesty-is-the-value-the-country-needs-most-yet-only-13-think-most-americans-share-it",
+   "title": "Americans Say Honesty Is The Value The Country Needs Most, Yet Only 13% Think Most Americans Share It",
+   "section": "Culture",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1793108167193-RLMI8XPY7DIIUWF10UTT/values-preview.png"
+  },
+  {
+   "slug": "women-earned-86-of-what-men-earned-in-2025-and-each-group-of-women-falls-further-behind-as-it-ages",
+   "title": "Women Earned 86% Of What Men Earned In 2025, And Each Group Of Women Falls Further Behind As It Ages",
+   "section": "Business",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792773265755-XMVM9WDC8Q4XGZ0DPWHY/paygap-preview.png"
+  },
+  {
+   "slug": "midterm-turnout-in-2022-ranged-from-31-in-tennessee-to-62-in-oregon",
+   "title": "Midterm Turnout In 2022 Ranged From 31% In Tennessee To 62% In Oregon",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792683146044-MJ8WV7AKVWQNA53UK4UJ/turnout-preview.png"
+  },
+  {
+   "slug": "the-presidents-party-has-lost-house-seats-in-18-of-the-20-midterms-since-world-war-ii",
+   "title": "The President's Party Has Lost House Seats In 18 Of The 20 Midterms Since World War II",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792683010426-MCNJRO2CB0MWA4TKI3E9/midterms-preview.png"
+  },
+  {
+   "slug": "nonprofits-that-dont-name-their-donors-supplied-28-of-the-money-behind-congresss-leadership-super-pacs",
+   "title": "Nonprofits That Don't Name Their Donors Supplied 28% Of The Money Behind Congress's Leadership Super PACs",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792682878927-ISW46XA3PX1GONSU98DQ/darkmoney-preview.png"
+  },
+  {
+   "slug": "elon-musk-has-given-369-million-this-cycle-more-than-the-next-three-donors-combined",
+   "title": "Elon Musk Has Given $369 Million This Cycle, More Than The Next Three Donors Combined",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792682726406-AXGIFLYM8IRZPRQPMJ7A/donors-preview.png"
+  },
+  {
+   "slug": "worry-about-gas-prices-jumped-from-43-to-74-this-year-as-the-price-rose-155-a-gallon",
+   "title": "Worry About Gas Prices Jumped From 43% To 74% This Year As The Price Rose $1.55 A Gallon",
+   "section": "Business",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792611072800-ZPE6G70Z6XT5LM0F08JY/gas-preview.png"
+  },
+  {
+   "slug": "42-of-americans-now-go-a-typical-week-without-paying-cash-up-from-24-in-2015",
+   "title": "42% Of Americans Now Go A Typical Week Without Paying Cash, Up From 24% In 2015",
+   "section": "Business",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792610877792-VNYVOI6BIMDLXVFNAF3X/cash-preview.png"
+  },
+  {
+   "slug": "amazon-deforestation-has-fallen-to-its-lowest-level-in-a-decade",
+   "title": "Amazon Deforestation Has Fallen To Its Lowest Level In A Decade",
+   "section": "Science",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792248017509-K0YAXMZUEA9EIS0KRXAP/chart-alerts.png"
+  },
+  {
+   "slug": "opioids-killed-44564-americans-in-2025-cannabis-alone-killed-almost-no-one",
+   "title": "Opioids Killed 44,564 Americans In 2025 While Cannabis Alone Killed Almost No One",
+   "section": "Science",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792238421649-BZS8FXOQ1MOTCXPCI19N/chart-trend.png"
+  },
+  {
+   "slug": "a-fleet-of-ai-agents-spent-11-days-looking-for-the-zoos-front-door",
+   "title": "A Fleet Of AI Agents Spent 11 Days Looking For The Zoo’s Front Door",
+   "section": "AI & Tech",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792163639746-834HOFQ6RW5QH8YZEKVW/image.png"
+  },
+  {
+   "slug": "russia-soldier-death-payout",
+   "title": "Russia pays $166,000 for a dead soldier. Men are leaving anyway.",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1792162478140-NWRS67GOW75MHWIEPLW6/military-death-gratuities.png"
+  },
+  {
+   "slug": "league-bowling-has-about-one-member-today-for-every-nine-it-had-in-1980",
+   "title": "League bowling has about one member today for every nine it had in 1980",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791918785031-QS711GEETRSHSCJGQ28L/bowling-members-preview.png"
+  },
+  {
+   "slug": "about-a-quarter-fewer-americans-socialize-on-an-average-day-than-in-2003-but-those-who-do-still-spend-about-two-hours",
+   "title": "About a quarter fewer Americans socialize on an average day than in 2003, but those who do still spend about two hours",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791918471890-36SXNUHR981047ZGD9AK/socializing-share-preview.png"
+  },
+  {
+   "slug": "winter-is-coming-when-the-first-snow-usually-falls-in-your-state",
+   "title": "Winter Is Coming: When The First Snow Usually Falls In Your State",
+   "section": "Science",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791840600262-B9II84KFY4ECAGUQ1VQV/snowmap-preview.png"
+  },
+  {
+   "slug": "three-ai-assistants-reached-a-billion-users-faster-than-any-social-app",
+   "title": "Three AI assistants reached a billion users faster than any social app",
+   "section": "AI & Tech",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791820220967-M40O4PMN63T8SMUVCRDY/onegraph-preview-colors.png"
+  },
+  {
+   "slug": "chatgpt-reached-a-billion-weekly-users-in-under-four-years-facebook-took-eight-and-a-half",
+   "title": "ChatGPT reached a billion weekly users in under four years. Facebook took eight and a half",
+   "section": "AI & Tech",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791812622284-0F5CTKZEN77XOGTH3KSU/race-preview.png"
+  },
+  {
+   "slug": "an-ai-agent-sent-a-fake-tip-to-a-police-homicide-form-police-were-told-82-days-later",
+   "title": "An AI agent sent a fake tip to a police homicide form. Police were told 82 days later",
+   "section": "AI & Tech",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791732685151-W1ZIQ9G0S5Z6UID8NR17/agents-preview.png"
+  },
+  {
+   "slug": "dak-prescott-ranks-fifth-among-nfl-quarterbacks-and-the-cowboys-defense-ranks-31st",
+   "title": "Dak Prescott ranks fifth among NFL quarterbacks, and the Cowboys’ defense ranks 31st",
+   "section": "Sports",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791732195576-N4UZNFUABTF1GDQLC25R/dak-preview.png"
+  },
+  {
+   "slug": "2026-tied-1905-for-the-latest-first-atlantic-hurricane-since-tracking-began-in-1851",
+   "title": "2026 tied 1905 for the latest first Atlantic hurricane since tracking began in 1851",
+   "section": "Science",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791658657465-B8OPZPUU2U4YFQIQ29NN/hurricane-preview.png"
+  },
+  {
+   "slug": "candy-prices-are-up-49-since-2020-while-overall-prices-rose-29-and-wages-28",
+   "title": "Have You Noticed What A Candy Bar Costs Lately?",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791896828062-0YHTU0N9FPXPPS4SQ2YQ/candy4-preview.png"
+  },
+  {
+   "slug": "social-securitys-2027-raise-is-expected-to-be-about-35-the-largest-since-2023",
+   "title": "Social Security’s 2027 raise is expected to be about 3.5%, the largest since 2023",
+   "section": "Trending",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791658880142-10EE0295RGUSJRW0R93Z/cola-preview.png"
+  },
+  {
+   "slug": "us-measles-cases-in-2026-are-the-highest-since-1991-with-almost-three-months-left-in-the-year",
+   "title": "U.S. measles cases in 2026 are the highest since 1991, with almost three months left in the year",
+   "section": "Science",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791658769343-ZVO9TGOCO1CFMYYQINQA/measles-preview.png"
+  },
+  {
+   "slug": "six-of-the-seven-songs-with-the-most-weeks-at-no-1-on-the-hot-100-came-in-the-streaming-era",
+   "title": "Six of the seven songs with the most weeks at No. 1 on the Hot 100 came in the streaming era",
+   "section": "Culture",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791658547183-DP3DL3RNLV2ZM3JFWGDM/hot100-preview.png"
+  },
+  {
+   "slug": "re-releases-have-twice-decided-which-film-counts-as-the-highest-grossing-ever",
+   "title": "Re-releases have twice decided which film counts as the highest-grossing ever",
+   "section": "Culture",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791658436521-77OIHL1WIZEWDA44Y2W3/rereleases-preview.png"
+  },
+  {
+   "slug": "half-of-americans-now-use-ai-chatbots-and-about-half-remain-more-concerned-than-excited-about-ai",
+   "title": "Half of Americans now use AI chatbots, and about half remain more concerned than excited about AI",
+   "section": "AI & Tech",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791658322778-56QA4J1VWCJ7OLN3WMN6/pewai-preview.png"
+  },
+  {
+   "slug": "data-center-demand-does-little-to-explain-which-states-saw-the-biggest-home-electricity-price-increases",
+   "title": "Data-center demand does little to explain which states saw the biggest home electricity price increases",
+   "section": "AI & Tech",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791658207324-QGOSLYQOO1E90VPJV354/datacenters-preview.png"
+  },
+  {
+   "slug": "recent-college-graduates-unemployment-has-pulled-further-above-the-overall-rate-since-2024",
+   "title": "Recent college graduates’ unemployment has pulled further above the overall rate since 2024",
+   "section": "Business",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791658084795-9RRL4B16DN2NKRDXTFW3/grads-preview.png"
+  },
+  {
+   "slug": "every-monthly-jobs-estimate-in-2025-was-later-revised-down-while-2026-revisions-have-split-evenly",
+   "title": "Every monthly jobs estimate in 2025 was later revised down, while 2026 revisions have split evenly",
+   "section": "Business",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791657963025-5A6CHQT0HKRV8DUB8A4E/jobs-preview.png"
+  },
+  {
+   "slug": "y0zhgw45lo2spyxl4q3j7nf85y58zx",
+   "title": "Catchers win ball-strike challenges more often than hitters, and success falls late in games as teams spend challenges they would otherwise lose",
+   "section": "Sports",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791657697911-Q2DVM53MY7RYRJ9JMV8I/abs-preview.png"
+  },
+  {
+   "slug": "the-white-sox-are-the-first-team-to-reach-the-playoffs-after-back-to-back-100-loss-seasons",
+   "title": "The White Sox are the first team to reach the playoffs after back-to-back 100-loss seasons",
+   "section": "Sports",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791657510483-TX311X1913PXPY36P3YW/whitesox-preview.png"
+  },
+  {
+   "slug": "who-owns-prime-time-the-nfl-books-audiences-not-records",
+   "title": "Who owns prime time? The NFL books audiences, not records",
+   "section": "Sports",
+   "image": "https://images.squarespace-cdn.com/content/v1/6aca5c2deb6b5d250c28f6f6/1791648963697-RPBWS34PUSABUZNAPWYU/image.png"
+  }
+ ]
 }
