@@ -1,11 +1,11 @@
 {
  "_how_to_edit": "The story page, replay map and home hero read this file on every load. Edit it, run `node groundstop/src/build.js`, commit and push to main; no Squarespace edit is needed. Times are hours on an Eastern clock on Nov. 13, 2026 (17.5 = 5:30 p.m.; values past 24 mean Nov. 14). Set lift to null while the stop is in effect.",
- "updated": "8:30 p.m. Eastern on Nov. 13, 2026",
+ "updated": "9:10 p.m. Eastern on Nov. 13, 2026",
  "headline_status": "The FAA lifted the ground stop at about 8:10 p.m. Eastern, after more than four hours",
- "now": 20.5,
- "now_label": "8:30 p.m.",
+ "now": 21.1667,
+ "now_label": "9:10 p.m.",
  "lift": 20.1667,
- "cause": "Telecommunications outage at air traffic control",
+ "cause": "Telecommunications outage on older FAA hardware",
  "moments": [
   [
    14,
@@ -38,7 +38,7 @@
    "The FAA says a temporary telecommunications outage caused the stop, and officials say they see no sign of an attack."
   ],
   [
-   18.0,
+   18,
    "About 6:00 p.m.",
    "The FAA says the stop remains in effect and that flights will be released as each en route center recovers."
   ],
@@ -53,7 +53,7 @@
    "An airline source tells CNN that major airlines could shut down operations for the rest of the night."
   ],
   [
-   20.0,
+   20,
    "8:00 p.m.",
    "FlightAware counts 5,117 cancellations and 9,814 delays, and JetBlue and United call off most of their remaining Friday flights."
   ],
@@ -61,6 +61,11 @@
    20.1667,
    "About 8:10 p.m.",
    "The FAA says the nationwide ground stop is over, about 4 hours and 15 minutes after it began."
+  ],
+  [
+   20.8,
+   "By 8:48 p.m.",
+   "At a White House briefing, the transportation secretary says older hardware failed and that none of the FAA’s new systems went down."
   ]
  ],
  "facts": [
@@ -77,10 +82,10 @@
    "approximate length of the stop, against about 90 minutes in 2023, with 5,117 flights canceled by 8 p.m. Eastern"
   ]
  ],
- "unknown": "<b>What is not known.</b> The FAA lifted the stop at about 8:10 p.m. Eastern, according to ABC News, and has not said publicly what caused the telecommunications outage. An airline source told CNN that the FAA traced the problem to network routers and that it is believed to have started at Chicago Midway before spreading nationwide. The lift time shown here is approximate, taken from the time ABC reported the FAA's announcement. Three days earlier, on Nov. 10, the agency expanded SMART, an AI tool that suggests flight reroutes, to all 22 centers. No official has connected the tool to the stop, and no reporting so far shows a link.",
- "status_html": "The FAA lifted the stop at about 8:10 p.m. Eastern on Friday, roughly 4 hours and 15 minutes after it began, according to ABC News. Flying will take longer to recover than the stop took to end, because JetBlue canceled all of its remaining Friday flights except Europe-bound departures from New York and Boston, United said it would cancel most of its remaining flights for the night, and Air Canada canceled the rest of its Friday flights to and from the United States. FlightAware had counted 5,117 cancellations and 9,814 delays by 8 p.m., according to CNN, which is about twice the 2,500 cancellations counted at 6:30 p.m. More than 700 Saturday flights were already canceled by 7:45 p.m., and the data firm Cirium estimated that 1.5 million people were stranded.",
+ "unknown": "<b>What is not known.</b> The FAA lifted the stop at about 8:10 p.m. Eastern, according to ABC News, and the lift time shown here is approximate, taken from the time ABC reported the FAA’s announcement. Transportation Secretary Sean Duffy blamed overloaded routers on older hardware at a White House briefing on Friday night, according to ABC News and Deadline, and officials have not said what overloaded them or where the failure began. Three days earlier, on Nov. 10, the agency expanded SMART, an AI tool that suggests flight reroutes, to all 22 centers. The tool’s contractor said the stop was not a result of SMART, according to ABC News, and no official has connected the tool to the stop.",
+ "status_html": "The FAA lifted the stop at about 8:10 p.m. Eastern on Friday, roughly 4 hours and 15 minutes after it began, according to ABC News. Flying will take longer to recover than the stop took to end, because JetBlue canceled all of its remaining Friday flights except Europe-bound departures from New York and Boston, United said it would cancel most of its remaining flights for the night, and Air Canada canceled the rest of its Friday flights to and from the United States. FlightAware had counted 5,117 cancellations and 9,814 delays by 8 p.m., according to CNN, which is about twice the 2,500 cancellations counted at 6:30 p.m. More than 700 Saturday flights were already canceled by 7:45 p.m., and the data firm Cirium estimated that 1.5 million people were stranded. Duffy and Homeland Security Secretary Markwayne Mullin said at a White House briefing on Friday night that schedules would take a while to recover, with most planes likely to get going on Saturday morning, according to Deadline.",
  "compare_html": "Friday's stop lasted about 255 minutes, close to three times the roughly 90 minutes of 2023, and it began late on a Friday afternoon where the 2023 stop began early on a Wednesday, which left airlines almost none of the day to recover. The 5,117 cancellations counted by 8 p.m. were nearly four times the 1,300-plus logged for the whole day in 2023, while the 9,814 delays were about level with that day's roughly 10,000. Cirium counted 26,284 flights scheduled to depart the United States on Friday and said more than 15% were canceled or never took off, and at least 827 flights were diverted, 670 of them back to the airport they left. The effects reach into Saturday: the Big 12 told CNN it is evaluating changes to its football schedule because teams could not travel.",
- "notknown_html": "<p>The FAA has not said publicly what caused the telecommunications outage. An airline source told CNN that the FAA told airlines the outages resulted from a problem with network routers, and that the problem is believed to have started at Chicago Midway and spread nationwide. CBS News reported that the affected system is operated by the contractor L3Harris, which had not responded to its request for comment. The FAA has confirmed neither account, and Transportation Secretary Sean Duffy and Homeland Security Secretary Markwayne Mullin were due to brief reporters at the White House on Friday night.</p><p>Mullin said there was no indication of a threat to the country, and the FAA said it does not believe the outage was a cyberattack. A senior security source told CNN late Friday that the FBI, the Department of Homeland Security and the National Security Agency had found no sign of an attack and that the search of the aviation system's network connections would continue for days.</p><p>Three days before the stop, on Nov. 10, the FAA expanded SMART, an AI tool that suggests flight reroutes, to all 22 centers. Mullin said the administration is examining that rollout, according to Fox News, and no official has connected the tool to the stop or reported a link so far.</p><p>This story reflects what was known at 8:30 p.m. Eastern on Nov. 13, 2026. The lift time is approximate, and we will update it, the cause and the final delay counts as the FAA and flight trackers report them.</p>",
+ "notknown_html": "<p>Transportation Secretary Sean Duffy gave the first official account of the cause at a White House briefing on Friday night. ABC News reported that he blamed overloaded routers, and Deadline quoted him describing a radar “instability” problem and saying, “It was the old hardware that went down,” and that “none of the new systems went down.” Officials have not said what overloaded the routers, where the failure began or why it spread to all 22 centers.</p><p>Several accounts go further than officials have. An airline source told CNN that the FAA told airlines the outages resulted from a problem with network routers, and that the problem is believed to have started at Chicago Midway and spread nationwide. CBS News reported that an update to the private communications network linking air traffic control facilities caused the system to reboot, and that the network is operated by the contractor L3Harris, which had not responded to its request for comment. The FAA has confirmed none of these details.</p><p>Homeland Security Secretary Markwayne Mullin said there was no indication of a threat to the country, and the FAA said it does not believe the outage was a cyberattack. Mullin said at the briefing that officials had seen “zero evidence” of a cyberattack, according to Deadline, which reported that he would not rule one out. A senior security source told CNN late Friday that the FBI, the Department of Homeland Security and the National Security Agency had found no sign of an attack and that the search of the aviation system’s network connections would continue for days.</p><p>Three days before the stop, on Nov. 10, the FAA expanded SMART, an AI tool that suggests flight reroutes, to all 22 centers. Mullin said the administration is examining that rollout, according to Fox News. The tool’s contractor said in a statement that the ground stop “is not based on or a result of the SMART system,” according to ABC News, and no official has connected the tool to the stop or reported a link so far.</p><p>This story reflects what was known at 9:10 p.m. Eastern on Nov. 13, 2026. The lift time is approximate, and we will update it, the cause and the final delay counts as the FAA and flight trackers report them.</p>",
  "home_stat": [
   "5,117",
   "flights canceled by 8 p.m. Eastern"
