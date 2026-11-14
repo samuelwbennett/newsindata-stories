@@ -53,6 +53,8 @@ function applyStatus(S){var e=EV.e2026,L=S.lift==null?null:+S.lift;NOW.t=+S.now;
 applyStatus(STATUS);
 function article(){var S=STATUS,set=function(id,h){var el=document.getElementById(id);if(el&&h)el.innerHTML=h};
   set("nid-gs-updated-t","Updated "+S.updated);set("nid-gs-updated-s",S.headline_status);set("nid-gs-status",S.status_html);set("nid-gs-compare",S.compare_html);set("nid-gs-notknown",S.notknown_html);
+  var ut=document.getElementById("nid-gs-updated-t"),up=ut&&ut.parentNode;
+  if(up&&S.cause_html){var cb=document.getElementById("nid-gs-cause");if(!cb){cb=document.createElement("p");cb.id="nid-gs-cause";cb.style.cssText="margin:.9em 0 1.2em;padding:.7em 1em;border-left:4px solid #007a55;background:#f1f7f4;line-height:1.45";up.parentNode.insertBefore(cb,up.nextSibling)}cb.innerHTML=S.cause_html}
   var hm=document.getElementById("nid-gs-home"),ld=hm&&hm.closest&&hm.closest(".lead");
   if(ld){var st=ld.querySelectorAll(".stats > div")[2];if(st&&S.home_stat){st.querySelector("b").textContent=S.home_stat[0];st.querySelector("span").textContent=S.home_stat[1]}var dk=ld.querySelector(".dek");if(dk&&S.home_dek)dk.innerHTML=S.home_dek}}
 function build(ev){

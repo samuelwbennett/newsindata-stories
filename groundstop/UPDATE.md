@@ -12,6 +12,7 @@ Times are hours on an Eastern clock on Nov. 13, 2026 (17.5 = 5:30 p.m.). A time 
 - `updated`: when the facts were last checked, written like "7:40 p.m. Eastern on Nov. 13, 2026". Shown at the top of the article after the word "Updated".
 - `headline_status`: one short sentence, e.g. "The ground stop is still in effect" or "The FAA lifted the ground stop at 8:12 p.m. Eastern".
 - `now`, `now_label`: the time of the latest confirmed information while the stop is in effect ("7:40 p.m."). The replay map ends here.
+- After the lift, leave `now` and `now_label` at one hour past the lift (21.25, "9:15 p.m."); the replay map ends there. Only `updated` moves forward.
 - `lift`: null while the stop is in effect. Once a named source reports the FAA lifted it, the lift time in hours. Never set it from a status-page reading, an advisory's planned end time or an inference; only from a report that the FAA lifted or ended the stop.
 - `cause`: a few words for the map's row label.
 - `moments`: the full list of timeline moments for Nov. 13, each [hours, label, sentence], in time order. Keep the existing ones and add new ones (the lift, a stated cause, a major official statement). The first must stay at 14.
@@ -23,6 +24,8 @@ Times are hours on an Eastern clock on Nov. 13, 2026 (17.5 = 5:30 p.m.). A time 
 - `home_stat`: [figure, label] for the third number on the home page. `home_dek`: null, or a replacement for the home page summary sentence once the stop has ended.
 
 ## Rules
+- **Keep it short. Replace, never append.** Each text field is a summary of where things stand now, so rewrite the whole field with the latest figures and drop older counts, superseded reports and source-by-source reconciliation. Limits enforced by check.js: status_html 650 characters (about four sentences), compare_html 600, notknown_html 1,400 (two short paragraphs), unknown 520, cause_html 520, headline_status 140. One figure per measure, from the best source, with its time.
+- `cause_html` is the green box at the top of the article: the most likely cause as officials describe it, attributed, in two or three sentences, ending with whether a final finding exists.
 - Every number needs a named source and a time. When sources disagree, give the range or the lowest figure and say so; never pick the biggest number.
 - Do not say or imply what caused the outage beyond what officials have said. The FAA expanded an AI routing tool called SMART to all centers on Nov. 10; say there is no reported link unless an official or a major outlet reports one, and attribute it if so.
 - House writing rules: full connected sentences, no hype words (record, massive, chaos, unprecedented, shocking), no "not X, but Y", no one-line zingers, American English, every figure with a comparison where one exists.
