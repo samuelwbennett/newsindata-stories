@@ -30,7 +30,8 @@ var STORY={
  'one-mickey-mouse-club-cast-produced-five-major-award-winners-and-nearly-half-its-members-never-got-a-wikipedia-page':{guess:'manu'},
  'midterm-turnout-in-2022-ranged-from-31-in-tennessee-to-62-in-oregon':{guess:'candy'},
  'credit-card-partners-paid-american-airlines-62-billion-in-2025-four-times-its-operating-profit':{guess:'canada'},
- 'the-faa-ground-stop-moved-nine-college-football-games-one-all-the-way-to-sunday':{guess:'luka'}
+ 'the-faa-ground-stop-moved-nine-college-football-games-one-all-the-way-to-sunday':{guess:'luka'},
+ 'nfl-home-teams-have-won-43-of-games-abroad-compared-with-56-in-their-own-stadiums':{guess:'manu'}
 };
 
 var CSS=[

@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+['munich','Sports',"NFL Home Teams Abroad Win Only 43% Of The Time",'nfl-home-teams-have-won-43-of-games-abroad-compared-with-56-in-their-own-stadiums'],
 ['cfbstop','Sports',"The Ground Stop Moved Nine Saturday Kickoffs",'the-faa-ground-stop-moved-nine-college-football-games-one-all-the-way-to-sunday'],
 ['measles','Science',"U.S. Measles Cases Pass 5,400, The Most Since 1991",'us-measles-cases-passed-5400-in-2026-the-most-since-1991-and-four-times-the-2019-outbreak'],
 ['influencers','Culture',"The Power Of Influence: What Followers Of Health Influencers Do",'health-influencers-promote-something-in-38-of-their-posts-and-how-to-guides-are-the-most-common-pitch'],
