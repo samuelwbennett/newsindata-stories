@@ -65,7 +65,7 @@ function onUse(ev){var t=ev.target;if(!t||!t.closest)return;
   if(ev.type==='click'){var a=t.closest('a,button');
     if(a){var r=a.closest('.nid-rel');if(r){act('rel'+([].indexOf.call(document.querySelectorAll('.nid-rel'),r)+1))}
       else if(a.closest('.npc'))act('play');else if(a.closest('.nid-more'))act('keepreading');else if(a.closest('.nid-use'))act('usechart');
-      else if(a.closest('.nie'))act(a.getAttribute('data-act')||'engage');
+      else if(a.closest('.nnv,.nnv-panel'))act('nav');else if(a.closest('.nie'))act(a.getAttribute('data-act')||'engage');
       else if(a.href&&a.hostname&&!/thenewsindata\.com$/.test(a.hostname))act('outbound');}}
   if(t.closest('.nie,.npc,.nid-rel,.nid-more,.nid-use'))return;
   if(t.closest('.nid-a [id^="nid-"],.blog-item-content svg,.blog-item-content canvas,.blog-item-content select,.blog-item-content input')){var n=Date.now();if(n-lastI>1500){lastI=n;act('interact')}}}
