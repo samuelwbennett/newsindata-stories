@@ -1,0 +1,52 @@
+table,item,percent
+promoted (share of promotional posts),Informational products,45
+promoted (share of promotional posts),Instructional guides,36
+promoted (share of promotional posts),Other content,11
+promoted (share of promotional posts),Physical products,32
+promoted (share of promotional posts),Supplements,11
+promoted (share of promotional posts),Personal care,8
+promoted (share of promotional posts),Apparel and accessories,7
+promoted (share of promotional posts),Wellness devices,5
+promoted (share of promotional posts),Food and drink,5
+promoted (share of promotional posts),Medication,1
+promoted (share of promotional posts),Services,22
+promoted (share of promotional posts),Direct services/coaching,15
+promoted (share of promotional posts),Medical,5
+promoted (share of promotional posts),Complementary medicine,1
+promoted (share of promotional posts),Medical spas and wellness treatments,1
+promoted (share of promotional posts),Events and communities,9
+promoted (share of promotional posts),Other,7
+topic (share of posts with a promotion),All posts,38
+topic (share of posts with a promotion),Not health or wellness,21
+topic (share of posts with a promotion),Health policy,29
+topic (share of posts with a promotion),Women's health,47
+topic (share of posts with a promotion),Healthy habits,50
+topic (share of posts with a promotion),Nutrition,52
+topic (share of posts with a promotion),Longevity,52
+topic (share of posts with a promotion),Personal appearance,55
+topic (share of posts with a promotion),Men's health,56
+topic (share of posts with a promotion),OTC medications or supplements,66
+background (share of posts with a promotion),Mental health,34
+background (share of posts with a promotion),Conventional medicine,35
+background (share of posts with a promotion),Allied health,39
+background (share of posts with a promotion),"Complementary, alternative and integrative health",45
+background (share of posts with a promotion),Dietician/Nutritionist,46
+supplements by background (share of promotional posts),No credentials,19
+supplements by background (share of promotional posts),Athlete,17
+supplements by background (share of promotional posts),Researcher,15
+supplements by background (share of promotional posts),"Complementary, alternative and integrative health professional",14
+supplements by background (share of promotional posts),Allied health professional,12
+supplements by background (share of promotional posts),Activist,11
+supplements by background (share of promotional posts),Life experience,11
+supplements by background (share of promotional posts),Dietician/Nutritionist,11
+supplements by background (share of promotional posts),Entrepreneur,10
+supplements by background (share of promotional posts),Author,9
+supplements by background (share of promotional posts),Coach,9
+supplements by background (share of promotional posts),Conventional medicine professional,7
+supplements by background (share of promotional posts),Mental health professional,4
+followers (share of influencer consumers),"Tried a fitness, diet or beauty routine",63
+followers (share of influencer consumers),Bought a health or wellness product,55
+followers (share of influencer consumers),Encouraged someone to try a product or treatment,42
+followers (share of influencer consumers),Asked a doctor about a medical treatment or procedure,39
+followers (share of influencer consumers),Stopped using a product or medical treatment,33
+followers (share of influencer consumers),"Attended an event, meetup or seminar",14
