@@ -61,7 +61,7 @@ var G='#007a55',LT='#9fd1b8',INK='#13241b',SUB='#4a5550';
 function fmt(n){return n.toLocaleString('en-US')}
 function mk(idn,home){var ID='#'+idn,b=document.getElementById(idn);if(!b||b.getAttribute('data-on'))return;b.setAttribute('data-on','1');
 var NS='http://www.w3.org/2000/svg',SF='-apple-system,"Helvetica Neue",Arial,sans-serif',SE='Georgia,"Times New Roman",serif';
-var css=ID+'{max-width:760px;margin:1.6em auto 2.2em;font-family:'+SE+';color:'+INK+'}'+ID+'>figure,'+ID+'>a{display:none}'+(home?ID+'{margin:0 auto;max-width:560px}'+ID+' .hd b{font-size:1.15em}'+ID+' .hd span{font-size:.85em}':'')+
+var css=ID+'{max-width:760px;margin:1.6em auto 2.2em;font-family:'+SE+';color:'+INK+'}'+ID+'>figure,'+ID+'>a{display:none}'+(home?ID+'{margin:32px auto 0;max-width:560px}'+ID+' .hd b{font-size:1.15em}'+ID+' .hd span{font-size:.85em}':'')+
 ID+' .hd{text-align:center;margin-bottom:4px}'+ID+' .hd b{display:block;font-size:1.5em;line-height:1.2}'+ID+' .hd span{display:block;font-size:.95em;color:'+SUB+';font-style:italic;margin-top:4px}'+
 ID+' svg{width:100%;height:auto;display:block;overflow:visible}'+ID+' svg text{letter-spacing:0!important;word-spacing:0!important}'+
 ID+' .bar{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0);transition:transform .7s cubic-bezier(.2,.7,.2,1)}'+ID+'.go .bar{transform:scaleY(1)}'+

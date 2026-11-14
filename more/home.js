@@ -56,6 +56,18 @@ function run(){
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
 })();
+/* Hero spacing guard: when the top story stacks (button above the chart),
+   keep a clear gap between "Read the story" and the chart card. */
+(function(){
+if(location.pathname!=='/'&&location.pathname!=='')return;
+function fix(){var l=document.querySelector('.nid .lead');if(!l)return;
+  var a=l.querySelector('a.more'),p=l.querySelector('.poster');if(!a||!p)return;
+  var gap=p.getBoundingClientRect().top-a.getBoundingClientRect().bottom;
+  if(gap>=-200&&gap<24){p.style.marginTop=(parseFloat(getComputedStyle(p).marginTop)||0)+(28-Math.max(gap,0))+'px';}}
+function run(){fix();setTimeout(fix,800);setTimeout(fix,2500);}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
+window.addEventListener('resize',function(){var l=document.querySelector('.nid .lead .poster');if(l){l.style.marginTop='';}fix();});
+})();
 /* Instagram follow band (home page) and follow card (end of every story): social/ig.js */
 (function(){
   if(window.top!==window.self)return;
