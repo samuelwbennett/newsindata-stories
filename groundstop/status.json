@@ -1,11 +1,11 @@
 {
  "_how_to_edit": "The story page, replay map and home hero read this file on every load. Edit it, run `node groundstop/src/build.js`, commit and push to main; no Squarespace edit is needed. Times are hours on an Eastern clock on Nov. 13, 2026 (17.5 = 5:30 p.m.; values past 24 mean Nov. 14). Set lift to null while the stop is in effect.",
- "updated": "11:02 a.m. Eastern on Nov. 14, 2026",
+ "updated": "12:10 p.m. Eastern on Nov. 14, 2026",
  "headline_status": "The FAA lifted the ground stop at 8:15 p.m. Eastern on Friday, after 4 hours and 21 minutes",
  "now": 21.25,
  "now_label": "9:15 p.m.",
  "lift": 20.25,
- "cause": "Overloaded routers on older FAA hardware",
+ "cause": "A router flooding the FAA network",
  "moments": [
   [
    14,
@@ -87,14 +87,14 @@
    "length of the stop, against about 90 minutes in 2023"
   ]
  ],
- "unknown": "<b>What is not known.</b> Officials blame overloaded routers on older FAA hardware but have not said what overloaded them or where the failure began. Duffy said SMART, the AI rerouting tool expanded on Nov. 10, is not connected to the equipment that failed.",
- "status_html": "The FAA lifted the stop at 8:15 p.m. Eastern on Friday, 4 hours and 21 minutes after it began, and the airspace was operating normally by 7:30 a.m. Saturday, according to CBS News. Airlines were still catching up on Saturday: FlightAware counted more than 9,100 canceled U.S. flights on Friday, about seven times the 1,300-plus canceled on the day of the 2023 stop, and CBS News, citing FlightAware, reported more than 3,800 Saturday cancellations and about 2,000 Saturday delays at 10:36 a.m. Eastern.",
+ "unknown": "<b>What is not known.</b> Duffy said on Saturday that a router flooded the FAA network during contractor work at a remote site, but officials have not determined whether the router was defective or was installed or configured wrongly. Duffy said SMART, the AI rerouting tool expanded on Nov. 10, is not connected to the equipment that failed.",
+ "status_html": "The FAA lifted the stop at 8:15 p.m. Eastern on Friday, 4 hours and 21 minutes after it began, and the airspace was operating normally by 7:30 a.m. Saturday, according to CBS News. Airlines were still catching up on Saturday: FlightAware counted more than 9,100 canceled U.S. flights on Friday, about seven times the 1,300-plus canceled on the day of the 2023 stop, and more than 4,000 Saturday cancellations as of 10:50 a.m. Eastern, Yahoo News reported. FAA Administrator Bryan Bedford said he expected 4,000 to 5,000 of about 41,000 scheduled Saturday flights to be canceled.",
  "compare_html": "Friday’s stop lasted 261 minutes, close to three times the roughly 90 minutes of 2023, and it began late on a Friday afternoon where the 2023 stop began early on a Wednesday, which left airlines almost none of the day to recover. The data firm Cirium said more than 15% of the 26,284 flights scheduled to depart the United States on Friday were canceled or never took off.",
- "notknown_html": "<p>Officials have not named the technology that overloaded the routers, said where the failure began or explained why it reached all 22 centers, and Duffy said on Friday night that the FAA was still working out the details. CBS News reported that an update to the network, which the contractor L3Harris operates, made the system reboot, and the FAA has not confirmed that account.</p><p>Officials say they have found no sign of a cyberattack. SMART, the AI rerouting tool the FAA expanded to all 22 centers on Nov. 10, is not connected to the equipment that failed, according to Duffy, and its contractor said the stop was not a result of the tool. Reports of Friday’s delays range from 7,068 to more than 24,500, so this page gives no final delay count. This story reflects what was known at 11:02 a.m. Eastern on Nov. 14, 2026.</p>",
+ "notknown_html": "<p>Officials have not determined whether the router that flooded the network was defective or was installed or configured wrongly by L3Harris, the contractor that owns the network and was replacing copper lines with fiber at a remote FAA site. Duffy said on Saturday, “We haven’t determined what the fault was,” and the FAA has given no date for a finding. L3Harris did not immediately respond to NPR’s request for comment.</p><p>Duffy said officials do not believe a cyberattack was involved. SMART, the AI rerouting tool the FAA expanded to all 22 centers on Nov. 10, is not connected to the equipment that failed, according to Duffy; its contractor said the stop was not a result of the tool, and Bedford said on Saturday there was no evidence of anything related to AI. Reports of Friday’s delays range from about 7,000 to nearly 25,000, so this page gives no final delay count. This story reflects what was known at 12:10 p.m. Eastern on Nov. 14, 2026.</p>",
  "home_stat": [
   "9,100+",
   "Friday flights canceled, per FlightAware"
  ],
  "home_dek": null,
- "cause_html": "<b>Most likely cause:</b> switches and routers on the FAA’s decades-old telecommunications network were overloaded with data and began returning inconsistent readings at 3:36 p.m. Eastern, 18 minutes before the stop, Transportation Secretary Sean Duffy said. Administration officials told the Associated Press that new technology being added to the system overloaded the older equipment. The FAA has not published a final finding."
+ "cause_html": "<b>Most likely cause:</b> a router at a remote FAA site began flooding other routers on the air traffic control network with more than 1,000 connection attempts every four to five seconds, Transportation Secretary Sean Duffy said on Saturday. The contractor L3Harris was replacing copper lines with fiber there, and FAA Administrator Bryan Bedford called it an equipment issue. Officials have not determined whether the router was defective or wrongly installed, and the FAA has not published a final finding."
 }
