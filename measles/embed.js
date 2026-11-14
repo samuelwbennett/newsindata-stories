@@ -57,11 +57,11 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 (function(){
 var Y=[[2000,85],[2001,116],[2002,44],[2003,56],[2004,37],[2005,66],[2006,55],[2007,43],[2008,140],[2009,72],[2010,63],[2011,220],[2012,55],[2013,187],[2014,667],[2015,191],[2016,86],[2017,120],[2018,381],[2019,1274],[2020,13],[2021,49],[2022,121],[2023,59],[2024,285],[2025,2289],[2026,5412]];
-var G='#007a55',LT='#9fd1b8',INK='#13241b',SUB='#4a5550',ID='#nid-measles-top';
+var G='#007a55',LT='#9fd1b8',INK='#13241b',SUB='#4a5550';
 function fmt(n){return n.toLocaleString('en-US')}
-function go(){var b=document.getElementById('nid-measles-top');if(!b||b.getAttribute('data-on'))return;b.setAttribute('data-on','1');
+function mk(idn,home){var ID='#'+idn,b=document.getElementById(idn);if(!b||b.getAttribute('data-on'))return;b.setAttribute('data-on','1');
 var NS='http://www.w3.org/2000/svg',SF='-apple-system,"Helvetica Neue",Arial,sans-serif',SE='Georgia,"Times New Roman",serif';
-var css=ID+'{max-width:760px;margin:1.6em auto 2.2em;font-family:'+SE+';color:'+INK+'}'+ID+'>figure{display:none}'+
+var css=ID+'{max-width:760px;margin:1.6em auto 2.2em;font-family:'+SE+';color:'+INK+'}'+ID+'>figure,'+ID+'>a{display:none}'+(home?ID+'{margin:0 auto;max-width:560px}'+ID+' .hd b{font-size:1.15em}'+ID+' .hd span{font-size:.85em}':'')+
 ID+' .hd{text-align:center;margin-bottom:4px}'+ID+' .hd b{display:block;font-size:1.5em;line-height:1.2}'+ID+' .hd span{display:block;font-size:.95em;color:'+SUB+';font-style:italic;margin-top:4px}'+
 ID+' svg{width:100%;height:auto;display:block;overflow:visible}'+ID+' svg text{letter-spacing:0!important;word-spacing:0!important}'+
 ID+' .bar{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0);transition:transform .7s cubic-bezier(.2,.7,.2,1)}'+ID+'.go .bar{transform:scaleY(1)}'+
@@ -107,4 +107,5 @@ b.querySelector('button').addEventListener('click',play);
 if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){b.classList.add('go');b.classList.add('done');big.textContent='5,412';big.style.opacity=1;bars.forEach(function(r){r.style.transition='none'})}
 else if('IntersectionObserver' in window){var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){play();io.disconnect()}},{threshold:.45});io.observe(svg)}else play();
 }
+function go(){mk('nid-measles-top',false);mk('nid-measles-home',true)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();})();
