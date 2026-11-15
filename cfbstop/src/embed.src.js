@@ -137,6 +137,9 @@ function mapBlock(root){
   show(2);
   if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){cv.classList.add('draw');io.disconnect()}},{threshold:.3});io.observe(cv)}
 }
-function boot(){var a=document.getElementById('nid-cfbs'),b=document.getElementById('nid-cfbs-map');if(a)lead(a);if(b)mapBlock(b)}
+function hardStyle(root){var S={ti:'font-family:"Times New Roman",Times,serif;font-size:clamp(1.3em,4.4vw,1.75em);font-weight:700;line-height:1.12;margin:0 0 .3em;text-align:center;color:#13241B;font-style:normal;letter-spacing:0;text-transform:none',su:'font-family:"Times New Roman",Times,serif;font-style:italic;font-size:clamp(.95em,2.6vw,1.08em);line-height:1.3;color:#5F7268;margin:0 auto .9em;text-align:center;max-width:600px',q:'font-family:"Times New Roman",Times,serif;font-size:1.35em;font-weight:700;line-height:1.22;margin:0 0 10px;color:#13241B'};
+  [].forEach.call(root.querySelectorAll('p.ti,p.su,p.q'),function(p){var k=p.classList.contains('ti')?'ti':p.classList.contains('su')?'su':'q';S[k].split(';').forEach(function(d){var i=d.indexOf(':');if(i>0)p.style.setProperty(d.slice(0,i),d.slice(i+1),'important')})});
+  [].forEach.call(root.querySelectorAll('.ans p,.det,.fc'),function(p){p.style.setProperty('font-family','"Times New Roman",Times,serif','important')})}
+function boot(){var a=document.getElementById('nid-cfbs'),b=document.getElementById('nid-cfbs-map');if(a)lead(a);if(b)mapBlock(b);[a,b].forEach(function(el){if(!el)return;hardStyle(el);try{new MutationObserver(function(){hardStyle(el)}).observe(el,{childList:true,subtree:true})}catch(e){}})}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
