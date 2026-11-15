@@ -1,0 +1,22 @@
+<!doctype html><meta charset=utf-8><style>body{margin:0;background:#fff}svg text{font-family:"Times New Roman",Times,serif}</style><body><div id=o></div>
+<script>window.NIDWFH_STATIC=1</script><script src="../embed.js"></script><script>
+var m=new URLSearchParams(location.search).get('m')||'tall',N=window.NIDWFH,G='#007A55',INK='#13241B',SUB='#5F7268',s='',W,H;
+function T(x,y,t,sz,o){o=o||{};return '<text x="'+x+'" y="'+y+'" text-anchor="'+(o.a||'middle')+'" font-size="'+sz+'" font-weight="'+(o.w||700)+'" fill="'+(o.c||INK)+'"'+(o.i?' font-style="italic"':'')+'>'+t+'</text>'}
+function nest(svg,x,y,w,h){return svg.replace('<svg ','<svg x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" ')}
+if(m==='tall'){W=1080;H=1350;
+ s+=T(540,88,'Remote Work Has Fallen Four Years',54)+T(540,148,'In A Row, But Not Back To 2019',54);
+ s+=T(540,196,'Share of U.S. workers who mostly worked from home. Census Bureau, American Community Survey.',22,{w:400,c:SUB,i:1});
+ var l=N.natLine({W:900,H:330,fs:1.55});s+=nest(l.svg,90,230,900,330);
+ s+=T(540,640,'2025, By State',34);
+ var lg=N.legend(1.5);s+='<g transform="translate('+(540-lg.w/2)+',662)">'+lg.svg+'</g>';
+ var mp=N.laptops({cw:76,ch:66,gap:8,fs:1.18});s+=nest(mp.svg,(1080-1000)/2,705,1000,1000*mp.H/mp.W);
+}else{W=1200;H=630;
+ s+='<rect width="1200" height="10" fill="'+G+'"/>';
+ s+=T(56,120,'Remote Work',58,{a:'start'})+T(56,186,'Fell Again',58,{a:'start'});
+ s+=T(56,330,'12.9%',110,{a:'start',c:G});
+ s+=T(60,384,'of U.S. workers mostly worked',26,{a:'start',w:400,c:SUB})+T(60,418,'from home in 2025, vs. 17.9%',26,{a:'start',w:400,c:SUB})+T(60,452,'in 2021 and 5.7% in 2019',26,{a:'start',w:400,c:SUB});
+ var mp=N.laptops({cw:62,ch:56,gap:6,fs:1});var w=700,h=w*mp.H/mp.W;s+=nest(mp.svg,470,(630-h)/2+14,w,h);
+ var lg=N.legend(1);s+='<g transform="translate('+(820-lg.w/2)+',40)">'+lg.svg+'</g>';
+}
+document.getElementById('o').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'"><rect width="'+W+'" height="'+H+'" fill="#fff"/>'+s+'</svg>';
+</script>

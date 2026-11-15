@@ -1,0 +1,20 @@
+<!doctype html><meta charset=utf-8><style>body{margin:0;background:#fff}svg text{font-family:"Times New Roman",Times,serif}</style><body><div id=o></div>
+<script>window.NIDRENT_STATIC=1</script><script src="../embed.js"></script><script>
+var m=new URLSearchParams(location.search).get('m')||'tall',N=window.NIDRENT,G='#007A55',INK='#13241B',SUB='#5F7268',RUST='#B5462F',s='',W,H;
+function T(x,y,t,sz,o){o=o||{};return '<text x="'+x+'" y="'+y+'" text-anchor="'+(o.a||'middle')+'" font-size="'+sz+'" font-weight="'+(o.w||700)+'" fill="'+(o.c||INK)+'"'+(o.i?' font-style="italic"':'')+'>'+t+'</text>'}
+function nest(svg,x,y,w,h){return svg.replace('<svg ','<svg x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" ')}
+if(m==='tall'){W=1080;H=1350;
+ s+=T(540,86,'Two In Three Miami Renters Spend',52)+T(540,146,'30% Or More Of Income On Rent',52);
+ s+=T(540,194,'Share of renter households paying 30% or more of income on rent and utilities, 2025',22,{w:400,c:SUB,i:1});
+ s+=T(540,226,'Metro areas with at least 100,000 renter households. Census Bureau, American Community Survey.',22,{w:400,c:SUB,i:1});
+ var sc=N.scatter({W:720,H:700,fs:1});s+=nest(sc.svg,40,262,1000,1000*700/720);
+ s+=T(540,1316,'Bigger circles have more renter households',22,{w:400,c:SUB,i:1});
+}else{W=1200;H=630;
+ s+='<rect width="1200" height="10" fill="'+G+'"/>';
+ s+=T(56,118,'The Rent',58,{a:'start'})+T(56,184,'Squeeze',58,{a:'start'});
+ s+=T(56,320,'51.8%',108,{a:'start',c:G});
+ s+=T(60,372,'of U.S. renters spend 30% or',26,{a:'start',w:400,c:SUB})+T(60,406,'more of income on rent. In',26,{a:'start',w:400,c:SUB})+T(60,440,'Miami it’s 66.8%; in San Jose, 44.3%',26,{a:'start',w:400,c:SUB});
+ var sc=N.scatter({W:720,H:500,fs:1.1,few:1});var w=660,h=w*500/720;s+=nest(sc.svg,520,(630-h)/2,w,h);
+}
+document.getElementById('o').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'"><rect width="'+W+'" height="'+H+'" fill="#fff"/>'+s+'</svg>';
+</script>
