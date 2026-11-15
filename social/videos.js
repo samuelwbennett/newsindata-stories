@@ -15,6 +15,7 @@ var BASE=window.NID_BASE||'https://stories.thenewsindata.com/social/web/';
 var SITE='https://www.thenewsindata.com';
 /* One line for Reels that have no story on the site yet (verified figures, see project notes). */
 var NOTE={
+  dating:'In Pew surveys, 47% of Black adults were single in 2019, compared with 28% of White adults, and in 2025, 53% of Black singles were looking for a relationship or dates, compared with 36% of White singles.',
   senate:'The average senator will be about three years younger in January, and the number under 50 will roughly double, from 8 to as many as 16.',
   youth:'Voters under 30 backed House Democrats by 35 points in 2026, up from 14 in 2024, in an early NORC estimate that may shift.'
 };

@@ -662,6 +662,86 @@ def glp1():
 POSTS.update({"glp1": glp1})
 
 
+def dating():
+    """Black and White Americans on dating: Pew 2019 survey (published Aug. 2020) and Pew 2025 survey (published 2026)."""
+    SC = [("2019 \u00b7 All adults", ["Are single"], 47, 28),
+          ("2019 \u00b7 All adults", ["Say dating has gotten harder", "in the last 10 years"], 54, 48),
+          ("2025 \u00b7 Single adults", ["Are looking for a", "relationship or dates"], 53, 36)]
+    GA_ = 2.399963
+    C, RD, PALE = 17.0, 8.6, "#dde6e1"
+    CY = 1010
+    groups = [("Black adults", 300, GREEN), ("White adults", 780, BLUE)]
+    pts = {cx: [(cx + C * math.sqrt(k + 0.5) * math.cos(k * GA_), CY - C * math.sqrt(k + 0.5) * math.sin(k * GA_)) for k in range(100)]
+           for _, cx, _ in groups}
+    intro, step, sum_in, hold = 1.0, 3.9, 0.9, 4.6
+    t_sum = intro + 3 * step
+
+    def draw(c, t):
+        brand_block(c)
+        header(c, "Culture \u00b7 Dating", ["Single In Black", "And White"],
+               ["Two Pew surveys, six years apart.", "Each cluster is 100 people."])
+        if t < t_sum + sum_in:
+            fade = 1 - ease((t - t_sum) / sum_in)
+            i = min(int(max(t - intro, 0) // step), 2)
+            ts = max(t - intro - i * step, 0)
+            a_lab = ease(ts / 0.45) if i > 0 else ease((t - 0.3) / 0.6)
+            yr, q, vb, vw = SC[i]
+            # question card
+            c.text(W / 2, 640, yr.upper(), size=23, color=MUTED, weight="bold", ha="center", alpha=a_lab * fade)
+            for j, ln in enumerate(q):
+                c.text(W / 2, 700 + j * 50, ln, size=42, weight="bold", ha="center", alpha=a_lab * fade)
+            # bloom in, then fill; between scenes the fill drains and refills
+            bloom = min(max((t - 0.2) / 0.9, 0), 1)
+            shown = int(round(100 * ease_out(bloom)))
+            if i == 0:
+                f = ease((t - intro - 0.2) / 1.3)
+                prev = (0, 0)
+            else:
+                f = ease((ts - 0.1) / 1.3)
+                prev = SC[i - 1][2:]
+            px, py = [], []
+            for (lab, cx, col), v, pv in zip(groups, (vb, vw), prev):
+                n = int(round(pv + (v - pv) * f))
+                fx = [p[0] for p in pts[cx][:min(n, shown)]]; fy = [p[1] for p in pts[cx][:min(n, shown)]]
+                px += [p[0] for p in pts[cx][n:shown]]; py += [p[1] for p in pts[cx][n:shown]]
+                if fx:
+                    c.ax.scatter(fx, fy, s=(2 * RD * PT) ** 2, c=col, linewidths=0, zorder=4, alpha=fade)
+                c.text(cx, 1240, lab, size=30, ha="center", color=INK, alpha=fade * ease_out(bloom))
+                if t > intro + 0.2:
+                    c.text(cx, 1330, f"{n}%", size=80, weight="bold", ha="center", color=col, alpha=fade)
+            if px:
+                c.ax.scatter(px, py, s=(2 * RD * PT) ** 2, c=PALE, linewidths=0, zorder=3, alpha=fade)
+            # progress: three dots
+            for k in range(3):
+                c.circle(W / 2 - 40 + k * 40, 1430, 8, GREEN if k <= i else RULE, alpha=fade)
+        else:
+            # summary: three paired bars
+            a0 = t - t_sum - sum_in
+            rows = [("Single, 2019", 47, 28), ("Dating got harder, 2019", 54, 48), ("Single and looking, 2025", 53, 36)]
+            X0, BW = 330, 600
+            c.circle(330, 640, 11, GREEN); c.text(352, 650, "Black adults", size=27, color=INK)
+            c.circle(600, 640, 11, BLUE); c.text(622, 650, "White adults", size=27, color=INK)
+            for r, (lab, vb, vw) in enumerate(rows):
+                y = 760 + r * 210
+                a = ease((a0 - r * 0.35) / 0.6)
+                c.text(80, y, lab, size=31, weight="bold", color=INK, alpha=a)
+                for k, (v, col) in enumerate(((vb, GREEN), (vw, BLUE))):
+                    yy = y + 30 + k * 62
+                    c.rect(80, yy, BW * a * v / 60, 46, col, alpha=a)
+                    c.text(80 + BW * a * v / 60 + 14, yy + 36, f"{v}%", size=32, weight="bold", color=col, alpha=a)
+                c.text(W - 80, y + 92, f"+{vb - vw}", size=40, weight="bold", color=GREEN, ha="right", alpha=a)
+            a = ease((a0 - 1.4) / 0.7)
+            c.text(W - 80, 728, "Gap", size=22, color=MUTED, weight="bold", ha="right", alpha=ease(a0 / 0.6))
+            c.text(W / 2, 1420, "Black adults were more likely to be single,", size=31, ha="center", alpha=a)
+            c.text(W / 2, 1462, "and Black singles more likely to be looking", size=31, ha="center", alpha=a)
+        footer(c, "Source: Pew Research Center, 2019 and 2025 surveys")
+        bottom_band(c)
+
+    return draw, t_sum + sum_in + hold
+
+POSTS.update({"dating": dating})
+
+
 if __name__ == "__main__":
     name = sys.argv[1]
     draw, dur = POSTS[name]()
