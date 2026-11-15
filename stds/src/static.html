@@ -1,0 +1,20 @@
+<!doctype html><meta charset=utf-8><style>body{margin:0;background:#fff}svg text{font-family:"Times New Roman",Times,serif}</style><body><div id=o></div>
+<script>window.NIDSTD_STATIC=1</script><script src="../embed.js"></script><script>
+var m=new URLSearchParams(location.search).get('m')||'tall',N=window.NIDSTD,INK='#13241B',SUB='#5F7268',RUST='#B5462F',G='#007A55',s='',W,H;
+function T(x,y,t,sz,o){o=o||{};return '<text x="'+x+'" y="'+y+'" text-anchor="'+(o.a||'middle')+'" font-size="'+sz+'" font-weight="'+(o.w||700)+'" fill="'+(o.c||INK)+'"'+(o.i?' font-style="italic"':'')+'>'+t+'</text>'}
+function nest(svg,x,y,w,h){return svg.replace('<svg ','<svg x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" ')}
+if(m==='tall'){W=1080;H=1350;
+ s+=T(540,86,'STIs Fell For A Third Year, While',56)+T(540,150,'Newborn Syphilis Rose For A 12th',56,{c:RUST});
+ s+=T(540,198,'Change since 2015 in U.S. STI rates and congenital syphilis cases. CDC, 2024 data provisional.',22,{w:400,c:SUB,i:1});
+ var t=N.trend({W:720,H:430,fs:1});s+=nest(t.svg,40,232,1000,1000*430/720);
+ s+=T(540,890,'Every Dot Is 10 Babies Born With Syphilis',32);
+ var b=N.babies({W:720,cols:10,r:2.1,fs:1});var bh=1000*b.H/720;s+=nest(b.svg,40,905,1000,bh);
+}else{W=1200;H=630;
+ s+='<rect width="1200" height="10" fill="'+G+'"/>';
+ s+=T(56,118,'STIs Are Falling,',50,{a:'start'})+T(56,180,'But Newborn',50,{a:'start',c:RUST})+T(56,240,'Syphilis Isn’t',50,{a:'start',c:RUST});
+ s+=T(56,380,'3,941',100,{a:'start',c:RUST});
+ s+=T(60,428,'babies born with syphilis in 2024,',26,{a:'start',w:400,c:SUB})+T(60,462,'up from 495 in 2015',26,{a:'start',w:400,c:SUB});
+ var t=N.trend({W:720,H:430,fs:1.1,rpad:200});var w=680,h=w*430/720;s+=nest(t.svg,490,(630-h)/2+6,w,h);
+}
+document.getElementById('o').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'"><rect width="'+W+'" height="'+H+'" fill="#fff"/>'+s+'</svg>';
+</script>
