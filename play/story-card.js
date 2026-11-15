@@ -31,7 +31,9 @@ var STORY={
  'midterm-turnout-in-2022-ranged-from-31-in-tennessee-to-62-in-oregon':{guess:'candy'},
  'credit-card-partners-paid-american-airlines-62-billion-in-2025-four-times-its-operating-profit':{guess:'canada'},
  'the-faa-ground-stop-moved-nine-college-football-games-one-all-the-way-to-sunday':{guess:'luka'},
- 'nfl-home-teams-have-won-43-of-games-abroad-compared-with-56-in-their-own-stadiums':{guess:'manu'}
+ 'nfl-home-teams-have-won-43-of-games-abroad-compared-with-56-in-their-own-stadiums':{guess:'manu'},
+ 'remote-work-has-fallen-four-years-in-a-row-but-21-million-americans-still-work-from-home-more-than-twice-as-many-as-in-2019':{guess:'canada'},
+ 'two-in-three-miami-renters-spend-30-or-more-of-their-income-on-rent-a-higher-share-than-in-new-york-or-san-francisco':{guess:'candy'}
 };
 
 var CSS=[
