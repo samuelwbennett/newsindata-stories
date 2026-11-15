@@ -3,6 +3,12 @@
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
   {
+   "slug": "sti-cases-fell-for-a-third-straight-year-while-newborn-syphilis-rose-for-a-12th-to-nearly-4000-cases",
+   "title": "STIs Fell For A Third Year, Newborn Syphilis Rose For A 12th",
+   "section": "Science",
+   "image": "https://stories.thenewsindata.com/stds/stds-preview.png"
+  },
+  {
    "slug": "remote-work-has-fallen-four-years-in-a-row-but-21-million-americans-still-work-from-home-more-than-twice-as-many-as-in-2019",
    "title": "Remote Work Fell Again, But Not Back To 2019",
    "section": "Business",

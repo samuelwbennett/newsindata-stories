@@ -33,7 +33,8 @@ var STORY={
  'the-faa-ground-stop-moved-nine-college-football-games-one-all-the-way-to-sunday':{guess:'luka'},
  'nfl-home-teams-have-won-43-of-games-abroad-compared-with-56-in-their-own-stadiums':{guess:'manu'},
  'remote-work-has-fallen-four-years-in-a-row-but-21-million-americans-still-work-from-home-more-than-twice-as-many-as-in-2019':{guess:'canada'},
- 'two-in-three-miami-renters-spend-30-or-more-of-their-income-on-rent-a-higher-share-than-in-new-york-or-san-francisco':{guess:'candy'}
+ 'two-in-three-miami-renters-spend-30-or-more-of-their-income-on-rent-a-higher-share-than-in-new-york-or-san-francisco':{guess:'candy'},
+ 'sti-cases-fell-for-a-third-straight-year-while-newborn-syphilis-rose-for-a-12th-to-nearly-4000-cases':{guess:'japan'}
 };
 
 var CSS=[

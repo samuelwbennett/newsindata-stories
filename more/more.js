@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+['stds','Science',"STIs Fell For A Third Year, Newborn Syphilis Rose For A 12th",'sti-cases-fell-for-a-third-straight-year-while-newborn-syphilis-rose-for-a-12th-to-nearly-4000-cases'],
 ['wfh','Business',"Remote Work Fell Again, But Not Back To 2019",'remote-work-has-fallen-four-years-in-a-row-but-21-million-americans-still-work-from-home-more-than-twice-as-many-as-in-2019'],
 ['rent','Business',"Two In Three Miami Renters Spend 30% Or More On Rent",'two-in-three-miami-renters-spend-30-or-more-of-their-income-on-rent-a-higher-share-than-in-new-york-or-san-francisco'],
 ['munich','Sports',"NFL Home Teams Abroad Win Only 43% Of The Time",'nfl-home-teams-have-won-43-of-games-abroad-compared-with-56-in-their-own-stadiums'],
