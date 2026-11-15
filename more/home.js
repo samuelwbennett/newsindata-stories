@@ -87,3 +87,10 @@ window.addEventListener('resize',function(){var l=document.querySelector('.nid .
   var s=document.createElement('script');s.src='https://stories.thenewsindata.com/play/story-card.js?v=2';s.defer=true;
   (document.body||document.head).appendChild(s);
 })();
+
+/* Phone menu (all pages): more/mobile-nav.js — full-screen section menu replacing the broken Squarespace overlay */
+(function(){
+  if(window.top!==window.self)return;
+  var s=document.createElement('script');s.src='https://stories.thenewsindata.com/more/mobile-nav.js?v=1';s.defer=true;
+  (document.body||document.head).appendChild(s);
+})();
