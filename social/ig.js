@@ -7,6 +7,7 @@ if(window.__nidIG)return; window.__nidIG=1;
 var IG='https://www.instagram.com/thenewsindata/';
 var BASE='https://stories.thenewsindata.com/social/web/';
 var REELS={
+  aiwork:{t:'Where AI Overlaps With American Work',s:'more-than-five-times-as-many-americans-are-more-concerned-than-excited-about-ai-up-from-about-two-to-one-in-2021'},
   dating:{t:'Single in Black and White',s:'-'},
   groundstop:{t:'FAA grounds flights for third time in history',s:'the-faa-has-halted-every-us-departure-only-three-times-and-the-nov-13-stop-is-the-first-to-start-after-noon'},
   glp1:{t:'One in 10 U.S. adults took a GLP-1 drug',s:'one-in-10-us-adults-took-a-glp-1-drug-in-the-past-year-and-nearly-half-of-those-with-diabetes-did'},

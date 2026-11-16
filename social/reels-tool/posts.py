@@ -742,6 +742,185 @@ def dating():
 POSTS.update({"dating": dating})
 
 
+def aiwork():
+    """Where AI overlaps with American work: Microsoft AI applicability x BLS employment treemap, with snap zooms."""
+    import json as _json
+    from matplotlib.patches import Rectangle as _R
+    L = _json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "aiwork_layout.json")))
+    leaves, groups = L["leaves"], L["groups"]
+    BINS = [(0.30, "#0B4D35"), (0.25, "#1A7A57"), (0.20, "#4C9F7C"), (0.15, "#8CC4A8"), (0.10, "#C3E0D1"), (0.0, "#E9F4EE")]
+    col = lambda v: next(c for b, c in BINS if v >= b - 1e-9)
+    VX0, VY0, VW, VH = 60, 480, 960, 980
+    LW, LH = 960.0, 980.0
+    G = {g["m"]: g for g in groups}
+    byn = {l["n"]: l for l in leaves}
+    def fit(x0, y0, x1, y1, pad=0.9):
+        return ((x0 + x1) / 2, (y0 + y1) / 2, min(VW / (x1 - x0), VH / (y1 - y0)) * pad)
+    FULL = (LW / 2, LH / 2, 1.0)
+    off = G["Office and admin"]; sal = G["Sales"]; med = byn["Media and Communication Workers"]
+    Z_OFF = fit(off["x0"], off["y0"], off["x1"], off["y1"])
+    Z_SAL = fit(sal["x0"], sal["y0"], sal["x1"], sal["y1"])
+    mx, my = (med["x0"] + med["x1"]) / 2, (med["y0"] + med["y1"]) / 2
+    Z_MED = (mx, my, 4.2)
+    # camera keyframes: (time, view); snaps use back-ease over SNAP seconds
+    SNAP = 0.42
+    KEYS = [(0, FULL), (3.7, Z_OFF), (6.7, FULL), (7.2, Z_SAL), (9.6, FULL), (10.1, Z_MED), (12.3, FULL)]
+    def back(u):
+        u = min(max(u, 0), 1); s = 1.4
+        return 1 + (s + 1) * (u - 1) ** 3 + s * (u - 1) ** 2
+    def cam(t):
+        v = KEYS[0][1]
+        for (tk, vk) in KEYS[1:]:
+            if t >= tk:
+                u = back((t - tk) / SNAP)
+                # interpolate in log-scale for zoom
+                s0, s1 = v[2], vk[2]
+                s = s0 * (s1 / s0) ** min(u, 1.0) if u <= 1 else s1 * (s1 / s0) ** (0)
+                s = s0 * (s1 / s0) ** u
+                v = (v[0] + (vk[0] - v[0]) * u, v[1] + (vk[1] - v[1]) * u, s)
+                if t < tk + SNAP:
+                    return v
+                v = vk
+        return v
+    def wrap(name, size, w):
+        cpl = max(1, int(w / (size * 0.52)))
+        lines, cur = [], ""
+        for wd in name.split(" "):
+            t2 = (cur + " " + wd).strip()
+            if len(t2) <= cpl: cur = t2
+            else:
+                if cur: lines.append(cur)
+                cur = wd
+                if len(wd) > cpl: return None
+        if cur: lines.append(cur)
+        return lines
+    TOT = sum(l["e"] for l in leaves)
+    def cliprect(c, x0, y0, x1, y1):
+        a0, b0 = max(x0, VX0), max(y0, VY0)
+        a1, b1 = min(x1, VX0 + VW), min(y1, VY0 + VH)
+        if a1 <= a0 or b1 <= b0:
+            return None
+        r = _R((a0, b0), a1 - a0, b1 - b0, transform=c.ax.transData, fc="none", ec="none")
+        return r
+    def ctext(c, cl, *a, **k):
+        tx = c.text(*a, **k)
+        tx.set_clip_on(True); tx.set_clip_path(cl)
+        return tx
+    def caption(c, lines, a):
+        for i, ln in enumerate(lines):
+            c.text(W / 2, 1530 + i * 42, ln, size=31, ha="center", color=INK, alpha=a, weight="bold" if i == 0 else "normal")
+    SCENES = [  # (start, end, mode, caption lines)
+        (1.4, 3.6, "all", ["Each tile is a job group, sized by workers", "Darker green: more of the work matches AI chat"]),
+        (3.6, 6.6, "office", ["Office work overlaps most", "Information and record clerks: 0.33, 5.1 million workers"]),
+        (6.6, 9.5, "sales", ["So does sales", "Sales reps for services score 0.35; retail sales, 0.30"]),
+        (9.5, 12.2, "media", ["The top score of all 94: 0.38", "Media and communication workers"]),
+        (12.2, 15.4, "hi", ["34 million workers, about 1 in 5", "are in the 21 groups scoring 0.25 or more"]),
+        (15.4, 18.2, "lo", ["The least overlap: hands-on work", "Home health aides and nursing assistants: 0.04"]),
+        (18.2, 22.5, "end", ["71% of Americans expect AI to mean fewer jobs", "Overlap isn't job loss, but it shows where AI fits"]),
+    ]
+    order = sorted(range(len(leaves)), key=lambda i: (leaves[i]["x0"] + leaves[i]["y0"]))
+    rank = {i: k for k, i in enumerate(order)}
+    def draw(c, t):
+        brand_block(c)
+        c.text(W / 2, 300, "AI & TECH · JOBS", size=24, color=GREEN, weight="bold", ha="center")
+        c.text(W / 2, 376, "Where AI Overlaps", size=60, weight="bold", ha="center")
+        c.text(W / 2, 444, "With American Work", size=60, weight="bold", ha="center")
+        cx, cy, s = cam(t)
+        clip = _R((VX0, VY0), VW, VH, transform=c.ax.transData, fc="none", ec="none")
+        c.ax.add_patch(clip)
+        sc = next((x for x in SCENES if x[0] <= t < x[1]), SCENES[-1] if t >= SCENES[-1][0] else None)
+        mode = sc[2] if sc else "intro"
+        X = lambda x: VX0 + VW / 2 + (x - cx) * s
+        Y = lambda y: VY0 + VH / 2 + (y - cy) * s
+        # group headers
+        for g in groups:
+            if not g["hdr"]: continue
+            gx, gy, gw = X(g["x0"]), Y(g["y0"]), (g["x1"] - g["x0"]) * s
+            fz = min(15 * s, 30)
+            lab = g["m"].upper()
+            mx_c = int((gw - 8) / (fz * 0.72))
+            if mx_c < 4: continue
+            if len(lab) > mx_c: lab = lab[:mx_c - 1] + "…"
+            a = min(max((t - 0.9) / 0.5, 0), 1)
+            cl = cliprect(c, gx, gy, gx + gw, gy + fz * 1.6)
+            if cl is None: continue
+            ctext(c, cl, gx + 4, gy + fz + 2, lab, size=fz, color=MUTED, weight="bold", alpha=a, z=4)
+        for i, l in enumerate(leaves):
+            # bloom in: each tile grows from its centre
+            b = ease_out(min(max((t - 0.25 - rank[i] * 0.011) / 0.45, 0), 1))
+            if b <= 0: continue
+            x0, y0, x1, y1 = X(l["x0"]), Y(l["y0"]), X(l["x1"]), Y(l["y1"])
+            if x1 < VX0 - 5 or x0 > VX0 + VW + 5 or y1 < VY0 - 5 or y0 > VY0 + VH + 5: continue
+            w, h = x1 - x0, y1 - y0
+            mcx, mcy = (x0 + x1) / 2, (y0 + y1) / 2
+            k = b
+            alpha = 1.0
+            dx = dy = 0
+            hi = l["v"] >= 0.25 - 1e-9
+            lo = l["v"] < 0.10
+            if mode == "hi" or mode == "lo":
+                on = hi if mode == "hi" else lo
+                u = min((t - sc[0]) / 0.35, 1)
+                alpha = 1 - 0.78 * u if not on else 1
+                if on and t - sc[0] < 1.4:   # shake
+                    ph = (t - sc[0]) * 38 + i
+                    amp = 5 * (1 - (t - sc[0]) / 1.4)
+                    dx, dy = amp * np.sin(ph), amp * np.cos(ph * 1.3)
+            if mode == "office" and l["n"] == "Information and Record Clerks" or mode == "sales" and l["n"] == "Sales Representatives, Services" or mode == "media" and l["n"] == "Media and Communication Workers":
+                u = (t - sc[0] - 0.5)
+                if 0 < u < 1.2: k = 1 + 0.07 * np.sin(np.pi * u / 1.2) * (1 if u < 1.2 else 0)
+                if mode == "sales" and 0.5 < t - sc[0] < 1.5:
+                    dx = 6 * np.sin((t - sc[0]) * 45) * (1.5 - (t - sc[0]))
+            ww, hh = w * k, h * k
+            feat = (mode == "office" and l["n"] == "Information and Record Clerks") or (mode == "sales" and l["n"] == "Sales Representatives, Services") or (mode == "media" and l["n"] == "Media and Communication Workers")
+            p = _R((mcx - ww / 2 + dx, mcy - hh / 2 + dy), ww, hh, fc=col(l["v"]), ec=INK if feat else BG, lw=(5 if feat else 1.6 * min(s, 2.5)) * PT, zorder=3.5 if feat else 3, alpha=alpha)
+            c.ax.add_patch(p); p.set_clip_path(clip)
+            # label
+            dark = l["v"] >= 0.20
+            fz = max(10, min(15 * s ** 0.85, 44)) * min(1, b)
+            if w > 30 and h > 22 and b > 0.9:
+                avail = w - 10
+                lines = None
+                f2 = fz
+                while f2 >= 11:
+                    lines = wrap(l["n"], f2, avail)
+                    if lines and (len(lines) + 1.3) * f2 * 1.1 < h - 6: break
+                    lines = None; f2 -= 1
+                ta = alpha * min(1, (t - 1.2) / 0.4) if t > 1.2 else 0
+                tcl = cliprect(c, x0 + dx, y0 + dy, x1 + dx, y1 + dy)
+                if tcl is None: ta = 0
+                if lines and ta > 0:
+                    for j, ln in enumerate(lines):
+                        ctext(c, tcl, x0 + 6 + dx, y0 + 6 + f2 * (j + 1) * 1.08 + dy, ln, size=f2, color="white" if dark else INK, alpha=ta, z=4)
+                    ctext(c, tcl, x0 + 6 + dx, y0 + 6 + f2 * (len(lines) + 1) * 1.08 + 4 + dy, f'{l["v"]:.2f}', size=f2 * 1.05, weight="bold", color="white" if dark else INK, alpha=ta, z=4)
+                elif ta > 0 and w > 30 and h > 22:
+                    ctext(c, tcl, x0 + 5 + dx, y0 + 18 + dy, f'{l["v"]:.2f}', size=13, weight="bold", color="white" if dark else INK, alpha=ta, z=4)
+        # zoom badge
+        if s > 1.05:
+            c.rect(VX0 + VW - 118, VY0 + VH - 54, 106, 40, INK, z=8, radius=20, alpha=0.85)
+            c.text(VX0 + VW - 65, VY0 + VH - 26, f"{s:.1f}×", size=24, color="white", weight="bold", ha="center", z=9)
+        # big overlay number in "hi" scene
+        if mode == "hi":
+            a = ease(min((t - sc[0] - 0.4) / 0.5, 1)) * (1 - ease(max((t - sc[1] + 0.4) / 0.4, 0)))
+            c.rect(VX0 + 150, VY0 + VH / 2 - 120, VW - 300, 230, "white", z=9, radius=18, alpha=0.93 * a)
+            c.text(W / 2, VY0 + VH / 2 + 20, "34 million", size=104, weight="bold", color=GREEN, ha="center", z=10, alpha=a)
+            c.text(W / 2, VY0 + VH / 2 + 78, "workers in the darkest tiles", size=30, color=INK, ha="center", z=10, alpha=a)
+        if mode == "end":
+            a = ease(min((t - sc[0] - 0.3) / 0.6, 1))
+            c.rect(VX0 + 120, VY0 + VH / 2 - 130, VW - 240, 250, "white", z=9, radius=18, alpha=0.94 * a)
+            c.text(W / 2, VY0 + VH / 2 + 18, "71%", size=120, weight="bold", color=GREEN, ha="center", z=10, alpha=a)
+            c.text(W / 2, VY0 + VH / 2 + 80, "expect AI to mean fewer jobs", size=32, color=INK, ha="center", z=10, alpha=a)
+        # caption
+        if sc:
+            a = ease(min((t - sc[0]) / 0.35, 1)) * (1 - ease(max((t - sc[1] + 0.25) / 0.25, 0)) if sc is not SCENES[-1] else 1)
+            caption(c, sc[3], a)
+        footer(c, "Sources: Microsoft Research (2025); BLS, May 2025; Pew (2026)")
+        bottom_band(c)
+    return draw, 22.5
+
+POSTS.update({"aiwork": aiwork})
+
+
 if __name__ == "__main__":
     name = sys.argv[1]
     draw, dur = POSTS[name]()
