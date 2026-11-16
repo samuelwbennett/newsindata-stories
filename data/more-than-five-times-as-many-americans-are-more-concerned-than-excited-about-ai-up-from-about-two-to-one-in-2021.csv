@@ -44,16 +44,40 @@ other_surveys,Ipsos for ABC News/Washington Post,2026-10-09/2026-10-13,U.S. adul
 other_surveys,Quinnipiac University,2026-09-24/2026-09-27,U.S. adults,very or somewhat concerned AI could threaten human survival,73
 global,Pew Research Center,2026-02-08/2026-05-13,37-country median,more concerned than excited,37
 global,Pew Research Center,2026-02-08/2026-05-13,37-country median,equally concerned and excited,41
-countries,Ipsos AI Monitor 2025 via Stanford AI Index 2026,2025,China,AI products and services have more benefits than drawbacks,86.9
 countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,30-country average,AI products and services have more benefits than drawbacks,56
+countries,Ipsos AI Monitor 2025 via Stanford AI Index 2026,2025,China,AI products and services have more benefits than drawbacks,86.9
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Indonesia,AI products and services have more benefits than drawbacks,85
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Thailand,AI products and services have more benefits than drawbacks,78
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Singapore,AI products and services have more benefits than drawbacks,73
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Mexico,AI products and services have more benefits than drawbacks,70
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Malaysia,AI products and services have more benefits than drawbacks,70
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Peru,AI products and services have more benefits than drawbacks,69
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,South Korea,AI products and services have more benefits than drawbacks,67
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,India,AI products and services have more benefits than drawbacks,67
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Türkiye,AI products and services have more benefits than drawbacks,66
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,South Africa,AI products and services have more benefits than drawbacks,64
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Chile,AI products and services have more benefits than drawbacks,63
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Colombia,AI products and services have more benefits than drawbacks,58
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Brazil,AI products and services have more benefits than drawbacks,58
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Argentina,AI products and services have more benefits than drawbacks,57
 countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Italy,AI products and services have more benefits than drawbacks,53
 countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Spain,AI products and services have more benefits than drawbacks,53
 countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Poland,AI products and services have more benefits than drawbacks,50
 countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Germany,AI products and services have more benefits than drawbacks,49
 countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Hungary,AI products and services have more benefits than drawbacks,48
-countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Britain,AI products and services have more benefits than drawbacks,43
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Ireland,AI products and services have more benefits than drawbacks,48
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Japan,AI products and services have more benefits than drawbacks,48
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Australia,AI products and services have more benefits than drawbacks,47
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Switzerland,AI products and services have more benefits than drawbacks,45
 countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Netherlands,AI products and services have more benefits than drawbacks,43
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Britain,AI products and services have more benefits than drawbacks,43
 countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Sweden,AI products and services have more benefits than drawbacks,43
 countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,United States,AI products and services have more benefits than drawbacks,42
-countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,France,AI products and services have more benefits than drawbacks,41
 countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Belgium,AI products and services have more benefits than drawbacks,41
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,France,AI products and services have more benefits than drawbacks,41
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Canada,AI products and services have more benefits than drawbacks,40
+jobs_outlook,Pew Research Center,2026-06-22/2026-06-28,U.S. adults,AI will lead to fewer jobs over next 20 years,71
+jobs_outlook,Pew Research Center,2024,U.S. adults,AI will lead to fewer jobs over next 20 years,64
+jobs_outlook,Pew Research Center,2026-06-22/2026-06-28,Ages 18-29,AI will lead to fewer jobs over next 20 years,73
+jobs_outlook,Pew Research Center,2024,Ages 18-29,AI will lead to fewer jobs over next 20 years,61
+jobs_outlook,Pew Research Center,2026-06-22/2026-06-28,U.S. adults,AI will lead to more jobs,5

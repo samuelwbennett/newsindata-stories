@@ -1,5 +1,5 @@
 <!doctype html><meta charset=utf-8><style>body{margin:0;background:#fff}svg text{font-family:"Times New Roman",Times,serif}</style><body><div id=o></div>
-<script>window.NIDAIW_STATIC=1</script><script src="../embed.js"></script><script>
+<script src="vendor/d3.min.js"></script><script>window.NIDAIW_STATIC=1</script><script src="../embed.js"></script><script>
 var m=new URLSearchParams(location.search).get('m')||'tall',N=window.NIDAIW,INK='#13241B',SUB='#5F7268',RUST='#B5462F',G='#007A55',s='',W,H;
 function T(x,y,t,sz,o){o=o||{};return '<text x="'+x+'" y="'+y+'" text-anchor="'+(o.a||'middle')+'" font-size="'+sz+'" font-weight="'+(o.w||700)+'" fill="'+(o.c||INK)+'"'+(o.i?' font-style="italic"':'')+'>'+t+'</text>'}
 function nest(svg,x,y,w,h){return svg.replace('<svg ','<svg x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" ')}
@@ -13,6 +13,14 @@ if(m==='tall'){W=1080;H=1350;
  var mini=[['China',86.9,G],['Italy',53,'#A9BCB2'],['Germany',49,'#A9BCB2'],['Britain',43,'#A9BCB2'],['United States',42,RUST],['France',41,'#A9BCB2']];
  mini.forEach(function(c,i){var y=y0+76+i*44,w=c[1]*6.6;s+=T(300,y+24,c[0],22,{a:'end',w:c[0]=='China'||c[0]=='United States'?700:400,c:c[2]==='#A9BCB2'?INK:c[2]})+'<rect x="316" y="'+y+'" width="'+w+'" height="32" rx="3" fill="'+c[2]+'"/>'+T(326+w,y+24,Math.round(c[1])+'%',22,{a:'start',c:c[2]==='#A9BCB2'?INK:c[2]})});
  s+=T(540,1290,'Sources: Pew Research Center; Ipsos AI Monitor 2025 via Stanford AI Index 2026 · thenewsindata.com',17,{w:400,c:SUB});
+}else if(m==='jobs'){W=1080;H=1350;
+ s+=T(540,82,'Where AI Overlaps With American Work',54);
+ s+=T(540,124,'94 U.S. job groups, sized by how many people do the work and shaded by how much',23,{w:400,c:SUB,i:1})+T(540,152,'of it matches what people ask AI chatbots to do (Microsoft’s AI applicability score)',23,{w:400,c:SUB,i:1});
+ var B=N.JBINS||[[0.30,'#7A2818','0.30+'],[0.25,'#B5462F','0.25–0.29'],[0.20,'#CF7A5F','0.20–0.24'],[0.15,'#E3A890','0.15–0.19'],[0.10,'#EFCDBF','0.10–0.14'],[0,'#F7E9E3','Under 0.10']];
+ var lx=150;B.slice().reverse().forEach(function(b){s+='<rect x="'+lx+'" y="176" width="20" height="20" rx="3" fill="'+b[1]+'"/>'+T(lx+27,192,b[2],19,{a:'start',w:400,c:SUB});lx+=133});
+ var t=N.jobsTree({W:1000,H:1040,fs:1.32,pad:1.6});s+=nest(t.svg,40,212,1000,1040);
+ s+=T(540,1290,'The 21 darkest groups (0.25 or more) employ 34 million people, about 1 in 5 U.S. workers.',24,{c:INK});
+ s+=T(540,1328,'Sources: Tomlinson et al., “Working with AI,” Microsoft Research (2025); BLS employment, May 2025 · thenewsindata.com',17,{w:400,c:SUB});
 }else{W=1200;H=630;
  s+='<rect width="1200" height="10" fill="'+G+'"/>';
  s+=T(56,112,'Concern About AI',50,{a:'start'})+T(56,172,'Outruns Excitement',50,{a:'start'})+T(56,232,'Five To One',50,{a:'start',c:RUST});

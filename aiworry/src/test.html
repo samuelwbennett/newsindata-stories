@@ -1,4 +1,5 @@
 <!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width"><body style="margin:0;padding:10px;background:#fff;font-family:Times New Roman">
-<div id="nid-aiw-trend"></div><div id="nid-aiw-age"></div><div id="nid-aiw-ask"></div><div id="nid-aiw-world"></div>
+<script src="vendor/d3.min.js"></script><script src="vendor/topojson-client.min.js"></script><script>window.NIDAIW_TOPO='../../sinking/world-110m.json'</script>
+<div id="nid-aiw-jobs"></div><div id="nid-aiw-world"></div><div id="nid-aiw-trend"></div>
 <script src="../embed.js"></script>
-<script>setTimeout(function(){document.querySelectorAll('.nid-aw').forEach(function(e){e.classList.remove('pre')});var b=document.querySelector('#nid-aiw-world .go');if(location.hash=='#g'){document.querySelector('#nid-aiw-world input').value=60;b.click();setTimeout(function(){document.querySelectorAll('.nid-aw').forEach(function(e){e.classList.remove('pre')})},100)}},300)</script><script>setTimeout(function(){},0)</script>
+<script>setTimeout(function(){if(location.hash=='#g'){document.querySelector('#nid-aiw-world input').value=60;document.querySelector('#nid-aiw-world .go').click()}setTimeout(function(){document.querySelectorAll('.nid-aw').forEach(function(e){e.classList.remove('pre')})},300)},800)</script>
