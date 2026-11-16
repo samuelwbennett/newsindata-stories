@@ -256,7 +256,7 @@ function jobsBlock(root){
 function homeBlock(root){
   css();var ok=false,link=root.getAttribute('data-href')||'#';
   function draw(){if(!ok)return;var w=root.clientWidth||520,W=Math.max(320,Math.min(600,w)),H=Math.round(W*1.18);
-    root.innerHTML='<div class="nid-aw" style="margin:0;max-width:none"><p class="hh">Where AI Overlaps With American Work</p><div class="tm"></div>'+jLegend()+'<div class="tt" aria-hidden="true"></div><p class="hn">Each tile is a job group, sized by workers. Darker green means more of the work matches what people ask AI chatbots to do. Tap a tile.</p></div>';
+    root.innerHTML='<div class="nid-aw" style="margin:0;max-width:none"><p class="hh" style="font-family:&quot;Times New Roman&quot;,Times,serif !important;font-size:22px !important;font-weight:700 !important;line-height:1.2 !important;color:#13241B !important;margin:0 0 8px !important;text-align:left !important">Where AI Overlaps With American Work</p><div class="tm"></div>'+jLegend()+'<div class="tt" aria-hidden="true"></div><p class="hn">Each tile is a job group, sized by workers. Darker green means more of the work matches what people ask AI chatbots to do. Tap a tile.</p></div>';
     var box=root.querySelector('.nid-aw'),tm=root.querySelector('.tm'),tt=root.querySelector('.tt');
     tm.innerHTML=jobsTree({W:W,H:H,fs:W<440?.82:.9}).svg;
     [].forEach.call(tm.querySelectorAll('.jt'),function(g){var nm=g.getAttribute('data-n'),j=JOBS.filter(function(x){return x[0]===nm})[0];
