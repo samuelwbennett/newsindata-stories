@@ -18,6 +18,7 @@ var GUESS={
 };
 /* story slug -> game. Anything not listed gets the newest Today's Chart. */
 var STORY={
+ 'more-than-five-times-as-many-americans-are-more-concerned-than-excited-about-ai-up-from-about-two-to-one-in-2021':{guess:'japan'},
  /* Each story offers a related game whose answer it doesn't already show. */
  'chinas-emissions-have-been-flat-or-falling-since-march-2024-and-69-countries-now-emit-at-least-10-less-than-at-their-peak':{today:2},
  'in-the-worlds-largest-flourishing-study-8-of-the-10-richest-countries-rank-in-the-bottom-half':{guess:'japan'},

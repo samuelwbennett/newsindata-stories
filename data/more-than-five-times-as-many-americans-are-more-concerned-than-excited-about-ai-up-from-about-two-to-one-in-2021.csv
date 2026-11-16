@@ -1,0 +1,59 @@
+dataset,source,field_dates,group,measure,value_pct
+us_trend,Pew Research Center,2021-11-01/2021-11-07,U.S. adults 2021,more concerned than excited,37
+us_trend,Pew Research Center,2021-11-01/2021-11-07,U.S. adults 2021,equally concerned and excited,45
+us_trend,Pew Research Center,2021-11-01/2021-11-07,U.S. adults 2021,more excited than concerned,18
+us_trend,Pew Research Center,2022,U.S. adults 2022,more concerned than excited,38
+us_trend,Pew Research Center,2022,U.S. adults 2022,equally concerned and excited,46
+us_trend,Pew Research Center,2022,U.S. adults 2022,more excited than concerned,15
+us_trend,Pew Research Center,2023,U.S. adults 2023,more concerned than excited,52
+us_trend,Pew Research Center,2023,U.S. adults 2023,equally concerned and excited,36
+us_trend,Pew Research Center,2023,U.S. adults 2023,more excited than concerned,10
+us_trend,Pew Research Center,2024,U.S. adults 2024,more concerned than excited,51
+us_trend,Pew Research Center,2024,U.S. adults 2024,equally concerned and excited,38
+us_trend,Pew Research Center,2024,U.S. adults 2024,more excited than concerned,11
+us_trend,Pew Research Center,2025,U.S. adults 2025,more concerned than excited,50
+us_trend,Pew Research Center,2025,U.S. adults 2025,equally concerned and excited,38
+us_trend,Pew Research Center,2025,U.S. adults 2025,more excited than concerned,10
+us_trend,Pew Research Center,2026-06-22/2026-06-28,U.S. adults 2026,more concerned than excited,52
+us_trend,Pew Research Center,2026-06-22/2026-06-28,U.S. adults 2026,equally concerned and excited,37
+us_trend,Pew Research Center,2026-06-22/2026-06-28,U.S. adults 2026,more excited than concerned,9
+party,Pew Research Center,2026-06-22/2026-06-28,Democrats and leaners,more concerned than excited,56
+party,Pew Research Center,2026-06-22/2026-06-28,Republicans and leaners,more concerned than excited,49
+age,Pew Research Center,2021,Ages 18-29,more concerned than excited,31
+age,Pew Research Center,2021,Ages 30-49,more concerned than excited,34
+age,Pew Research Center,2021,Ages 50-64,more concerned than excited,41
+age,Pew Research Center,2021,Ages 65+,more concerned than excited,43
+age,Pew Research Center,2026,Ages 18-29,more concerned than excited,55
+age,Pew Research Center,2026,Ages 30-49,more concerned than excited,51
+age,Pew Research Center,2026,Ages 50-64,more concerned than excited,47
+age,Pew Research Center,2026,Ages 65+,more concerned than excited,59
+age,Pew Research Center,2021,Ages 18-29,more excited than concerned,25
+age,Pew Research Center,2021,Ages 30-49,more excited than concerned,21
+age,Pew Research Center,2021,Ages 50-64,more excited than concerned,13
+age,Pew Research Center,2021,Ages 65+,more excited than concerned,11
+age,Pew Research Center,2026,Ages 18-29,more excited than concerned,11
+age,Pew Research Center,2026,Ages 30-49,more excited than concerned,12
+age,Pew Research Center,2026,Ages 50-64,more excited than concerned,8
+age,Pew Research Center,2026,Ages 65+,more excited than concerned,4
+other_surveys,Quinnipiac University,2026-03-19/2026-03-23,U.S. adults,AI will do more harm than good in day-to-day life,55
+other_surveys,Quinnipiac University,2026-03-19/2026-03-23,U.S. adults,AI will do more good than harm in day-to-day life,34
+other_surveys,Ipsos for ABC News/Washington Post,2026-10-09/2026-10-13,U.S. adults,AI extremely bad for society,17
+other_surveys,Ipsos for ABC News/Washington Post,2026-10-09/2026-10-13,U.S. adults,AI extremely good for society,2
+other_surveys,Ipsos for ABC News/Washington Post,2026-10-09/2026-10-13,U.S. adults,AI extremely bad for you personally,15
+other_surveys,Ipsos for ABC News/Washington Post,2026-10-09/2026-10-13,U.S. adults,AI extremely good for you personally,3
+other_surveys,Quinnipiac University,2026-09-24/2026-09-27,U.S. adults,very or somewhat concerned AI could threaten human survival,73
+global,Pew Research Center,2026-02-08/2026-05-13,37-country median,more concerned than excited,37
+global,Pew Research Center,2026-02-08/2026-05-13,37-country median,equally concerned and excited,41
+countries,Ipsos AI Monitor 2025 via Stanford AI Index 2026,2025,China,AI products and services have more benefits than drawbacks,86.9
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,30-country average,AI products and services have more benefits than drawbacks,56
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Italy,AI products and services have more benefits than drawbacks,53
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Spain,AI products and services have more benefits than drawbacks,53
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Poland,AI products and services have more benefits than drawbacks,50
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Germany,AI products and services have more benefits than drawbacks,49
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Hungary,AI products and services have more benefits than drawbacks,48
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Britain,AI products and services have more benefits than drawbacks,43
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Netherlands,AI products and services have more benefits than drawbacks,43
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Sweden,AI products and services have more benefits than drawbacks,43
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,United States,AI products and services have more benefits than drawbacks,42
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,France,AI products and services have more benefits than drawbacks,41
+countries,Ipsos AI Monitor 2025,2025-03-21/2025-04-04,Belgium,AI products and services have more benefits than drawbacks,41

@@ -1,7 +1,13 @@
 {
- "updated": "2026-11-15",
+ "updated": "2026-11-16",
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
+  {
+   "slug": "more-than-five-times-as-many-americans-are-more-concerned-than-excited-about-ai-up-from-about-two-to-one-in-2021",
+   "title": "Concern About AI Outruns Excitement Five To One",
+   "section": "AI & Tech",
+   "image": "https://stories.thenewsindata.com/aiworry/aiworry-preview.png"
+  },
   {
    "slug": "sti-cases-fell-for-a-third-straight-year-while-newborn-syphilis-rose-for-a-12th-to-nearly-4000-cases",
    "title": "STIs Fell For A Third Year, Newborn Syphilis Rose For A 12th",
