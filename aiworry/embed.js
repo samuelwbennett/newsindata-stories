@@ -167,6 +167,7 @@ var CSS='.nid-aw{font-family:'+SERIF+';color:'+INK+';max-width:760px;margin:2.2e
 '@media (prefers-reduced-motion:reduce){.nid-aw .sg,.nid-aw .sl{transition:none}}'+
 '.nid-aw .lg{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;margin:4px auto 8px;font:600 12.5px/1.2 '+SANS+';color:'+SUB+'}.nid-aw .lg span{display:inline-flex;align-items:center;gap:5px}.nid-aw .lg i{width:14px;height:14px;border-radius:3px;display:inline-block;border:1px solid rgba(0,0,0,.06)}'+
 '.nid-aw .mp{min-height:200px;position:relative}.nid-aw .mp .ld{text-align:center;color:'+SUB+';font-style:italic;padding:80px 0}.nid-aw .mp path.mc{transition:filter .2s}.nid-aw .hd{font:600 13px/1.3 '+SANS+';color:'+SUB+';text-align:center;margin:18px 0 6px}'+
+'.nid-aw .hh{font:700 22px/1.2 '+SERIF+';color:'+INK+';margin:0 0 8px;text-align:left}.nid-aw .hn{font:13px/1.4 '+SANS+';color:'+SUB+';margin:6px 0 0}#nid-aiw-home .lg{justify-content:flex-start;margin:8px 0 0}#nid-aiw-home{position:relative}'+
 '.nid-aw .sgm{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:0 auto 10px}.nid-aw .sgm button{font:600 13.5px/1 '+SANS+';border:1.5px solid #C9D7CF;background:#fff;color:'+G+';border-radius:999px;padding:9px 14px;cursor:pointer;min-height:38px}.nid-aw .sgm button.on{background:'+G+';border-color:'+G+';color:#fff}'+
 '.nid-aw .tt{position:absolute;display:none;pointer-events:none;z-index:5;background:'+INK+';color:#fff;border-radius:8px;padding:7px 10px;font:13px/1.3 '+SANS+';max-width:240px;box-shadow:0 6px 18px rgba(0,0,0,.18)}.nid-aw .tt b{display:block;font:700 14px/1.25 '+SERIF+';margin-bottom:2px}.nid-aw .tt span{opacity:.85}'+
 '.nid-aw .js{display:block;width:100%;max-width:420px;margin:0 auto 8px;box-sizing:border-box;padding:11px 16px;font:16px '+SANS+';border:1.5px solid #C9D7CF;border-radius:999px;outline:none}.nid-aw .js:focus{border-color:'+G+'}'+
@@ -252,6 +253,19 @@ function jobsBlock(root){
   needD3().then(function(){ok=true;root.classList.add('pre');draw();setTimeout(function(){root.classList.remove('pre')},60)}).catch(function(){tm.innerHTML=''});
   resize(root,draw);
 }
-function boot(){var m={'nid-aiw-jobs':jobsBlock,'nid-aiw-trend':trendBlock,'nid-aiw-age':ageBlock,'nid-aiw-ask':askBlock,'nid-aiw-world':worldBlock};Object.keys(m).forEach(function(id){var el=document.getElementById(id);if(el&&!el.__d){el.__d=1;m[id](el);hardStyle(el);try{new MutationObserver(function(){hardStyle(el)}).observe(el,{childList:true,subtree:true})}catch(e){}}})}
+function homeBlock(root){
+  css();var ok=false,link=root.getAttribute('data-href')||'#';
+  function draw(){if(!ok)return;var w=root.clientWidth||520,W=Math.max(320,Math.min(600,w)),H=Math.round(W*1.18);
+    root.innerHTML='<div class="nid-aw" style="margin:0;max-width:none"><p class="hh">Where AI Overlaps With American Work</p><div class="tm"></div>'+jLegend()+'<div class="tt" aria-hidden="true"></div><p class="hn">Each tile is a job group, sized by workers. Darker green means more of the work matches what people ask AI chatbots to do. Tap a tile.</p></div>';
+    var box=root.querySelector('.nid-aw'),tm=root.querySelector('.tm'),tt=root.querySelector('.tt');
+    tm.innerHTML=jobsTree({W:W,H:H,fs:W<440?.82:.9}).svg;
+    [].forEach.call(tm.querySelectorAll('.jt'),function(g){var nm=g.getAttribute('data-n'),j=JOBS.filter(function(x){return x[0]===nm})[0];
+      function tip(e){var r=box.getBoundingClientRect();tt.innerHTML='<b>'+nm+'</b><span>Score '+j[1].toFixed(2)+' · '+fmtM(j[2])+' workers</span>';tt.style.display='block';var tw2=tt.offsetWidth;tt.style.left=Math.max(4,Math.min(r.width-tw2-4,e.clientX-r.left-tw2/2))+'px';tt.style.top=(e.clientY-r.top-tt.offsetHeight-14)+'px'}
+      g.addEventListener('mousemove',tip);g.addEventListener('mouseleave',function(){tt.style.display='none'});g.addEventListener('click',function(e){tip(e);act('tap')})});
+    box.classList.add('pre');setTimeout(function(){box.classList.remove('pre')},60)}
+  needD3().then(function(){ok=true;draw()}).catch(function(){});
+  var lw=0;window.addEventListener('resize',function(){var w=root.clientWidth;if(Math.abs(w-lw)>40){lw=w;draw()}});
+}
+function boot(){var m={'nid-aiw-home':homeBlock,'nid-aiw-jobs':jobsBlock,'nid-aiw-trend':trendBlock,'nid-aiw-age':ageBlock,'nid-aiw-ask':askBlock,'nid-aiw-world':worldBlock};Object.keys(m).forEach(function(id){var el=document.getElementById(id);if(el&&!el.__d){el.__d=1;m[id](el);hardStyle(el);try{new MutationObserver(function(){hardStyle(el)}).observe(el,{childList:true,subtree:true})}catch(e){}}})}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
