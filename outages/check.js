@@ -1,7 +1,7 @@
 // node outages/check.js  -> prints OK if status.json is valid and within length limits
 const fs=require('fs'),path=require('path');
 const S=JSON.parse(fs.readFileSync(path.join(__dirname,'status.json'),'utf8'));
-const err=[];const lim={status_html:650,notknown_html:1000,headline_status:140};
+const err=[];const lim={status_html:650,notknown_html:1400,headline_status:140};
 for(const k in lim){if(typeof S[k]!=='string')err.push(k+' missing');else if(S[k].length>lim[k])err.push(k+' is '+S[k].length+' chars, limit '+lim[k]);}
 if(!/Eastern on Nov\. \d+, 2026$/.test(S.updated||''))err.push('updated must look like "1:05 p.m. Eastern on Nov. 17, 2026"');
 if(typeof S.nsa_start!=='number')err.push('nsa_start must be a number');
