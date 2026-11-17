@@ -18,6 +18,7 @@ var GUESS={
 };
 /* story slug -> game. Anything not listed gets the newest Today's Chart. */
 var STORY={
+ 'the-nsas-classified-network-is-down-the-sixth-major-us-tech-outage-in-six-days':{guess:'canada'},
  'gas-stations-took-in-30-more-than-a-year-ago-in-october-while-grocery-stores-barely-grew':{guess:'candy'},
  'more-than-five-times-as-many-americans-are-more-concerned-than-excited-about-ai-up-from-about-two-to-one-in-2021':{guess:'japan'},
  /* Each story offers a related game whose answer it doesn't already show. */

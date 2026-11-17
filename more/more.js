@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+['nsaout','Trending',"The NSA's Classified Network Is Down",'the-nsas-classified-network-is-down-the-sixth-major-us-tech-outage-in-six-days'],
 ['retail','Business',"Gas Stations Rang Up 30% More Than A Year Earlier",'gas-stations-took-in-30-more-than-a-year-ago-in-october-while-grocery-stores-barely-grew'],
 ['aiworry','AI & Tech',"Concern About AI Outruns Excitement Five To One",'more-than-five-times-as-many-americans-are-more-concerned-than-excited-about-ai-up-from-about-two-to-one-in-2021'],
 ['stds','Science',"STIs Fell For A Third Year, Newborn Syphilis Rose For A 12th",'sti-cases-fell-for-a-third-straight-year-while-newborn-syphilis-rose-for-a-12th-to-nearly-4000-cases'],
