@@ -63,6 +63,17 @@
    "note": "United delayed departures from just before 5 p.m. Eastern on Monday, Nov. 16, after a failure in the system pilots use to get aircraft weights. The airline resolved it about an hour and 40 minutes after pilots first reported problems."
   },
   {
+   "key": "apple",
+   "name": "Apple",
+   "sub": "iCloud, App Store, Apple Pay",
+   "start": 131.75,
+   "end": 134.5,
+   "tail": null,
+   "lead": null,
+   "label": "About 2¾ hours",
+   "note": "Apple's services began failing at about 11:45 a.m. Eastern on Tuesday, Nov. 17. Users were signed out of iCloud and could not reach the App Store, Apple Pay or Apple Music, and Apple stores could not complete sales. Apple blamed an internal update, said it was not a cyberattack and said by about 2:30 p.m. that the problem was largely resolved."
+  },
+  {
    "key": "nsa",
    "name": "NSA Net",
    "sub": "Classified internal network",
@@ -78,7 +89,7 @@
  "notknown_html": "<p>When the outage began, how many of the agency's employees and sites are affected, when the network will return and whether the NSA confirms the patching account that sources gave CBS and The Wall Street Journal. The NSA has not said whether it is related to any of the week's other failures, and no official or major outlet has reported a link.</p><p>Not counted here: Fox News reported smaller problems on Tuesday at Gmail and at Marriott's website and app, based on Downdetector reports. Neither company had confirmed an outage.</p><p>This story reflects reporting through 2:47 p.m. Eastern on Nov. 17 and is checked every hour; the chart's last bar keeps growing until the NSA's network is reported back.</p>",
  "facts": [
   [
-   "6",
+   "7",
    "major U.S. tech outages since Thursday, Nov. 12"
   ],
   [

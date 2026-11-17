@@ -1,4 +1,4 @@
-/* The News in Data: "Six outages in six days" live timeline.
+/* The News in Data: "Seven outages in six days" live timeline.
    Reads outages/status.json on every load (falls back to the copy below), draws one bar per outage
    on an Eastern clock from Thu Nov 12 to Wed Nov 18, 2026, and keeps the NSA bar growing until
    status.json reports the network back. Fills #nid-out (chart) and the text slots named below. */
@@ -41,9 +41,9 @@ function draw(box,S){
  var nsaEnd=S.nsa_end!=null?S.nsa_end:null;
  box.innerHTML='';
  var hd=document.createElement('div');
- hd.innerHTML='<p class="no-h" style="font-family:&quot;Times New Roman&quot;,Times,serif !important;font-weight:700 !important;font-size:1.35em !important;line-height:1.2 !important;text-align:center !important;color:#13241B !important;margin:0 0 .2em !important">Six Major U.S. Tech Outages In Six Days</p><p class="no-d" style="font-family:&quot;Times New Roman&quot;,Times,serif !important;font-style:italic !important;text-align:center !important;color:#5F7268 !important">Each bar is one outage on an Eastern clock. Tap a bar for what failed and why.</p><div class="no-live"><span class="no-dot"></span><span id="no-livetxt"></span></div>';
+ hd.innerHTML='<p class="no-h" style="font-family:&quot;Times New Roman&quot;,Times,serif !important;font-weight:700 !important;font-size:1.35em !important;line-height:1.2 !important;text-align:center !important;color:#13241B !important;margin:0 0 .2em !important">Seven Major U.S. Tech Outages In Six Days</p><p class="no-d" style="font-family:&quot;Times New Roman&quot;,Times,serif !important;font-style:italic !important;text-align:center !important;color:#5F7268 !important">Each bar is one outage on an Eastern clock. Tap a bar for what failed and why.</p><div class="no-live"><span class="no-dot"></span><span id="no-livetxt"></span></div>';
  box.appendChild(hd);
- var svg=el('svg',{viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'Timeline of six U.S. technology outages from Nov. 12 to Nov. 17, 2026'});
+ var svg=el('svg',{viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'Timeline of seven U.S. technology outages from Nov. 12 to Nov. 17, 2026'});
  box.appendChild(svg);
  for(var d=0;d<=6;d++){var x=X(d*24);svg.appendChild(el('line',{x1:x,x2:x,y1:TOP-14,y2:H-30,stroke:RULE,'stroke-width':d%6?1:1.5}));
   if(d<6)svg.appendChild(el('text',{x:X(d*24+12),y:TOP-22,'text-anchor':'middle','font-size':14,fill:MUTED,'font-family':'Times New Roman,serif'},DAYS[d]));}
