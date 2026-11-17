@@ -921,6 +921,145 @@ def aiwork():
 POSTS.update({"aiwork": aiwork})
 
 
+def aiworld():
+    """Who sees more good in AI: Ipsos 2025 benefits-vs-drawbacks world map, with snap zooms and a China reveal."""
+    import json as _json
+    from matplotlib.collections import PolyCollection as _PC
+    from matplotlib.patches import Rectangle as _R
+    L = _json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "aiworld_layout.json")))
+    V = {"156": 86.9, "360": 85, "764": 78, "484": 70, "458": 70, "604": 69, "410": 67, "356": 67, "792": 66, "710": 64,
+         "152": 63, "170": 58, "076": 58, "032": 57, "380": 53, "724": 53, "616": 50, "276": 49, "348": 48, "372": 48,
+         "392": 48, "036": 47, "756": 45, "528": 43, "826": 43, "752": 43, "840": 42, "056": 41, "250": 41, "124": 40}
+    EU = ["826", "372", "250", "724", "380", "276", "616", "348", "756", "528", "752", "056"]
+    BINS = [(80, "#0B4D35"), (70, "#1A7A57"), (60, "#4C9F7C"), (50, "#8CC4A8"), (45, "#C3E0D1"), (0, "#E6F2EB")]
+    col = lambda v: next(c for b, c in BINS if v >= b)
+    NOD, LAND = "#E4E9E6", "#EEF2EF"
+    C = {c.get("id", "x%d" % k): c for k, c in enumerate(L["countries"])}
+    LW, LH = L["W"], L["H"]
+    VX0, VY0, VW, VH = 20, 600, 1040, 690
+    FULL = (LW / 2 + 30, LH / 2, 1.16)
+    def fitb(b, pad=0.86):
+        (x0, y0), (x1, y1) = b
+        return ((x0 + x1) / 2, (y0 + y1) / 2, min(VW / (x1 - x0), VH / (y1 - y0)) * pad)
+    eb = [[min(C[i]["b"][0][0] for i in EU if i != "752"), min(C[i]["b"][0][1] for i in EU)], [max(C[i]["b"][1][0] for i in EU if i not in ("752",)), max(C[i]["b"][1][1] for i in EU)]]
+    Z_EU = fitb(L["extra"]["eu"], 0.95)
+    cn = C["156"]; Z_CN = fitb(cn["b"], 0.8)
+    us = C["840"]
+    SNAP = 0.42
+    KEYS = [(0, FULL), (4.2, Z_EU), (7.6, FULL), (11.2, Z_CN), (14.6, FULL)]
+    def back(u):
+        u = min(max(u, 0), 1); s = 1.35
+        return 1 + (s + 1) * (u - 1) ** 3 + s * (u - 1) ** 2
+    def cam(t):
+        v = KEYS[0][1]
+        for tk, vk in KEYS[1:]:
+            if t >= tk:
+                u = back((t - tk) / SNAP)
+                cur = (v[0] + (vk[0] - v[0]) * u, v[1] + (vk[1] - v[1]) * u, v[2] * (vk[2] / v[2]) ** u)
+                if t < tk + SNAP: return cur
+                v = vk
+        return v
+    # when each surveyed country fills
+    FILL = {"840": 1.6}
+    for k, i in enumerate(sorted(EU, key=lambda i: V[i])): FILL.setdefault(i, 4.8 + k * 0.17)
+    rest = sorted([i for i in V if i not in FILL and i != "156"], key=lambda i: V[i])
+    for k, i in enumerate(rest): FILL[i] = 8.2 + k * 0.17
+    FILL["156"] = 12.4  # China counts up 12.4-13.6
+    SG = L["extra"]["sg"]; FILL["702"] = 8.2 + len(rest) * 0.17 + 0.1
+    SCN = [(1.3, 4.2, ["The United States: 42%", "27th of the 30 countries Ipsos surveyed"]),
+           (4.2, 7.9, ["Europe is a little warmer", "Italy and Spain 53%, Germany 49%, France 41%"]),
+           (7.9, 11.2, ["The most positive: Asia and Latin America", "Indonesia 85%, Thailand 78%, Mexico 70%"]),
+           (11.2, 15.0, ["And China?", "Data supplied by Ipsos to Stanford's AI Index"]),
+           (15.0, 21.0, ["About twice the U.S. share", "Only Belgium, France and Canada were lower than the U.S."])]
+    def draw(c, t):
+        brand_block(c)
+        c.text(W / 2, 300, "AI & TECH · THE WORLD", size=24, color=GREEN, weight="bold", ha="center")
+        c.text(W / 2, 378, "Who Sees More Good", size=62, weight="bold", ha="center")
+        c.text(W / 2, 448, "In AI?", size=62, weight="bold", ha="center")
+        c.text(W / 2, 500, "Share saying products and services using AI", size=27, color=MUTED, ha="center", style="italic")
+        c.text(W / 2, 536, "have more benefits than drawbacks, 2025", size=27, color=MUTED, ha="center", style="italic")
+        cx, cy, s = cam(t)
+        X = lambda x: VX0 + VW / 2 + (x - cx) * s
+        Y = lambda y: VY0 + VH / 2 + (y - LH / 2 if False else y - cy) * s
+        clip = _R((VX0, VY0), VW, VH, transform=c.ax.transData, fc="none", ec="none"); c.ax.add_patch(clip)
+        a0 = min(max(t / 0.8, 0.001), 1)
+        sph = [[(X(x), Y(y)) for x, y in r] for r in L["sphere"]]
+        pc = _PC(sph, facecolors="#F7FAF8", edgecolors="#E3EAE6", linewidths=1.2 * PT, zorder=2, alpha=a0); c.ax.add_collection(pc); pc.set_clip_path(clip)
+        verts, fcs, ecs, lws = [], [], [], []
+        for cid, ct in C.items():
+            v = V.get(cid)
+            fc = NOD if v is None else LAND
+            if v is not None and t >= FILL[cid]:
+                u = min((t - FILL[cid]) / 0.35, 1)
+                if cid == "156":
+                    u = min((t - FILL[cid]) / 1.2, 1)
+                fc = col(v * (u if cid == "156" else 1)) if (cid == "156" or u > 0.3) else LAND
+            for r in ct["rings"]:
+                if len(r) < 3: continue
+                verts.append([(X(x), Y(y)) for x, y in r]); fcs.append(fc); ecs.append("white"); lws.append(0.7 * PT * min(s, 2))
+        pc = _PC(verts, facecolors=fcs, edgecolors=ecs, linewidths=lws, zorder=3, alpha=a0); c.ax.add_collection(pc); pc.set_clip_path(clip)
+        # U.S. outline in rust
+        if t >= 1.6:
+            uv = [[(X(x), Y(y)) for x, y in r] for r in us["rings"] if len(r) > 2]
+            pu = _PC(uv, facecolors="none", edgecolors="#B5462F", linewidths=3.2 * PT, zorder=4); c.ax.add_collection(pu); pu.set_clip_path(clip)
+        # Singapore dot
+        if t >= FILL["702"] and VX0 < X(SG[0]) < VX0 + VW and VY0 < Y(SG[1]) < VY0 + VH:
+            dot = c.circle(X(SG[0]), Y(SG[1]), 5 * min(s, 2), col(73), z=5)
+        # value labels
+        for cid, v in V.items():
+            if t < FILL[cid] + 0.2 or (cid == "156" and t < 14.9): continue
+            if cid in EU and s < 1.8: continue
+            ct = C[cid]; p = L["extra"]["fr"] if cid == "250" else ct["c"]
+            x, y = X(p[0]), Y(p[1])
+            if not (VX0 + 10 < x < VX0 + VW - 10 and VY0 + 10 < y < VY0 + VH - 10): continue
+            dark = v >= 60
+            fz = 27 if cid in EU else (19 if s < 1.8 else 30)
+            if cid == "840": fz = 26
+            a = min(max((t - FILL[cid] - 0.2) / 0.3, 0), 1)
+            lab = f"U.S. {int(v)}%" if cid == "840" else f"{int(round(v))}"
+            tx = c.text(x, y + fz * 0.35, lab, size=fz, weight="bold", ha="center", color="white" if dark else (("#B5462F") if cid == "840" else INK), alpha=a, z=6)
+            tx.set_clip_on(True); tx.set_clip_path(clip)
+        # China counter
+        if 11.6 <= t < 14.6:
+            u = min(max((t - 12.4) / 1.2, 0), 1)
+            x, y = X(cn["c"][0]), Y(cn["c"][1])
+            if u <= 0:
+                pul = 1 + 0.12 * np.sin((t - 11.6) * 9)
+                c.text(x, y + 40, "?", size=110 * pul, weight="bold", ha="center", color=GREEN, z=7)
+            else:
+                c.text(x, y + 34, f"{86.9 * ease_out(u):.0f}%", size=96, weight="bold", ha="center", color="white", z=7, alpha=min(max((14.6 - t) / 0.3, 0), 1))
+        if s > 1.35:
+            c.rect(VX0 + VW - 118, VY0 + VH - 54, 106, 40, INK, z=8, radius=20, alpha=0.85)
+            c.text(VX0 + VW - 65, VY0 + VH - 26, f"{s:.1f}×", size=24, color="white", weight="bold", ha="center", z=9)
+        # legend
+        lx = 112
+        for b, cc in list(reversed(BINS)):
+            lab = "Under 45" if b == 0 else ("80%+" if b == 80 else f"{b}–{[45,50,60,70,80][[45,50,60,70].index(b)+1]-1 if b in (45,50,60,70) else ''}")
+            c.rect(lx, 1318, 26, 26, cc, z=5, radius=4)
+            c.text(lx + 34, 1339, lab, size=22, color=MUTED, z=5)
+            lx += 142
+        # end card
+        if t >= 15.3:
+            a = min(max(ease(min((t - 15.3) / 0.6, 1)), 0), 1)
+            c.rect(VX0 + 120, VY0 + 130, VW - 240, VH - 260, "white", z=9, radius=20, alpha=0.95 * a)
+            c.text(W / 2 - 200, VY0 + 330, "87%", size=130, weight="bold", ha="center", color=GREEN, z=10, alpha=a)
+            c.text(W / 2 - 200, VY0 + 390, "China", size=36, ha="center", color=INK, z=10, alpha=a, weight="bold")
+            c.text(W / 2 + 200, VY0 + 330, "42%", size=130, weight="bold", ha="center", color="#B5462F", z=10, alpha=a)
+            c.text(W / 2 + 200, VY0 + 390, "United States", size=36, ha="center", color=INK, z=10, alpha=a, weight="bold")
+            c.text(W / 2, VY0 + 465, "30-country average: 56%", size=30, ha="center", color=MUTED, z=10, alpha=a)
+        sc = next((x for x in SCN if x[0] <= t < x[1]), None)
+        if sc:
+            a = ease(min((t - sc[0]) / 0.35, 1)) * (1 - ease(max((t - sc[1] + 0.25) / 0.25, 0)) if sc is not SCN[-1] else 1)
+            a = min(max(a, 0), 1)
+            for i, ln in enumerate(sc[2]):
+                c.text(W / 2, 1430 + i * 46, ln, size=34 if i == 0 else 29, ha="center", color=INK, alpha=a, weight="bold" if i == 0 else "normal")
+        footer(c, "Source: Ipsos AI Monitor 2025 (30 countries); China via Stanford AI Index 2026")
+        bottom_band(c)
+    return draw, 21.0
+
+POSTS.update({"aiworld": aiworld})
+
+
 if __name__ == "__main__":
     name = sys.argv[1]
     draw, dur = POSTS[name]()
