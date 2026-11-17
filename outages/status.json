@@ -1,0 +1,93 @@
+{
+ "_how_to_edit": "The story page reads this file on every load. See outages/UPDATE.md. Times are hours on an Eastern clock counted from midnight starting Thursday, Nov. 12, 2026 (35.5 = 11:30 a.m. Friday, Nov. 13; 131 = 11 a.m. Tuesday, Nov. 17).",
+ "updated": "12:25 p.m. Eastern on Nov. 17, 2026",
+ "headline_status": "NSA Net was working only intermittently at last report, and the agency has not commented",
+ "nsa_start": 131,
+ "nsa_start_label": "first reported by about 11 a.m. Eastern Tuesday",
+ "nsa_end": null,
+ "nsa_end_label": null,
+ "outages": [
+  {
+   "key": "msft",
+   "name": "Microsoft 365",
+   "sub": "Outlook, Teams, Copilot",
+   "start": 11.283,
+   "end": 35.3,
+   "tail": 49.15,
+   "lead": null,
+   "label": "About 24 hours",
+   "note": "Exchange Online failed at about 11:17 a.m. Eastern on Thursday, Nov. 12. Microsoft's preliminary report puts the outage at nearly 24 hours, and it said the last affected customers were restored early Saturday. It blamed a software defect exposed by network work, not an attack."
+  },
+  {
+   "key": "faa",
+   "name": "FAA ground stop",
+   "sub": "Every U.S. departure",
+   "start": 39.9,
+   "end": 44.25,
+   "tail": null,
+   "lead": null,
+   "label": "4 hr 21 min",
+   "note": "The FAA halted every departure at 3:54 p.m. Eastern on Friday, Nov. 13, after a telecommunications failure at air traffic control centers, and lifted the stop at 8:15 p.m. FlightAware counted about 9,200 cancellations that day."
+  },
+  {
+   "key": "wday",
+   "name": "Workday",
+   "sub": "HR and payroll",
+   "start": 41.0,
+   "end": null,
+   "tail": 56,
+   "lead": null,
+   "label": "Back by Saturday",
+   "note": "Outage reports jumped just after 5 p.m. Eastern on Friday, Nov. 13. Workday said service was restored by Saturday but has not given an end time, so the bar fades out."
+  },
+  {
+   "key": "chase",
+   "name": "Chase",
+   "sub": "Online banking, payments",
+   "start": 109,
+   "end": 114.5,
+   "tail": null,
+   "lead": 105,
+   "label": "Morning to 6:30 p.m.",
+   "note": "Complaints began climbing Monday morning, Nov. 16, and passed 4,700 on Downdetector by about 1 p.m. Chase blamed a software bug in an on-premises hardware system, not an attack, and said transactions were posting normally by about 6:30 p.m. Eastern."
+  },
+  {
+   "key": "ual",
+   "name": "United Airlines",
+   "sub": "Mainline departures",
+   "start": 112.92,
+   "end": 114.58,
+   "tail": null,
+   "lead": null,
+   "label": "About 1 hr 40 min",
+   "note": "United delayed departures from just before 5 p.m. Eastern on Monday, Nov. 16, after a failure in the system pilots use to get aircraft weights. The airline resolved it about an hour and 40 minutes after pilots first reported problems."
+  },
+  {
+   "key": "nsa",
+   "name": "NSA Net",
+   "sub": "Classified internal network",
+   "start": 131,
+   "end": null,
+   "tail": null,
+   "lead": null,
+   "label": "Intermittent",
+   "note": "CNN reported Tuesday, Nov. 17, citing six people familiar with the matter, that NSA Net was down, with no evidence of a cyberattack. A person told Recorded Future News the network was giving intermittent service rather than none, and another said it had been unstable for weeks. The agency staggered arrivals at Fort Meade to cut the morning sign-in load."
+  }
+ ],
+ "status_html": "<p>As of 12:25 p.m. Eastern on Tuesday, no outlet had reported NSA Net fully restored. A person familiar with it told Recorded Future News the network was providing intermittent service rather than none, and that arrivals at Fort Meade were staggered so tens of thousands of employees would not all sign in at once. The agency had not commented, and CNN's sources said there was no evidence of a cyberattack.</p>",
+ "notknown_html": "<p>What caused the outage, when it began, how many of the agency's employees and sites are affected and when the network will return. The NSA has not said whether it is related to any of the week's other failures, and no official or major outlet has reported a link.</p><p>This story reflects reporting through 12:25 p.m. Eastern on Nov. 17 and is checked every hour; the chart's last bar keeps growing until the NSA's network is reported back.</p>",
+ "facts": [
+  [
+   "6",
+   "major U.S. tech outages since Thursday, Nov. 12"
+  ],
+  [
+   "0",
+   "of them blamed on a cyberattack so far"
+  ],
+  [
+   "Still out",
+   "NSA Net, intermittent since it was first reported about 11 a.m. Tuesday"
+  ]
+ ]
+}
