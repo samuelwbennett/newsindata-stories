@@ -1,7 +1,7 @@
 {
  "_how_to_edit": "The story page reads this file on every load. See outages/UPDATE.md. Times are hours on an Eastern clock counted from midnight starting Thursday, Nov. 12, 2026 (35.5 = 11:30 a.m. Friday, Nov. 13; 131 = 11 a.m. Tuesday, Nov. 17).",
- "updated": "1:05 p.m. Eastern on Nov. 17, 2026",
- "headline_status": "NSA Net was working only intermittently at last report, and the agency has not commented",
+ "updated": "2:05 p.m. Eastern on Nov. 17, 2026",
+ "headline_status": "NSA Net was still down at last report, and the agency has not commented",
  "nsa_start": 131,
  "nsa_start_label": "first reported by about 11 a.m. Eastern Tuesday",
  "nsa_end": null,
@@ -70,12 +70,12 @@
    "end": null,
    "tail": null,
    "lead": null,
-   "label": "Intermittent",
-   "note": "CNN reported Tuesday, Nov. 17, citing people familiar with the matter, that NSA Net was down, with no evidence of a cyberattack. Two sources told CBS News the cause was routine system patching. A person told Recorded Future News the network was giving intermittent service, and the agency staggered arrivals at Fort Meade to cut the morning sign-in load."
+   "label": "Still down",
+   "note": "CNN reported Tuesday, Nov. 17, citing people familiar with the matter, that NSA Net was down, with no evidence of a cyberattack. Sources told CBS News and The Wall Street Journal the cause was a routine software patch and the outage should be temporary. The agency staggered arrivals at Fort Meade to cut the morning sign-in load."
   }
  ],
- "status_html": "<p>As of 1:05 p.m. Eastern on Tuesday, about two hours after it was first reported, no outlet had reported NSA Net fully restored. Two sources told CBS News the disruption resulted from routine system patching, though CBS said the precise circumstances remain unclear, and two U.S. officials told CBS there was no evidence of a cyberattack. A person told Recorded Future News the network was giving intermittent service, and CBS reported some work was being moved to other NSA facilities. The NSA had not commented.</p>",
- "notknown_html": "<p>When the outage began, how many of the agency's employees and sites are affected, when the network will return and whether the NSA confirms the patching account that CBS's sources gave. The NSA has not said whether it is related to any of the week's other failures, and no official or major outlet has reported a link.</p><p>This story reflects reporting through 1:05 p.m. Eastern on Nov. 17 and is checked every hour; the chart's last bar keeps growing until the NSA's network is reported back.</p>",
+ "status_html": "<p>As of 2:05 p.m. Eastern on Tuesday, about three hours after it was first reported, NSA Net was still down, and no outlet had reported it restored. Two sources told CBS News the disruption resulted from routine system patching, and a person told The Wall Street Journal the agency was updating software and the network would be offline only temporarily. CBS said the precise circumstances remain unclear, and two U.S. officials told CBS there was no evidence of a cyberattack. One person told Recorded Future News the network was giving intermittent service. The NSA had not commented.</p>",
+ "notknown_html": "<p>When the outage began, how many of the agency's employees and sites are affected, when the network will return and whether the NSA confirms the patching account that sources gave CBS and The Wall Street Journal. The NSA has not said whether it is related to any of the week's other failures, and no official or major outlet has reported a link.</p><p>This story reflects reporting through 2:05 p.m. Eastern on Nov. 17 and is checked every hour; the chart's last bar keeps growing until the NSA's network is reported back.</p>",
  "facts": [
   [
    "6",
@@ -87,7 +87,7 @@
   ],
   [
    "Still out",
-   "NSA Net, intermittent since it was first reported about 11 a.m. ET Tuesday"
+   "NSA Net, down since it was first reported about 11 a.m. ET Tuesday"
   ]
  ]
 }
