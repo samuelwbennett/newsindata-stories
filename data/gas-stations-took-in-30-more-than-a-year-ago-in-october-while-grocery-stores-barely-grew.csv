@@ -1,0 +1,43 @@
+kind_of_business,naics,pct_change_oct2025_to_oct2026,sales_oct2026_millions_sa,sales_oct2025_millions_sa
+Gas stations,447,30.3,68608,52637
+Miscellaneous stores,453,13.3,16539,14598
+Nonstore retailers,454,11.8,128232,114735
+Electronics and appliance stores,443,7.7,7818,7259
+"Sporting goods, hobby, musical instrument and book stores",451,7.1,8670,8099
+Food services and drinking places,722,7.0,92921,86805
+Building material and garden,444,5.6,44164,41826
+General merchandise stores,452,3.5,81828,79029
+Clothing and accessories stores,448,3.1,26377,25576
+Furniture and home furnishings stores,442,2.5,10685,10423
+Motor vehicle and parts dealers,441,1.3,136994,135216
+Auto and other motor vehicle dealers,"4411,4412",0.6,124905,124208
+Health and personal care stores,446,1.0,40327,39915
+Food and beverage stores,445,0.9,85057,84309
+Grocery stores,4451,0.9,77158,76462
+Department stores,4522,-1.6,3972,4036
+"Retail and food services, total",,6.8,748220,700427
+Total excluding gasoline stations,,4.9,679612,647790
+
+month,gas_station_sales_millions_sa,avg_price_regular_gas_usd_per_gallon
+2025-01,54144,3.211
+2025-02,53679,3.261
+2025-03,51983,3.232
+2025-04,51873,3.33
+2025-05,51386,3.306
+2025-06,51997,3.306
+2025-07,52399,3.285
+2025-08,52840,3.295
+2025-09,53119,3.339
+2025-10,52637,3.239
+2025-11,54172,3.228
+2025-12,54476,3.05
+2026-01,52755,2.961
+2026-02,53408,3.065
+2026-03,60359,3.843
+2026-04,63594,4.263
+2026-05,65205,4.651
+2026-06,61634,4.195
+2026-07,61509,4.094
+2026-08,63781,4.2
+2026-09,67581,4.482
+2026-10,68608,4.454

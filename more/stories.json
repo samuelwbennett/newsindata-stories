@@ -1,7 +1,13 @@
 {
- "updated": "2026-11-16",
+ "updated": "2026-11-17",
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
+  {
+   "slug": "gas-stations-took-in-30-more-than-a-year-ago-in-october-while-grocery-stores-barely-grew",
+   "title": "Gas Stations Rang Up 30% More Than A Year Earlier",
+   "section": "Business",
+   "image": "https://stories.thenewsindata.com/retail1026/retail-preview.png"
+  },
   {
    "slug": "more-than-five-times-as-many-americans-are-more-concerned-than-excited-about-ai-up-from-about-two-to-one-in-2021",
    "title": "Concern About AI Outruns Excitement Five To One",

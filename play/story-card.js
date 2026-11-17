@@ -18,6 +18,7 @@ var GUESS={
 };
 /* story slug -> game. Anything not listed gets the newest Today's Chart. */
 var STORY={
+ 'gas-stations-took-in-30-more-than-a-year-ago-in-october-while-grocery-stores-barely-grew':{guess:'candy'},
  'more-than-five-times-as-many-americans-are-more-concerned-than-excited-about-ai-up-from-about-two-to-one-in-2021':{guess:'japan'},
  /* Each story offers a related game whose answer it doesn't already show. */
  'chinas-emissions-have-been-flat-or-falling-since-march-2024-and-69-countries-now-emit-at-least-10-less-than-at-their-peak':{today:2},

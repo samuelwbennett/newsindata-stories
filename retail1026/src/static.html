@@ -1,0 +1,19 @@
+<!doctype html><meta charset=utf-8><style>body{margin:0;background:#fff}svg text{font-family:"Times New Roman",Times,serif}</style><body><div id=o></div>
+<script>window.NIDRT_STATIC=1</script><script src="../embed.js"></script><script>
+var m=new URLSearchParams(location.search).get('m')||'tall',N=window.NIDRT,INK='#13241B',SUB='#5F7268',G='#007A55',s='',W,H;
+function T(x,y,t,sz,o){o=o||{};return '<text x="'+x+'" y="'+y+'" text-anchor="'+(o.a||'middle')+'" font-size="'+sz+'" font-weight="'+(o.w||700)+'" fill="'+(o.c||INK)+'"'+(o.i?' font-style="italic"':'')+'>'+t+'</text>'}
+function nest(svg,x,y,w,h){return svg.replace('<svg ','<svg x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" ')}
+if(m==='tall'){W=1080;H=1350;
+ s+=T(540,96,'Gas Stations Rang Up 30% More',58)+T(540,162,'Than A Year Earlier',58,{c:G});
+ s+=T(540,208,'Change in U.S. sales, October 2026 vs. October 2025, by type of store',24,{w:400,c:SUB,i:1})+T(540,238,'Seasonally adjusted, not adjusted for inflation',22,{w:400,c:SUB,i:1});
+ var t=N.bars({W:720,rh:46});var w=1000,h=w*t.H/720;s+=nest(t.svg,30,262,w,h);
+ s+=T(540,1300,'Source: U.S. Census Bureau, Advance Monthly Retail Trade, released Nov. 17, 2026 · thenewsindata.com',18,{w:400,c:SUB});
+}else{W=1200;H=630;
+ s+='<rect width="1200" height="10" fill="'+G+'"/>';
+ s+=T(56,118,'Gas Stations Rang Up',50,{a:'start'})+T(56,178,'30% More Than',50,{a:'start'})+T(56,238,'A Year Earlier',50,{a:'start',c:G});
+ s+=T(56,372,'+30.3%',84,{a:'start',c:G});
+ s+=T(60,420,'gas stations, vs. +6.8% for all retail',26,{a:'start',w:400,c:SUB})+T(60,454,'and +0.9% for grocery stores',26,{a:'start',w:400,c:SUB});
+ var t=N.bars({W:720,rh:30,lpad:200});var w=600,h=w*t.H/720;s+=nest(t.svg,570,(630-h)/2,w,h);
+}
+document.getElementById('o').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'"><rect width="'+W+'" height="'+H+'" fill="#fff"/>'+s+'</svg>';
+</script>
