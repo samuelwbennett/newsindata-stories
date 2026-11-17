@@ -54,7 +54,7 @@ function draw(box,S){
  var nowX=X(nsaEnd!=null?nsaEnd:nowH());
  var nowLine=el('line',{x1:nowX,x2:nowX,y1:TOP-10,y2:H-30,stroke:INK,'stroke-width':1.2,'stroke-dasharray':'3 3'});svg.appendChild(nowLine);
  var nowTxt=el('text',{x:nowX,y:H-12,'text-anchor':'end','font-size':12.5,fill:INK,'font-family':'Times New Roman,serif'},nsaEnd!=null?'':'Now');svg.appendChild(nowTxt);
- var card=document.createElement('div');card.className='no-card';
+ var card=document.createElement('div');card.className='no-card';card.style.display='none';
  var bars=[],nsaBar=null,nsaLab=null,nsaY=0;
  O.forEach(function(o,i){
   var y=TOP+i*ROW,bh=24,by=y+(ROW-bh)/2-6,isN=o.key==='nsa';
@@ -73,9 +73,8 @@ function draw(box,S){
   svg.appendChild(row);
   bars.push({b:b,tail:tailR,s:o.start,e:end,t:o.tail,lab:lab});
   if(isN){nsaBar=b;nsaLab=lab;nsaY=by;}
-  var pick=function(){card.innerHTML='<b>'+o.name+'.</b> '+o.note;};
+  var pick=function(){card.style.display='';card.innerHTML='<b>'+o.name+'.</b> '+o.note;};
   row.addEventListener('click',pick);row.addEventListener('keydown',function(ev){if(ev.key==='Enter')pick();});
-  if(isN)pick();
  });
  box.appendChild(card);
  var tiles=document.createElement('div');tiles.className='no-tiles';
