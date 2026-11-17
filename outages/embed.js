@@ -41,7 +41,7 @@ function draw(box,S){
  var nsaEnd=S.nsa_end!=null?S.nsa_end:null;
  box.innerHTML='';
  var hd=document.createElement('div');
- hd.innerHTML='<p class="no-h" style="font-family:&quot;Times New Roman&quot;,Times,serif !important;font-weight:700 !important;font-size:1.35em !important;line-height:1.2 !important;text-align:center !important;color:#13241B !important;margin:0 0 .2em !important">Six Major U.S. Tech Outages In Six Days</p><p class="no-d" style="font-family:&quot;Times New Roman&quot;,Times,serif !important;font-style:italic !important;text-align:center !important;color:#5F7268 !important">Each bar is one outage on an Eastern clock. Tap a bar for what failed and why.</p>';
+ hd.innerHTML='<p class="no-h" style="font-family:&quot;Times New Roman&quot;,Times,serif !important;font-weight:700 !important;font-size:1.35em !important;line-height:1.2 !important;text-align:center !important;color:#13241B !important;margin:0 0 .2em !important">Six Major U.S. Tech Outages In Six Days</p><p class="no-d" style="font-family:&quot;Times New Roman&quot;,Times,serif !important;font-style:italic !important;text-align:center !important;color:#5F7268 !important">Each bar is one outage on an Eastern clock. Tap a bar for what failed and why.</p><div class="no-live"><span class="no-dot"></span><span id="no-livetxt"></span></div>';
  box.appendChild(hd);
  var svg=el('svg',{viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'Timeline of six U.S. technology outages from Nov. 12 to Nov. 17, 2026'});
  box.appendChild(svg);
