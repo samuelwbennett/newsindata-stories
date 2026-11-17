@@ -41,7 +41,7 @@ function draw(box,S){
  var nsaEnd=S.nsa_end!=null?S.nsa_end:null;
  box.innerHTML='';
  var hd=document.createElement('div');
- hd.innerHTML='<p class="no-h" style="font-family:&quot;Times New Roman&quot;,Times,serif !important;font-weight:700 !important;font-size:1.35em !important;line-height:1.2 !important;text-align:center !important;color:#13241B !important;margin:0 0 .2em !important">Six Major U.S. Tech Outages In Six Days</p><p class="no-d" style="font-family:&quot;Times New Roman&quot;,Times,serif !important;font-style:italic !important;text-align:center !important;color:#5F7268 !important">Each bar is one outage on an Eastern clock. Tap a bar for what failed and why.</p><div class="no-live"><span class="no-dot"></span><span id="no-livetxt"></span></div>';
+ hd.innerHTML='<p class="no-h" style="font-family:&quot;Times New Roman&quot;,Times,serif !important;font-weight:700 !important;font-size:1.35em !important;line-height:1.2 !important;text-align:center !important;color:#13241B !important;margin:0 0 .2em !important">Six Major U.S. Tech Outages In Six Days</p><p class="no-d" style="font-family:&quot;Times New Roman&quot;,Times,serif !important;font-style:italic !important;text-align:center !important;color:#5F7268 !important">Each bar is one outage on an Eastern clock. Tap a bar for what failed and why.</p>';
  box.appendChild(hd);
  var svg=el('svg',{viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'Timeline of six U.S. technology outages from Nov. 12 to Nov. 17, 2026'});
  box.appendChild(svg);
@@ -81,7 +81,7 @@ function draw(box,S){
  (S.facts||[]).forEach(function(f){var t=document.createElement('div');t.className='no-tile';t.innerHTML='<b>'+f[0]+'</b><span>'+f[1]+'</span>';tiles.appendChild(t);});
  box.appendChild(tiles);
  var src=document.createElement('p');src.className='no-src';src.textContent='Sources: Microsoft, FAA, Workday, JPMorgan Chase and United statements as reported by AP, CNN, CBS, NBC and Fox; CNN for NSA Net. Start and end times are as reported; hatched and fading segments mark times that were not given. Updated '+S.updated+'.';
- box.appendChild(src);
+ 
  var btn=document.createElement('button');btn.className='no-btn';btn.textContent='Replay';box.appendChild(btn);
 
  function live(){
