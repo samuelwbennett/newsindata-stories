@@ -1,7 +1,13 @@
 {
- "updated": "2026-11-17",
+ "updated": "2026-11-18",
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
+  {
+   "slug": "big-school-districts-have-voted-to-close-193-schools-in-the-past-year-as-enrollment-falls",
+   "title": "Big School Districts Have Voted To Close 193 Schools In The Past Year As Enrollment Falls",
+   "section": "Trending",
+   "image": "https://stories.thenewsindata.com/schools/schools-lead.png"
+  },
   {
    "slug": "the-nsas-classified-network-is-down-the-sixth-major-us-tech-outage-in-six-days",
    "title": "Apple And The NSA Went Down Tuesday, The Sixth And Seventh Major U.S. Tech Outages In Six Days",
