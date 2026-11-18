@@ -36,7 +36,7 @@ var BIRTHS=[[2007,4.316],[2010,3.999],[2011,3.954],[2012,3.953],[2013,3.932],[20
 var ENROLL=[[2012,49.771],[2013,50.045],[2014,50.313],[2015,50.438],[2016,50.615],[2017,50.686],[2018,50.694],[2019,50.796],[2020,49.375],[2021,49.433],[2022,49.618],[2023,49.012],[2024,48.707],[2025,48.228],[2026,47.644],[2027,47.37],[2028,47.184],[2029,47.028],[2030,46.94],[2031,46.89]];
 var ST='AL,6,4,1512;AK,9,6,492;AZ,4,3,2399;AR,11,16,1081;CA,56,49,10279;CO,17,42,1889;CT,11,7,1006;DE,0,1,228;DC,2,1,243;FL,94,77,4184;GA,20,8,2308;HI,0,0,295;ID,13,1,792;IL,40,32,4376;IN,9,29,1892;IA,16,21,1306;KS,14,13,1342;KY,9,16,1526;LA,17,34,1301;ME,5,9,585;MD,6,7,1403;MA,20,18,1819;MI,34,41,3469;MN,79,50,2646;MS,18,19,1019;MO,24,16,2457;MT,5,7,821;NE,18,3,1089;NV,2,6,752;NH,13,3,499;NJ,17,16,2547;NM,7,4,886;NY,33,14,4788;NC,30,21,2698;ND,8,10,501;OH,66,86,3548;OK,7,16,1765;OR,8,6,1280;PA,10,26,2914;RI,2,5,310;SC,12,10,1254;SD,14,19,698;TN,15,18,1880;TX,150,156,9078;UT,10,13,1089;VT,2,0,301;VA,20,16,2116;WA,21,23,2525;WV,18,3,681;WI,39,22,2214;WY,3,2,355';
 var NAMES={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',DC:'District of Columbia',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NE:'Nebraska',NV:'Nevada',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',ND:'North Dakota',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'};
-var GRID={AK:[0,0],ME:[11,0],VT:[10,1],NH:[11,1],WA:[1,2],ID:[2,2],MT:[3,2],ND:[4,2],MN:[5,2],IL:[6,2],WI:[7,2],MI:[8,2],NY:[9,2],RI:[10,2],MA:[11,2],OR:[1,3],NV:[2,3],WY:[3,3],SD:[4,3],IA:[5,3],IN:[6,3],OH:[7,3],PA:[8,3],NJ:[9,3],CT:[10,3],CA:[1,4],UT:[2,4],CO:[3,4],NE:[4,4],MO:[5,4],KY:[6,4],WV:[7,4],VA:[8,4],MD:[9,4],DE:[10,4],AZ:[2,5],NM:[3,5],KS:[4,5],AR:[5,5],TN:[6,5],NC:[7,5],SC:[8,5],DC:[9,5],OK:[4,6],LA:[5,6],MS:[6,6],AL:[7,6],GA:[8,6],HI:[0,7],TX:[4,7],FL:[9,7]};
+var GRID_UNUSED={AK:[0,0],ME:[11,0],VT:[10,1],NH:[11,1],WA:[1,2],ID:[2,2],MT:[3,2],ND:[4,2],MN:[5,2],IL:[6,2],WI:[7,2],MI:[8,2],NY:[9,2],RI:[10,2],MA:[11,2],OR:[1,3],NV:[2,3],WY:[3,3],SD:[4,3],IA:[5,3],IN:[6,3],OH:[7,3],PA:[8,3],NJ:[9,3],CT:[10,3],CA:[1,4],UT:[2,4],CO:[3,4],NE:[4,4],MO:[5,4],KY:[6,4],WV:[7,4],VA:[8,4],MD:[9,4],DE:[10,4],AZ:[2,5],NM:[3,5],KS:[4,5],AR:[5,5],TN:[6,5],NC:[7,5],SC:[8,5],DC:[9,5],OK:[4,6],LA:[5,6],MS:[6,6],AL:[7,6],GA:[8,6],HI:[0,7],TX:[4,7],FL:[9,7]};
 
 /* ---------- shared UI ---------- */
 function css(){
@@ -133,26 +133,38 @@ function kids(box){
  src(box,'Sources: CDC National Center for Health Statistics (births; 2025 is provisional; 2008 and 2009 not shown); NCES <a href="https://nces.ed.gov/programs/digest/d23/tables/dt23_203.10.asp">Digest table 203.10</a> (enrollment, fall of each school year; 2023 onward projected, made before recent immigration changes).');
 }
 
-/* ---------- 4. state tile map ---------- */
+/* ---------- 4. state blooms ---------- */
+/* One dot per closed school, packed sunflower-style (golden angle) at each state's position,
+   relaxed with a collision force in Node (d3 geoAlbersUsa + forceCollide). Color = closures per 1,000 schools. */
+var POS='AL,492,315;AK,84,378;AZ,159,281;AR,415,285;CA,70,212;CO,249,213;CT,637,142;DE,631,204;DC,615,215;FL,561,375;GA,534,313;HI,226,407;ID,154,110;IL,439,190;IN,482,216;IA,396,167;KS,337,227;KY,514,242;LA,421,349;ME,669,72;MD,612,190;MA,668,118;MI,493,126;MN,384,99;MS,455,317;MO,410,231;MT,217,78;NE,322,177;NV,113,187;NH,642,90;NJ,647,179;NM,234,287;NY,603,120;NC,588,259;ND,318,79;OH,531,181;OK,348,275;OR,84,102;PA,587,162;RI,668,153;SC,567,296;SD,319,130;TN,486,270;TX,322,341;UT,173,198;VT,636,115;VA,583,213;WA,100,47;WV,550,233;WI,438,128;WY,232,145';
 function states(box){
- frame(box,'Where Public Schools Closed In The Last Two Years','Closures before the 2023-24 and 2024-25 school years per 1,000 schools. Hover or tap a state.');
- var data={};ST.split(';').forEach(function(r){var a=r.split(','),n=+a[1]+(+a[2]);data[a[0]]={n:n,open:+a[3],rate:n/(+a[3])*1000};});
- var bins=[[0,10,'#eef3f0'],[10,20,PALE],[20,30,LIGHT],[30,40,'#2f9a73'],[40,99,GREEN]];
- var key=document.createElement('div');key.className='sc-key';key.innerHTML=bins.map(function(b){return '<span><i style="background:'+b[2]+';border:1px solid '+RULE+'"></i>'+(b[1]==99?'40+':b[0]+'–'+b[1])+'</span>';}).join('');box.appendChild(key);
- var t=tip(box),S=56,G=4,W=12*(S+G),H=8*(S+G);
- var svg=el('svg',{viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'Tile map of school closures per 1,000 schools by state'});box.appendChild(svg);
- var card=document.createElement('div');card.className='sc-card';card.innerHTML='<b>Minnesota</b> had the highest rate: 129 closures, or about 49 for every 1,000 schools.';box.appendChild(card);
- Object.keys(GRID).forEach(function(s){
-  var d=data[s],c=GRID[s],x=c[0]*(S+G),y=c[1]*(S+G),fill=bins.filter(function(b){return d.rate>=b[0]&&d.rate<b[1];})[0][2],dark=d.rate>=30;
-  var g=el('g',{class:'sc-hit'});svg.appendChild(g);
-  g.appendChild(el('rect',{x:x,y:y,width:S,height:S,rx:5,fill:fill,stroke:'#fff'}));
-  svgText(g,x+S/2,y+24,s,{a:'middle',s:15,w:'bold',f:dark?'#fff':INK,sans:true});
-  svgText(g,x+S/2,y+42,String(Math.round(d.rate)),{a:'middle',s:12,f:dark?'#fff':MUTED,sans:true});
-  var html='<b>'+NAMES[s]+'</b><br>'+fmt(d.n)+' closures, '+Math.round(d.rate)+' per 1,000 schools';
+ frame(box,'Where Public Schools Closed In The Last Two Years','Each dot is one school that closed before the 2023-24 or 2024-25 school year. Darker states closed a larger share of their schools.');
+ var data={};ST.split(';').forEach(function(r){var a=r.split(','),n=+a[1]+(+a[2]);data[a[0]]={n:n,rate:n/(+a[3])*1000};});
+ var shades=[[0,'#c9e3d7'],[15,'#8cc5ab'],[25,'#4fa883'],[35,GREEN],[45,'#0b4d35']];
+ function shade(r){var c=shades[0][1];shades.forEach(function(s){if(r>=s[0])c=s[1];});return c;}
+ var key=document.createElement('div');key.className='sc-key';
+ key.innerHTML='<span>Closures per 1,000 schools</span>'+[['under 15',shades[0][1]],['15',shades[1][1]],['25',shades[2][1]],['35',shades[3][1]],['45+',shades[4][1]]].map(function(k){return '<span><i style="background:'+k[1]+';border-radius:50%"></i>'+k[0]+'</span>';}).join('');
+ box.appendChild(key);
+ var nar=box.clientWidth<520,t=tip(box),W=720,H=440,GA=Math.PI*(3-Math.sqrt(5)),C=2.55,DR=1.55;
+ var svg=el('svg',{viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'Clusters of dots, one per closed public school, arranged roughly by state location'});box.appendChild(svg);
+ var card=document.createElement('div');card.className='sc-card';card.innerHTML='<b>Texas</b> closed the most schools, 306. <b>Minnesota</b> closed the largest share, about 49 of every 1,000. Tap a cluster for any state.';box.appendChild(card);
+ var groups=[];
+ POS.split(';').forEach(function(r){
+  var a=r.split(','),s=a[0],cx=+a[1],cy=+a[2],d=data[s],col=shade(d.rate),g=el('g',{class:'sc-hit'});svg.appendChild(g);
+  var R=C*Math.sqrt(Math.max(d.n,1))+3;
+  g.appendChild(el('circle',{cx:cx,cy:cy,r:R+3,fill:'transparent'}));
+  var dots=[];
+  if(!d.n){g.appendChild(el('circle',{cx:cx,cy:cy,r:3,fill:'none',stroke:GRAY,'stroke-width':1}));}
+  for(var k=0;k<d.n;k++){var rr=C*Math.sqrt(k+.5),th=k*GA,c=el('circle',{cx:(cx+rr*Math.cos(th)).toFixed(1),cy:(cy+rr*Math.sin(th)).toFixed(1),r:DR,fill:col});c.style.transformOrigin=cx+'px '+cy+'px';c.style.transform='scale(0)';c.style.transition='transform .55s cubic-bezier(.2,.9,.3,1.25) '+(k*6+Math.random()*120).toFixed(0)+'ms';g.appendChild(c);dots.push(c);}
+  if(!nar||d.n>=25)svgText(g,cx,cy+R+(nar?17:10),s+(d.n>=100?' '+d.n:''),{a:'middle',s:nar?17:10,f:MUTED,sans:true}).style.pointerEvents='none';
+  var html='<b>'+NAMES[s]+'</b><br>'+fmt(d.n)+' closures, about '+Math.round(d.rate)+' per 1,000 schools';
   g.addEventListener('mousemove',function(ev){t.show(html,ev);});g.addEventListener('mouseleave',t.hide);
-  g.addEventListener('click',function(){card.innerHTML='<b>'+NAMES[s]+'</b>: '+fmt(d.n)+' schools closed before 2023-24 or 2024-25, about '+Math.round(d.rate)+' for every 1,000 open schools.';});
+  g.addEventListener('click',function(){groups.forEach(function(x){x.style.opacity=1;});card.innerHTML='<b>'+NAMES[s]+'</b>: '+fmt(d.n)+' schools closed before 2023-24 or 2024-25, about '+Math.round(d.rate)+' for every 1,000 open schools.';});
+  groups.push(g);g._dots=dots;
  });
- src(box,'Source: NCES Common Core of Data via the Urban Institute. Rate uses schools open in 2023-24. States report closures differently, including how they count charter, virtual and alternative programs, so small differences are not meaningful.');
+ function bloom(){groups.forEach(function(g){g._dots.forEach(function(c){c.style.transform='scale(1)';});});}
+ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){bloom();io.disconnect();}});},{threshold:.25});io.observe(svg);}else bloom();
+ src(box,'Source: NCES Common Core of Data via the Urban Institute. Clusters sit near each state’s location and are nudged apart so none overlap. Rates use schools open in 2023-24. States report closures differently, including how they count charter, virtual and alternative programs, so small differences are not meaningful.');
 }
 
 function boot(){
