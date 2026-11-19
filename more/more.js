@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+['religion','Culture',"Most Christians Will Live In Africa By 2070",'more-than-half-of-the-worlds-christians-will-live-in-sub-saharan-africa-by-2070'],
 ['schools','Trending',"Big Districts Voted To Close 193 Schools",'big-school-districts-have-voted-to-close-193-schools-in-the-past-year-as-enrollment-falls'],
 ['nsaout','Trending',"Apple And The NSA Went Down Tuesday",'the-nsas-classified-network-is-down-the-sixth-major-us-tech-outage-in-six-days'],
 ['retail','Business',"Gas Stations Rang Up 30% More Than A Year Earlier",'gas-stations-took-in-30-more-than-a-year-ago-in-october-while-grocery-stores-barely-grew'],
