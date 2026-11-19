@@ -1059,6 +1059,123 @@ def aiworld():
 
 POSTS.update({"aiworld": aiworld})
 
+def relworld():
+    """World religions 2020 -> 2070 (Pew 2026): dot map morphs, snap zooms to Europe and North America, Africa end card."""
+    import json as _json
+    from matplotlib.collections import EllipseCollection as _EC
+    from matplotlib.patches import Rectangle as _R
+    here = os.path.dirname(os.path.abspath(__file__))
+    D_ = _json.load(open(os.path.join(here, "relworld_dots.json")))
+    rows = open(os.path.join(here, "relworld_countries.txt")).read().replace("\n", "|").strip("|").split("|")
+    CO = []
+    for l in rows:
+        a = l.split(";"); CO.append((a[0], list(map(int, a[2].split(","))), list(map(int, a[3].split(",")))))
+    REL = [("Christians", "#3F6FB5"), ("Muslims", "#0A8F63"), ("No religion", "#A3ADB5"), ("Hindus", "#E2892F"),
+           ("Buddhists", "#B35C98"), ("Jews", "#6A5BBF"), ("Other", "#C4825F")]
+    NODATA = "#E3E8E5"
+    d = np.array(D_["d"], dtype=float).reshape(-1, 3)
+    PX, PY, PI = d[:, 0], d[:, 1], d[:, 2].astype(int)
+    MW, MH = D_["w"], D_["h"]
+    def look(arr):
+        m = int(np.argmax(arr)); return REL[m][1], 1.05 + 1.75 * arr[m] / 100
+    C20, C70, R20, R70 = [], [], [], []
+    for i in PI:
+        if i < 0:
+            C20.append(NODATA); C70.append(NODATA); R20.append(1.5); R70.append(1.5)
+        else:
+            a, b = look(CO[i][1]), look(CO[i][2]); C20.append(a[0]); C70.append(b[0]); R20.append(a[1]); R70.append(b[1])
+    rgb = lambda h: np.array([int(h[k:k + 2], 16) / 255 for k in (1, 3, 5)])
+    C20 = np.array([rgb(x) for x in C20]); C70 = np.array([rgb(x) for x in C70]); R20 = np.array(R20); R70 = np.array(R70)
+    names = {n: k for k, (n, _, _) in enumerate(CO)}
+    FLIP = [names[n] for n in ["France", "United Kingdom", "Spain", "Belgium", "Canada", "Australia"]]
+    flip = np.isin(PI, FLIP)
+    VX0, VY0, VW, VH = 20, 640, 1040, 560
+    def box(ns, pad=0.9, xmin=-1):
+        m = np.isin(PI, [names[n] for n in ns]) & (PX > xmin); x0, x1, y0, y1 = PX[m].min(), PX[m].max(), PY[m].min(), PY[m].max()
+        return ((x0 + x1) / 2, (y0 + y1) / 2, min(VW / (x1 - x0 + 20), VH / (y1 - y0 + 20)) * pad)
+    FULL = (MW / 2, MH / 2, min(VW / MW, VH / MH))
+    Z_EU = box(["France", "United Kingdom", "Spain", "Belgium", "Germany", "Italy", "Poland", "Ireland", "Portugal", "Sweden", "Greece"], 0.85, 400)
+    Z_NA = box(["United States", "Canada", "Mexico"], 0.92)
+    KEYS = [(0, FULL), (10.2, Z_EU), (13.6, Z_NA), (17.4, FULL)]
+    SNAP = 0.45
+    def back(u):
+        u = min(max(u, 0), 1); k = 1.3
+        return 1 + (k + 1) * (u - 1) ** 3 + k * (u - 1) ** 2
+    def cam(t):
+        v = KEYS[0][1]
+        for tk, vk in KEYS[1:]:
+            if t >= tk:
+                u = back((t - tk) / SNAP)
+                cur = (v[0] + (vk[0] - v[0]) * u, v[1] + (vk[1] - v[1]) * u, v[2] * (vk[2] / v[2]) ** u)
+                if t < tk + SNAP: return cur
+                v = vk
+        return v
+    def year_u(t):  # 0 = 2020, 1 = 2070
+        if t < 4.6: return 0.0
+        if t < 6.8: return ease((t - 4.6) / 2.2)
+        if 13.8 <= t < 14.3: return 1 - ease((t - 13.8) / 0.5)   # snap back to 2020 inside the North America zoom
+        if 14.3 <= t < 14.9: return 0.0
+        if 14.9 <= t < 16.6: return ease((t - 14.9) / 1.7)
+        return 1.0
+    SCN = [(1.2, 4.6, ["2020: Christians are the largest group", "in most of the world"]),
+           (4.6, 10.2, ["By 2070, six countries switch to", "no religion as their largest group"]),
+           (10.2, 13.6, ["Western Europe turns gray", "France, the U.K., Spain and Belgium"]),
+           (13.6, 17.4, ["The U.S. stays Christian-led, but its dots shrink", "Christians fall from 64% to 48%; Canada flips"]),
+           (17.4, 19.6, ["Muslims pass Christians around 2035", "and lead in 54 countries by 2070"])]
+    def draw(c, t):
+        brand_block(c)
+        c.text(W / 2, 300, "CULTURE · THE WORLD", size=24, color=GREEN, weight="bold", ha="center")
+        c.text(W / 2, 378, "The World’s Largest Religion,", size=58, weight="bold", ha="center")
+        c.text(W / 2, 446, "Country By Country", size=58, weight="bold", ha="center")
+        c.text(W / 2, 500, "Each dot takes the color of its country’s largest group;", size=26, color=MUTED, ha="center", style="italic")
+        c.text(W / 2, 536, "bigger dots mean a bigger majority", size=26, color=MUTED, ha="center", style="italic")
+        u = year_u(t)
+        yr = int(round(2020 + 50 * u))
+        c.text(W / 2, 612, str(yr), size=46, weight="bold", ha="center", color=GREEN if yr == 2070 else INK)
+        cx, cy, s = cam(t)
+        X = VX0 + VW / 2 + (PX - cx) * s
+        Y = VY0 + VH / 2 + (PY - cy) * s
+        cols = C20 + (C70 - C20) * u
+        rad = R20 + (R70 - R20) * u
+        # bloom in, west to east
+        grow = np.clip((t - PX / MW * 0.9) / 0.5, 0, 1)
+        grow = 1 - (1 - grow) ** 3
+        pulse = np.where(flip & (4.8 < t) & (t < 10.2), 1 + 0.35 * np.clip(np.sin((t - 4.8) * 7), 0, None) * (t > 6.8), 1.0)
+        w = 2 * rad * s * grow * pulse
+        clip = _R((VX0, VY0), VW, VH, transform=c.ax.transData, fc="none", ec="none"); c.ax.add_patch(clip)
+        ec = _EC(w, w, np.zeros_like(w), units="xy", offsets=np.column_stack([X, Y]), offset_transform=c.ax.transData,
+                 facecolors=cols, edgecolors="none", zorder=3)
+        c.ax.add_collection(ec); ec.set_clip_path(clip)
+        if s > FULL[2] * 1.3:
+            c.rect(VX0 + VW - 118, VY0 + VH - 54, 106, 40, INK, z=8, radius=20, alpha=0.85)
+            c.text(VX0 + VW - 65, VY0 + VH - 26, f"{s / FULL[2]:.1f}×", size=24, color="white", weight="bold", ha="center", z=9)
+        # legend
+        lx, ly = 95, 1255
+        for k, (nm, cc) in enumerate(REL):
+            if k == 4: lx, ly = 210, 1300
+            c.circle(lx, ly - 8, 10, cc, z=5)
+            c.text(lx + 20, ly, nm, size=23, color=MUTED, z=5)
+            lx += 40 + c.text_width(nm, 23) + 30
+        sc = next((x for x in SCN if x[0] <= t < x[1]), None)
+        if sc and t < 19.6:
+            a = ease(min((t - sc[0]) / 0.35, 1)) * (1 - ease(max((t - sc[1] + 0.25) / 0.25, 0)))
+            a = min(max(a, 0), 1)
+            for i, ln in enumerate(sc[2]):
+                c.text(W / 2, 1405 + i * 46, ln, size=34 if i == 0 else 28, ha="center", color=INK, alpha=a, weight="bold" if i == 0 else "normal")
+        if t >= 19.4:
+            a = min(max(ease(min((t - 19.4) / 0.6, 1)), 0), 1)
+            c.rect(VX0 + 90, VY0 + 70, VW - 180, VH - 140, "white", z=9, radius=22, alpha=0.95 * a)
+            c.text(W / 2, VY0 + 250, "54%", size=150, weight="bold", ha="center", color=GREEN, z=10, alpha=a)
+            c.text(W / 2, VY0 + 318, "of the world’s Christians will live", size=36, ha="center", color=INK, z=10, alpha=a, weight="bold")
+            c.text(W / 2, VY0 + 362, "in sub-Saharan Africa by 2070", size=36, ha="center", color=INK, z=10, alpha=a, weight="bold")
+            c.text(W / 2, VY0 + 412, "up from 31% in 2020", size=30, ha="center", color=MUTED, z=10, alpha=a)
+            c.text(W / 2, 1430, "Find your country on the interactive map", size=30, ha="center", color=GREEN, alpha=a, weight="bold")
+        footer(c, "Source: Pew Research Center, Future of World Religions (2026)")
+        bottom_band(c)
+    return draw, 23.0
+
+POSTS.update({"relworld": relworld})
+
 
 if __name__ == "__main__":
     name = sys.argv[1]

@@ -7,6 +7,7 @@ if(window.__nidIG)return; window.__nidIG=1;
 var IG='https://www.instagram.com/thenewsindata/';
 var BASE='https://stories.thenewsindata.com/social/web/';
 var REELS={
+  relworld:{t:'The World\u2019s Largest Religion, 2020 To 2070',s:'more-than-half-of-the-worlds-christians-will-live-in-sub-saharan-africa-by-2070'},
   aiworld:{t:'Who Sees More Good In AI?',s:'more-than-five-times-as-many-americans-are-more-concerned-than-excited-about-ai-up-from-about-two-to-one-in-2021'},
   aiwork:{t:'Where AI Overlaps With American Work',s:'more-than-five-times-as-many-americans-are-more-concerned-than-excited-about-ai-up-from-about-two-to-one-in-2021'},
   dating:{t:'Single in Black and White',s:'-'},
