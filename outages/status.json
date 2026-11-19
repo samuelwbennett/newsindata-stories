@@ -1,7 +1,7 @@
 {
  "_how_to_edit": "The story page reads this file on every load. See outages/UPDATE.md. Times are hours on an Eastern clock counted from midnight starting Thursday, Nov. 12, 2026 (35.5 = 11:30 a.m. Friday, Nov. 13; 131 = 11 a.m. Tuesday, Nov. 17).",
- "updated": "6:15 p.m. Eastern on Nov. 18, 2026",
- "headline_status": "NSA Net was reported back up at 5:28 p.m. Eastern Wednesday, CBS News said, citing two sources",
+ "updated": "2:03 p.m. Eastern on Nov. 19, 2026",
+ "headline_status": "NSA Net was still partly disrupted Thursday, Fox News reported, a day after CBS sources said it was back up",
  "nsa_start": 131,
  "nsa_start_label": "first reported by about 11 a.m. Eastern Tuesday",
  "nsa_end": 161.467,
@@ -81,12 +81,12 @@
    "end": null,
    "tail": null,
    "lead": null,
-   "label": "About 30 hours",
-   "note": "CNN reported Tuesday, Nov. 17, that NSA Net was down, with no evidence of a cyberattack. The NSA blamed &ldquo;temporary degradation during scheduled routine maintenance,&rdquo; and Director of National Intelligence Jay Clayton said patching left some systems unable to come back up. CBS News reported at 5:28 p.m. Eastern Wednesday, citing two sources, that the network was back up and running."
+   "label": "Back Wed., per CBS",
+   "note": "CNN reported Tuesday, Nov. 17, that NSA Net was down, with no evidence of a cyberattack. The NSA blamed &ldquo;temporary degradation during scheduled routine maintenance,&rdquo; and DNI Jay Clayton blamed patching. CBS News reported at 5:28 p.m. Eastern Wednesday, citing two sources, that it was back up, but Fox News sources said Thursday it was still disrupted."
   }
  ],
- "status_html": "<p>CBS News reported at 5:28 p.m. Eastern on Wednesday, citing two sources familiar with the system, that NSA Net was back up and running, about 30 hours after CNN first reported it down. The NSA had not responded to CBS&rsquo;s request for an update, and staff are still arriving on staggered schedules because of fears the system cannot handle everyone signing on at once. Director of National Intelligence Jay Clayton has blamed the outage on patching for PHP software vulnerabilities, and he told a House hearing Wednesday that the week&rsquo;s outages were not a coordinated or state-sponsored attack.</p>",
- "notknown_html": "<p>When the network actually came back, whether it is fully restored and how many employees and sites were affected. A source told The Record on Wednesday that full restoration could take another day or two, and the NSA has not said how long staggered arrivals will last. Sen. Chuck Schumer has asked for a review, saying the timing is &ldquo;too coincidental.&rdquo; Not counted here: a separate cyberattack through the website tool Optimizely that reached sites of 178 organizations, which no one has tied to these outages.</p><p>This story reflects reporting through 6:15 p.m. Eastern on Nov. 18. The chart&rsquo;s NSA bar ends at the time of CBS&rsquo;s report and will be updated if the NSA or another outlet gives a restoration time.</p>",
+ "status_html": "<p>Fox News reported Thursday, citing sources, that NSA Net was still disrupted for a third day, though the agency could still communicate internally. That conflicts with CBS News, which reported at 5:28 p.m. Eastern Wednesday, citing two sources, that the network was back up and running while staff kept arriving on staggered schedules. The NSA has not made a public statement since Tuesday, Fox said. Director of National Intelligence Jay Clayton has blamed patching for PHP software vulnerabilities and told a House hearing Wednesday that the outages were not a coordinated attack.</p>",
+ "notknown_html": "<p>Whether NSA Net is fully working, when it actually came back, and how many employees and sites were affected. CBS and Fox News sources describe its state differently, and the NSA has not said when staggered arrivals will end. Sen. Chuck Schumer has asked for a review, saying the timing is &ldquo;too coincidental.&rdquo; Not counted here: a separate cyberattack through the website tool Optimizely that reached sites of 178 organizations, which no one has tied to these outages.</p><p>This story reflects reporting through 2:03 p.m. Eastern on Nov. 19. The chart&rsquo;s NSA bar ends at the time of CBS&rsquo;s report and will be updated if the NSA or another outlet confirms when the network was fully restored.</p>",
  "facts": [
   [
    "7",
@@ -97,8 +97,8 @@
    "of them blamed on a cyberattack so far"
   ],
   [
-   "Back up",
-   "NSA Net, per CBS sources at 5:28 p.m. ET Wednesday, about 30 hours after it was first reported down"
+   "Disputed",
+   "NSA Net: back up per CBS sources Wednesday, still partly disrupted per Fox News sources Thursday"
   ]
  ]
 }
