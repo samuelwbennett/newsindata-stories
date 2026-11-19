@@ -3,6 +3,12 @@
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
   {
+   "slug": "a-smartphone-photo-of-a-patients-face-flagged-who-would-die-within-30-days-better-than-hospital-warning-scores",
+   "title": "A Smartphone Photo Of A Patient's Face Flagged Who Would Die Within 30 Days Better Than Hospital Warning Scores",
+   "section": "Science",
+   "image": "https://stories.thenewsindata.com/faces/faces-lead.png"
+  },
+  {
    "slug": "more-than-half-of-the-worlds-christians-will-live-in-sub-saharan-africa-by-2070",
    "title": "More Than Half Of The World's Christians Will Live In Sub-Saharan Africa By 2070",
    "section": "Culture",

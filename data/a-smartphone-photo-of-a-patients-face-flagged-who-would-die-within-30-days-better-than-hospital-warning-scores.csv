@@ -1,0 +1,13 @@
+measure,group,value,unit,note
+AUC face score,death within 1 day,0.82,AUC,test set 2021-2024
+AUC face score,death within 3 days,0.80,AUC,test set 2021-2024
+AUC face score,death within 30 days,0.77,AUC,0.769 (95% CI 0.750-0.786)
+AUC all factors combined,death within 30 days,0.816,AUC,face + age + blood tests + vital signs (95% CI 0.800-0.830)
+Mortality,within 3 days,0.77,percent,all 27660 patients
+Mortality,within 7 days,1.89,percent,all 27660 patients
+Mortality,within 30 days,6.93,percent,all 27660 patients
+Mortality,within 365 days,23.47,percent,all 27660 patients
+Odds ratio,top vs bottom face-score fifth 3-day death,21.78,times,age-adjusted
+Odds ratio,top vs bottom face-score fifth 30-day death,11.87,times,age-adjusted
+Odds ratio,low early warning score: top vs bottom face-score quarter 30-day death,13.39,times,
+Mortality ratio,high early warning score + top face-score quarter vs lowest risk 30-day,30,times,authors' rounded figure ("thirty-fold")
