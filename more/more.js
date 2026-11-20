@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+['restaurants','Business',"Only 2 Of The 10 Biggest Chains Made Forbes' Favorites",'only-2-of-americas-10-biggest-restaurant-chains-made-forbes-list-of-its-100-favorites'],
 ['faces','Science',"A Face Photo Predicted ER Deaths Better Than Warning Scores",'a-smartphone-photo-of-a-patients-face-flagged-who-would-die-within-30-days-better-than-hospital-warning-scores'],
 ['religion','Culture',"Most Christians Will Live In Africa By 2070",'more-than-half-of-the-worlds-christians-will-live-in-sub-saharan-africa-by-2070'],
 ['schools','Trending',"Big Districts Voted To Close 193 Schools",'big-school-districts-have-voted-to-close-193-schools-in-the-past-year-as-enrollment-falls'],

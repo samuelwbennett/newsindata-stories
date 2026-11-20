@@ -1,7 +1,13 @@
 {
- "updated": "2026-11-19",
+ "updated": "2026-11-20",
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
+  {
+   "slug": "only-2-of-americas-10-biggest-restaurant-chains-made-forbes-list-of-its-100-favorites",
+   "title": "Only 2 Of America's 10 Biggest Restaurant Chains Made Forbes' List Of Its 100 Favorites",
+   "section": "Business",
+   "image": "https://stories.thenewsindata.com/restaurants/restaurants-lead.png"
+  },
   {
    "slug": "a-smartphone-photo-of-a-patients-face-flagged-who-would-die-within-30-days-better-than-hospital-warning-scores",
    "title": "A Smartphone Photo Of A Patient's Face Flagged Who Would Die Within 30 Days Better Than Hospital Warning Scores",
