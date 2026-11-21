@@ -1177,6 +1177,120 @@ def relworld():
 POSTS.update({"relworld": relworld})
 
 
+
+def nflintl():
+    rows = list(csv.DictReader(open(R + "nfl-international-games.csv")))
+    CO = {"United Kingdom": "#007A55", "Mexico": "#C4573A", "Canada": "#7D8B94", "Germany": "#C9A227", "Brazil": "#5A9E6F",
+          "Spain": "#D9822B", "Ireland": "#2A8FA8", "France": "#3F6FB5", "Australia": "#7A6FC2"}
+    ORD = ["United Kingdom", "Mexico", "Canada", "Germany", "Brazil", "Spain", "Ireland", "France", "Australia"]
+    LAB = {"United Kingdom": "U.K."}
+    NAMES = {"JAX": "Jaguars", "BUF": "Bills", "LV": "Raiders", "LA": "Rams", "TB": "Buccaneers", "MIA": "Dolphins",
+             "LAC": "Chargers", "ATL": "Falcons", "NO": "Saints", "SF": "49ers"}
+    yrs = list(range(2005, 2027))
+    cols = {y: sorted([r for r in rows if int(r["season"]) == y], key=lambda r: (ORD.index(r["country"]), r["date"])) for y in yrs}
+    home = {}
+    for r in rows:
+        home.setdefault(r["home_abbr"], []).append(r)
+    top = sorted(home, key=lambda k: (-len(home[k]), NAMES.get(k, k)))[:10]
+    L, CW = 70, 40.5
+    RD, ST, BASE = 15, 33, 1420
+    gx = L + (len(yrs) + 1.3) * CW
+    s1a, s1b = 0.8, 0.8 + 0.32 * len(yrs)       # columns grow
+    S2, S3, END = 11.0, 17.2, 23.5
+
+    def fade(t, t0, t1):
+        return min(max((t - t0) / 0.5, 0), 1) * min(max((t1 - t) / 0.5, 0), 1)
+
+    def scene1(c, t, a):
+        header(c, "Sports · NFL", ["The NFL Is Playing A Record", "9 Games Abroad This Season"],
+               ["One dot per regular-season game played", "outside the U.S., by season."], alpha=a)
+        # legend
+        x = 120; y = 640
+        for i, k in enumerate(ORD):
+            if i == 5: x, y = 200, 684
+            c.circle(x, y - 9, 9, CO[k], alpha=a)
+            lab = LAB.get(k, k); c.text(x + 18, y, lab, size=23, color=MUTED, alpha=a)
+            x += 36 + c.text_width(lab, 23) + 26
+        c.line([L - 10, gx + 30], [BASE + RD + 6, BASE + RD + 6], color=RULE, lw=2, alpha=a)
+        shown_n = 0
+        for yi, y in enumerate(yrs):
+            cx = L + (yi + 0.5) * CW
+            ty = s1a + yi * 0.32
+            gs = cols[y]
+            for k, g in enumerate(gs):
+                f = ease_out((t - ty - k * 0.05) / 0.35)
+                if f <= 0: continue
+                col = CO[g["country"]]
+                cy = BASE - k * ST
+                if g["home_score"] == "":
+                    c.circle(cx, cy, RD * f, col, alpha=0.35 * a, ec=col, lw=3)
+                else:
+                    c.circle(cx, cy, RD * f, col, alpha=a)
+            if t >= ty: shown_n = len(gs); cur = y
+            if y in (2005, 2010, 2015, 2020, 2026):
+                c.text(cx, BASE + 58, str(y), size=24 if y != 2026 else 27, color=INK if y == 2026 else FAINT,
+                       weight="bold" if y == 2026 else "normal", ha="center", alpha=a)
+        if t >= s1a:
+            # running year counter
+            c.text(L + 10, 820, str(cur), size=40, color=MUTED, alpha=a)
+            c.text(L + 10, 900, f"{shown_n} game" + ("s" if shown_n != 1 else ""), size=58, weight="bold", color=GREEN, alpha=a)
+        g_a = min(max((t - s1b - 0.4) / 0.8, 0), 1) * a
+        if g_a > 0:
+            for i in range(16):
+                c.circle(gx, BASE - i * ST, RD - 2, BG, ec=FAINT, lw=2.5, alpha=g_a)
+            c.text(gx, BASE + 58, "Goal", size=24, weight="bold", color=MUTED, ha="center", alpha=g_a)
+            c.text(gx, BASE - 15 * ST - 34, "16", size=30, weight="bold", color=MUTED, ha="center", alpha=g_a)
+        if t > s1b + 0.2:
+            c.text(L + (len(yrs) - 0.5) * CW, BASE - 9 * ST - 18, "9", size=40, weight="bold", ha="center", alpha=a)
+
+    def scene2(c, t, a):
+        header(c, "Sports · NFL", ["27 Of 32 Teams Have Given", "Up A Home Game To Play Abroad"],
+               ["Designated home games played overseas", "or in Toronto, 2005 to 2026."], alpha=a)
+        y0 = 700
+        for i, k in enumerate(top):
+            y = y0 + i * 62
+            c.text(300, y + 10, NAMES[k], size=34, ha="right", alpha=a)
+            gs = sorted(home[k], key=lambda r: r["date"])
+            for j, g in enumerate(gs):
+                f = ease_out((t - S2 - 0.3 - i * 0.12 - j * 0.06) / 0.3)
+                if f <= 0: continue
+                col = CO[g["country"]]
+                c.circle(340 + j * 44, y, 17 * f, col, alpha=a * (0.4 if g["home_score"] == "" else 1), ec=col, lw=3 if g["home_score"] == "" else 0)
+            if t > S2 + 0.6 + i * 0.12:
+                c.text(340 + len(gs) * 44 + 8, y + 10, str(len(gs)), size=30, weight="bold", color=MUTED, alpha=a)
+        na = min(max((t - S2 - 2.6) / 0.6, 0), 1) * a
+        c.text(W / 2, 1400, "Never: Ravens, Broncos, Texans, Giants, Seahawks", size=29, color=MUTED, ha="center", alpha=na)
+        c.text(W / 2, 1450, "League rule: every team, once every eight years", size=27, color=FAINT, ha="center", style="italic", alpha=na)
+
+    def scene3(c, t, a):
+        header(c, "Sports · NFL", ["What A Home Game Is Worth"],
+               ["The 49ers play the Vikings in Mexico City", "Sunday as the designated home team."], alpha=a)
+        items = [("$176M", "49ers’ 2024 gate receipts, the NFL’s most", GREEN),
+                 ("\\$15M–\\$20M", "Ticket sales from one 49ers home game", INK),
+                 ("$0", "League stipend for giving one up, since 2022", "#B8483A")]
+        for i, (big, small, col) in enumerate(items):
+            f = ease_out((t - S3 - 0.4 - i * 0.9) / 0.5)
+            if f <= 0: continue
+            y = 820 + i * 230 + (1 - f) * 40
+            c.text(W / 2, y, big, size=96, weight="bold", color=col, ha="center", alpha=a * f)
+            c.text(W / 2, y + 62, small, size=31, color=MUTED, ha="center", alpha=a * f)
+
+    def draw(c, t):
+        brand_block(c)
+        a1 = min(max((S2 - t) / 0.5, 0), 1)
+        a2 = fade(t, S2, S3)
+        a3 = min(max((t - S3) / 0.5, 0), 1)
+        if a1 > 0: scene1(c, t, a1)
+        if a2 > 0: scene2(c, t, a2)
+        if a3 > 0: scene3(c, t, a3)
+        src = "Sources: Pro-Football-Reference; Sportico; The Athletic" if t > S3 - 0.3 else "Sources: Pro-Football-Reference; nflverse; NFL"
+        footer(c, src)
+        bottom_band(c)
+
+    return draw, END
+
+POSTS.update({"nflintl": nflintl})
+
 if __name__ == "__main__":
     name = sys.argv[1]
     draw, dur = POSTS[name]()
