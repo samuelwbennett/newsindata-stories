@@ -123,7 +123,53 @@ function dl(box){
  src(box,'Download size: about 210 GB, per DE-CIX; Rockstar lists up to 212 GB of storage. Real downloads are usually slower than a connection’s advertised speed.');
 }
 
-function boot(){var m={'nid-gt-ladder':function(b){ladder(b,false);},'nid-gt-home':function(b){ladder(b,true);},'nid-gt-streams':streams,'nid-gt-dl':dl};Object.keys(m).forEach(function(id){var b=document.getElementById(id);if(b&&!b.dataset.done){b.dataset.done=1;m[id](b);}});}
+
+/* ---------- 4. flow: exchanges merging into the record ---------- */
+var FLOW=[['Frankfurt',22.15,'eu'],['Dallas',2.87,'na'],['New York',2.44,'na'],['Madrid',1.43,'eu'],['Dubai',1.25,'me'],['Chicago',1.22,'na'],['Singapore',0.627,'as'],['Lisbon',0.0799,'eu']];
+var REG={eu:['Europe','#007a55'],na:['North America','#3f6fb5'],me:['Middle East','#c9a227'],as:['Asia','#d9822b'],ot:['Other exchanges','#a9b6af']};
+function flowChart(box){
+ var narrow=box.clientWidth<520,TOTAL=33.03;
+ var named=FLOW.reduce(function(a,d){return a+d[1];},0),rows=FLOW.concat([['Other exchanges',Math.round((TOTAL-named)*100)/100,'ot']]);
+ frame(box,'Where The Record Traffic Flowed On Nov. 18','Each stream is a DE-CIX exchange, sized by its peak that evening, flowing into the 33.03 terabits per second that crossed all DE-CIX exchanges at 8:20 p.m. in Frankfurt.');
+ var k=document.createElement('div');k.className='gt-key';['eu','na','me','as'].forEach(function(c){var s=document.createElement('span');s.innerHTML='<i style="background:'+REG[c][1]+'"></i>'+REG[c][0];k.appendChild(s);});box.appendChild(k);
+ var W=narrow?400:760,lab=narrow?112:170,gap=6,top=16,sc=narrow?10:12,minS=narrow?30:32;
+ var H=top*2+gap*(rows.length-1)+rows.reduce(function(a,d){return a+Math.max(d[1]*sc,minS);},0);
+ var xL=lab,xR=W-(narrow?104:170),nodeW=narrow?6:8;
+ var cv=document.createElement('canvas'),dpr=Math.min(window.devicePixelRatio||1,2);cv.width=W*dpr;cv.height=H*dpr;cv.style.width='100%';cv.style.height='auto';cv.style.display='block';box.appendChild(cv);
+ var g=cv.getContext('2d');
+ var y=top,ry=(H-TOTAL*sc)/2,bands=[];
+ rows.forEach(function(d){var h=Math.max(d[1]*sc,1.2),slot=Math.max(d[1]*sc,minS);bands.push({d:d,y0:y+(slot-h)/2,h:h,r0:ry,rh:d[1]*sc,col:REG[d[2]][1]});y+=slot+gap;ry+=d[1]*sc;});
+ function bez(t,a,b){var u=1-t,x1=xL+nodeW,x2=xR,c1=x1+(x2-x1)*.5,c2=x1+(x2-x1)*.5;return [u*u*u*x1+3*u*u*t*c1+3*u*t*t*c2+t*t*t*x2,u*u*u*a+3*u*u*t*a+3*u*t*t*b+t*t*t*b];}
+ var hover=-1,parts=[],cardEl;
+ function ribbon(b,alpha){g.beginPath();var x1=xL+nodeW,x2=xR,c=(x1+x2)/2;g.moveTo(x1,b.y0);g.bezierCurveTo(c,b.y0,c,b.r0,x2,b.r0);g.lineTo(x2,b.r0+b.rh);g.bezierCurveTo(c,b.r0+b.rh,c,b.y0+b.h,x1,b.y0+b.h);g.closePath();g.globalAlpha=alpha;g.fillStyle=b.col;g.fill();g.globalAlpha=1;}
+ function fmt(v){return v>=1?v.toFixed(2)+' Tbps':Math.round(v*1000)+' Gbps';}
+ function draw(){
+  g.setTransform(dpr,0,0,dpr,0,0);g.clearRect(0,0,W,H);
+  bands.forEach(function(b,i){ribbon(b,hover<0?.22:(hover===i?.42:.08));g.fillStyle=b.col;g.fillRect(xL,b.y0,nodeW,b.h);});
+  parts.forEach(function(p){var b=bands[p.i],pt=bez(p.t,b.y0+p.o*b.h,b.r0+p.o*b.rh);g.globalAlpha=hover<0||hover===p.i?.9:.15;g.fillStyle=b.col;g.beginPath();g.arc(pt[0],pt[1],p.i===0?1.6:1.4,0,6.3);g.fill();});
+  g.globalAlpha=1;
+  g.fillStyle=INK;g.fillRect(xR,(H-TOTAL*sc)/2,nodeW+2,TOTAL*sc);
+  bands.forEach(function(b){var cy=b.y0+b.h/2,big=b.d[0]==='Frankfurt';
+   g.textAlign='right';g.textBaseline='middle';g.fillStyle=INK;g.font=(big?'bold ':'')+(narrow?13:15)+'px "Times New Roman",Times,serif';g.fillText(b.d[0],xL-8,cy-(narrow?6:7));
+   g.fillStyle=MUTED;g.font=(narrow?10.5:12)+'px -apple-system,"Helvetica Neue",Arial,sans-serif';g.fillText((b.d[2]==='ot'?'about ':'')+fmt(b.d[1]),xL-8,cy+(narrow?7:8));});
+  var cy=H/2;g.textAlign='left';g.fillStyle=PURPLE;g.font='bold '+(narrow?24:38)+'px -apple-system,"Helvetica Neue",Arial,sans-serif';g.fillText('33.03',xR+nodeW+10,cy-(narrow?10:14));
+  g.fillStyle=INK;g.font=(narrow?10.5:13)+'px -apple-system,"Helvetica Neue",Arial,sans-serif';g.fillText(narrow?'Tbps, all':'Tbps, all DE-CIX',xR+nodeW+10,cy+(narrow?12:16));if(narrow){g.fillText('DE-CIX',xR+nodeW+10,cy+26);g.fillText('exchanges',xR+nodeW+10,cy+40);}else g.fillText('exchanges',xR+nodeW+10,cy+33);
+ }
+ var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,running=false,last=0,acc=bands.map(function(){return 0;});
+ function step(ts){if(!running)return;var dt=Math.min((ts-(last||ts))/1000,.05);last=ts;
+  bands.forEach(function(b,i){acc[i]+=b.d[1]*(narrow?5:8)*dt;while(acc[i]>=1){acc[i]-=1;parts.push({i:i,t:0,o:.08+Math.random()*.84,v:.32+Math.random()*.08});}});
+  parts.forEach(function(p){p.t+=p.v*dt;});parts=parts.filter(function(p){return p.t<1;});
+  draw();requestAnimationFrame(step);}
+ draw();
+ cardEl=card(box,'Hover or tap a stream. Frankfurt alone carried two-thirds of the record.');
+ function pick(ev){var r=cv.getBoundingClientRect(),py=(ev.clientY-r.top)*H/r.height,px=(ev.clientX-r.left)*W/r.width;var best=-1;bands.forEach(function(b,i){var cy=b.y0+b.h/2;if(px<xR&&Math.abs(py-cy)<Math.max(b.h/2,minS/2))best=i;});return best;}
+ function sel(i){hover=i;if(i>=0){var b=bands[i];cardEl.innerHTML='<b>'+b.d[0]+'</b>: '+(b.d[2]==='ot'?'about ':'')+fmt(b.d[1])+', '+Math.round(b.d[1]/TOTAL*100)+'% of the record'+(b.d[2]==='ot'?'. This is what is left after the exchanges DE-CIX named.':'.');}if(reduce||!running)draw();}
+ cv.addEventListener('mousemove',function(ev){sel(pick(ev));});cv.addEventListener('mouseleave',function(){sel(-1);});cv.addEventListener('click',function(ev){sel(pick(ev));});
+ if(!reduce)seen(cv,function(){running=true;requestAnimationFrame(step);});
+ src(box,'Source: DE-CIX, Nov. 19, 2026. Exchange figures are the peaks DE-CIX reported for Wednesday evening, Nov. 18 (Dallas set its record that day); they may not have come at the same minute as the global peak, so “Other exchanges” is approximate. Moving dots are illustrative; their density follows each stream’s traffic.');
+}
+
+function boot(){var m={'nid-gt-ladder':function(b){ladder(b,false);},'nid-gt-home':function(b){ladder(b,true);},'nid-gt-streams':streams,'nid-gt-dl':dl,'nid-gt-flow':flowChart};Object.keys(m).forEach(function(id){var b=document.getElementById(id);if(b&&!b.dataset.done){b.dataset.done=1;m[id](b);}});}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 setTimeout(boot,1500);
 })();
