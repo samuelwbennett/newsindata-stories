@@ -57,14 +57,15 @@ function dnum(d){var p=d.split('-');return +p[0]+((+p[1]-1)+(+p[2]-1)/31)/12;}
 function ladder(box,compact){
  var narrow=box.clientWidth<520;
  frame(box,'GTA VI Pushed DE-CIX’s Global Internet Traffic To A Record 33 Terabits Per Second',compact?null:'Every record peak at DE-CIX, a network of internet exchanges based in Frankfurt, colored by what DE-CIX said was happening at the time.');
- if(!compact){var k=document.createElement('div');k.className='gt-key';['s','g','x'].forEach(function(c){var s=document.createElement('span');s.innerHTML='<i style="background:'+CAUSE[c][1]+'"></i>'+CAUSE[c][0];k.appendChild(s);});box.appendChild(k);}
- var W=narrow?400:760,L=narrow?30:44,R=narrow?84:150,top=18,H=narrow?340:410,bot=H-(narrow?48:40);
+ var k=document.createElement('div');k.className='gt-key';['s','g','x'].forEach(function(c){var s=document.createElement('span');s.innerHTML='<i style="background:'+CAUSE[c][1]+'"></i>'+CAUSE[c][0];k.appendChild(s);});box.appendChild(k);
+ var k2=document.createElement('div');k2.className='gt-key';var sw=function(dash){return '<svg width="22" height="8" style="width:22px;display:inline-block;vertical-align:1px;margin-right:.35em"><line x1="0" x2="22" y1="4" y2="4" stroke="'+(dash?MUTED:INK)+'" stroke-width="1.6" '+(dash?'stroke-dasharray="3 3"':'')+'/></svg>';};k2.innerHTML='<span>'+sw(0)+'All DE-CIX exchanges worldwide</span><span>'+sw(1)+'Frankfurt exchange only</span>';box.appendChild(k2);
+ var W=narrow?400:760,L=narrow?30:44,R=narrow?84:150,top=18,H=narrow?340:410,bot=H-(narrow?34:40);
  var DATES=REC.map(function(r){return r[0];}).filter(function(d,i,a){return a.indexOf(d)===i;}).sort(),y1=36;
  var X=function(d){return L+(DATES.indexOf(d)+.5)/DATES.length*(W-L-R);},Y=function(v){return bot-(v/y1)*(bot-top);};
  var svg=el('svg',{viewBox:'0 0 '+W+' '+H});box.appendChild(svg);
  [0,10,20,30].forEach(function(v){svg.appendChild(el('line',{x1:L,x2:W-R+10,y1:Y(v),y2:Y(v),stroke:v?FAINT:RULE}));T(svg,L-6,Y(v)+4,String(v),{a:'end',s:narrow?10:11,f:MUTED,sans:1});});
  T(svg,L-6,top-4,narrow?'Tbps':'Terabits per second',{s:narrow?10:11,f:MUTED,sans:1});
- var prevY='';DATES.forEach(function(d,i){var p=d.split('-'),m=MON[+p[1]-1].replace('.','').slice(0,3)+(p[0]==='2026'?' '+(+p[2]):'');var yy=narrow&&i%2?bot+28:bot+15;T(svg,X(d),yy,m,{a:'middle',s:narrow?9:10.5,f:p[0]==='2026'?INK:MUTED,sans:1});if(p[0]!==prevY){T(svg,X(d),narrow?bot+41:bot+29,narrow?"'"+p[0].slice(2):p[0],{a:'middle',s:narrow?9:10.5,f:MUTED,sans:1,w:'600'});prevY=p[0];}if(!narrow&&i)svg.appendChild(el('line',{x1:X(d),x2:X(d),y1:bot,y2:bot+4,stroke:RULE}));});
+ if(narrow){var seenY={};DATES.forEach(function(d){var y=d.slice(0,4);if(y==='2026'||seenY[y])return;seenY[y]=1;T(svg,X(d),bot+16,"'"+y.slice(2),{a:'middle',s:10.5,f:MUTED,sans:1});});var d26=DATES.filter(function(d){return d.slice(0,4)==='2026';}),xa=X(d26[0])-4,xb=X(d26[d26.length-1])+4;svg.appendChild(el('path',{d:'M'+xa+' '+(bot+6)+'V'+(bot+10)+'H'+xb+'V'+(bot+6),fill:'none',stroke:INK,'stroke-width':1}));T(svg,(xa+xb)/2,bot+24,'Sept.–Nov. ’26',{a:'middle',s:10.5,f:INK,sans:1,w:'600'});}else{var prevY='';DATES.forEach(function(d,i){var p=d.split('-'),m=MON[+p[1]-1].replace('.','').slice(0,3)+(p[0]==='2026'?' '+(+p[2]):'');var yy=narrow&&i%2?bot+28:bot+15;T(svg,X(d),yy,m,{a:'middle',s:narrow?9:10.5,f:p[0]==='2026'?INK:MUTED,sans:1});if(p[0]!==prevY){T(svg,X(d),narrow?bot+41:bot+29,narrow?"'"+p[0].slice(2):p[0],{a:'middle',s:narrow?9:10.5,f:MUTED,sans:1,w:'600'});prevY=p[0];}if(!narrow&&i)svg.appendChild(el('line',{x1:X(d),x2:X(d),y1:bot,y2:bot+4,stroke:RULE}));});}
  var tip=tipper(box),cardEl=compact?null:card(box,'Hover or tap a dot for the record.');
  var marks=[];
  ['F','G'].forEach(function(sr){
