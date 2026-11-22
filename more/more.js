@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+['gta','AI & Tech',"GTA VI Set Two Internet Traffic Records",'gta-vi-set-two-internet-traffic-records-before-anyone-could-play-it'],
 ['intl','Sports',"The NFL Is Playing A Record 9 Games Abroad",'the-nfl-is-playing-a-record-9-games-abroad-this-season-and-the-49ers-are-giving-up-a-home-game-worth-up-to-20-million'],
 ['restaurants','Business',"Only 2 Of The 10 Biggest Chains Made Forbes' Favorites",'only-2-of-americas-10-biggest-restaurant-chains-made-forbes-list-of-its-100-favorites'],
 ['faces','Science',"A Face Photo Predicted ER Deaths Better Than Warning Scores",'a-smartphone-photo-of-a-patients-face-flagged-who-would-die-within-30-days-better-than-hospital-warning-scores'],
