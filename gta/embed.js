@@ -126,11 +126,11 @@ function dl(box){
 
 /* ---------- 4. flow: exchanges merging into the record ---------- */
 var FLOW=[['Frankfurt',22.15,'eu'],['Dallas',2.87,'na'],['New York',2.44,'na'],['Madrid',1.43,'eu'],['Dubai',1.25,'me'],['Chicago',1.22,'na'],['Singapore',0.627,'as'],['Lisbon',0.0799,'eu']];
-var REG={eu:['Europe','#007a55'],na:['North America','#3f6fb5'],me:['Middle East','#c9a227'],as:['Asia','#d9822b'],ot:['Other exchanges','#a9b6af']};
+var REG={eu:['Europe','#007a55'],na:['North America','#3f6fb5'],me:['Middle East','#c9a227'],as:['Asia','#d9822b'],ot:['Other hubs','#a9b6af']};
 function flowChart(box){
  var narrow=box.clientWidth<520,TOTAL=33.03;
- var named=FLOW.reduce(function(a,d){return a+d[1];},0),rows=FLOW.concat([['Other exchanges',Math.round((TOTAL-named)*100)/100,'ot']]);
- frame(box,'On The Eve Of GTA VI’s Launch, A Record 33 Terabits Per Second Flowed Through DE-CIX, Two-Thirds Of It Via Frankfurt','DE-CIX runs internet exchanges, the hubs where networks hand traffic to one another. Each stream is one of its exchanges, as wide as its peak traffic on the evening of Nov. 18, merging into the record total.');
+ var named=FLOW.reduce(function(a,d){return a+d[1];},0),rows=FLOW.concat([['Other hubs',Math.round((TOTAL-named)*100)/100,'ot']]);
+ frame(box,'The Night Before GTA 6 Came Out, Internet Traffic Hit An All-Time High, 25% Above A Normal Week','Traffic through DE-CIX, which runs internet hubs where networks swap data, peaked at a record 33 terabits per second on Nov. 18. Each stream is one hub, as wide as its traffic that evening. Two-thirds went through Frankfurt.');
  var k=document.createElement('div');k.className='gt-key';['eu','na','me','as'].forEach(function(c){var s=document.createElement('span');s.innerHTML='<i style="background:'+REG[c][1]+'"></i>'+REG[c][0];k.appendChild(s);});box.appendChild(k);
  var W=narrow?400:760,lab=narrow?112:170,gap=6,top=16,sc=narrow?10:12,minS=narrow?30:32;
  var H=top*2+gap*(rows.length-1)+rows.reduce(function(a,d){return a+Math.max(d[1]*sc,minS);},0);
@@ -153,7 +153,7 @@ function flowChart(box){
    g.textAlign='right';g.textBaseline='middle';g.fillStyle=INK;g.font=(big?'bold ':'')+(narrow?13:15)+'px "Times New Roman",Times,serif';g.fillText(b.d[0],xL-8,cy-(narrow?6:7));
    g.fillStyle=MUTED;g.font=(narrow?10.5:12)+'px -apple-system,"Helvetica Neue",Arial,sans-serif';g.fillText((b.d[2]==='ot'?'about ':'')+fmt(b.d[1]),xL-8,cy+(narrow?7:8));});
   var cy=H/2;g.textAlign='left';g.fillStyle=PURPLE;g.font='bold '+(narrow?24:38)+'px -apple-system,"Helvetica Neue",Arial,sans-serif';g.fillText('33.03',xR+nodeW+10,cy-(narrow?10:14));
-  g.fillStyle=INK;g.font=(narrow?10.5:13)+'px -apple-system,"Helvetica Neue",Arial,sans-serif';g.fillText(narrow?'Tbps, all':'Tbps, all DE-CIX',xR+nodeW+10,cy+(narrow?12:16));if(narrow){g.fillText('DE-CIX',xR+nodeW+10,cy+26);g.fillText('exchanges',xR+nodeW+10,cy+40);}else g.fillText('exchanges',xR+nodeW+10,cy+33);
+  g.fillStyle=INK;g.font=(narrow?10.5:13)+'px -apple-system,"Helvetica Neue",Arial,sans-serif';g.fillText(narrow?'Tbps, all':'Tbps, all DE-CIX',xR+nodeW+10,cy+(narrow?12:16));if(narrow){g.fillText('DE-CIX',xR+nodeW+10,cy+26);g.fillText('hubs',xR+nodeW+10,cy+40);}else g.fillText('hubs',xR+nodeW+10,cy+33);
  }
  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,running=false,last=0,acc=bands.map(function(){return 0;});
  function step(ts){if(!running)return;var dt=Math.min((ts-(last||ts))/1000,.05);last=ts;
@@ -163,10 +163,10 @@ function flowChart(box){
  draw();
  cardEl=card(box,'Hover or tap a stream. Frankfurt alone carried two-thirds of the record.');
  function pick(ev){var r=cv.getBoundingClientRect(),py=(ev.clientY-r.top)*H/r.height,px=(ev.clientX-r.left)*W/r.width;var best=-1;bands.forEach(function(b,i){var cy=b.y0+b.h/2;if(px<xR&&Math.abs(py-cy)<Math.max(b.h/2,minS/2))best=i;});return best;}
- function sel(i){hover=i;if(i>=0){var b=bands[i];cardEl.innerHTML='<b>'+b.d[0]+'</b>: '+(b.d[2]==='ot'?'about ':'')+fmt(b.d[1])+', '+Math.round(b.d[1]/TOTAL*100)+'% of the record'+(b.d[2]==='ot'?'. This is what is left after the exchanges DE-CIX named.':'.');}if(reduce||!running)draw();}
+ function sel(i){hover=i;if(i>=0){var b=bands[i];cardEl.innerHTML='<b>'+b.d[0]+'</b>: '+(b.d[2]==='ot'?'about ':'')+fmt(b.d[1])+', '+Math.round(b.d[1]/TOTAL*100)+'% of the record'+(b.d[2]==='ot'?'. This is what is left after the hubs DE-CIX named.':'.');}if(reduce||!running)draw();}
  cv.addEventListener('mousemove',function(ev){sel(pick(ev));});cv.addEventListener('mouseleave',function(){sel(-1);});cv.addEventListener('click',function(ev){sel(pick(ev));});
  if(!reduce)seen(cv,function(){running=true;requestAnimationFrame(step);});
- src(box,'Source: DE-CIX, Nov. 19, 2026. Exchange figures are the peaks DE-CIX reported for Wednesday evening, Nov. 18 (Dallas set its record that day); they may not have come at the same minute as the global peak, so “Other exchanges” is approximate. Moving dots are illustrative; their density follows each stream’s traffic.');
+ src(box,'Source: DE-CIX, Nov. 19, 2026. “25% above a normal week” compares launch-period traffic with a typical week at the start of 2026, per DE-CIX. Hub figures are the peaks DE-CIX reported for Wednesday evening, Nov. 18 (Dallas set its record that day); they may not have come at the same minute as the global peak, so “Other hubs” is approximate. Moving dots are illustrative; their density follows each stream’s traffic.');
 }
 
 function boot(){var m={'nid-gt-ladder':function(b){ladder(b,false);},'nid-gt-home':function(b){ladder(b,true);},'nid-gt-streams':streams,'nid-gt-dl':dl,'nid-gt-flow':flowChart};Object.keys(m).forEach(function(id){var b=document.getElementById(id);if(b&&!b.dataset.done){b.dataset.done=1;m[id](b);}});}
