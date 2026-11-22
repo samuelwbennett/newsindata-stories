@@ -1291,6 +1291,118 @@ def nflintl():
 
 POSTS.update({"nflintl": nflintl})
 
+
+def gtaflow():
+    """GTA VI launch eve: DE-CIX hubs flow into the 33.03 Tbps record (DE-CIX, Nov. 19, 2026)."""
+    from matplotlib.collections import EllipseCollection as _EC
+    ROWS = [("Frankfurt", 22.15, "#007A55"), ("Dallas", 2.87, "#3F6FB5"), ("New York", 2.44, "#3F6FB5"),
+            ("Madrid", 1.43, "#007A55"), ("Dubai", 1.25, "#C9A227"), ("Chicago", 1.22, "#3F6FB5"),
+            ("Singapore", 0.627, "#D9822B"), ("Lisbon", 0.0799, "#007A55"), ("Other hubs", 0.96, "#A9B6AF")]
+    TOTAL = 33.03
+    sc, minS, gap, Y0 = 14.0, 58, 10, 645
+    XL, XR, NW = 300, 830, 12
+    bands, y, ry0 = [], Y0, 0
+    tot_h = sum(max(v * sc, minS) for _, v, _ in ROWS) + gap * (len(ROWS) - 1)
+    rtop = Y0 + (tot_h - TOTAL * sc) / 2
+    ry = rtop
+    for name, v, col in ROWS:
+        h = max(v * sc, 2.0); slot = max(v * sc, minS)
+        bands.append(dict(name=name, v=v, col=col, y0=y + (slot - h) / 2, h=h, r0=ry, rh=v * sc, cy=y + slot / 2))
+        y += slot + gap; ry += v * sc
+    T_IN = [1.2 + i * 0.45 for i in range(len(ROWS))]          # stream reveal starts
+    REV = 1.1                                                  # seconds to sweep a stream left->right
+    S_FRANK, S_END, END = 10.6, 15.6, 21.0
+    N = 60
+    ts = np.linspace(0, 1, N)
+    x1, x2 = XL + NW, XR
+    cxm = (x1 + x2) / 2
+    def bez(t, a, b):
+        u = 1 - t
+        X = u**3 * x1 + 3*u*u*t*cxm + 3*u*t*t*cxm + t**3 * x2
+        Y = u**3 * a + 3*u*u*t*a + 3*u*t*t*b + t**3 * b
+        return X, Y
+    rng = np.random.default_rng(7)
+    parts = []   # (band, spawn, offset, speed)
+    for i, b in enumerate(bands):
+        rate = max(b["v"] * 9, 0.6)
+        tt = T_IN[i] + REV * 0.6
+        while tt < END:
+            parts.append((i, tt, 0.08 + 0.84 * rng.random(), 0.36 + 0.08 * rng.random()))
+            tt += rng.exponential(1 / rate)
+    parts = np.array(parts)
+
+    def draw(c, t):
+        brand_block(c)
+        fr = min(max((t - S_FRANK) / 0.5, 0), 1) * (1 - min(max((t - S_END) / 0.5, 0), 1))
+        endf = min(max((t - S_END) / 0.6, 0), 1)
+        ha = 1 - endf
+        if ha > 0:
+            header(c, "AI & Tech · GTA 6", ["The Night Before GTA 6 Came Out,", "Internet Traffic Hit An", "All-Time High"],
+                   ["DE-CIX runs internet hubs where networks", "swap data. Each stream is one hub."], alpha=ha, title_size=56)
+        shown = 0.0
+        for i, b in enumerate(bands):
+            p = ease_out((t - T_IN[i]) / REV)
+            if p <= 0:
+                continue
+            shown += b["v"] * min(p * 1.4, 1)
+            dim = 1.0 if fr == 0 else (1 - 0.75 * fr if i else 1.0)
+            a = ha * dim
+            k = max(int(p * (N - 1)), 1)
+            X, Yt = bez(ts[:k + 1], b["y0"], b["r0"])
+            _, Yb = bez(ts[:k + 1], b["y0"] + b["h"], b["r0"] + b["rh"])
+            c.ax.fill(np.concatenate([X, X[::-1]]), np.concatenate([Yt, Yb[::-1]]), color=b["col"], alpha=0.24 * a, lw=0, zorder=2)
+            c.rect(XL, b["y0"], NW, b["h"], b["col"], z=4, alpha=a)
+            big = i == 0
+            c.text(XL - 16, b["cy"] - 4, b["name"], size=34 if big else 29, weight="bold" if big else "normal", ha="right", alpha=a * min(p * 2, 1))
+            val = (f"{b['v']:.2f} Tbps" if b["v"] >= 1 else f"{round(b['v']*1000)} Gbps")
+            if b["name"] == "Other hubs": val = "about " + val
+            c.text(XL - 16, b["cy"] + 26, val, size=22, color=MUTED, ha="right", alpha=a * min(p * 2, 1))
+        # particles
+        if len(parts) and ha > 0:
+            age = (t - parts[:, 1]) * parts[:, 3]
+            m = (age > 0) & (age < 1)
+            if m.any():
+                P = parts[m]; A = age[m]
+                bi = P[:, 0].astype(int)
+                y0 = np.array([bands[j]["y0"] for j in bi]); hh = np.array([bands[j]["h"] for j in bi])
+                r0 = np.array([bands[j]["r0"] for j in bi]); rh = np.array([bands[j]["rh"] for j in bi])
+                X, Y = bez(A, y0 + P[:, 2] * hh, r0 + P[:, 2] * rh)
+                cols = [bands[j]["col"] for j in bi]
+                from matplotlib.colors import to_rgba
+                fc = np.array([to_rgba(cc) for cc in cols])
+                al = np.where(bi == 0, 0.9, 0.9 * (1 - 0.8 * fr)) * ha
+                fc[:, 3] = al
+                w = np.full(len(X), 5.0)
+                ec = _EC(w, w, np.zeros_like(w), units="xy", offsets=np.column_stack([X, Y]), offset_transform=c.ax.transData,
+                         facecolors=fc, edgecolors="none", zorder=3)
+                c.ax.add_collection(ec)
+        # sink + counter
+        if t > T_IN[0] and ha > 0:
+            c.rect(XR, rtop, NW + 4, TOTAL * sc, INK, z=4, alpha=ha)
+            val = min(shown, TOTAL) if t < T_IN[-1] + REV + 0.4 else TOTAL
+            c.text(XR + 30, rtop + TOTAL * sc / 2 - 6, f"{val:.2f}", size=64, weight="bold", color="#6B4FB3", alpha=ha)
+            c.text(XR + 32, rtop + TOTAL * sc / 2 + 36, "Tbps, all", size=24, color=INK, alpha=ha)
+            c.text(XR + 32, rtop + TOTAL * sc / 2 + 66, "DE-CIX hubs", size=24, color=INK, alpha=ha)
+        if fr > 0:
+            fb = bands[0]
+            c.rect(150, 1524, 780, 58, GREEN_LT, z=7, alpha=0.95 * fr, radius=31)
+            c.text(W / 2, 1564, "Two-thirds of it went through Frankfurt", size=34, weight="bold", color=GREEN, ha="center", alpha=fr, z=8)
+        if endf > 0:
+            e2 = ease_out((t - S_END - 0.3) / 0.8)
+            c.text(W / 2, 600, "Internet traffic, the night before GTA 6", size=36, color=MUTED, ha="center", alpha=endf)
+            c.text(W / 2, 820, "33 terabits", size=120, weight="bold", color="#6B4FB3", ha="center", alpha=endf)
+            c.text(W / 2, 900, "per second, an all-time high at DE-CIX", size=36, color=INK, ha="center", alpha=endf)
+            c.text(W / 2, 1130, "+25%", size=150, weight="bold", color=GREEN, ha="center", alpha=e2)
+            c.text(W / 2, 1210, "above a normal week", size=40, color=INK, ha="center", alpha=e2)
+            c.text(W / 2, 1300, "About 13 full GTA 6 downloads every second in Frankfurt", size=28, color=MUTED, ha="center",
+                   alpha=ease_out((t - S_END - 1.2) / 0.8))
+        footer(c, "Source: DE-CIX, Nov. 19, 2026. Hub peaks from the evening of Nov. 18")
+        bottom_band(c)
+
+    return draw, END
+
+POSTS.update({"gtaflow": gtaflow})
+
 if __name__ == "__main__":
     name = sys.argv[1]
     draw, dur = POSTS[name]()
