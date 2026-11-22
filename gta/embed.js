@@ -130,7 +130,7 @@ var REG={eu:['Europe','#007a55'],na:['North America','#3f6fb5'],me:['Middle East
 function flowChart(box){
  var narrow=box.clientWidth<520,TOTAL=33.03;
  var named=FLOW.reduce(function(a,d){return a+d[1];},0),rows=FLOW.concat([['Other hubs',Math.round((TOTAL-named)*100)/100,'ot']]);
- frame(box,'The Night Before GTA 6 Came Out, Internet Traffic Hit An All-Time High, 25% Above A Normal Week','Traffic through DE-CIX, which runs internet hubs where networks swap data, peaked at a record 33 terabits per second on Nov. 18. Each stream is one hub, as wide as its traffic that evening. Two-thirds went through Frankfurt.');
+ frame(box,'The Night Before GTA 6 Came Out, Internet Traffic Hit An All-Time High, 25% Above A Normal Week','DE-CIX runs internet hubs where networks swap data. Each stream is one hub.');
  var k=document.createElement('div');k.className='gt-key';['eu','na','me','as'].forEach(function(c){var s=document.createElement('span');s.innerHTML='<i style="background:'+REG[c][1]+'"></i>'+REG[c][0];k.appendChild(s);});box.appendChild(k);
  var W=narrow?400:760,lab=narrow?112:170,gap=6,top=16,sc=narrow?10:12,minS=narrow?30:32;
  var H=top*2+gap*(rows.length-1)+rows.reduce(function(a,d){return a+Math.max(d[1]*sc,minS);},0);
@@ -166,7 +166,7 @@ function flowChart(box){
  function sel(i){hover=i;if(i>=0){var b=bands[i];cardEl.innerHTML='<b>'+b.d[0]+'</b>: '+(b.d[2]==='ot'?'about ':'')+fmt(b.d[1])+', '+Math.round(b.d[1]/TOTAL*100)+'% of the record'+(b.d[2]==='ot'?'. This is what is left after the hubs DE-CIX named.':'.');}if(reduce||!running)draw();}
  cv.addEventListener('mousemove',function(ev){sel(pick(ev));});cv.addEventListener('mouseleave',function(){sel(-1);});cv.addEventListener('click',function(ev){sel(pick(ev));});
  if(!reduce)seen(cv,function(){running=true;requestAnimationFrame(step);});
- src(box,'Source: DE-CIX, Nov. 19, 2026. “25% above a normal week” compares launch-period traffic with a typical week at the start of 2026, per DE-CIX. Hub figures are the peaks DE-CIX reported for Wednesday evening, Nov. 18 (Dallas set its record that day); they may not have come at the same minute as the global peak, so “Other hubs” is approximate. Moving dots are illustrative; their density follows each stream’s traffic.');
+
 }
 
 function boot(){var m={'nid-gt-ladder':function(b){ladder(b,false);},'nid-gt-home':function(b){ladder(b,true);},'nid-gt-streams':streams,'nid-gt-dl':dl,'nid-gt-flow':flowChart};Object.keys(m).forEach(function(id){var b=document.getElementById(id);if(b&&!b.dataset.done){b.dataset.done=1;m[id](b);}});}
