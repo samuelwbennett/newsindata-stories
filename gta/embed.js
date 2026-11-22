@@ -130,7 +130,7 @@ var REG={eu:['Europe','#007a55'],na:['North America','#3f6fb5'],me:['Middle East
 function flowChart(box){
  var narrow=box.clientWidth<520,TOTAL=33.03;
  var named=FLOW.reduce(function(a,d){return a+d[1];},0),rows=FLOW.concat([['Other exchanges',Math.round((TOTAL-named)*100)/100,'ot']]);
- frame(box,'Where The Record Traffic Flowed On Nov. 18','Each stream is a DE-CIX exchange, sized by its peak that evening, flowing into the 33.03 terabits per second that crossed all DE-CIX exchanges at 8:20 p.m. in Frankfurt.');
+ frame(box,'On The Eve Of GTA VI’s Launch, A Record 33 Terabits Per Second Flowed Through DE-CIX, Two-Thirds Of It Via Frankfurt','DE-CIX runs internet exchanges, the hubs where networks hand traffic to one another. Each stream is one of its exchanges, as wide as its peak traffic on the evening of Nov. 18, merging into the record total.');
  var k=document.createElement('div');k.className='gt-key';['eu','na','me','as'].forEach(function(c){var s=document.createElement('span');s.innerHTML='<i style="background:'+REG[c][1]+'"></i>'+REG[c][0];k.appendChild(s);});box.appendChild(k);
  var W=narrow?400:760,lab=narrow?112:170,gap=6,top=16,sc=narrow?10:12,minS=narrow?30:32;
  var H=top*2+gap*(rows.length-1)+rows.reduce(function(a,d){return a+Math.max(d[1]*sc,minS);},0);
