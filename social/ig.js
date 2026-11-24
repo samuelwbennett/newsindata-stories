@@ -7,6 +7,7 @@ if(window.__nidIG)return; window.__nidIG=1;
 var IG='https://www.instagram.com/thenewsindata/';
 var BASE='https://stories.thenewsindata.com/social/web/';
 var REELS={
+  tgribbon:{t:'Thanksgiving Football, 1920 To 2026',s:'pro-football-fell-to-one-thanksgiving-game-in-the-1950s-and-this-week-the-nfl-is-playing-five'},
   gtaflow:{t:'GTA 6 Pushed Internet Traffic To A Record',s:'gta-vi-set-two-internet-traffic-records-before-anyone-could-play-it'},
   nflintl:{t:'The NFL\u2019s Record 9 Games Abroad',s:'the-nfl-is-playing-a-record-9-games-abroad-this-season-and-the-49ers-are-giving-up-a-home-game-worth-up-to-20-million'},
   relworld:{t:'The World\u2019s Largest Religion, 2020 To 2070',s:'more-than-half-of-the-worlds-christians-will-live-in-sub-saharan-africa-by-2070'},

@@ -1403,6 +1403,135 @@ def gtaflow():
 
 POSTS.update({"gtaflow": gtaflow})
 
+
+def tgribbon():
+    """Thanksgiving pro football games per year, 1920-2026, then the 2026 holiday week (Wikipedia; NFL)."""
+    NFLX = {1920:6,1921:2,1922:5,1923:4,1924:5,1925:4,1926:8,1927:4,1928:4,1929:3,1930:4,1931:3,1932:3,1933:2,1934:3,
+            1935:3,1936:3,1937:2,1938:2,1939:1,1940:3,1950:2,1952:2}
+    RIVAL = {1946:1,1947:2,1948:2,1949:2,1960:1,1961:1,1962:1,1963:1,1964:1,1965:1,1966:1,1967:2,1968:2,1969:2}
+    EXTRA = {2023:1,2024:1,2025:1,2026:2}
+    def nfl(y):
+        if y in NFLX: return NFLX[y]
+        if 1941 <= y <= 1944: return 0
+        return 1 if y < 1966 else 2 if y < 2006 else 3
+    LIGHT = "#9FCBB6"; GRAYL = "#B9C6BF"
+    yrs = list(range(1920, 2027))
+    X0, X1, BASE, U = 90, 990, 1430, 46
+    step = (X1 - X0) / len(yrs); bw = step - 1.6
+    S1a, PER = 1.0, 0.075                     # column reveal: start, seconds per year
+    S2, S3, END = 13.0, 19.6, 25.0
+    ANN = [(1926, 8, "8 games in 1926", "left", 60), (1942.5, 0, "None, 1941–44", "center", 250),
+           (1956, 1, "One a year, 1953–59", "center", 150), (1966, 3, "Dallas joins, 1966", "center", 120),
+           (2006, 3, "Night game, 2006", "right", 90), (2026, 5, "Five in 2026", "right", 50)]
+    WEEK = [("Wed.", "Nov. 25", [(20, "Packers at Rams", "Netflix")]),
+            ("Thu.", "Nov. 26", [(13, "Bears at Lions", "CBS"), (16.5, "Eagles at Cowboys", "Fox"), (20.333, "Chiefs at Bills", "NBC")]),
+            ("Fri.", "Nov. 27", [(15, "Broncos at Steelers", "Prime Video")])]
+
+    def fade(t, t0, t1):
+        return min(max((t - t0) / 0.5, 0), 1) * min(max((t1 - t) / 0.5, 0), 1)
+
+    def scene1(c, t, a):
+        header(c, "Sports · Thanksgiving", ["Pro Football Fell To One", "Thanksgiving Game In The 1950s,", "And This Week The NFL", "Is Playing Five"],
+               ["Each square is one game, 1920 to 2026."], alpha=a, title_size=54)
+        # legend
+        items = [(GREEN, None, "NFL, Thanksgiving Day"), (GRAYL, None, "Rival leagues"), (LIGHT, GREEN, "Eve or Black Friday")]
+        x = 110
+        for col, ec, lab in items:
+            c.rect(x, 728, 24, 24, col, z=4, alpha=a)
+            if ec: c.line([x, x + 24, x + 24, x, x], [728, 728, 752, 752, 728], color=ec, lw=2, alpha=a, z=5)
+            c.text(x + 34, 750, lab, size=24, color=MUTED, alpha=a)
+            x += 34 + c.text_width(lab, 24) + 34
+        for v in (2, 4, 6, 8):
+            c.line([X0, X1], [BASE - v * U, BASE - v * U], color=GRID, lw=1.5, alpha=a, z=1)
+            c.text(X0 - 14, BASE - v * U + 9, str(v), size=22, color=FAINT, ha="right", alpha=a)
+        c.line([X0, X1], [BASE, BASE], color=RULE, lw=2, alpha=a)
+        cur = None
+        for i, y in enumerate(yrs):
+            ty = S1a + i * PER
+            f = ease_out((t - ty) / 0.25)
+            if f <= 0: continue
+            cur = y
+            x = X0 + i * step
+            k = 0
+            for col, n, ec in ((GREEN, nfl(y), None), (GRAYL, RIVAL.get(y, 0), None), (LIGHT, EXTRA.get(y, 0), GREEN)):
+                for _ in range(n):
+                    yy = BASE - (k + 1) * U + 2
+                    c.rect(x, yy + (1 - f) * 30, bw, U - 4, col, z=4, alpha=a * f)
+                    if ec: c.line([x, x + bw, x + bw, x, x], [yy, yy, yy + U - 4, yy + U - 4, yy], color=ec, lw=1.5, alpha=a * f, z=5)
+                    k += 1
+        for y in (1920, 1940, 1960, 1980, 2000, 2026):
+            c.text(X0 + (y - 1920) * step + bw / 2, BASE + 40, str(y), size=24, color=INK if y == 2026 else FAINT,
+                   weight="bold" if y == 2026 else "normal", ha="right" if y == 2026 else "center", alpha=a)
+        if cur:
+            n = nfl(cur) + RIVAL.get(cur, 0) + EXTRA.get(cur, 0)
+            c.text(X1, 900, str(cur), size=44, color=MUTED, ha="right", alpha=a)
+            c.text(X1, 976, f"{n} game" + ("" if n == 1 else "s"), size=64, weight="bold", color=GREEN, ha="right", alpha=a)
+        for yr, lv, lab, ha, up in ANN:
+            ta = S1a + (int(yr) - 1920) * PER + 0.3
+            fa = min(max((t - ta) / 0.4, 0), 1) * a
+            if fa <= 0: continue
+            x = X0 + (int(yr) - 1920) * step + (step / 2 if yr % 1 else bw / 2)
+            yb = BASE - lv * U
+            c.line([x, x], [yb - up + 6, yb - 6], color=MUTED, lw=1.5, alpha=fa)
+            tx = x - 6 if ha == "left" else x + 6 if ha == "right" else x
+            c.text(tx, yb - up - 4, lab, size=26, weight="bold", ha={"left": "left", "right": "right", "center": "center"}[ha], alpha=fa)
+
+    def scene2(c, t, a):
+        header(c, "Sports · Thanksgiving", ["The NFL’s Thanksgiving Now", "Runs Wednesday To Friday"],
+               ["2026 kickoff times, Eastern. About 16 hours", "of football in three days."], alpha=a)
+        L, R, top, rh = 210, 1000, 760, 190
+        X = lambda h: L + (h - 11) / 13 * (R - L)
+        for h in (11, 14, 17, 20, 23):
+            c.line([X(h), X(h)], [top - 10, top + 3 * rh], color=GRID, lw=1.5, alpha=a, z=1)
+            lab = {11: "11a", 14: "2p", 17: "5p", 20: "8p", 23: "11p"}[h]
+            c.text(X(h), top - 26, lab, size=24, color=FAINT, ha="center", alpha=a)
+        k = 0
+        for i, (d, dt, games) in enumerate(WEEK):
+            y = top + i * rh
+            c.line([60, R], [y + rh, y + rh], color=RULE, lw=1.5, alpha=a)
+            c.text(60, y + rh / 2 - 4, d, size=36, weight="bold", alpha=a)
+            c.text(60, y + rh / 2 + 34, dt, size=24, color=MUTED, alpha=a)
+            for h0, lab, net in games:
+                f = ease_out((t - S2 - 0.6 - k * 0.45) / 0.6)
+                k += 1
+                if f <= 0: continue
+                w = (X(h0 + 3.25) - X(h0)) * f
+                c.rect(X(h0), y + 30, w, rh - 60, GREEN, z=4, alpha=a, radius=12)
+                if f > 0.9:
+                    short = lab.split(" at ")
+                    c.text(X(h0) + 14, y + rh / 2 - 6, short[0] + " at", size=24, color="white", weight="bold", alpha=a, z=6)
+                    c.text(X(h0) + 14, y + rh / 2 + 24, short[1], size=24, color="white", weight="bold", alpha=a, z=6)
+                    c.text(X(h0) + 14, y + rh / 2 + 54, net, size=20, color="#DDEFE6", alpha=a, z=6)
+
+    def scene3(c, t, a):
+        header(c, "Sports · Thanksgiving", ["Why The NFL Keeps", "Adding Games"], ["Viewers for last year’s Thanksgiving games."], alpha=a)
+        items = [("57.2M", "Chiefs-Cowboys, the most-watched", "regular-season NFL game ever", GREEN),
+                 ("44.7M", "Average for the three Thursday games,", "up from 34.5M in 2024", INK),
+                 ("5", "NFL games this week,", "Wednesday to Friday", "#B8483A")]
+        for i, (big, s1, s2, col) in enumerate(items):
+            f = ease_out((t - S3 - 0.4 - i * 0.9) / 0.5)
+            if f <= 0: continue
+            y = 780 + i * 260 + (1 - f) * 40
+            c.text(W / 2, y, big, size=104, weight="bold", color=col, ha="center", alpha=a * f)
+            c.text(W / 2, y + 60, s1, size=31, color=MUTED, ha="center", alpha=a * f)
+            c.text(W / 2, y + 100, s2, size=31, color=MUTED, ha="center", alpha=a * f)
+
+    def draw(c, t):
+        brand_block(c)
+        a1 = min(max((S2 - t) / 0.5, 0), 1)
+        a2 = fade(t, S2, S3)
+        a3 = min(max((t - S3) / 0.5, 0), 1)
+        if a1 > 0: scene1(c, t, a1)
+        if a2 > 0: scene2(c, t, a2)
+        if a3 > 0: scene3(c, t, a3)
+        src = "Source: NFL" if t > S3 - 0.3 else "Source: NFL 2026 schedule; end times estimated" if t > S2 - 0.3 else "Source: Wikipedia, NFL on Thanksgiving Day; NFL"
+        footer(c, src)
+        bottom_band(c)
+
+    return draw, END
+
+POSTS.update({"tgribbon": tgribbon})
+
 if __name__ == "__main__":
     name = sys.argv[1]
     draw, dur = POSTS[name]()
