@@ -1,7 +1,13 @@
 {
- "updated": "2026-11-22",
+ "updated": "2026-11-24",
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
+  {
+   "slug": "fewer-americans-call-childhood-vaccines-important-than-in-2001-and-kindergarten-measles-shots-are-at-a-record-low",
+   "title": "Fewer Americans Call Childhood Vaccines Important Than In 2001, And Kindergarten Measles Shots Are At A Record Low",
+   "section": "Science",
+   "image": "https://stories.thenewsindata.com/vax/vax-lead.png"
+  },
   {
    "slug": "gta-vi-set-two-internet-traffic-records-before-anyone-could-play-it",
    "title": "GTA VI Set Two Internet Traffic Records Before Anyone Could Play It",
