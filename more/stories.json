@@ -3,6 +3,12 @@
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
   {
+   "slug": "native-americans-numbered-fewer-than-300000-in-1900-and-the-2020-census-counted-97-million",
+   "title": "Native Americans Numbered Fewer Than 300,000 In 1900, And The 2020 Census Counted 9.7 Million",
+   "section": "Culture",
+   "image": "https://stories.thenewsindata.com/native/native-lead.png"
+  },
+  {
    "slug": "fewer-americans-call-childhood-vaccines-important-than-in-2001-and-kindergarten-measles-shots-are-at-a-record-low",
    "title": "Fewer Americans Call Childhood Vaccines Important Than In 2001, And Kindergarten Measles Shots Are At A Record Low",
    "section": "Science",

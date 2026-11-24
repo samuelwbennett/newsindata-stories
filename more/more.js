@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+['native','Culture',"Native Americans: From Fewer Than 300,000 To 9.7 Million",'native-americans-numbered-fewer-than-300000-in-1900-and-the-2020-census-counted-97-million'],
 ['vax','Science',"Fewer Americans Call Childhood Vaccines Important",'fewer-americans-call-childhood-vaccines-important-than-in-2001-and-kindergarten-measles-shots-are-at-a-record-low'],
 ['gta','AI & Tech',"GTA VI Set Two Internet Traffic Records",'gta-vi-set-two-internet-traffic-records-before-anyone-could-play-it'],
 ['intl','Sports',"The NFL Is Playing A Record 9 Games Abroad",'the-nfl-is-playing-a-record-9-games-abroad-this-season-and-the-49ers-are-giving-up-a-home-game-worth-up-to-20-million'],
