@@ -176,7 +176,62 @@ function teams(box){
  src(box,'Source: Wikipedia, NFL on Thanksgiving Day, all-time standings through 2025. Records include franchise predecessors, such as the Chicago and St. Louis Cardinals.');
 }
 
-function boot(){var m={'nid-tg-ribbon':function(b){ribbon(b,false);},'nid-tg-home1':function(b){ribbon(b,true);},'nid-tg-week':week,'nid-tg-clock':function(b){dinner(b,false);},'nid-tg-home2':function(b){dinner(b,true);},'nid-tg-strip':function(b){strip(b,false);},'nid-tg-home3':function(b){strip(b,true);},'nid-tg-teams':teams};Object.keys(m).forEach(function(id){var b=document.getElementById(id);if(b&&!b.dataset.done){b.dataset.done=1;m[id](b);}});}
+/* ================= STORY 4: the Thanksgiving clock ================= */
+/* nflverse play-by-play, Thanksgiving games 2017-2025: average real minutes per game-clock minute, by slot (halftime removed), and halftime length */
+var SLOTS=[['Lions game',13,[2.802, 1.75, 2.892, 2.693, 1.07, 2.82, 2.075, 2.205, 3.49, 2.644, 3.059, 3.033, 3.465, 2.636, 4.005, 4.044, 3.025, 2.387, 1.695, 2.426, 1.728, 2.13, 2.923, 2.113, 2.627, 2.712, 3.11, 6.448, 4.23, 5.879, 2.057, 1.508, 1.867, 2.851, 2.421, 2.749, 2.296, 3.358, 1.81, 1.951, 2.374, 2.429, 1.785, 3.318, 4.448, 1.51, 3.792, 3.355, 1.851, 3.664, 2.987, 2.117, 2.35, 3.389, 1.681, 1.441, 3.026, 6.782, 4.545, 4.098],20.1,8,'Bears at Lions'],['Cowboys game',16.5,[1.887, 2.733, 1.635, 2.192, 3.66, 3.061, 2.703, 2.276, 3.206, 2.56, 1.026, 2.803, 1.565, 2.733, 5.517, 2.898, 1.054, 1.67, 3.893, 2.168, 2.459, 3.567, 4.055, 2.94, 2.072, 2.127, 3.238, 4.772, 6.901, 6.138, 2.825, 2.068, 2.479, 2.954, 2.913, 3.141, 2.328, 3.215, 2.078, 1.492, 3.867, 2.856, 3.306, 1.63, 4.875, 3.152, 2.178, 2.335, 3.218, 2.313, 3.268, 3.189, 1.76, 1.843, 3.181, 3.249, 4.401, 5.719, 2.509, 1.098],21.4,7,'Eagles at Cowboys'],['Night game',20.333,[2.237, 1.85, 0.979, 3.211, 2.185, 3.004, 1.934, 2.996, 3.476, 3.214, 2.015, 2.016, 2.184, 1.948, 4.481, 2.155, 2.201, 2.874, 1.94, 1.573, 2.858, 3.145, 1.937, 2.489, 2.406, 2.297, 3.026, 4.264, 6.572, 6.795, 2.055, 1.324, 2.416, 3.417, 2.837, 2.233, 1.843, 2.732, 2.78, 3.202, 2.077, 2.6, 3.326, 1.887, 5.522, 3.109, 2.325, 2.433, 2.511, 3.316, 3.482, 3.365, 2.472, 1.568, 2.86, 2.616, 4.395, 3.473, 4.232, 0.682],15.5,8,'Chiefs at Bills']];
+function hm(m){m=Math.round(m);var h=Math.floor(m/60),r=m%60;return (h?h+' hr ':'')+r+' min';}
+function ms(m){var t=Math.round(m*60);return Math.floor(t/60)+':'+(t%60<10?'0':'')+(t%60);}
+function day(box,compact){
+ var narrow=box.clientWidth<520;
+ frame(box,'On Thanksgiving, The NFL’s 3 Hours Of Game Clock Fill More Than 10 Hours Of The Day',compact?null:'Each block is one minute on the game clock. The taller the block, the longer that minute takes in real time. Averages for each Thanksgiving slot, 2017-2025, placed at this Thursday’s kickoff times (Eastern).');
+ if(!compact)key(box,[[GREEN,'One game minute'],[RUST,'Last 2:00 of the first half'],['#fff','Halftime',GRAY],[FAINT,'Dinner window most Americans prefer']]);
+ var W=narrow?400:760,L=narrow?44:70,top=narrow?62:70,ppm=narrow?0.92:1.18,t0=12.5,t1=24,H=top+(t1-t0)*60*ppm+(narrow?40:46);
+ var Y=function(h){return top+(h-t0)*60*ppm;};
+ var colW=narrow?84:150,gapX=(W-L-3*colW)/3;
+ var svg=el('svg',{viewBox:'0 0 '+W+' '+H});box.appendChild(svg);var tip=tipper(box);
+ /* dinner band, noon-6 */
+ svg.appendChild(el('rect',{x:L-6,y:Y(12.5),width:W-L+6,height:Y(18)-Y(12.5),fill:'#f3f7f5'}));
+ if(!compact)T(svg,W-2,Y(18)-6,narrow?'Dinner, noon-6':'Noon-6 p.m.: when 74% prefer to eat',{a:'end',s:narrow?9.5:11,f:MUTED});
+ for(var h=13;h<=24;h++){svg.appendChild(el('line',{x1:L-6,x2:W,y1:Y(h),y2:Y(h),stroke:h%3==0?RULE:FAINT,'stroke-width':h%3==0?1:.6}));if(h%(narrow?2:1)==0||h==13)T(svg,L-10,Y(h)+4,clock(h).replace(' p.m.',narrow?'p':' p.m.').replace('midnight',narrow?'12a':'midnight'),{a:'end',s:narrow?10:11,f:MUTED});}
+ var blocks=[];
+ SLOTS.forEach(function(sl,i){
+  var x=L+gapX*.5+i*(colW+gapX),y=Y(sl[1]),per=sl[2],ht=sl[3];
+  var avg=per.reduce(function(a,b){return a+b;},0)/60,tot=per.reduce(function(a,b){return a+b;},0)+ht;
+  T(svg,x+colW/2,top-(narrow?36:40),narrow?sl[0].replace(' game',''):sl[0],{a:'middle',s:narrow?12:15,w:'700'});
+  T(svg,x+colW/2,top-(narrow?20:22),(narrow?'':'1 game min = ')+ms(avg)+(narrow?' a min':''),{a:'middle',s:narrow?10:11.5,f:MUTED});
+  T(svg,x+colW/2,top-(narrow?7:7),narrow?clock(sl[1]).replace(' p.m.','p'):'Kickoff '+clock(sl[1]),{a:'middle',s:narrow?9.5:10.5,f:MUTED});
+  for(var m=0;m<60;m++){(function(m,yy,hh){
+   var col=(m==28||m==29)?RUST:GREEN;
+   var r=el('rect',{x:x,y:yy,width:colW,height:Math.max(.4,hh-.7),fill:col,opacity:0,style:'cursor:pointer'});svg.appendChild(r);blocks.push(r);
+   var q=Math.floor(m/15)+1,hd='<b>'+sl[0]+', minute '+(m+1)+'</b> (quarter '+q+')<br>About '+ms(per[m])+' of real time, on average'+(per[m]>4?'<br>Usually a break: end of a quarter, two-minute warning or timeouts':'');
+   r.addEventListener('mousemove',function(ev){tip.show(hd,ev);});r.addEventListener('mouseleave',tip.hide);r.addEventListener('click',function(ev){tip.show(hd,ev);});
+  })(m,y,per[m]*ppm);
+   y+=per[m]*ppm;
+   if(m==29){var hr=el('rect',{x:x+.5,y:y+.5,width:colW-1,height:ht*ppm-1,fill:'#fff',stroke:GRAY,'stroke-dasharray':'3 2',opacity:0});svg.appendChild(hr);blocks.push(hr);
+    var lt=T(svg,x+colW/2,y+ht*ppm/2+4,narrow?'Half '+Math.round(ht)+' min':'Halftime '+ms(ht),{a:'middle',s:narrow?9.5:11.5,f:MUTED,w:'600'});lt.style.opacity=0;blocks.push(lt);
+    if(!narrow&&!compact){var l2=per[28]+per[29];var lx=i==2?x-5:x+colW+5,la=i==2?'end':'start';var ll=T(svg,lx,y-l2*ppm/2+4,'Last 2:00',{a:la,s:10.5,f:RUST,w:'700'});var l3=T(svg,lx,y-l2*ppm/2+17,ms(l2),{a:la,s:10.5,f:RUST});ll.style.opacity=l3.style.opacity=0;blocks.push(ll);blocks.push(l3);}
+    y+=ht*ppm;}
+  }
+  var et=T(svg,x+colW/2,y+(narrow?16:20),hm(tot),{a:'middle',s:narrow?13:17,w:'700'});et.style.opacity=0;blocks.push(et);
+  var en=T(svg,x+colW/2,y+(narrow?29:35),'ends about '+clock(sl[1]+tot/60).replace(' p.m.',narrow?'p':' p.m.'),{a:'middle',s:narrow?9.5:11,f:MUTED});en.style.opacity=0;blocks.push(en);
+ });
+ seen(svg,function(){blocks.forEach(function(b,i){setTimeout(function(){b.style.transition='opacity .25s';if(b.tagName=='text')b.style.opacity=1;else b.setAttribute('opacity',1);},Math.floor(i/3)*28);});});
+ if(!compact)src(box,'Sources: nflverse play-by-play, Thanksgiving Day games 2017-2025 (8 Lions, 7 Cowboys and 8 night games, regulation only); NFL 2026 schedule; Pew Research Center (2024). Real time runs from the first snap to the last.');
+}
+function halves(box){
+ var narrow=box.clientWidth<520;
+ frame(box,'Thanksgiving Afternoon Halftimes Run About 6 Minutes Longer Than A Typical NFL Halftime','Each square is one minute of halftime, average for 2017-2025.');
+ var rows=[['Cowboys game',SLOTS[1][3],GREEN],['Lions game',SLOTS[0][3],GREEN],['Night game',SLOTS[2][3],LIGHT],['All regular-season games',14.3,GRAY]];
+ var W=narrow?400:640,L=narrow?92:180,sz=narrow?10:16,rowH=narrow?30:36,H=rows.length*rowH+6;
+ var svg=el('svg',{viewBox:'0 0 '+W+' '+H,style:'max-width:'+W+'px;margin:0 auto'});box.appendChild(svg);var sq=[];
+ rows.forEach(function(r,i){var y=i*rowH+6;T(svg,L-10,y+sz-2,narrow?({'Cowboys game':'Cowboys','Lions game':'Lions','Night game':'Night','All regular-season games':'All games'})[r[0]]:r[0],{a:'end',s:narrow?11:13,w:i==3?'400':'600'});
+  var n=Math.floor(r[1]),fr=r[1]-n;for(var k=0;k<=n;k++){var w=k<n?sz-2:(sz-2)*fr;if(w<=0)continue;var q=el('rect',{x:L+k*sz,y:y,width:w,height:sz-2,rx:2,fill:r[2],opacity:0});svg.appendChild(q);sq.push([q,k]);}
+  T(svg,L+(n+1)*sz+6,y+sz-2,narrow?ms(r[1]):ms(r[1]).replace(':',' min ').replace(/ min (\d+)$/,' min $1 sec'),{s:narrow?10.5:12,f:MUTED});});
+ seen(svg,function(){sq.forEach(function(p){setTimeout(function(){p[0].style.transition='opacity .2s';p[0].setAttribute('opacity',1);},p[1]*45);});});
+ src(box,'Source: nflverse play-by-play, time from the last snap of the second quarter to the first snap of the third, regular-season games 2017-2025.');
+}
+
+function boot(){var m={'nid-tg-ribbon':function(b){ribbon(b,false);},'nid-tg-home1':function(b){ribbon(b,true);},'nid-tg-week':week,'nid-tg-clock':function(b){dinner(b,false);},'nid-tg-home2':function(b){dinner(b,true);},'nid-tg-strip':function(b){strip(b,false);},'nid-tg-home3':function(b){strip(b,true);},'nid-tg-teams':teams,'nid-tg-day':function(b){day(b,false);},'nid-tg-home4':function(b){day(b,true);},'nid-tg-half':halves};Object.keys(m).forEach(function(id){var b=document.getElementById(id);if(b&&!b.dataset.done){b.dataset.done=1;m[id](b);}});}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 setTimeout(boot,1500);
 })();

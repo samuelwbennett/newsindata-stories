@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+['tg4','Sports',"Thanksgiving’s 3 Hours Of Football Take 10",'on-thanksgiving-the-nfls-3-hours-of-game-clock-fill-more-than-10-hours-of-the-day'],
 ['tg1','Sports',"Thanksgiving Football: From One Game To Five",'pro-football-fell-to-one-thanksgiving-game-in-the-1950s-and-this-week-the-nfl-is-playing-five'],
 ['tg2','Sports',"Thanksgiving Dinner vs. Kickoff, By Time Zone",'most-americans-prefer-thanksgiving-dinner-between-noon-and-6-pm-and-an-nfl-game-is-on-for-nearly-all-of-it'],
 ['tg3','Sports',"Every Lions Thanksgiving Game Since 1934",'the-lions-have-lost-more-thanksgiving-games-than-they-have-won-and-the-nfl-keeps-giving-them-one'],
