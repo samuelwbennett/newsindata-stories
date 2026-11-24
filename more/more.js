@@ -5,6 +5,9 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+['tg1','Sports',"Thanksgiving Football: From One Game To Five",'pro-football-fell-to-one-thanksgiving-game-in-the-1950s-and-this-week-the-nfl-is-playing-five'],
+['tg2','Sports',"Thanksgiving Dinner vs. Kickoff, By Time Zone",'most-americans-prefer-thanksgiving-dinner-between-noon-and-6-pm-and-an-nfl-game-is-on-for-nearly-all-of-it'],
+['tg3','Sports',"Every Lions Thanksgiving Game Since 1934",'the-lions-have-lost-more-thanksgiving-games-than-they-have-won-and-the-nfl-keeps-giving-them-one'],
 ['native','Culture',"Native Americans: From Fewer Than 300,000 To 9.7 Million",'native-americans-numbered-fewer-than-300000-in-1900-and-the-2020-census-counted-97-million'],
 ['vax','Science',"Fewer Americans Call Childhood Vaccines Important",'fewer-americans-call-childhood-vaccines-important-than-in-2001-and-kindergarten-measles-shots-are-at-a-record-low'],
 ['gta','AI & Tech',"GTA VI Set Two Internet Traffic Records",'gta-vi-set-two-internet-traffic-records-before-anyone-could-play-it'],

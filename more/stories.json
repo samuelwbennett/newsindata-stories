@@ -3,6 +3,24 @@
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
   {
+   "slug": "pro-football-fell-to-one-thanksgiving-game-in-the-1950s-and-this-week-the-nfl-is-playing-five",
+   "title": "Pro Football Fell To One Thanksgiving Game In The 1950s, And This Week The NFL Is Playing Five",
+   "section": "Sports",
+   "image": "https://stories.thenewsindata.com/tg/tg1-lead.png"
+  },
+  {
+   "slug": "most-americans-prefer-thanksgiving-dinner-between-noon-and-6-pm-and-an-nfl-game-is-on-for-nearly-all-of-it",
+   "title": "Most Americans Prefer Thanksgiving Dinner Between Noon And 6 P.M., And An NFL Game Is On For Nearly All Of It",
+   "section": "Sports",
+   "image": "https://stories.thenewsindata.com/tg/tg2-lead.png"
+  },
+  {
+   "slug": "the-lions-have-lost-more-thanksgiving-games-than-they-have-won-and-the-nfl-keeps-giving-them-one",
+   "title": "The Lions Have Lost More Thanksgiving Games Than They Have Won, And The NFL Keeps Giving Them One",
+   "section": "Sports",
+   "image": "https://stories.thenewsindata.com/tg/tg3-lead.png"
+  },
+  {
    "slug": "native-americans-numbered-fewer-than-300000-in-1900-and-the-2020-census-counted-97-million",
    "title": "Native Americans Numbered Fewer Than 300,000 In 1900, And The 2020 Census Counted 9.7 Million",
    "section": "Culture",
