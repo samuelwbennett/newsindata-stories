@@ -7,6 +7,7 @@ if(window.__nidIG)return; window.__nidIG=1;
 var IG='https://www.instagram.com/thenewsindata/';
 var BASE='https://stories.thenewsindata.com/social/web/';
 var REELS={
+  tgclock:{t:'Thanksgiving’s 3 Hours Of Football Fill 10',s:'on-thanksgiving-the-nfls-3-hours-of-game-clock-fill-more-than-10-hours-of-the-day'},
   tgribbon:{t:'Thanksgiving Football, 1920 To 2026',s:'pro-football-fell-to-one-thanksgiving-game-in-the-1950s-and-this-week-the-nfl-is-playing-five'},
   gtaflow:{t:'GTA 6 Pushed Internet Traffic To A Record',s:'gta-vi-set-two-internet-traffic-records-before-anyone-could-play-it'},
   nflintl:{t:'The NFL\u2019s Record 9 Games Abroad',s:'the-nfl-is-playing-a-record-9-games-abroad-this-season-and-the-49ers-are-giving-up-a-home-game-worth-up-to-20-million'},

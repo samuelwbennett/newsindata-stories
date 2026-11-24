@@ -1532,6 +1532,117 @@ def tgribbon():
 
 POSTS.update({"tgribbon": tgribbon})
 
+
+def tgclock():
+    """Thanksgiving: each game-clock minute sized by real time, on Thursday's clock (nflverse 2017-2025 averages)."""
+    SL = [["Lions game", 13.0, [2.802, 1.75, 2.892, 2.693, 1.07, 2.82, 2.075, 2.205, 3.49, 2.644, 3.059, 3.033, 3.465, 2.636, 4.005, 4.044, 3.025, 2.387, 1.695, 2.426, 1.728, 2.13, 2.923, 2.113, 2.627, 2.712, 3.11, 6.448, 4.23, 5.879, 2.057, 1.508, 1.867, 2.851, 2.421, 2.749, 2.296, 3.358, 1.81, 1.951, 2.374, 2.429, 1.785, 3.318, 4.448, 1.51, 3.792, 3.355, 1.851, 3.664, 2.987, 2.117, 2.35, 3.389, 1.681, 1.441, 3.026, 6.782, 4.545, 4.098], 20.1], ["Cowboys game", 16.5, [1.887, 2.733, 1.635, 2.192, 3.66, 3.061, 2.703, 2.276, 3.206, 2.56, 1.026, 2.803, 1.565, 2.733, 5.517, 2.898, 1.054, 1.67, 3.893, 2.168, 2.459, 3.567, 4.055, 2.94, 2.072, 2.127, 3.238, 4.772, 6.901, 6.138, 2.825, 2.068, 2.479, 2.954, 2.913, 3.141, 2.328, 3.215, 2.078, 1.492, 3.867, 2.856, 3.306, 1.63, 4.875, 3.152, 2.178, 2.335, 3.218, 2.313, 3.268, 3.189, 1.76, 1.843, 3.181, 3.249, 4.401, 5.719, 2.509, 1.098], 21.4], ["Night game", 20.333, [2.237, 1.85, 0.979, 3.211, 2.185, 3.004, 1.934, 2.996, 3.476, 3.214, 2.015, 2.016, 2.184, 1.948, 4.481, 2.155, 2.201, 2.874, 1.94, 1.573, 2.858, 3.145, 1.937, 2.489, 2.406, 2.297, 3.026, 4.264, 6.572, 6.795, 2.055, 1.324, 2.416, 3.417, 2.837, 2.233, 1.843, 2.732, 2.78, 3.202, 2.077, 2.6, 3.326, 1.887, 5.522, 3.109, 2.325, 2.433, 2.511, 3.316, 3.482, 3.365, 2.472, 1.568, 2.86, 2.616, 4.395, 3.473, 4.232, 0.682], 15.5]]
+    T0, T1, Y0, PPM = 12.75, 24.0, 735, 1.2
+    Yh = lambda h: Y0 + (h - T0) * 60 * PPM
+    CW, XS = 200, [235, 485, 735]
+    SW0, SW1 = 1.4, 13.4                         # sweep from 12:45 p.m. to midnight
+    swh = lambda t: T0 + (T1 - T0) * min(max((t - SW0) / (SW1 - SW0), 0), 1)
+    S2, S3, END = 16.0, 21.0, 26.5
+    LIGHT = "#9FCBB6"; GRAYL = "#B9C6BF"
+    # precompute block start times (hours) per slot
+    blocks = []
+    for i, (name, ko, per, ht) in enumerate(SL):
+        h = ko; bl = []
+        for m, d in enumerate(per):
+            bl.append((h, d, m)); h += d / 60
+            if m == 29: hs = h; h += ht / 60
+        blocks.append((bl, hs, h))
+    def clk(h):
+        hh = int(h); mm = int(round((h - hh) * 60))
+        if mm == 60: hh += 1; mm = 0
+        ap = "a.m." if hh >= 24 or hh < 12 else "p.m."
+        d = hh % 12 or 12
+        return f"{d}:{mm:02d} {ap}"
+    def fade(t, t0, t1):
+        return min(max((t - t0) / 0.5, 0), 1) * min(max((t1 - t) / 0.5, 0), 1)
+
+    def scene1(c, t, a):
+        header(c, "Sports · Thanksgiving", ["On Thanksgiving, The NFL’s", "3 Hours Of Game Clock Fill", "More Than 10 Hours Of The Day"],
+               ["Each block is one minute of game clock,", "sized by how long it takes in real time."], alpha=a, title_size=54)
+        c.rect(150, Yh(12.75), 800, Yh(18) - Yh(12.75), "#EEF4F0", z=1, alpha=a)
+        c.text(948, Yh(18) - 40, "Dinner window:", size=21, color=MUTED, ha="right", alpha=a)
+        c.text(948, Yh(18) - 12, "74% prefer noon-6 p.m.", size=21, color=MUTED, ha="right", alpha=a)
+        for h in range(13, 25):
+            c.line([150, 950], [Yh(h), Yh(h)], color=RULE if h % 3 == 0 else GRID, lw=1.2, alpha=a, z=1)
+            lab = "midnight" if h == 24 else (str(h - 12 if h > 12 else h) + " p.m.")
+            if h % 2 == 1 or h == 24: c.text(140, Yh(h) + 8, lab, size=21, color=FAINT, ha="right", alpha=a)
+        hn = swh(t)
+        played = 0.0; first = None; last = None
+        for i, (name, ko, per, ht) in enumerate(SL):
+            x = XS[i]; bl, hs, he = blocks[i]
+            c.text(x + CW / 2, 690, name, size=27, weight="bold", ha="center", alpha=a)
+            c.text(x + CW / 2, 718, "Kickoff " + clk(ko), size=20, color=MUTED, ha="center", alpha=a)
+            for h, d, m in bl:
+                if h >= hn: break
+                hh = min(d / 60, hn - h)
+                col = "#B8483A" if m in (28, 29) else GREEN
+                c.rect(x, Yh(h), CW, max(hh * 60 * PPM - 0.8, 0.4), col, z=3, alpha=a)
+                played += min(1, hh * 60 / d) if d else 1
+            if hn > hs:
+                hh = min(ht / 60, hn - hs)
+                c.rect(x + 1, Yh(hs), CW - 2, hh * 60 * PPM, "white", z=3, alpha=a)
+                if hn > hs + ht / 120:
+                    c.text(x + CW / 2, Yh(hs) + ht * PPM / 2 + 8, f"Halftime {round(ht)} min", size=21, weight="bold", color=MUTED, ha="center", alpha=a, z=6)
+            if hn > he + 0.02:
+                tot = (he - ko) * 60
+                c.text(x + CW / 2, Yh(he) + 34, f"{int(tot // 60)} hr {int(round(tot % 60))} min", size=30, weight="bold", ha="center", alpha=a)
+                c.text(x + CW / 2, Yh(he) + 62, "ends about " + clk(he), size=20, color=MUTED, ha="center", alpha=a)
+        if SW0 < t < SW1 + 0.6:
+            c.line([150, 950], [Yh(hn), Yh(hn)], color="#B8483A", lw=2, alpha=a * 0.8, z=5, dash=(4, 4))
+        if t > SW0:
+            c.text(240, 1240, clk(min(hn, 23.4)) if hn < 23.4 else "11:23 p.m.", size=52, weight="bold", color=INK, alpha=a)
+            c.text(240, 1278, "on the clock on the wall", size=22, color=MUTED, alpha=a)
+            gm = min(played, 180)
+            c.text(240, 1370, f"{int(gm // 60)}:{int(gm % 60):02d}:00", size=52, weight="bold", color=GREEN, alpha=a)
+            c.text(240, 1408, "of game clock played", size=22, color=MUTED, alpha=a)
+
+    def scene2(c, t, a):
+        header(c, "Sports · Thanksgiving", ["Thanksgiving Afternoon", "Halftimes Run Longer"],
+               ["Each square is one minute of halftime,", "average for 2017 to 2025."], alpha=a)
+        rows = [("Cowboys game", SL[1][3], GREEN), ("Lions game", SL[0][3], GREEN), ("Night game", SL[2][3], LIGHT), ("Typical NFL game", 14.3, GRAYL)]
+        for i, (lab, v, col) in enumerate(rows):
+            y = 760 + i * 170
+            c.text(110, y, lab, size=34, weight="bold" if i < 2 else "normal", alpha=a)
+            n = int(v); fr = v - n
+            for k in range(n + 1):
+                f = ease_out((t - S2 - 0.4 - i * 0.25 - k * 0.04) / 0.3)
+                if f <= 0: continue
+                w = 34 if k < n else 34 * fr
+                c.rect(110 + k * 39, y + 22, w * f, 50, col, z=4, alpha=a, radius=4)
+            if t > S2 + 1.4 + i * 0.25:
+                c.text(110 + (n + 1) * 39 + 10, y + 60, f"{int(v)}:{int(round((v % 1) * 60)):02d}", size=30, weight="bold", color=MUTED, alpha=a)
+
+    def scene3(c, t, a):
+        header(c, "Sports · Thanksgiving", ["Thursday’s NFL Day,", "By The Numbers"], ["Based on the past nine Thanksgivings."], alpha=a)
+        items = [("10 hr 23 min", "from the 1 p.m. kickoff to the last snap", GREEN),
+                 ("2:51", "of real time for each minute of game clock", INK),
+                 ("10-13 min", "for the last two minutes of the first half", "#B8483A")]
+        for i, (big, small, col) in enumerate(items):
+            f = ease_out((t - S3 - 0.4 - i * 0.9) / 0.5)
+            if f <= 0: continue
+            y = 790 + i * 250 + (1 - f) * 40
+            c.text(W / 2, y, big, size=100, weight="bold", color=col, ha="center", alpha=a * f)
+            c.text(W / 2, y + 62, small, size=31, color=MUTED, ha="center", alpha=a * f)
+
+    def draw(c, t):
+        brand_block(c)
+        a1 = min(max((S2 - t) / 0.5, 0), 1)
+        a2 = fade(t, S2, S3)
+        a3 = min(max((t - S3) / 0.5, 0), 1)
+        if a1 > 0: scene1(c, t, a1)
+        if a2 > 0: scene2(c, t, a2)
+        if a3 > 0: scene3(c, t, a3)
+        footer(c, "Source: nflverse play-by-play, Thanksgiving games 2017-2025; NFL; Pew")
+        bottom_band(c)
+
+    return draw, END
+
+POSTS.update({"tgclock": tgclock})
+
 if __name__ == "__main__":
     name = sys.argv[1]
     draw, dur = POSTS[name]()
