@@ -319,7 +319,72 @@ function field(box){
  src(box,'Source: Wikipedia, NFL on Thanksgiving Day, all-time standings through 2025. Records include franchise predecessors; ties count as half a win.');
 }
 
-function boot(){var m={'nid-tg-ribbon':function(b){ribbon(b,false);},'nid-tg-home1':function(b){ribbon(b,true);},'nid-tg-week':week,'nid-tg-clock':function(b){dinner(b,false);},'nid-tg-home2':function(b){dinner(b,true);},'nid-tg-strip':function(b){strip(b,false);},'nid-tg-home3':function(b){strip(b,true);},'nid-tg-teams':teams,'nid-tg-day':function(b){day(b,false);},'nid-tg-home4':function(b){day(b,true);},'nid-tg-half':halves,'nid-tg-race':function(b){race(b,false);},'nid-tg-home5':function(b){race(b,true);},'nid-tg-pair':pair,'nid-tg-field':field};Object.keys(m).forEach(function(id){var b=document.getElementById(id);if(b&&!b.dataset.done){b.dataset.done=1;m[id](b);}});}
+/* ================= STORY 5: what Thanksgiving dinner costs ================= */
+/* American Farm Bureau Federation survey, classic dinner for 10: [item, quantity, 2025, 2026] */
+var ITEMS=[['Turkey','16 lb',21.50,23.68],['Pumpkin pie mix','30 oz',4.16,4.24],['Sweet potatoes','3 lb',4.00,4.20],['Whole milk','1 gal',3.73,4.05],['Cubed stuffing','14 oz',3.71,3.91],['Misc. ingredients','',3.61,3.84],['Dinner rolls','12',3.56,3.81],['Pie crusts','2',3.37,3.28],['Fresh cranberries','12 oz',2.28,2.48],['Frozen peas','1 lb',2.03,1.99],['Whipping cream','1/2 pt',1.87,1.84],['Veggie tray','1 lb',1.36,1.31]];
+/* totals 1986-2026 (AFBF); minutes of work at average hourly earnings of production and nonsupervisory workers (BLS via FRED, November; October for 2026); totals in October 2026 dollars (CPI-U) */
+var COST=[28.74, 24.51, 26.61, 24.7, 28.85, 25.95, 26.39, 27.49, 28.4, 29.64, 31.66, 31.75, 33.09, 33.83, 32.37, 35.04, 34.56, 36.28, 35.68, 36.78, 38.1, 42.26, 44.61, 42.91, 43.47, 49.2, 49.48, 49.04, 49.41, 50.11, 49.87, 49.12, 48.9, 48.91, 46.9, 53.31, 64.05, 61.17, 58.08, 55.18, 58.63],MINS=[191.4, 158.6, 166.7, 149.2, 167.7, 146.7, 145.8, 147.9, 148.8, 151.0, 155.7, 149.9, 150.8, 148.6, 136.5, 142.8, 136.9, 140.8, 135.2, 135.4, 134.6, 143.8, 146.2, 136.9, 135.8, 150.9, 149.6, 144.9, 142.7, 141.8, 137.8, 132.6, 127.6, 123.1, 112.8, 120.4, 136.7, 125.0, 114.0, 104.1, 107.4],REAL=[87.85, 71.68, 74.65, 66.21, 72.82, 63.55, 62.67, 63.54, 63.98, 65.08, 67.33, 66.26, 68.05, 67.8, 62.71, 66.62, 64.26, 66.18, 62.81, 62.66, 63.65, 67.64, 70.63, 66.66, 66.81, 73.09, 72.21, 70.7, 70.36, 71.05, 69.54, 67.04, 65.33, 64.01, 60.66, 64.5, 72.34, 66.99, 61.92, 57.29, 58.63];
+function usd(v){return '$'+v.toFixed(2);}
+function receipt(box){
+ var narrow=box.clientWidth<520;
+ frame(box,'The Turkey Accounts For Most Of This Year’s $3.45 Increase','The classic Thanksgiving dinner for 10, priced by Farm Bureau volunteer shoppers in 2026, with the change from 2025.');
+ var W=narrow?380:560,pad=narrow?16:26,rowH=narrow?30:32,top=narrow?78:84,H=top+ITEMS.length*rowH+(narrow?110:118);
+ var svg=el('svg',{viewBox:'0 0 '+W+' '+H,style:'max-width:'+W+'px;margin:0 auto;filter:drop-shadow(0 3px 10px rgba(0,0,0,.08))'});box.appendChild(svg);
+ var MONO='"Courier New",Courier,monospace';
+ function M(x,y,t,o){o=o||{};var n=el('text',{x:x,y:y,'text-anchor':o.a||'start','font-size':o.s||(narrow?13:14.5),fill:o.f||INK,'font-family':MONO,'font-weight':o.w||'normal'},t);svg.appendChild(n);return n;}
+ /* paper with zigzag bottom */
+ var zz='M0 0 H'+W+' V'+(H-10);for(var x=W;x>0;x-=12)zz+=' L'+(x-6)+' '+H+' L'+(x-12)+' '+(H-10);zz+=' Z';
+ svg.appendChild(el('path',{d:zz,fill:'#fffdf8',stroke:RULE}));
+ M(W/2,30,'THANKSGIVING 2026',{a:'middle',w:'700',s:narrow?15:17});M(W/2,50,'Classic dinner for 10',{a:'middle',f:MUTED,s:narrow?12:13});
+ var cx=narrow?W-78:W-150,bw=narrow?44:90,sc=bw/2.5;   /* change bars: +-$2.50 spans half width */
+ M(pad,top-14,'ITEM',{s:11,f:MUTED});M(cx-(narrow?18:28),top-14,'2026',{a:'end',s:11,f:MUTED});M(W-pad,top-14,'CHANGE',{a:'end',s:11,f:MUTED});
+ svg.appendChild(el('line',{x1:pad,x2:W-pad,y1:top-8,y2:top-8,stroke:INK,'stroke-dasharray':'3 3'}));
+ var zx=narrow?W-pad-72:W-pad-120,sc=narrow?10:30,anim=[];
+ ITEMS.forEach(function(it,i){var y=top+i*rowH+rowH/2+5,dv=it[3]-it[2],hl=i==0;
+  if(hl)svg.appendChild(el('rect',{x:pad-6,y:y-rowH/2-5,width:W-2*pad+12,height:rowH,fill:'#fbeee9',rx:3}));
+  M(pad,y,(narrow?it[0].replace('Misc. ingredients','Misc.').replace('Fresh cranberries','Cranberries').replace('Cubed stuffing','Stuffing').replace('Whipping cream','Cream'):it[0]),{w:hl?'700':'normal'});
+  if(!narrow&&it[1])M(pad+170,y,it[1],{f:MUTED,s:12.5});
+  M(cx-(narrow?18:28),y,usd(it[3]),{a:'end',w:hl?'700':'normal'});
+  var bwid=Math.max(1.5,Math.abs(dv)*sc),r=el('rect',{x:dv>=0?zx:zx-bwid,y:y-10,width:0,height:12,fill:dv>=0?RUST:GREEN,rx:1.5});svg.appendChild(r);anim.push([r,bwid,dv>=0?zx:zx-bwid]);
+  M(W-pad,y,(dv>=0?'+':'−')+(Math.abs(dv)>=1?usd(Math.abs(dv)):Math.round(Math.abs(dv)*100)+'¢'),{a:'end',s:narrow?11.5:12.5,f:dv>=0?RUST:GREEN,w:'700'});
+ });
+ svg.appendChild(el('line',{x1:zx,x2:zx,y1:top-4,y2:top+ITEMS.length*rowH,stroke:MUTED,'stroke-width':.8}));
+ var ty=top+ITEMS.length*rowH+12;svg.appendChild(el('line',{x1:pad,x2:W-pad,y1:ty,y2:ty,stroke:INK,'stroke-dasharray':'3 3'}));
+ M(pad,ty+26,'TOTAL',{w:'700',s:narrow?15:17});M(cx-(narrow?18:28),ty+26,'$58.63',{a:'end',w:'700',s:narrow?15:17});M(W-pad,ty+26,'+$3.45',{a:'end',w:'700',f:RUST,s:narrow?13:15});
+ M(pad,ty+48,'Last year $55.18 · per person $5.86',{f:MUTED,s:narrow?11.5:12.5});
+ M(W/2,ty+76,'*** turkey: +$2.18 of the +$3.45 ***',{a:'middle',f:MUTED,s:narrow?11:12});
+ seen(svg,function(){anim.forEach(function(a,i){setTimeout(function(){a[0].style.transition='width .5s ease';a[0].setAttribute('width',a[1]);},150+i*90);});});
+ src(box,'Source: American Farm Bureau Federation Thanksgiving dinner surveys, 2025 and 2026. Misc. ingredients are coffee and baking basics such as onions, eggs, sugar, flour, evaporated milk and butter.');
+}
+function costTime(box,compact){
+ var narrow=box.clientWidth<520;
+ frame(box,'Measured In Work, Only Last Year’s Thanksgiving Dinner Was Cheaper Than This Year’s',compact?null:'The classic dinner for 10, 1986 to 2026. Switch between minutes of work, inflation-adjusted dollars and the price on the receipt.');
+ var modes=[['mins','Minutes of work',MINS,function(v){return Math.round(v)+' min';},[90,200]],['real','Adjusted for inflation',REAL,function(v){return usd(v);},[50,95]],['cost','Price at the time',COST,function(v){return usd(v);},[20,70]]];
+ var tabs=document.createElement('div');tabs.style.cssText='display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:0 0 .6em';
+ if(compact)tabs.style.display='none';box.appendChild(tabs);
+ var W=narrow?400:760,L=narrow?50:62,R=narrow?20:30,top=18,H=narrow?280:340,bot=H-28;
+ var X=function(y){return L+(y-1986)/40*(W-L-R);};
+ var svg=el('svg',{viewBox:'0 0 '+W+' '+H});box.appendChild(svg);var tip=tipper(box);
+ var g=el('g');svg.appendChild(g);var cd=compact?null:card(box);
+ function draw(mi){g.innerHTML='';var m=modes[mi],D=m[2],lo=m[4][0],hi=m[4][1],Y=function(v){return top+(hi-v)/(hi-lo)*(bot-top);};
+  var stepv=mi==0?25:mi==1?10:10;for(var v=Math.ceil(lo/stepv)*stepv;v<=hi;v+=stepv){g.appendChild(el('line',{x1:L,x2:W-R,y1:Y(v),y2:Y(v),stroke:FAINT}));T(g,L-6,Y(v)+4,mi==0?v+(narrow?'':' min'):'$'+v,{a:'end',s:10.5,f:MUTED});}
+  (narrow?[1986,2000,2013,2026]:[1986,1990,1995,2000,2005,2010,2015,2020,2026]).forEach(function(y){T(g,X(y),bot+18,String(y),{a:'middle',s:10.5,f:MUTED});});
+  var area='M'+X(1986)+' '+bot,d='';D.forEach(function(v,i){var p=X(1986+i)+' '+Y(v);d+=(i?' L':'M')+p;area+=' L'+p;});area+=' L'+X(2026)+' '+bot+' Z';
+  g.appendChild(el('path',{d:area,fill:'#e7f2ec'}));var ln=el('path',{d:d,fill:'none',stroke:GREEN,'stroke-width':2.6,'stroke-linejoin':'round'});g.appendChild(ln);
+  var len=ln.getTotalLength?ln.getTotalLength():1000;ln.style.strokeDasharray=len;ln.style.strokeDashoffset=len;ln.getBoundingClientRect();ln.style.transition='stroke-dashoffset 1.4s ease';ln.style.strokeDashoffset=0;
+  D.forEach(function(v,i){var y=1986+i,c=el('circle',{cx:X(y),cy:Y(v),r:y==2026?5:(narrow?2:2.6),fill:y==2026?RUST:GREEN,stroke:'#fff','stroke-width':y==2026?2:.8,style:'cursor:pointer'});g.appendChild(c);
+   var h='<b>'+y+'</b>: '+usd(COST[i])+' at the time<br>'+usd(REAL[i])+' in 2026 dollars<br>'+Math.round(MINS[i])+' minutes of work';c.addEventListener('mousemove',function(ev){tip.show(h,ev);});c.addEventListener('mouseleave',tip.hide);c.addEventListener('click',function(ev){tip.show(h,ev);});});
+  var a1=D[0],a2=D[40];T(g,X(1986)+8,Y(a1)+(mi==2?18:4),'1986: '+m[3](a1),{s:narrow?11:12.5,w:'700'});
+  T(g,X(2026)-8,Y(a2)+24,'2026: '+m[3](a2),{a:'end',s:narrow?11:12.5,w:'700',f:RUST});
+  if(mi==2&&!narrow)T(g,X(2022),Y(64.05)-10,'2022 record: $64.05',{a:'middle',s:11.5,f:MUTED});
+  if(cd)cd.innerHTML=mi==0?'<b>About 1 hour and 47 minutes</b> of the average worker’s pay buys this year’s dinner for 10, up 3 minutes from last year but down from 3 hours and 11 minutes in 1986. Only last year’s dinner took less work.':mi==1?'<b>In 2026 dollars</b>, the 1986 dinner would cost $87.85. This year’s $58.63 is the second-lowest in the survey’s 41 years, after last year’s $57.29.':'<b>On the receipt</b>, this year’s $58.63 is up 6% from last year and 8% below the 2022 record of $64.05.';
+  [].forEach.call(tabs.children,function(b,i){b.style.background=i==mi?GREEN:'#fff';b.style.color=i==mi?'#fff':INK;});}
+ modes.forEach(function(m,i){var b=document.createElement('button');b.textContent=m[1];b.style.cssText='font:13px '+SANS+';padding:.4em .9em;border-radius:99px;border:1px solid '+RULE+';cursor:pointer';b.addEventListener('click',function(){draw(i);});tabs.appendChild(b);});
+ seen(svg,function(){draw(0);});
+ if(!compact)src(box,'Sources: American Farm Bureau Federation; Bureau of Labor Statistics average hourly earnings of production and nonsupervisory workers and consumer price index, via FRED. Wages and prices are for November of each year (October for 2026).');
+}
+
+function boot(){var m={'nid-tg-ribbon':function(b){ribbon(b,false);},'nid-tg-home1':function(b){ribbon(b,true);},'nid-tg-week':week,'nid-tg-clock':function(b){dinner(b,false);},'nid-tg-home2':function(b){dinner(b,true);},'nid-tg-strip':function(b){strip(b,false);},'nid-tg-home3':function(b){strip(b,true);},'nid-tg-teams':teams,'nid-tg-day':function(b){day(b,false);},'nid-tg-home4':function(b){day(b,true);},'nid-tg-half':halves,'nid-tg-race':function(b){race(b,false);},'nid-tg-home5':function(b){race(b,true);},'nid-tg-pair':pair,'nid-tg-field':field,'nid-tc-receipt':receipt,'nid-tc-time':function(b){costTime(b,false);},'nid-tc-home':function(b){costTime(b,true);}};Object.keys(m).forEach(function(id){var b=document.getElementById(id);if(b&&!b.dataset.done){b.dataset.done=1;m[id](b);}});}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 setTimeout(boot,1500);
 })();
