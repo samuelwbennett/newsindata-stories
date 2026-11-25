@@ -231,7 +231,95 @@ function halves(box){
  src(box,'Source: nflverse play-by-play, time from the last snap of the second quarter to the first snap of the third, regular-season games 2017-2025.');
 }
 
-function boot(){var m={'nid-tg-ribbon':function(b){ribbon(b,false);},'nid-tg-home1':function(b){ribbon(b,true);},'nid-tg-week':week,'nid-tg-clock':function(b){dinner(b,false);},'nid-tg-home2':function(b){dinner(b,true);},'nid-tg-strip':function(b){strip(b,false);},'nid-tg-home3':function(b){strip(b,true);},'nid-tg-teams':teams,'nid-tg-day':function(b){day(b,false);},'nid-tg-home4':function(b){day(b,true);},'nid-tg-half':halves};Object.keys(m).forEach(function(id){var b=document.getElementById(id);if(b&&!b.dataset.done){b.dataset.done=1;m[id](b);}});}
+/* ================= STORY 3 rework: Lions vs. Cowboys ================= */
+var CG='1966|Browns|26|14|The first Cowboys Thanksgiving game;1967|Cardinals|46|21;1968|Washington|29|20;1969|49ers|24|24;1970|Packers|16|3;1971|Rams|28|21;1972|49ers|10|31;1973|Dolphins|7|14;1974|Washington|24|23|Backup quarterback Clint Longley came off the bench to lead a comeback;1976|Cardinals|19|14;1978|Washington|37|10;1979|Oilers|24|30;1980|Seahawks|51|7;1981|Bears|10|9;1982|Browns|31|14;1983|Cardinals|35|17;1984|Patriots|20|17;1985|Cardinals|35|17;1986|Seahawks|14|31;1987|Vikings|38|44|Lost in overtime;1988|Oilers|17|25;1989|Eagles|0|27;1990|Washington|27|17;1991|Steelers|20|10;1992|Giants|30|3;1993|Dolphins|14|16|The snow game: Leon Lett touched a blocked field goal, and Miami recovered and won;1994|Packers|42|31;1995|Chiefs|24|12;1996|Washington|21|10;1997|Titans|14|27;1998|Vikings|36|46;1999|Dolphins|20|0;2000|Vikings|15|27;2001|Broncos|24|26;2002|Washington|27|20;2003|Dolphins|21|40;2004|Bears|21|7;2005|Broncos|21|24|Lost in overtime;2006|Buccaneers|38|10;2007|Jets|34|3;2008|Seahawks|34|9;2009|Raiders|24|7;2010|Saints|27|30;2011|Dolphins|20|19;2012|Washington|31|38;2013|Raiders|31|24;2014|Eagles|10|33;2015|Panthers|14|33;2016|Washington|31|26;2017|Chargers|6|28;2018|Washington|31|23;2019|Bills|15|26;2020|Washington|16|41;2021|Raiders|33|36|Lost in overtime;2022|Giants|28|20;2023|Washington|45|10;2024|Giants|27|20;2025|Chiefs|31|28|Watched by 57.2 million people, the most for any regular-season NFL game';
+var COWS={};CG.split(';').forEach(function(s){var p=s.split('|');var lp=+p[2],op=+p[3];COWS[+p[0]]={opp:p[1],lp:lp,op:op,r:lp>op?'W':lp<op?'L':'T',note:p[4]||''};});
+var BLUE='#0076b6';
+function series(D){var out=[],w=0,l=0,t=0;for(var y=1934;y<=2025;y++){var g=D[y];if(!g)continue;if(g.r=='W')w++;else if(g.r=='L')l++;else t++;out.push({y:y,v:w-l,w:w,l:l,t:t,g:g});}return out;}
+function recAt(S,y){var r=null;S.forEach(function(p){if(p.y<=y)r=p;});return r;}
+function rs(p){return p?p.w+'-'+p.l+(p.t?'-'+p.t:''):'no games yet';}
+function race(box,compact){
+ var narrow=box.clientWidth<520;
+ frame(box,'The Lions And Cowboys Host Thanksgiving Every Year, But Only Dallas Wins Most Of The Time',compact?null:'Each team’s running Thanksgiving record: games above or below .500 after every holiday game.');
+ if(!compact)key(box,[[GREEN,'Cowboys, since 1966'],[BLUE,'Lions, since 1934']]);
+ var W=narrow?400:760,L=narrow?30:40,R=narrow?86:118,top=14,H=narrow?300:380,bot=H-30;
+ var X=function(y){return L+(y-1934)/(2025-1934)*(W-L-R);},vmin=-10,vmax=14,Y=function(v){return top+(vmax-v)/(vmax-vmin)*(bot-top);};
+ var svg=el('svg',{viewBox:'0 0 '+W+' '+H});box.appendChild(svg);
+ svg.appendChild(el('rect',{x:L,y:Y(0),width:W-L-R,height:Y(vmin)-Y(0),fill:'#fbf4f2'}));
+ [-8,-4,0,4,8,12].forEach(function(v){svg.appendChild(el('line',{x1:L,x2:W-R,y1:Y(v),y2:Y(v),stroke:v==0?MUTED:FAINT,'stroke-width':v==0?1.2:1}));T(svg,L-6,Y(v)+4,(v>0?'+':'')+v,{a:'end',s:10.5,f:MUTED});});
+ T(svg,L+4,Y(vmax)+10,narrow?'Winning':'Winning record',{s:10,f:MUTED});T(svg,L+4,Y(vmin)-6,narrow?'Losing':'Losing record',{s:10,f:RUST});
+ (narrow?[1940,1960,1980,2000,2025]:[1934,1950,1966,1980,2000,2025]).forEach(function(y){T(svg,X(y),bot+18,String(y),{a:'middle',s:10.5,f:MUTED});});
+ var SL=series(LIONS),SC=series(COWS),paths=[];
+ function draw(S,col,lab){var d='',prev=null;S.forEach(function(p,i){var x=X(p.y),y=Y(p.v);if(i==0)d='M'+x+' '+Y(0)+' L'+x+' '+y;else d+=' L'+x+' '+Y(prev.v)+' L'+x+' '+y;prev=p;});
+  var path=el('path',{d:d,fill:'none',stroke:col,'stroke-width':narrow?2.2:2.8,'stroke-linejoin':'round'});svg.appendChild(path);paths.push(path);
+  var e=S[S.length-1];var t1=T(svg,X(2025)+6,Y(e.v)+4,lab+' '+(e.v>0?'+':'')+e.v,{s:narrow?11.5:13,f:col,w:'700'});var t2=T(svg,X(2025)+6,Y(e.v)+(narrow?18:20),rs(e),{s:narrow?10:11.5,f:MUTED});t1.style.opacity=t2.style.opacity=0;paths.push(t1);paths.push(t2);}
+ draw(SC,GREEN,'Cowboys');draw(SL,BLUE,'Lions');
+ if(!compact){
+  var pk=SL.reduce(function(a,b){return b.v>=a.v&&b.y>1990?b:a;});var pc=SC.reduce(function(a,b){return b.v>a.v?b:a;});
+  var ann=[[pk.y,pk.v,'Lions peak: +'+pk.v+' in '+pk.y,BLUE,-1],[pc.y,pc.v,'Cowboys peak: +'+pc.v+' in '+pc.y,GREEN,-1]];
+  if(!narrow)ann.push([2012,-5,'Nine straight losses, 2004-12',BLUE,2]);
+  ann.forEach(function(a){var x=X(a[0]),y=Y(a[1]);var c=el('circle',{cx:x,cy:y,r:3.5,fill:'#fff',stroke:a[3],'stroke-width':2,opacity:0});svg.appendChild(c);paths.push(c);var t=T(svg,a[4]==2?x-8:x,a[4]==2?y+16:y+(a[4]<0?-10:20),a[2],{a:a[4]==2?'end':'middle',s:narrow?10:11.5,f:a[3],w:'700'});t.style.opacity=0;paths.push(t);});
+ }
+ /* scrubber */
+ var sc=el('line',{y1:top,y2:bot,stroke:INK,'stroke-width':1,'stroke-dasharray':'2 3',opacity:0});svg.appendChild(sc);
+ var cd=compact?null:card(box);
+ function at(y){y=Math.max(1934,Math.min(2025,Math.round(y)));sc.setAttribute('x1',X(y));sc.setAttribute('x2',X(y));sc.setAttribute('opacity',1);if(!cd)return;var a=recAt(SL,y),b=recAt(SC,y),gl=LIONS[y],gc=COWS[y];
+  cd.innerHTML='<b>Through Thanksgiving '+y+'</b>: Lions '+rs(a)+', Cowboys '+rs(b)+'.'+(gl?'<br>That year: Lions '+(gl.r=='W'?'beat':gl.r=='L'?'lost to':'tied')+' the '+gl.opp+' '+gl.lp+'-'+gl.op:'')+(gc?(gl?'; ':'<br>That year: ')+'Cowboys '+(gc.r=='W'?'beat':gc.r=='L'?'lost to':'tied')+' the '+gc.opp+' '+gc.lp+'-'+gc.op:'')+'.';}
+ if(cd)cd.innerHTML='<b>Since 2001</b>, the Lions are 6-19 on Thanksgiving and the Cowboys are 14-11. Hover or drag across the chart to compare any year.';
+ var hit=el('rect',{x:L,y:top,width:W-L-R,height:bot-top,fill:'transparent',style:'cursor:crosshair'});svg.appendChild(hit);
+ function mv(ev){var r=svg.getBoundingClientRect(),cx=ev.touches?ev.touches[0].clientX:ev.clientX;var vx=(cx-r.left)/r.width*W;at(1934+(vx-L)/(W-L-R)*(2025-1934));}
+ hit.addEventListener('mousemove',mv);hit.addEventListener('click',mv);hit.addEventListener('touchmove',function(e){mv(e);e.preventDefault();},{passive:false});
+ seen(svg,function(){paths.forEach(function(p){if(p.tagName=='path'){var len=p.getTotalLength();p.style.strokeDasharray=len;p.style.strokeDashoffset=len;p.getBoundingClientRect();p.style.transition='stroke-dashoffset 2.6s ease-in-out';p.style.strokeDashoffset=0;}else setTimeout(function(){p.style.transition='opacity .5s';if(p.tagName=='circle')p.setAttribute('opacity',1);else p.style.opacity=1;},2500);});});
+ if(!compact)src(box,'Source: Wikipedia, NFL on Thanksgiving Day, results through 2025. Ties count as neither a win nor a loss.');
+}
+function pair(box){
+ var narrow=box.clientWidth<520;
+ frame(box,'Every Lions And Cowboys Thanksgiving Game','One square per year, by decade. Tap a square for the score.');
+ key(box,[[GREEN,'Win'],[RUST,'Loss'],[GRAY,'Tie'],['#fff','No game',GRAY]]);
+ var gw=narrow?360:350,ch=narrow?22:24,gap=narrow?0:40,W=narrow?360:gw*2+gap,lab=40,cw=(gw-lab-8)/10;
+ var teamsP=[['Lions',LIONS,1930,BLUE,'38-46-2'],['Cowboys',COWS,1960,GREEN,'35-22-1']];
+ var hdr=34,gh=hdr+10*ch,H=narrow?gh+hdr+7*ch+30:gh+6;
+ var svg=el('svg',{viewBox:'0 0 '+W+' '+H,style:'max-width:'+W+'px;margin:0 auto'});box.appendChild(svg);var cells=[];var cd=card(box);cd.innerHTML='Tap or hover over a square for the score.';
+ teamsP.forEach(function(tp,ti){var ox=narrow?0:ti*(gw+gap),oy=narrow?ti*(gh+30):0;
+  T(svg,ox+lab,oy+16,tp[0],{s:15,w:'700',f:tp[3]});T(svg,ox+gw-8,oy+16,tp[4],{a:'end',s:13,f:MUTED,w:'600'});
+  for(var d=(narrow&&ti==1?3:0);d<10;d++){var dec=1930+d*10,y0=oy+hdr+(d-(narrow&&ti==1?3:0))*ch;T(svg,ox+lab-6,y0+ch/2+4,"'"+String(dec).slice(2)+'s',{a:'end',s:10.5,f:MUTED});
+   for(var c=0;c<10;c++){(function(yr,x,y){var g=tp[1][yr],fill,stroke=null,dash=null;
+    if(g)fill=g.r=='W'?GREEN:g.r=='L'?RUST:GRAY;else if(yr==2026){fill='#fff';stroke=INK;}else if(yr>=tp[2]&&yr<2026&&(ti==0?yr>=1934:yr>=1966)){fill='#fff';stroke=GRAY;dash='3 2';}else return;
+    var r=el('rect',{x:x+1.5,y:y+1.5,width:cw-3,height:ch-3,rx:2.5,fill:fill,opacity:0,style:'cursor:pointer'});if(stroke){r.setAttribute('stroke',stroke);r.setAttribute('stroke-width',1.1);}if(dash)r.setAttribute('stroke-dasharray',dash);svg.appendChild(r);cells.push(r);
+    if(g&&g.note)svg.appendChild(el('circle',{cx:x+cw-5,cy:y+5,r:1.8,fill:'#fff'}));
+    var h=g?'<b>'+tp[0]+', '+yr+': '+(g.r=='W'?'Won':g.r=='L'?'Lost':'Tied')+' '+Math.max(g.lp,g.op)+'-'+Math.min(g.lp,g.op)+'</b> '+(g.r=='L'?'to':g.r=='W'?'over':'with')+' the '+g.opp+(g.note?'<br>'+g.note:''):yr==2026?'<b>2026:</b> '+(ti==0?'Bears at Lions, 1 p.m. ET':'Eagles at Cowboys, 4:30 p.m. ET')+' on Thursday':'<b>'+tp[0]+', '+yr+':</b> No Thanksgiving game';
+    r.addEventListener('mouseenter',function(){cd.innerHTML=h;});r.addEventListener('click',function(){cd.innerHTML=h;});
+   })(dec+c,ox+lab+c*cw,y0);}}
+ });
+ seen(svg,function(){cells.forEach(function(r,i){setTimeout(function(){r.style.transition='opacity .3s';r.setAttribute('opacity',1);},i*14);});});
+ src(box,'Source: Wikipedia, NFL on Thanksgiving Day, results through 2025. Dallas did not host in 1975 or 1977. A white dot marks a game with a note.');
+}
+/* every franchise with at least 5 Thanksgiving games: games, wins, losses, ties (Wikipedia all-time standings through 2025) */
+var FIELD=[['Lions',86,38,46,2],['Cowboys',58,35,22,1],['Packers',39,17,20,2],['Bears',38,20,16,2],['Cardinals',23,6,15,2],['Giants',17,7,7,3],['Washington',13,4,9,0],['Bills',11,6,4,1],['Broncos',11,4,7,0],['Chiefs',11,5,6,0],['Vikings',9,7,2,0],['Raiders',8,4,4,0],['Dolphins',8,5,3,0],['Jets',8,4,4,0],['Steelers',8,2,6,0],['Eagles',7,6,1,0],['49ers',7,4,2,1],['Titans',7,5,2,0],['Browns',6,3,3,0],['Patriots',6,3,3,0],['Chargers',5,3,1,1],['Rams',5,4,1,0],['Seahawks',5,2,3,0]];
+function field(box){
+ var narrow=box.clientWidth<520;
+ frame(box,'No Team Has Played Or Lost More Thanksgiving Games Than Detroit, But Several Have Worse Records','Each dot is a franchise with at least five Thanksgiving games, through 2025.');
+ var W=narrow?400:760,L=narrow?42:52,R=narrow?14:24,top=14,H=narrow?330:400,bot=H-34;
+ var X=function(g){return L+g/90*(W-L-R);},Y=function(p){return top+(0.9-p)/(0.9-0.2)*(bot-top);};
+ var svg=el('svg',{viewBox:'0 0 '+W+' '+H});box.appendChild(svg);var tip=tipper(box);
+ [.3,.4,.5,.6,.7,.8].forEach(function(p){svg.appendChild(el('line',{x1:L,x2:W-R,y1:Y(p),y2:Y(p),stroke:p==.5?MUTED:FAINT,'stroke-dasharray':p==.5?'4 3':null}));T(svg,L-6,Y(p)+4,'.'+String(Math.round(p*1000)).padStart(3,'0'),{a:'end',s:10.5,f:MUTED});});
+ [0,20,40,60,80].forEach(function(g){T(svg,X(g),bot+16,String(g),{a:'middle',s:10.5,f:MUTED});});
+ T(svg,(L+W-R)/2,bot+31,'Thanksgiving games played',{a:'middle',s:11,f:MUTED});
+ T(svg,L+4,Y(.5)-6,'.500',{s:10,f:MUTED});
+ var dots=[];
+ FIELD.forEach(function(f,i){var pct=(f[2]+f[4]/2)/f[1],x=X(f[1]),y=Y(pct),big=f[0]=='Lions'||f[0]=='Cowboys';
+  var col=f[0]=='Lions'?BLUE:f[0]=='Cowboys'?GREEN:'#9aa9a1';
+  var c=el('circle',{cx:x,cy:y,r:big?(narrow?7:9):(narrow?4:5),fill:col,stroke:'#fff','stroke-width':1.5,opacity:0,style:'cursor:pointer'});svg.appendChild(c);dots.push(c);
+  var h='<b>'+f[0]+'</b>: '+f[2]+'-'+f[3]+(f[4]?'-'+f[4]:'')+' in '+f[1]+' games';c.addEventListener('mousemove',function(ev){tip.show(h,ev);});c.addEventListener('mouseleave',tip.hide);c.addEventListener('click',function(ev){tip.show(h,ev);});
+  var show=big||f[1]>=11||(!narrow&&(f[0]=='Eagles'||f[0]=='Vikings'||f[0]=='Steelers'));
+  if(show){var off={Lions:[narrow?6:0,22,narrow?'end':'middle'],Cowboys:[0,-14,'middle'],Packers:[10,4,'start'],Bears:[10,-4,'start'],Cardinals:[9,4,'start'],Giants:[9,-6,'start'],Washington:[0,18,'middle'],Bills:[8,-6,'start'],Broncos:[8,10,'start'],Chiefs:[8,4,'start'],Eagles:[8,4,'start'],Vikings:[8,4,'start'],Steelers:[8,4,'start']}[f[0]];
+   var t=T(svg,x+off[0],y+off[1],f[0]+(big?' '+f[2]+'-'+f[3]+'-'+f[4]:''),{a:off[2],s:big?(narrow?12:14):(narrow?10:11.5),f:big?col:MUTED,w:big?'700':'500'});t.style.opacity=0;dots.push(t);}
+ });
+ seen(svg,function(){dots.forEach(function(d,i){setTimeout(function(){d.style.transition='opacity .4s';if(d.tagName=='circle')d.setAttribute('opacity',1);else d.style.opacity=1;},i*40);});});
+ src(box,'Source: Wikipedia, NFL on Thanksgiving Day, all-time standings through 2025. Records include franchise predecessors; ties count as half a win.');
+}
+
+function boot(){var m={'nid-tg-ribbon':function(b){ribbon(b,false);},'nid-tg-home1':function(b){ribbon(b,true);},'nid-tg-week':week,'nid-tg-clock':function(b){dinner(b,false);},'nid-tg-home2':function(b){dinner(b,true);},'nid-tg-strip':function(b){strip(b,false);},'nid-tg-home3':function(b){strip(b,true);},'nid-tg-teams':teams,'nid-tg-day':function(b){day(b,false);},'nid-tg-home4':function(b){day(b,true);},'nid-tg-half':halves,'nid-tg-race':function(b){race(b,false);},'nid-tg-home5':function(b){race(b,true);},'nid-tg-pair':pair,'nid-tg-field':field};Object.keys(m).forEach(function(id){var b=document.getElementById(id);if(b&&!b.dataset.done){b.dataset.done=1;m[id](b);}});}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 setTimeout(boot,1500);
 })();
