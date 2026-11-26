@@ -25,7 +25,7 @@ function grid(box,compact){
  if(!compact)key(box,groups.map(function(g){return [g[2],g[3]];}));
  var big=document.createElement('div');big.className='st-big';box.appendChild(big);
  var btns=document.createElement('div');btns.className='st-btns';if(!compact)box.appendChild(btns);
- var narrow=box.clientWidth<520,W=narrow?360:760,cols=100,cell=W/cols,gap=narrow?0.5:0.9,rows=Math.ceil((112+64+10000)/cols),H=rows*cell+2;
+ var narrow=box.clientWidth<520,W=narrow?360:760,cols=+(box.dataset.cols||100),cell=W/cols,gap=narrow?0.5:0.9,rows=Math.ceil((112+64+10000)/cols),H=rows*cell+2;
  var cv=document.createElement('canvas');box.appendChild(cv);var c=hiDPI(cv,W,H);
  var seq=[];groups.forEach(function(g){for(var i=0;i<g[1];i++)seq.push(g[2]);});
  var everIdx=Math.round(EVER/100);
