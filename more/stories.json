@@ -3,6 +3,12 @@
  "note": "Newest first. Add each new story at the top when it is published on thenewsindata.com.",
  "stories": [
   {
+   "slug": "spacex-can-now-launch-1-million-satellites-35-times-as-many-as-have-been-launched-since-sputnik",
+   "title": "SpaceX Can Now Launch 1 Million Satellites, 35 Times As Many As Have Been Launched Since Sputnik",
+   "section": "AI & Tech",
+   "image": "https://stories.thenewsindata.com/sats/sats-lead.png"
+  },
+  {
    "slug": "thanksgiving-dinner-costs-6-more-this-year-but-only-last-years-took-less-work-to-pay-for",
    "title": "Thanksgiving Dinner Costs 6% More This Year, But Only Last Year’s Took Less Work To Pay For",
    "section": "Money",

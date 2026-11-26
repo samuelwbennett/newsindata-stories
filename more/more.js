@@ -5,6 +5,7 @@
 var BASE='https://stories.thenewsindata.com/more/';
 var SITE='https://www.thenewsindata.com';
 var PICKS=[
+['sats','AI & Tech',"1 Million Satellites, Compared With Every One Today",'spacex-can-now-launch-1-million-satellites-35-times-as-many-as-have-been-launched-since-sputnik'],
 ['tg5','Money',"What Thanksgiving Dinner Costs, Item By Item",'thanksgiving-dinner-costs-6-more-this-year-but-only-last-years-took-less-work-to-pay-for'],
 ['tg4','Sports',"Thanksgiving’s 3 Hours Of Football Take 10",'on-thanksgiving-the-nfls-3-hours-of-game-clock-fill-more-than-10-hours-of-the-day'],
 ['tg1','Sports',"Thanksgiving Football: From One Game To Five",'pro-football-fell-to-one-thanksgiving-game-in-the-1950s-and-this-week-the-nfl-is-playing-five'],
