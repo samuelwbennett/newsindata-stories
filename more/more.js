@@ -10,7 +10,7 @@ var PICKS=[
 ['tg1','Sports',"Thanksgiving Football: From One Game To Five",'pro-football-fell-to-one-thanksgiving-game-in-the-1950s-and-this-week-the-nfl-is-playing-five'],
 ['tg2','Sports',"Thanksgiving Dinner vs. Kickoff, By Time Zone",'most-americans-prefer-thanksgiving-dinner-between-noon-and-6-pm-and-an-nfl-game-is-on-for-nearly-all-of-it'],
 ['tg3','Sports',"Lions vs. Cowboys On Thanksgiving",'the-lions-have-lost-more-thanksgiving-games-than-they-have-won-and-the-nfl-keeps-giving-them-one'],
-['native','Culture',"Native Americans: From Fewer Than 300,000 To 9.7 Million",'native-americans-numbered-fewer-than-300000-in-1900-and-the-2020-census-counted-97-million'],
+['native','Culture',"The Loss After 1492, Seen In Antarctic Ice",'native-americans-numbered-fewer-than-300000-in-1900-and-the-2020-census-counted-97-million'],
 ['vax','Science',"Fewer Americans Call Childhood Vaccines Important",'fewer-americans-call-childhood-vaccines-important-than-in-2001-and-kindergarten-measles-shots-are-at-a-record-low'],
 ['gta','AI & Tech',"GTA VI Set Two Internet Traffic Records",'gta-vi-set-two-internet-traffic-records-before-anyone-could-play-it'],
 ['intl','Sports',"The NFL Is Playing A Record 9 Games Abroad",'the-nfl-is-playing-a-record-9-games-abroad-this-season-and-the-49ers-are-giving-up-a-home-game-worth-up-to-20-million'],

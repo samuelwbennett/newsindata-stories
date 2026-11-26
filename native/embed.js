@@ -96,20 +96,19 @@ function count(box){
 var ICE=[[1400,280.2],[1405,280],[1410,279.7],[1415,279.1],[1420,278.8],[1425,279.2],[1430,280.9],[1435,282.7],[1440,283],[1445,282.5],[1450,281.6],[1455,280.8],[1460,280.2],[1465,279.8],[1470,279.6],[1475,279.7],[1480,280.1],[1485,280.6],[1490,281.2],[1495,281.7],[1500,282.3],[1505,282.6],[1510,282.9],[1515,283.1],[1520,283.1],[1525,283.2],[1530,283.2],[1535,283.2],[1540,283.2],[1545,283.1],[1550,282.7],[1555,282.2],[1560,281.8],[1565,281.6],[1570,281.8],[1575,282.1],[1580,282.2],[1585,281.6],[1590,279.7],[1595,277.4],[1600,275.4],[1605,273.6],[1610,272],[1615,271.6],[1620,272.3],[1625,273.4],[1630,274.7],[1635,275.8],[1640,276.6],[1645,277],[1650,277.2],[1655,277.1],[1660,276.9],[1665,276.6],[1670,276.2],[1675,276],[1680,275.9],[1685,276],[1690,276.3],[1695,276.5],[1700,276.6],[1705,276.6],[1710,276.6],[1715,276.7],[1720,277],[1725,277.5],[1730,278],[1735,278],[1740,277.2],[1745,276.8],[1750,276.8],[1755,276.7],[1760,276.5],[1770,277.3],[1780,278.2],[1790,280],[1800,282.6]];
 function ice(box){
  var narrow=box.clientWidth<520;
- frame(box,'The Deaths That Followed 1492 Were So Vast That They Show Up In Antarctic Ice','Top: the Indigenous population of the Americas, one dot per million people. Bottom: carbon dioxide in air bubbles trapped in Antarctic ice.');
+ frame(box,'The Native Population Of The Americas Fell 90% After 1492, A Loss So Vast It Shows Up In Antarctic Ice',null);
  var W=narrow?400:760,L=narrow?40:52,R=narrow?14:24,dotTop=16,cols=narrow?20:30,dr=narrow?5.2:6.2,gap=narrow?17:21,rows=Math.ceil(60/cols);
- var dotsH=rows*gap+44,top=dotTop+dotsH+20,H=top+(narrow?220:260),bot=H-30;
+ var dotsH=rows*gap+26,top=dotTop+dotsH+20,H=top+(narrow?220:260),bot=H-30;
  var X=function(y){return L+(y-1400)/400*(W-L-R);},lo=270,hi=285,Y=function(v){return top+(hi-v)/(hi-lo)*(bot-top);};
  var svg=el('svg',{viewBox:'0 0 '+W+' '+H});box.appendChild(svg);
  /* people dots: 60 = 60.5 million before 1492; 90% gone within a century */
  var dw=(cols-1)*gap,dx0=(W-dw)/2,dots=[];
  for(var i=0;i<60;i++){var c=el('circle',{cx:dx0+(i%cols)*gap,cy:dotTop+10+Math.floor(i/cols)*gap,r:dr,fill:GREEN});svg.appendChild(c);dots.push(c);}
- var lab=T(svg,W/2,dotTop+rows*gap+18,'60.5 million people before 1492',{a:'middle',s:narrow?12:14,w:'bold'});
- var lab2=T(svg,W/2,dotTop+rows*gap+36,narrow?'Koch et al. 2019, central estimate':'Central estimate for North and South America (Koch et al., 2019)',{a:'middle',s:narrow?10.5:12,f:MUTED});
+ var lab=T(svg,W/2,dotTop+rows*gap+18,narrow?'60.5 million before 1492 · 1 dot = 1 million':'60.5 million people in the Americas before 1492 · 1 dot = 1 million',{a:'middle',s:narrow?12:14,w:'bold'});
  /* CO2 axes */
  [272,276,280,284].forEach(function(v){svg.appendChild(el('line',{x1:L,x2:W-R,y1:Y(v),y2:Y(v),stroke:FAINT}));T(svg,L-6,Y(v)+4,v+(narrow?'':' ppm'),{a:'end',s:10.5,f:MUTED,sans:1});});
  (narrow?[1400,1500,1600,1700,1800]:[1400,1450,1500,1550,1600,1650,1700,1750,1800]).forEach(function(y){T(svg,X(y),bot+18,String(y),{a:'middle',s:10.5,f:MUTED,sans:1});});
- svg.appendChild(el('rect',{x:X(1492),y:top,width:X(1600)-X(1492),height:bot-top,fill:'#f7eeec'}));
+ svg.appendChild(el('rect',{x:X(1492),y:top,width:X(1600)-X(1492),height:bot-top,fill:'#f7eeec'}));T(svg,W-R,top-8,narrow?'CO₂ in Antarctic ice (ppm)':'Carbon dioxide in Antarctic ice (ppm)',{a:'end',s:narrow?10.5:11.5,f:MUTED,sans:1,w:'bold'});
  svg.appendChild(el('line',{x1:X(1492),x2:X(1492),y1:top-4,y2:bot,stroke:RUST,'stroke-dasharray':'3 3'}));
  T(svg,X(1492),top-8,'1492',{a:'middle',s:12,f:RUST,w:'bold',sans:1});
   var d='';ICE.forEach(function(p,i){d+=(i?' L':'M')+X(p[0])+' '+Y(p[1]);});
@@ -122,9 +121,9 @@ function ice(box){
   /* fade 54 of 60 dots while the line crosses 1492-1600 (25%-50% of the draw) */
   var order=[];for(var k=0;k<60;k++)order.push(k);order.sort(function(a,b){return ((a*37)%60)-((b*37)%60);});var keep={};order.slice(0,6).forEach(function(k){keep[k]=1;});
   var n=0;order.forEach(function(k){if(keep[k])return;var t=1000+(n++)*(1150/54);setTimeout(function(){dots[k].style.transition='fill .5s, opacity .5s';dots[k].setAttribute('fill','#d9e1dc');},t);});
-  setTimeout(function(){lab.textContent='About 6 million by 1600';},2200);
+  setTimeout(function(){lab.textContent=narrow?'About 6 million by 1600':'About 6 million by 1600 · 1 dot = 1 million';},2200);
   setTimeout(function(){area.style.transition='opacity .8s';area.setAttribute('opacity',1);lc.style.transition='opacity .5s';lc.setAttribute('opacity',1);lt.style.transition='opacity .5s';lt.style.opacity=1;},2600);});
- src(box,'Sources: Koch, Brierley, Maslin and Lewis, <a href="https://doi.org/10.1016/j.quascirev.2018.12.004">Quaternary Science Reviews</a> (2019), population estimate; Law Dome ice core carbon dioxide, MacFarling Meure et al. (2006), spline fit, via <a href="https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/law/law2006.txt">NOAA</a>. Ice-core dates are smoothed by about 20 years.');
+ src(box,'Sources: Koch et al., <a href="https://doi.org/10.1016/j.quascirev.2018.12.004">Quaternary Science Reviews</a> (2019); Law Dome ice core, MacFarling Meure et al., Geophysical Research Letters (2006).');
 }
 /* 2020 census, Detailed DHC-A: people naming each tribal grouping, [name, alone or in any combination, tribe alone] */
 var TRIBES=[['Cherokee',1513326,214940],['Navajo Nation',423412,315086],['Blackfeet',297899,34810],['Choctaw',255557,69454],['Chippewa',130048,39057],['Apache',129589,36492],['Sioux',126571,30408],['Muscogee (Creek)',121581,40677],['Chickasaw',85511,29436],['Lumbee',79424,54293]];
