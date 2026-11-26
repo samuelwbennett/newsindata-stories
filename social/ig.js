@@ -7,6 +7,7 @@ if(window.__nidIG)return; window.__nidIG=1;
 var IG='https://www.instagram.com/thenewsindata/';
 var BASE='https://stories.thenewsindata.com/social/web/';
 var REELS={
+  naice:{t:'The Loss After 1492, Seen In Antarctic Ice',s:'native-americans-numbered-fewer-than-300000-in-1900-and-the-2020-census-counted-97-million'},
   tgclock:{t:'Thanksgiving’s 3 Hours Of Football Fill 10',s:'on-thanksgiving-the-nfls-3-hours-of-game-clock-fill-more-than-10-hours-of-the-day'},
   tgribbon:{t:'Thanksgiving Football, 1920 To 2026',s:'pro-football-fell-to-one-thanksgiving-game-in-the-1950s-and-this-week-the-nfl-is-playing-five'},
   gtaflow:{t:'GTA 6 Pushed Internet Traffic To A Record',s:'gta-vi-set-two-internet-traffic-records-before-anyone-could-play-it'},

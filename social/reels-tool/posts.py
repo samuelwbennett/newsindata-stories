@@ -1643,6 +1643,87 @@ def tgclock():
 
 POSTS.update({"tgclock": tgclock})
 
+
+def naice():
+    """Native population of the Americas after 1492 and the CO2 dip in Antarctic ice (Koch et al. 2019; Law Dome, NOAA)."""
+    ICE = [(1400,280.2),(1410,279.7),(1420,278.8),(1430,280.9),(1435,282.7),(1440,283),(1450,281.6),(1460,280.2),(1470,279.6),(1480,280.1),(1490,281.2),(1500,282.3),(1510,282.9),(1520,283.1),(1530,283.2),(1540,283.2),(1550,282.7),(1560,281.8),(1570,281.8),(1580,282.2),(1585,281.6),(1590,279.7),(1595,277.4),(1600,275.4),(1605,273.6),(1610,272),(1615,271.6),(1620,272.3),(1625,273.4),(1630,274.7),(1640,276.6),(1650,277.2),(1660,276.9),(1670,276.2),(1680,275.9),(1690,276.3),(1700,276.6),(1710,276.6),(1720,277),(1730,278),(1735,278),(1740,277.2),(1750,276.8),(1760,276.5),(1770,277.3),(1780,278.2),(1790,280),(1800,282.6)]
+    X0, X1, Y0, Y1 = 150, 960, 1130, 1530
+    LO, HI = 270, 285
+    X = lambda y: X0 + (y - 1400) / 400 * (X1 - X0)
+    Y = lambda v: Y0 + (HI - v) / (HI - LO) * (Y1 - Y0)
+    T0, T1 = 1.5, 11.5
+    yr = lambda t: 1400 + 400 * min(max((t - T0) / (T1 - T0), 0), 1)
+    S2, END = 15.0, 22.5
+    RUST = "#B8483A"
+    order = sorted(range(60), key=lambda k: (k * 37) % 60)
+    keep = set(order[:6]); fade_order = [k for k in order if k not in keep]
+
+    def interp(y):
+        for (a, va), (b, vb) in zip(ICE, ICE[1:]):
+            if a <= y <= b: return va + (vb - va) * (y - a) / (b - a)
+        return ICE[-1][1]
+
+    def scene1(c, t, a):
+        header(c, "Culture · Thanksgiving", ["The Native Population Of The", "Americas Fell 90% After 1492,", "A Loss So Vast It Shows Up", "In Antarctic Ice"], [], alpha=a, title_size=52)
+        y = yr(t)
+        frac = min(max((y - 1492) / (1600 - 1492), 0), 1)
+        nf = int(round(frac * 54))
+        gone = set(fade_order[:nf])
+        for i in range(60):
+            cx = 160 + (i % 10) * 84; cy = 640 + (i // 10) * 56
+            c.circle(cx, cy, 19, "#D9E1DC" if i in gone else GREEN, alpha=a)
+        lab = "About 6 million by 1600" if frac >= 1 else "60.5 million people before 1492"
+        c.text(W / 2, 1000, lab, size=36, weight="bold", ha="center", alpha=a)
+        c.text(W / 2, 1036, "In North and South America · 1 dot = 1 million", size=24, color=MUTED, ha="center", alpha=a)
+        # chart
+        for v in (272, 276, 280, 284):
+            c.line([X0, X1], [Y(v), Y(v)], color=GRID, lw=1.5, alpha=a, z=1)
+            c.text(X0 - 12, Y(v) + 8, str(v), size=22, color=FAINT, ha="right", alpha=a)
+        c.text(X1, Y0 - 14, "Carbon dioxide in Antarctic ice (ppm)", size=22, color=MUTED, ha="right", weight="bold", alpha=a)
+        for yy in (1400, 1500, 1600, 1700, 1800):
+            c.text(X(yy), Y1 + 36, str(yy), size=22, color=FAINT, ha="center", alpha=a)
+        if y > 1492:
+            c.rect(X(1492), Y0, X(min(y, 1600)) - X(1492), Y1 - Y0, "#F7EEEC", z=1, alpha=a)
+            c.line([X(1492), X(1492)], [Y0, Y1], color=RUST, lw=1.5, alpha=a, dash=(3, 3))
+            c.text(X(1492) + 8, Y0 + 26, "1492", size=24, color=RUST, weight="bold", alpha=a)
+        if y >= 1600:
+            c.text((X(1492) + X(1600)) / 2, Y1 - 14, "90% died", size=24, color=RUST, weight="bold", ha="center", alpha=a)
+        pts = [(yy, v) for yy, v in ICE if yy <= y] + [(y, interp(y))]
+        if len(pts) > 1:
+            c.line([X(p[0]) for p in pts], [Y(p[1]) for p in pts], color=INK, lw=4, alpha=a, z=4)
+            c.circle(X(y), Y(interp(y)), 8, INK, alpha=a)
+            if t < T1 + 0.3:
+                c.text(X(y), Y(interp(y)) - 22, str(int(y)), size=26, weight="bold", ha="center", alpha=a, z=7)
+        if y >= 1625:
+            c.circle(X(1615), Y(271.6), 9, "white", ec=INK, lw=3, alpha=a, z=7)
+            c.text(X(1615) + 18, Y(271.6) + 8, "Lowest in 2,000 years", size=24, weight="bold", alpha=a)
+
+    def scene2(c, t, a):
+        header(c, "Culture · Thanksgiving", ["What Happened", "After 1492"], ["Koch et al., Quaternary Science Reviews (2019)"], alpha=a)
+        items = [("90%", "of Native people in the Americas", "died within a century", RUST),
+                 ("56M", "hectares of farmland grew back", "into forest, about the size of France", GREEN),
+                 ("−11 ppm", "carbon dioxide in Antarctic ice", "by the 1610s", INK)]
+        for i, (big, s1, s2, col) in enumerate(items):
+            f = ease_out((t - S2 - 0.4 - i * 0.9) / 0.5)
+            if f <= 0: continue
+            yy = 800 + i * 260 + (1 - f) * 40
+            c.text(W / 2, yy, big, size=104, weight="bold", color=col, ha="center", alpha=a * f)
+            c.text(W / 2, yy + 60, s1, size=31, color=MUTED, ha="center", alpha=a * f)
+            c.text(W / 2, yy + 100, s2, size=31, color=MUTED, ha="center", alpha=a * f)
+
+    def draw(c, t):
+        brand_block(c)
+        a1 = min(max((S2 - t) / 0.5, 0), 1)
+        a2 = min(max((t - S2) / 0.5, 0), 1)
+        if a1 > 0: scene1(c, t, a1)
+        if a2 > 0: scene2(c, t, a2)
+        footer(c, "Sources: Koch et al., Quaternary Science Reviews (2019); Law Dome ice core, NOAA")
+        bottom_band(c)
+
+    return draw, END
+
+POSTS.update({"naice": naice})
+
 if __name__ == "__main__":
     name = sys.argv[1]
     draw, dur = POSTS[name]()
