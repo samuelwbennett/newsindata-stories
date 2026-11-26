@@ -92,7 +92,62 @@ function count(box){
  src(box,'Source: U.S. Census Bureau, 2000, 2010 and 2020 censuses. Squares are rounded to the nearest 100,000.');
 }
 
-function boot(){var m={'nid-na-arc':function(b){arc(b,false);},'nid-na-home':function(b){arc(b,true);},'nid-na-count':count};Object.keys(m).forEach(function(id){var b=document.getElementById(id);if(b&&!b.dataset.done){b.dataset.done=1;m[id](b);}});}
+/* Law Dome ice core, CO2 spline fit (ppm), MacFarling Meure et al. 2006 via NOAA NCEI, every 5 years 1400-1800 */
+var ICE=[[1400,280.2],[1405,280],[1410,279.7],[1415,279.1],[1420,278.8],[1425,279.2],[1430,280.9],[1435,282.7],[1440,283],[1445,282.5],[1450,281.6],[1455,280.8],[1460,280.2],[1465,279.8],[1470,279.6],[1475,279.7],[1480,280.1],[1485,280.6],[1490,281.2],[1495,281.7],[1500,282.3],[1505,282.6],[1510,282.9],[1515,283.1],[1520,283.1],[1525,283.2],[1530,283.2],[1535,283.2],[1540,283.2],[1545,283.1],[1550,282.7],[1555,282.2],[1560,281.8],[1565,281.6],[1570,281.8],[1575,282.1],[1580,282.2],[1585,281.6],[1590,279.7],[1595,277.4],[1600,275.4],[1605,273.6],[1610,272],[1615,271.6],[1620,272.3],[1625,273.4],[1630,274.7],[1635,275.8],[1640,276.6],[1645,277],[1650,277.2],[1655,277.1],[1660,276.9],[1665,276.6],[1670,276.2],[1675,276],[1680,275.9],[1685,276],[1690,276.3],[1695,276.5],[1700,276.6],[1705,276.6],[1710,276.6],[1715,276.7],[1720,277],[1725,277.5],[1730,278],[1735,278],[1740,277.2],[1745,276.8],[1750,276.8],[1755,276.7],[1760,276.5],[1770,277.3],[1780,278.2],[1790,280],[1800,282.6]];
+function ice(box){
+ var narrow=box.clientWidth<520;
+ frame(box,'The Deaths That Followed 1492 Were So Vast That They Show Up In Antarctic Ice','Top: the Indigenous population of the Americas, one dot per million people. Bottom: carbon dioxide in air bubbles trapped in Antarctic ice.');
+ var W=narrow?400:760,L=narrow?40:52,R=narrow?14:24,dotTop=16,cols=narrow?20:30,dr=narrow?5.2:6.2,gap=narrow?17:21,rows=Math.ceil(60/cols);
+ var dotsH=rows*gap+44,top=dotTop+dotsH+20,H=top+(narrow?220:260),bot=H-30;
+ var X=function(y){return L+(y-1400)/400*(W-L-R);},lo=270,hi=285,Y=function(v){return top+(hi-v)/(hi-lo)*(bot-top);};
+ var svg=el('svg',{viewBox:'0 0 '+W+' '+H});box.appendChild(svg);
+ /* people dots: 60 = 60.5 million before 1492; 90% gone within a century */
+ var dw=(cols-1)*gap,dx0=(W-dw)/2,dots=[];
+ for(var i=0;i<60;i++){var c=el('circle',{cx:dx0+(i%cols)*gap,cy:dotTop+10+Math.floor(i/cols)*gap,r:dr,fill:GREEN});svg.appendChild(c);dots.push(c);}
+ var lab=T(svg,W/2,dotTop+rows*gap+18,'60.5 million people before 1492',{a:'middle',s:narrow?12:14,w:'bold'});
+ var lab2=T(svg,W/2,dotTop+rows*gap+36,narrow?'Koch et al. 2019, central estimate':'Central estimate for North and South America (Koch et al., 2019)',{a:'middle',s:narrow?10.5:12,f:MUTED});
+ /* CO2 axes */
+ [272,276,280,284].forEach(function(v){svg.appendChild(el('line',{x1:L,x2:W-R,y1:Y(v),y2:Y(v),stroke:FAINT}));T(svg,L-6,Y(v)+4,v+(narrow?'':' ppm'),{a:'end',s:10.5,f:MUTED,sans:1});});
+ (narrow?[1400,1500,1600,1700,1800]:[1400,1450,1500,1550,1600,1650,1700,1750,1800]).forEach(function(y){T(svg,X(y),bot+18,String(y),{a:'middle',s:10.5,f:MUTED,sans:1});});
+ svg.appendChild(el('rect',{x:X(1492),y:top,width:X(1600)-X(1492),height:bot-top,fill:'#f7eeec'}));
+ svg.appendChild(el('line',{x1:X(1492),x2:X(1492),y1:top-4,y2:bot,stroke:RUST,'stroke-dasharray':'3 3'}));
+ T(svg,X(1492),top-8,'1492',{a:'middle',s:12,f:RUST,w:'bold',sans:1});
+  var d='';ICE.forEach(function(p,i){d+=(i?' L':'M')+X(p[0])+' '+Y(p[1]);});
+ var area=el('path',{d:d+' L'+X(1800)+' '+bot+' L'+X(1400)+' '+bot+' Z',fill:'#e9f2ee',opacity:0,'fill-opacity':.75});svg.appendChild(area);T(svg,(X(1492)+X(1600))/2,bot-8,narrow?'90% died':'About 90% died within a century',{a:'middle',s:narrow?10.5:11.5,f:RUST,sans:1,w:'bold'});
+ var ln=el('path',{d:d,fill:'none',stroke:INK,'stroke-width':2.4,'stroke-linejoin':'round'});svg.appendChild(ln);
+ var lowx=X(1615),lowy=Y(271.6);var lc=el('circle',{cx:lowx,cy:lowy,r:4.5,fill:'#fff',stroke:INK,'stroke-width':2,opacity:0});svg.appendChild(lc);
+ var lt=T(svg,lowx+10,lowy+4,narrow?'1610s low':'Lowest in 2,000 years of this record, 1610s',{s:narrow?11:12,w:'bold',sans:1});lt.style.opacity=0;
+ var pk=T(svg,X(1545),Y(283.2)-9,narrow?'283 ppm':'283 ppm, early 1500s',{a:'middle',s:narrow?10.5:11.5,f:MUTED,sans:1});
+ seen(svg,function(){var len=ln.getTotalLength();ln.style.strokeDasharray=len;ln.style.strokeDashoffset=len;ln.getBoundingClientRect();ln.style.transition='stroke-dashoffset 4s linear';ln.style.strokeDashoffset=0;
+  /* fade 54 of 60 dots while the line crosses 1492-1600 (25%-50% of the draw) */
+  var order=[];for(var k=0;k<60;k++)order.push(k);order.sort(function(a,b){return ((a*37)%60)-((b*37)%60);});var keep={};order.slice(0,6).forEach(function(k){keep[k]=1;});
+  var n=0;order.forEach(function(k){if(keep[k])return;var t=1000+(n++)*(1150/54);setTimeout(function(){dots[k].style.transition='fill .5s, opacity .5s';dots[k].setAttribute('fill','#d9e1dc');},t);});
+  setTimeout(function(){lab.textContent='About 6 million by 1600';},2200);
+  setTimeout(function(){area.style.transition='opacity .8s';area.setAttribute('opacity',1);lc.style.transition='opacity .5s';lc.setAttribute('opacity',1);lt.style.transition='opacity .5s';lt.style.opacity=1;},2600);});
+ src(box,'Sources: Koch, Brierley, Maslin and Lewis, <a href="https://doi.org/10.1016/j.quascirev.2018.12.004">Quaternary Science Reviews</a> (2019), population estimate; Law Dome ice core carbon dioxide, MacFarling Meure et al. (2006), spline fit, via <a href="https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/law/law2006.txt">NOAA</a>. Ice-core dates are smoothed by about 20 years.');
+}
+/* 2020 census, Detailed DHC-A: people naming each tribal grouping, [name, alone or in any combination, tribe alone] */
+var TRIBES=[['Cherokee',1513326,214940],['Navajo Nation',423412,315086],['Blackfeet',297899,34810],['Choctaw',255557,69454],['Chippewa',130048,39057],['Apache',129589,36492],['Sioux',126571,30408],['Muscogee (Creek)',121581,40677],['Chickasaw',85511,29436],['Lumbee',79424,54293]];
+function tribes(box){
+ var narrow=box.clientWidth<520;
+ frame(box,'Only 1 In 7 People Who Named Cherokee Listed No Other Tribe Or Race, Compared With 3 In 4 For Navajo','The 10 largest U.S. tribal groupings in the 2020 census. The full bar is everyone who named the tribe; the dark part named only that tribe.');
+ var k=document.createElement('div');k.style.cssText='display:flex;gap:1.1em;justify-content:center;flex-wrap:wrap;margin:0 0 .6em;font:12px '+SANS+';color:'+MUTED;
+ k.innerHTML='<span><i style="display:inline-block;width:11px;height:11px;border-radius:2px;background:'+GREEN+';margin-right:.35em;vertical-align:-1px"></i>Named only this tribe</span><span><i style="display:inline-block;width:11px;height:11px;border-radius:2px;background:'+LIGHT+';margin-right:.35em;vertical-align:-1px"></i>Also named another tribe or race</span>';box.appendChild(k);
+ var W=narrow?400:760,L=narrow?104:150,R=narrow?54:70,rowH=narrow?30:34,top=6,H=top+TRIBES.length*rowH+24;
+ var X=function(v){return L+v/1600000*(W-L-R);};
+ var svg=el('svg',{viewBox:'0 0 '+W+' '+H});box.appendChild(svg);var tip=tipper(box);var bars=[];
+ [0,500000,1000000,1500000].forEach(function(v){svg.appendChild(el('line',{x1:X(v),x2:X(v),y1:top,y2:H-20,stroke:FAINT}));T(svg,X(v),H-6,v?(v/1e6)+(narrow?'M':' million'):'0',{a:'middle',s:10.5,f:MUTED,sans:1});});
+ TRIBES.forEach(function(t,i){var y=top+i*rowH,bh=rowH-12,hl=i<2,pct=Math.round(t[2]/t[1]*100);
+  T(svg,L-8,y+bh/2+5,t[0],{a:'end',s:narrow?11.5:13,w:hl?'bold':'normal'});
+  var b1=el('rect',{x:L,y:y+4,width:0,height:bh,rx:3,fill:LIGHT,style:'cursor:pointer'}),b2=el('rect',{x:L,y:y+4,width:0,height:bh,rx:3,fill:GREEN,style:'cursor:pointer'});svg.appendChild(b1);svg.appendChild(b2);bars.push([b1,X(t[1])-L],[b2,X(t[2])-L]);
+  var lt=T(svg,X(t[1])+6,y+bh/2+5,pct+'%',{s:narrow?11.5:13,w:'bold',f:pct>50?GREEN:INK,sans:1});lt.style.opacity=0;bars.push([lt]);
+  var h='<b>'+t[0]+'</b><br>'+t[1].toLocaleString()+' named this tribe<br>'+t[2].toLocaleString()+' named only this tribe ('+pct+'%)';
+  [b1,b2].forEach(function(b){b.addEventListener('mousemove',function(ev){tip.show(h,ev);});b.addEventListener('mouseleave',tip.hide);b.addEventListener('click',function(ev){tip.show(h,ev);});});});
+  seen(svg,function(){bars.forEach(function(b,i){setTimeout(function(){if(b[1]!=null){b[0].style.transition='width .8s ease';b[0].setAttribute('width',Math.max(1,b[1]));}else{b[0].style.transition='opacity .4s';b[0].style.opacity=1;}},Math.floor(i/3)*110+(i%3==1?350:0));});});
+ src(box,'Source: U.S. Census Bureau, 2020 Census Detailed Demographic and Housing Characteristics File A. “Cherokee” is the general Cherokee grouping; the census separately counted 77,232 people naming the Cherokee Nation and 14,090 naming the Eastern Band of Cherokee Indians. Latin American Indigenous groups such as Aztec and Maya are not shown.');
+}
+
+function boot(){var m={'nid-na-arc':function(b){arc(b,false);},'nid-na-home':function(b){arc(b,true);},'nid-na-count':count,'nid-na-ice':ice,'nid-na-tribes':tribes};Object.keys(m).forEach(function(id){var b=document.getElementById(id);if(b&&!b.dataset.done){b.dataset.done=1;m[id](b);}});}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 setTimeout(boot,1500);
 })();
